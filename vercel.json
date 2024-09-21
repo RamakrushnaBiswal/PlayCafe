@@ -1,5 +1,12 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "dest": "/" }
+      { "source": "/", "destination": "/" },
+      { "source": "/register", "destination": "/" },
+      { "source": "/about", "destination": "/" },
+      { "source": "/menu", "destination": "/" },
+      { "source": "/boardgame", "destination": "/" },
+      { "source": "/event", "destination": "/" },
+      { "source": "/book", "destination": "/" },
+      { "source": "*", "destination": "/" }
     ]
   }
