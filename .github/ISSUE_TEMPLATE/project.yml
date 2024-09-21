@@ -1,0 +1,35 @@
+name: "📝 Playcafe Project Proposal"
+description: "Suggest a new thing we can add our project"
+title: "Project Proposal: "
+labels: [project, enhancement]
+body:
+  - type: textarea
+    attributes:
+      label: "Overview"
+      description: "What is the goal of the project? And which type of technology you are using?"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Key Features"
+      description: "List the key features and functionalities that this project will include."
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: "Additional Information"
+      description: "Any extra details or context."
+    validations:
+      required: false
+
+  - type: checkboxes
+    attributes:
+      label: "Record"
+      options:
+        - label: "I agree to follow this project's Code of Conduct"
+          required: true
+        - label: "I'm a gssoc-24-extd contributor"
+        - label: "I want to work on this project proposal"
+        - label: "It is not duplicate"
