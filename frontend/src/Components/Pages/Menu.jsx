@@ -1,6 +1,6 @@
 import  { useState } from 'react';
 import { motion } from 'framer-motion';
-import Mybook from '../Pages/MyBook';
+import Mybook from './MyBook';
 import Navbar from '../Shared/Navbar';
 import Footer from '../Shared/Footer';
 import { GiArrowDunk } from "react-icons/gi";
