@@ -1,7 +1,9 @@
+import bgpic from "./src/assets/img/abt1.jpg"
+
 export default function About() {
   return (
     <div id="about" className="w-full mt-28 h-screen relative">
-      <div className="absolute inset-0 bg-[url('./src/assets/img/abt1.jpg')] bg-cover bg-center opacity-30"></div>
+      <div className="absolute inset-0  bg-cover bg-center opacity-30" style={{ backgroundImage: `url(${bgpic})` }}></div>
       <div className="relative z-10 flex items-center justify-center h-full ms-10">
         <h1 className="text-9xl font-bold text-start w-full">ABOUT US</h1>
        <div className="flex w-full justify-center align-middle mt-10 px-36 relative z-10">
