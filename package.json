@@ -13,13 +13,15 @@
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "autoprefixer": "^10.4.19",
-    "framer-motion": "^11.3.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.5.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-intersection-observer": "^9.13.0",
     "react-pageflip": "^2.0.3",
     "react-router-dom": "^6.24.1",
+    "tailwind-merge": "^2.5.2",
     "tailwindcss": "^3.4.4"
   },
   "devDependencies": {

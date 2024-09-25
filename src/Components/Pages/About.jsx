@@ -1,39 +1,30 @@
 export default function About() {
   return (
-    <div id="about" className="w-full h-full">
-      <div className="flex w-full mx-auto">
-        <div className="w-full mx-auto">
-          <h1 className="text-9xl font-bold text-gray-800 text-center">A</h1>
-          <h1 className="text-9xl font-bold text-gray-800 text-center">B</h1>
-          <h1 className="text-9xl font-bold text-gray-800 text-center">O</h1>
-          <h1 className="text-9xl font-bold text-gray-800 text-center">U</h1>
-          <h1 className="text-9xl font-bold text-gray-800 text-center">T</h1>
-          <h4 className="text-6xl font-bold text-gray-800 text-center">US</h4>
-        </div>
-        <div>
-          <img src="./src/assets/img/abt1.jpg" alt="dfs" />
-        </div>
-      </div>
-      <div className="flex w-full justify-center align-middle mt-10 px-36">
-        <p className="text-xl text-gray-800  w-full">
+    <div id="about" className="w-full mt-28 h-screen relative">
+      <div className="absolute inset-0 bg-[url('./src/assets/img/abt1.jpg')] bg-cover bg-center opacity-30"></div>
+      <div className="relative z-10 flex items-center justify-center h-full ms-10">
+        <h1 className="text-9xl font-bold text-start w-full">ABOUT US</h1>
+       <div className="flex w-full justify-center align-middle mt-10 px-36 relative z-10">
+        <p className="text-xl text-gray-800 text-pretty w-full">
           How it works..
           Our name says it all!
           Founder, Jonathan Li, shares a passion for board games, boba, and 
           delicious food, so he combined them all to become Sip & Play, Park Slope’s 
           first board game cafe.  It is a straightforward concept, come in with your 
-          friends and family to play any board game from our library of 300+ games!
+          friends and family to play any board game from our library of <span className="text-amber-600">300+ games!</span>
            We hope when you visit, you also enjoy our coffee, espresso, boba, 
            sandwiches, and snacks!
           <br/> 
           <br/>
           Hours and Location
-          New opening hours:
-          Sunday: 10am-11pm
-          Mon-Thurs: 11am-11pm
-          Fri: 11am-midnight
-          Sat: 10am-midnight
+          New opening hours:<br/>
+          Sunday: 10am-11pm <br/>
+          Mon-Thurs: 11am-11pm <br/>
+          Fri: 11am-midnight <br/>
+          Sat: 10am-midnight <br/>
           Our kitchen closes 2.5-3 hours before we close!
         </p>
+      </div>
       </div>
     </div>
   );

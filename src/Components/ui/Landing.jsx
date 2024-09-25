@@ -1,76 +1,59 @@
-import heroBg from "../../assets/img/heroBg.jpg";
-import { motion } from "framer-motion";
-import Marquee from "./Marquee";
+import heropic from "../../assets/landing/hero pic.jpg";
+import coffecup from "../../assets/landing/coffecup.png";
+
 
 export default function Landing() {
   return (
     <div>
-      <section
-        className="relative h-screen bg-cover bg-center overflow-hidden"
-        style={{
-          backgroundImage: 'url("https://via.placeholder.com/1600x900")',
-        }}
-      >
-        <div className="absolute inset-0 bg-[#F1EADC]">
-          <img
-            className=" inset-0 w-full h-full object-cover"
-            alt="logo"
-            src={heroBg}
-          />
-        </div>
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-end pt-20">
+      <section className="relative h-screen bg-cover bg-center overflow-hidden">
+        <div className="flex flex-col md:flex-row items-center ms-20 pt-20">
           {/* Text Content */}
-          <div className="md:w-1/2 mb-6 md:mb-0 text-center md:text-left z-10 pt-14 relative">
-            <motion.div
-              initial={{ x: -200, opacity: 0 }} 
-              animate={{ x: 0, opacity: 1 }} 
-              transition={{ type: "spring", duration: 2 }} 
-            >
-              <h1 className=" text-3xl font-roboto md:text-6xl ml-2 uppercase shadow-lg z-10 font-bold text-white rounded-s-full text-center p-4 bg-black bg-opacity-50">
+          <div className="md:w-1/2 mb-6 md:mb-0 text-center md:text-left z-10 pt-14">
+            <h1 className="text-9xl font-bold ">
               A unique café experience awaits you
-              </h1>
-            </motion.div>
-            
-
+            </h1>
+          </div>
+          <div className="absolute w-2/4 left-2/3 rotate-12 -bottom-20">
+            <img src={heropic} alt="" className="w-2/4" />
+          </div>
+          <div className="absolute w-2/4 left-2/3 -rotate-12 -bottom-16">
+            <img src={heropic} alt="" className="w-2/4" />
           </div>
         </div>
       </section>
 
-      <Marquee />  
 
-      <section className="p-6 sm:p-10cs">
-            <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="container mx-auto bg-[#E0F0B1] rounded-lg shadow-lg overflow-hidden px-4 py-8"
-            >
-                <motion.div animate={{ x: [0, 100, 0] }} transition={{ duration: 1 }}>
-                    <h1 className="text-4xl text-[#004D43] sm:text-3xl md:text-5xl font-bold mb-4 text-center font-serif">
-                        Our name says it all!
-                    </h1>
-                </motion.div>
-                <div className="text-lg mb-4 text-center">
-                    <p className="mb-4 font-semibold">How it works..</p>
-                    <p className="text-gray-600 text-base md:text-xl">
-                        Founder, Jonathan Li, shares a passion for board games, boba, and delicious food, so he combined them all to become Sip & Play, Park Slope’s first board game cafe. It is a straightforward concept: come in with your friends and family to play any board game from our library of 300+ games! We hope when you visit, you also enjoy our coffee, espresso, boba, sandwiches, and snacks!
-                    </p>
-                </div>
-                <motion.div animate={{ x: [0, 100, 0] }} transition={{ duration: 1 }}>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-center">
-                        Hours
-                    </h2>
-                </motion.div>
-                <ul className="ml-4 text-center text-gray-600 text-base md:text-xl">
-                    <li>New opening hours:</li>
-                    <li>Sunday: 10am-11pm</li>
-                    <li>Mon-Thurs: 11am-11pm</li>
-                    <li>Fri: 11am-midnight</li>
-                    <li>Sat: 10am-midnight</li>
-                    <li>Our kitchen closes 2.5-3 hours before we close!</li>
-                </ul>
-            </motion.div>
-        </section>
-</div>
-);
+      <section className="flex flex-row justify-center items-center mt-20">
+        {/* <div className="w-3/5 p-28 mt-20">
+          <h1 className="text-8xl font-bold text-black ">
+            Our name says it all!
+          </h1>
+          <p className="text-black text-2xl">
+            Founder, Jonathan Li, shares a passion for board games, boba, and
+            delicious food, so he combined them all to become Sip & Play, Park
+            Slope’s first board game cafe. It is a straightforward concept: come
+            in with your friends and family to play any board game from our
+            library of 300+ games! We hope when you visit, you also enjoy our
+            coffee, espresso, boba, sandwiches, and snacks!
+          </p>
+          <ul className="text-xl mt-4">
+            <li>New opening hours:</li>
+            <li>Sunday: 10am-11pm</li>
+            <li>Mon-Thurs: 11am-11pm</li>
+            <li>Fri: 11am-midnight</li>
+            <li>Sat: 10am-midnight</li>
+          </ul>
+          <button className="p-2 border-2 border-slate-500">Learn more↗️</button>
+        </div> */}
+        <div className="w-1/2  absolute right-40 m-auto">
+          <img src={coffecup} alt="" className="w-96 rotate-12"/>
+        </div>
+        <div className="py-28 z-10">
+          <h1 className="text-[18rem] font-bold text-black">
+            PLAYCAFE
+          </h1>
+        </div>
+      </section>
+    </div>
+  );
 }
