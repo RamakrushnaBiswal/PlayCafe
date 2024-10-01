@@ -27,7 +27,7 @@ export default function Landing() {
       </section>
 
 
-      <section className="flex flex-row justify-center items-center p-64">
+      <section className="flex flex-row justify-center items-center p-32">
         {/* <div className="w-3/5 p-28 mt-20">
           <h1 className="text-8xl font-bold text-black ">
             Our name says it all!
