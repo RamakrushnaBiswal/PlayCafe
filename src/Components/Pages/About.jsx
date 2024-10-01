@@ -1,4 +1,4 @@
-import bgpic from "../../assets/img/abt1.jpg";
+import bgpic from "../../assets/img/abt1.jpg"
 
 export default function About() {
   return (
