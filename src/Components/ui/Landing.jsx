@@ -5,7 +5,7 @@ import coffecup from "../../assets/landing/coffecup.png";
 export default function Landing() {
   return (
     <div>
-      <section className="relative pb-24 h-screen w-screen bg-cover bg-center md:overflow-hidden">
+      <section className="relative pb-24 h-screen w-screen bg-cover bg-center overflow-hidden">
         <div className="flex-col md:flex pt-20 z-1">
           {/* Text Content */}
           <div className="w-screen p-4 md:w-1/2 mb-6 md:mb-0 text-center md:text-left z-10 pt-14">
