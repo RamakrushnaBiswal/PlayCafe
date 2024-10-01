@@ -2,11 +2,11 @@ import bgpic from "../../assets/img/abt1.jpg"
 
 export default function About() {
   return (
-    <div id="about" className="w-full mt-28 h-screen relative">
+    <div id="about" className="w-full md:mt-28 h-screen relative">
       <div className="absolute inset-0  bg-cover bg-center opacity-30" style={{ backgroundImage: `url(${bgpic})` }}></div>
-      <div className="relative z-10 flex items-center justify-center h-full ms-10">
-        <h1 className="text-9xl font-bold text-start w-full">ABOUT US</h1>
-       <div className="flex w-full justify-center align-middle mt-10 px-36 relative z-10">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center justify-center h-full ms-10">
+        <h1 className="text-7xl md:text-9xl font-bold text-start p-8">ABOUT US</h1>
+       <div className="flex w-full justify-center align-middle mt-10 md:px-36 relative z-10">
         <p className="text-xl text-gray-800 text-pretty w-full">
           How it works..
           Our name says it all!
