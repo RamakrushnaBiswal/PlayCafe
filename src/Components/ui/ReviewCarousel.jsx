@@ -71,7 +71,7 @@ const ReviewCarousel = () => {
   };
 
   return (
-    <div className="mb-20">
+    <div className="mb-20 mt-12"> {/* Added top margin */}
       <div className="items-center flex justify-center mb-10">
         <h1 className="md:text-6xl text-4xl pl-3 pr-3 text-center font-bold text-[#004D43]">
           Customer Feedback
@@ -79,7 +79,7 @@ const ReviewCarousel = () => {
       </div>
 
       <div className="bg-[#004D43] min-h-[50vh] p-4 md:p-20 items-center justify-center flex relative ">
-        <div className="w-full max-w-7xl md:overflow-hidden overflow-x-auto  ">
+        <div className="w-full max-w-7xl md:overflow-hidden overflow-x-auto">
           <div
             className="flex transition-transform duration-300 ease-in-out"
             style={{
@@ -92,11 +92,11 @@ const ReviewCarousel = () => {
                 key={index}
                 className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 "
               >
-                <div className="relative h-[40vh] md:h-[35vh] p-4 rounded-xl md:w-full w-[42vh] bg-amber-200 z-10 overflow-hidden">
+                <div className="relative h-[45vh] md:h-[40vh] p-4 rounded-xl bg-amber-200 z-10 overflow-hidden"> {/* Increased height */}
                   <div className="items-center flex flex-col justify-center mb-3">
                     <img
                       src={review.img}
-                      alt=""
+                      alt="reviewer"
                       className="rounded-full h-20 w-20"
                     />
                     <h1 className="text-xl font-semibold">{review.name}</h1>
@@ -108,7 +108,7 @@ const ReviewCarousel = () => {
                         ))}
                     </div>
                   </div>
-                  <p className="text-center text-lg leading-6 tracking-wide  mt-4 ">
+                  <p className="text-center text-lg leading-6 tracking-wide mt-4 ">
                     {review.review}
                   </p>
                 </div>
@@ -116,17 +116,18 @@ const ReviewCarousel = () => {
             ))}
           </div>
         </div>
+
         {reviews.length > 4 && (
           <>
             <button
               onClick={prevSlide}
-              className=" hidden md:block absolute left-20 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2"
+              className="hidden md:block absolute left-5 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg" // Reduced padding, moved button inward
             >
               <MdArrowBackIos className="text-[#004D43]" />
             </button>
             <button
               onClick={nextSlide}
-              className=" hidden md:block absolute right-20 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2"
+              className="hidden md:block absolute right-5 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg" // Reduced padding, moved button inward
             >
               <MdArrowForwardIos className="text-[#004D43]" />
             </button>
