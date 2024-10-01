@@ -71,15 +71,15 @@ const ReviewCarousel = () => {
   };
 
   return (
-    <div className="mb-20">
-      <div className="items-center flex justify-center mb-10">
+    <div className="h-screen flex flex-col items-center justify-center gap-16">
+      <div className="items-center flex justify-center">
         <h1 className="md:text-6xl text-4xl pl-3 pr-3 text-center font-bold text-[#004D43]">
           Customer Feedback
         </h1>
       </div>
 
-      <div className="bg-[#004D43] min-h-[50vh] p-4 md:p-20 items-center justify-center flex relative ">
-        <div className="w-full max-w-7xl md:overflow-hidden overflow-x-auto  ">
+      <div className="bg-[#004D43] min-h-[50vh] w-screen items-center justify-center flex relative ">
+        <div className="w-[calc(100%-128px)] md:overflow-hidden overflow-x-auto">
           <div
             className="flex transition-transform duration-300 ease-in-out"
             style={{

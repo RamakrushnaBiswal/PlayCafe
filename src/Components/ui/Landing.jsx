@@ -5,11 +5,11 @@ import coffecup from "../../assets/landing/coffecup.png";
 export default function Landing() {
   return (
     <div>
-      <section className="relative h-screen bg-cover bg-center overflow-hidden">
+      <section className="relative h-screen bg-cover bg-center overflow-hidden py-8">
         <div className="flex flex-col md:flex-row items-center ms-20 pt-20">
           {/* Text Content */}
           <div className="md:w-1/2 mb-6 md:mb-0 text-center md:text-left z-10 pt-14">
-            <h1 className="text-9xl font-bold ">
+            <h1 className="text-xl lg:text-9xl font-bold ">
               A unique café experience awaits you
             </h1>
           </div>
@@ -23,7 +23,7 @@ export default function Landing() {
       </section>
 
 
-      <section className="flex flex-row justify-center items-center mt-20">
+      <section className="flex flex-row justify-center items-center py-8 h-screen">
         {/* <div className="w-3/5 p-28 mt-20">
           <h1 className="text-8xl font-bold text-black ">
             Our name says it all!
@@ -49,7 +49,7 @@ export default function Landing() {
           <img src={coffecup} alt="" className="w-96 rotate-12"/>
         </div>
         <div className="py-28 z-10">
-          <h1 className="text-[18rem] font-bold text-black">
+          <h1 className="text-9xl font-bold text-black">
             PLAYCAFE
           </h1>
         </div>

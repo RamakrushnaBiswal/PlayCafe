@@ -33,8 +33,8 @@ function ParallaxImage() {
     <>
       <Navbar />
       <div className="w-full h-auto bg-amber-100 items-center justify-center overflow-hidden" onMouseMove={handleMouseMove}>
-        <div className="flex md:flex-row flex-col items-center justify-between mt-24 mb-20">
-          <div className="w-3/4 pl-8 text-left animate-fadeIn">
+        <div className="flex py-32 px-16 gap-32">
+          <div className="w-3/4 text-left animate-fadeIn">
             <h1 className="md:text-7xl text-4xl text-black font-bold font-mono mb-4">Discover Sip & Play</h1>
             <p className="md:text-3xl text-xl font-mono mb-8">
               Dive into a world of flavor with our immersive 3D Menu experience
@@ -42,9 +42,9 @@ function ParallaxImage() {
           </div>
           <div className="w-full flex justify-center items-center rounded-e-full z-1 shadow-lg bg-amber-200 animate-slideIn">
             <motion.img
-              src="./mega-creator.png"
+              src="./coffee-shop.jpg"
               alt="3D Coffee Shop"
-              className="cursor-pointer"
+              className="cursor-pointer w-1/2"
               style={parallaxEffect}
               variants={parallaxVariants}
               initial="initial"
@@ -54,11 +54,11 @@ function ParallaxImage() {
             />
           </div>
         </div>
-        <div className="flex flex-col items-center mb-2">
+        <div className="flex flex-col items-center mb-2 px-16">
           <h1 className="text-5xl md:text-9xl font-roboto">Flip Menu</h1>
           <GiArrowDunk size={60} className="mt-2 text-orange-400" />
         </div>
-        <div className="w-full md:flex md:items-center md:justify-center">
+        <div className="w-full md:flex md:items-center md:justify-center px-16">
           <Mybook />
         </div>
       </div>
