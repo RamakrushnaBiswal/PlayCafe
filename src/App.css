@@ -17,3 +17,57 @@ body,
 body{
     background: #F1EADC;
 }
+/* Navbar with gradient background and glassmorphism */
+nav.bg-blur {
+    backdrop-filter: blur(10px); /* Glassmorphism blur */
+    background: linear-gradient(90deg, rgba(224, 240, 177, 1) 0%, rgba(188, 222, 232, 1) 100%);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    border-radius: 10px; /* Rounded corners */
+    z-index: 50;
+    padding: 10px 0; /* Ensures padding for height */
+  }
+  
+  /* Default link styling */
+  .nav-link {
+    color: black;
+    padding: 10px 20px; /* More padding for larger clickable area */
+    border-radius: 20px; /* Rounded corners for links */
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+  }
+  
+  /* Active link with gradient background */
+  .active-link {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Gradient for active link */
+    color: white;
+    padding: 10px 20px; /* Keep padding the same for consistency */
+    border-radius: 20px; /* Consistent rounded corners */
+    box-shadow: 0 4px 10px rgba(255, 126, 95, 0.5); /* Stronger shadow */
+  }
+  
+  /* Hover effect for non-active links */
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    color: #ff7e5f; /* Change color on hover */
+    box-shadow: 0 4px 20px rgba(255, 126, 95, 0.5); /* Glow effect */
+  }
+  
+  /* Mobile menu styles */
+  .mobile-menu {
+    background: rgba(255, 255, 255, 0.9); /* Slightly opaque background */
+    backdrop-filter: blur(5px); /* Glassmorphism effect */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+  }
+  
+  /* Mobile link styling */
+  .mobile-link {
+    padding: 10px 20px; /* Consistent padding */
+    border-radius: 10px; /* Rounded corners */
+    transition: background 0.3s ease, color 0.3s ease; /* Transition effects */
+  }
+  
+  .mobile-link:hover {
+    background: rgba(255, 126, 95, 0.2); /* Hover background */
+    color: #ff7e5f; /* Change color on hover */
+  }
+  
