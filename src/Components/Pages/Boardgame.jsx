@@ -9,13 +9,10 @@ import board8 from "../../assets/Boardgames/board8.png";
 import board10 from "../../assets/Boardgames/board10.png";
 import bg from "../../assets/Boardgames/bg.jpg";
 
-import Navbar from "../Shared/Navbar";
-import Footer from "../Shared/Footer";
 
 export default function Boardgame() {
     return (
         <>
-        <Navbar />
         <div className="w-full mt-10 md:mt-0">
             <section className="w-full pt-12 md:pt-24 lg:pt-32">
                 <div className="container mx-auto space-y-10 xl:space-y-16">
@@ -238,7 +235,6 @@ export default function Boardgame() {
                 </div>
             </section>
         </div>
-        <Footer />
         </>
     );
 }

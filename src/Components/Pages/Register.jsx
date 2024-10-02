@@ -3,13 +3,10 @@ import pic2 from "../../assets/img/abt1.png";
 import pic3 from "../../assets/img/abt2.png";
 import pic4 from "../../assets/img/abt3.png";
 import pic5 from "../../assets/img/abt4.png";
-import Footer from "../Shared/Footer";
-import Navbar from "../Shared/Navbar";
 
 export default function Register() {
   return (
     <>
-      <Navbar />
       <div className="w-full mx-auto mt-10 lg:mt-0 md:mt-0">
         <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col md:flex-row">
           <div className="container px-4 md:px-6 text-center text-primary-foreground w-full md:w-2/5 md:mt-10">
@@ -195,7 +192,6 @@ export default function Register() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

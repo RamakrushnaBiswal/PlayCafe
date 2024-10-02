@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-import Navbar from '../Shared/Navbar';
-import Footer from '../Shared/Footer';
 import img1 from '../../assets/img/event1.jpg';
 import img2 from '../../assets/img/event2.jpg';
 import img3 from '../../assets/img/event3.jpg';
@@ -41,7 +39,6 @@ useEffect(() => {
 }, []);
   return (
     <>
-    <Navbar />
     <div
       id="event"
       className="w-full h-full bg-amber-100 md:overflow-hidden "
@@ -267,7 +264,6 @@ useEffect(() => {
         </div>
       </section>
     </div>
-    <Footer />
     </>
   );
 }
