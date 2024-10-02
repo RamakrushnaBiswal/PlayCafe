@@ -11,7 +11,7 @@ import Menu from "../Components/Pages/Menu"
 import Boardgame from "../Components/Pages/Boardgame"
 import Event from "../Components/Pages/Event"
 import MyBook from "../Components/Pages/MyBook"
-import NotFound from "../Components/Pages/MyBook"
+import NotFound from "../Components/Pages/Notfound"
 
 
 const router = createBrowserRouter(
