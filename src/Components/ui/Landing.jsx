@@ -9,7 +9,7 @@ export default function Landing() {
         <div className="flex-col md:flex pt-20 z-1">
           {/* Text Content */}
           <div className="w-screen p-4 md:w-1/2 mb-6 md:mb-0 text-center md:text-left z-10 pt-14">
-            <h1 className="sm:text-6xl md:text-9xl text-5xl font-bold">
+            <h1 className="text-6xl md:text-9xl font-bold">
               A unique café experience awaits you
             </h1>
           </div>
