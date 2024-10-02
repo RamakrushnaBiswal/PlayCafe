@@ -4,7 +4,7 @@ import Mybook from './MyBook';
 import Navbar from '../Shared/Navbar';
 import Footer from '../Shared/Footer';
 import { GiArrowDunk } from "react-icons/gi";
-import Cafe3d from "../../assets/Menu_assets/Cafe3d.jpg"
+import Cafe3d from "../../assets/Menu_assets/mega-creator.png"
 const parallaxVariants = {
   initial: { scale: 1 },
   animate: { scale: 1.05 },
