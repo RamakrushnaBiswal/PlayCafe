@@ -3,7 +3,7 @@ import Content from "./Content";
 
 const Footer = () => {
   return (
-    <div
+    <footer
       className="relative h-[800px]"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
@@ -12,7 +12,7 @@ const Footer = () => {
           <Content />
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

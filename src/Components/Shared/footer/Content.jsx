@@ -5,19 +5,11 @@ import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 export default function Content() {
   return (
     <div className="bg-black pt-24 py-8 px-12 h-full w-full flex flex-col justify-between">
-      <Section1 />
+      <Nav />
       <Section2 />
     </div>
   );
 }
-
-const Section1 = () => {
-  return (
-    <div>
-      <Nav />
-    </div>
-  );
-};
 
 const Section2 = () => {
   const [isWide, setIsWide] = useState(window.innerWidth > 640);
@@ -122,7 +114,7 @@ const Nav = () => {
         <h3 className="mb-2 uppercase text-white">Socials</h3>
         {socialLink.map((item, index) => (
           <a
-            target="_black"
+            target="_blank"
             className="hover:text-white duration-300"
             key={index}
             href={item.link}
@@ -139,7 +131,9 @@ const Nav = () => {
         >
           {emailAddress}
         </a>
-        <p className="mb-2">718-971-1684</p>
+        <a href="tel:+17189711684" className="mb-2 hover:underline">
+          718-971-1684
+        </a>
       </div>
     </div>
   );
