@@ -4,7 +4,7 @@ import Mybook from './MyBook';
 import Navbar from '../Shared/Navbar';
 import Footer from '../Shared/Footer';
 import { GiArrowDunk } from "react-icons/gi";
-
+import Cafe3dImg from "../../assets/Menu_assets/mega-creator.png"
 const parallaxVariants = {
   initial: { scale: 1 },
   animate: { scale: 1.05 },
@@ -42,7 +42,7 @@ function ParallaxImage() {
           </div>
           <div className="w-full flex justify-center items-center rounded-e-full z-1 shadow-lg bg-amber-200 animate-slideIn">
             <motion.img
-              src="./mega-creator.png"
+              src={Cafe3dImg}
               alt="3D Coffee Shop"
               className="cursor-pointer"
               style={parallaxEffect}
