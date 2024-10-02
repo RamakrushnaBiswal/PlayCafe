@@ -12,18 +12,16 @@ export default function Content() {
 }
 
 const Section2 = () => {
-  const [isWide, setIsWide] = useState(window.innerWidth > 640);
+  const [isWide, setIsWide] = useState(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsWide(window.innerWidth > 640);
-    };
-
+    const handleResize = () => setIsWide(window.innerWidth > 640);
+    handleResize(); // Set initial value
     window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  if (isWide === null) return null;
 
   return (
     <>
@@ -36,28 +34,27 @@ const Section2 = () => {
           />
         </div>
       )}
-
-      {isWide && (
-        <div className="flex justify-between items-end text-white">
-          <h1 className="text-[9vw] leading-[0.8] mt-10">BoardGame Cafe</h1>
-          <p>©2024 by Sip & Play</p>
-        </div>
-      )}
-      {!isWide && (
-        <>
-          <div className="flex relative font-bold text-[12vw] top-10 flex-wrap justify-between items-end text-white">
-            <div>
-              <h1 className=" leading-[0.8]">BoardGame</h1>
-            </div>
-            <div className="flex justify-center h-fit w-full">
-              <h1 className="leading-[0.8] mt-4">Cafe</h1>
-            </div>
-          </div>
-          <div className="flex justify-center text-white">
-            <p className="mt-8">©2024 by Sip & Play</p>
-          </div>
-        </>
-      )}
+      <div
+        className={`flex ${
+          isWide ? "justify-between items-end" : "flex-col items-center"
+        } text-white`}
+      >
+        <h1
+          className={`${
+            isWide ? "text-[9vw]" : "text-[12vw] mt-10"
+          } leading-[0.8]`}
+        >
+          BoardGame {!isWide && <br />}
+        </h1>
+        <h1
+          className={`${
+            isWide ? "text-[9vw]" : "text-[12vw] mt-4"
+          } leading-[0.8]`}
+        >
+          Cafe
+        </h1>
+        <p className={isWide ? "" : "mt-8"}>©2024 by Sip & Play</p>
+      </div>
     </>
   );
 };
