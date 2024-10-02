@@ -5,14 +5,14 @@ import {
 } from "react-router-dom";
 
 import App from "../App";
-import Home from "../Components/Pages/Home";
-import About from "../Components/Pages/About";
-import Menu from "../Components/Pages/Menu"
-import Boardgame from "../Components/Pages/Boardgame"
-import Event from "../Components/Pages/Event"
-import MyBook from "../Components/Pages/MyBook"
-import NotFound from "../Components/Pages/Notfound"
-import Register from "../Components/Pages/Register"
+import Home from "../components/Pages/Home";
+import About from "../components/Pages/About";
+import Menu from "../components/Pages/Menu"
+import Boardgame from "../components/Pages/Boardgame"
+import Event from "../components/Pages/Event"
+import MyBook from "../components/Pages/MyBook"
+import NotFound from "../components/Pages/Notfound"
+import Register from "../components/Pages/Register"
 
 
 const router = createBrowserRouter(
