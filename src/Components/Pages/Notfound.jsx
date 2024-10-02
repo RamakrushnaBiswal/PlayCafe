@@ -1,11 +1,8 @@
 import Notfound from "../../assets/Menu_assets/Notfound.gif"
-import Footer from "../Shared/Footer";
-import Navbar from "../Shared/Navbar";
 
 const NotFound = () => {
     return (
        <div>
-        <Navbar/>
          <div className="flex flex-col items-center justify-center h-screen">
             <h1 className="text-5xl font-bold mb-8 text-center">404 Not Found</h1>
             <img
@@ -17,7 +14,6 @@ const NotFound = () => {
                 Sorry, the page you are looking for could not be found.
             </p>
         </div>
-        <Footer/>
        </div>
     );
 }

@@ -31,14 +31,13 @@ const Navbar = () => {
   const buttonTextClass = isScrolled
     ? "text-gray-900"
     : isHomePage
-    ? "text-white"
-    : "text-black";
+      ? "text-white"
+      : "text-black";
 
   return (
     <nav
-      className={`w-full fixed top-0 z-50 transition duration-300 ${
-        isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"
-      } 
+      className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"
+        } 
                    ${isScrolled ? "text-gray-800" : "text-black"} 
                    ${isScrolled ? "shadow-lg" : ""}`}
     >
@@ -56,54 +55,49 @@ const Navbar = () => {
           <div className="hidden md:flex">
             <ul className="ml-4 flex space-x-4 font-semibold">
               <li>
-                <a
-                  href="/"
-                  className={`hover:${
-                    isScrolled ? "text-gray-900" : "text-gray-800"
-                  }`}
+                <Link
+                  to={"/"}
+                  className={`hover:${isScrolled ? "text-gray-900" : "text-gray-800"
+                    }`}
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/event"
-                  className={`hover:${
-                    isScrolled ? "text-gray-900" : "text-gray-800"
-                  }`}
+                <Link
+                  to={"/events"}
+                  className={`hover:${isScrolled ? "text-gray-900" : "text-gray-800"
+                    }`}
                 >
                   Events
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/menu"
-                  className={`hover:${
-                    isScrolled ? "text-gray-900" : "text-gray-800"
-                  }`}
+                <Link
+                  to={"/menu"}
+                  className={`hover:${isScrolled ? "text-gray-900" : "text-gray-800"
+                    }`}
                 >
                   Menu
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/register"
-                  className={`hover:${
-                    isScrolled ? "text-gray-900" : "text-gray-800"
-                  }`}
+                <Link
+                  to={"/reservation"}
+                  className={`hover:${isScrolled ? "text-gray-900" : "text-gray-800"
+                    }`}
                 >
                   Reservation
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/boardgame"
-                  className={`hover:${
-                    isScrolled ? "text-gray-900" : "text-gray-800"
-                  }`}
+                <Link
+                  to="/boardgame"
+                  className={`hover:${isScrolled ? "text-gray-900" : "text-gray-800"
+                    }`}
                 >
                   Boardgames
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -133,48 +127,42 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div
-          className={`md:hidden ${
-            isScrolled ? "bg-amber-100 shadow-lg" : "bg-[#E0F0B1] shadow-lg"
-          }`}
+          className={`md:hidden ${isScrolled ? "bg-amber-100 shadow-lg" : "bg-[#E0F0B1] shadow-lg"
+            }`}
         >
           <div className="px-4 pt-4 pb-4 space-y-2">
             <a
               href="/"
-              className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 ${
-                isScrolled ? "text-gray-900" : "text-gray-800"
-              } hover:bg-amber-300 hover:text-black`}
+              className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 ${isScrolled ? "text-gray-900" : "text-gray-800"
+                } hover:bg-amber-300 hover:text-black`}
             >
               Home
             </a>
             <a
               href="/event"
-              className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 ${
-                isScrolled ? "text-gray-900" : "text-gray-800"
-              } hover:bg-amber-300 hover:text-black`}
+              className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 ${isScrolled ? "text-gray-900" : "text-gray-800"
+                } hover:bg-amber-300 hover:text-black`}
             >
               Events
             </a>
             <a
               href="/menu"
-              className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 ${
-                isScrolled ? "text-gray-900" : "text-gray-800"
-              } hover:bg-amber-300 hover:text-black`}
+              className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 ${isScrolled ? "text-gray-900" : "text-gray-800"
+                } hover:bg-amber-300 hover:text-black`}
             >
               Menu
             </a>
             <a
               href="/register"
-              className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 ${
-                isScrolled ? "text-gray-900" : "text-gray-800"
-              } hover:bg-amber-300 hover:text-black`}
+              className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 ${isScrolled ? "text-gray-900" : "text-gray-800"
+                } hover:bg-amber-300 hover:text-black`}
             >
               Reservation
             </a>
             <a
               href="/boardgame"
-              className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 ${
-                isScrolled ? "text-gray-900" : "text-gray-800"
-              } hover:bg-amber-300 hover:text-black`}
+              className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 ${isScrolled ? "text-gray-900" : "text-gray-800"
+                } hover:bg-amber-300 hover:text-black`}
             >
               Boardgames
             </a>

@@ -1,8 +1,6 @@
 import  { useState } from 'react';
 import { motion } from 'framer-motion';
 import Mybook from './MyBook';
-import Navbar from '../Shared/Navbar';
-import Footer from '../Shared/Footer';
 import { GiArrowDunk } from "react-icons/gi";
 import Cafe3dImg from "../../assets/Menu_assets/mega-creator.png"
 const parallaxVariants = {
@@ -31,7 +29,6 @@ function ParallaxImage() {
 
   return (
     <>
-      <Navbar />
       <div className="w-full h-auto bg-amber-100 items-center justify-center overflow-hidden" onMouseMove={handleMouseMove}>
         <div className="flex md:flex-row flex-col items-center justify-between mt-24 mb-20">
           <div className="w-3/4 pl-8 text-left animate-fadeIn">
@@ -62,8 +59,6 @@ function ParallaxImage() {
           <Mybook />
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }
