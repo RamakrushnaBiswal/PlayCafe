@@ -3,6 +3,9 @@ export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   theme: {
     extend: {
+      height: {
+        'screen-dvh': '100dvh',
+      },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
         'roboto': ['"Roboto Serif"', 'sans-serif'],
