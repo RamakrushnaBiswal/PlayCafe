@@ -108,7 +108,7 @@ const ReviewCarousel = () => {
                         ))}
                     </div>
                   </div>
-                  <p className="text-center text-lg leading-6 tracking-wide  mt-4 ">
+                  <p className="text-center sm:text-lg text-sm sm:leading-6 leading-2 tracking-wide  sm:mt-4 mt-1 ">
                     {review.review}
                   </p>
                 </div>

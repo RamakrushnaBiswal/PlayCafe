@@ -78,7 +78,7 @@ useEffect(() => {
             {dates.map((day) => (
               <div
                 key={day}
-                className={`p-2 border rounded-md ${day === currentDate ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}
+                className={`sm:p-2 p-0 border rounded-md ${day === currentDate ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}
               >
                 {day}
               </div>

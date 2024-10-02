@@ -1,4 +1,4 @@
-import Logo from "../../assets/Logo/logo.png";
+import Logo from "../../assets/Logo/newlogo.webp";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {

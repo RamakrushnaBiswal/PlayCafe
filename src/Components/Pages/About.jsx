@@ -9,9 +9,9 @@ export default function About() {
       >
         <div className="absolute inset-0 bg-black opacity-60"></div> {/* Black overlay with 40% opacity */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center justify-center h-full p-4">
-          <h1 className="text-7xl md:text-9xl font-bold text-center p-8 text-white">ABOUT US</h1>
+          <h1 className="sm:text-7xl md:text-9xl text-4xl font-bold text-center sm:p-8 p-4 text-white">ABOUT US</h1>
           <div className="flex w-full justify-center align-middle mt-10 md:px-36 relative z-10">
-            <p className="text-l md:text-xl text-gray-200 w-full"> {/* Change text color for better contrast */}
+            <p className="sm:text-l md:text-xl text-xs text-gray-200 w-full"> {/* Change text color for better contrast */}
               How it works..
               Our name says it all!
               Founder, Jonathan Li, shares a passion for board games, boba, and
