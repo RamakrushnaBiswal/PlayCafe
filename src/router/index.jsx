@@ -11,8 +11,8 @@ import Menu from "../Components/Pages/Menu"
 import Boardgame from "../Components/Pages/Boardgame"
 import Event from "../Components/Pages/Event"
 import MyBook from "../Components/Pages/MyBook"
-import NotFound from "../Components/Pages/MyBook"
-
+import NotFound from "../Components/Pages/Notfound"
+import Register from "../Components/Pages/Register"
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -21,8 +21,9 @@ const router = createBrowserRouter(
             <Route path="/about" element={<About />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/boardgame" element={<Boardgame />} />
-            <Route path="/event" element={<Event />} />
+            <Route path="/events" element={<Event />} />
             <Route path="/book" element={<MyBook />} />
+            <Route path="/reservation" element={<Register />} />
             <Route path="*" element={<NotFound />} />
         </Route>
     )
