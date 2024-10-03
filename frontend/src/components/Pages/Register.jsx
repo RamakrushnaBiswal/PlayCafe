@@ -24,7 +24,7 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/create-reservation", {
+    fetch("http://localhost:3000/api/reservation/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
