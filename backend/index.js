@@ -4,7 +4,6 @@ const app = express();
 const port = 3000;
 require("dotenv").config();
 const mongoose = require("mongoose");
-const { createReservation } = require("./controller/reservation.controller");
 
 app.use(cors({}));
 
@@ -19,6 +18,6 @@ mongoose
     console.error("Database connection failed:", error);
   });
 
-app.post("/create-reservation", createReservation);
+app.post("/api", require("./routes/api"));
 
 app.listen(port, () => console.log(`Server is running on port ${port}!`));
