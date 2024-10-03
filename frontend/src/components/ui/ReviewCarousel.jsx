@@ -84,7 +84,7 @@ const ReviewCarousel = () => {
             className="flex transition-transform duration-300 ease-in-out"
             style={{
               transform: `translateX(-${currentIndex * (100 / 4)}%)`,
-              width: `${reviews.length * (100 / 4)}%`,
+              width: `${reviews.length * (100 /4)}%`,
             }}
           >
             {reviews.map((review, index) => (
