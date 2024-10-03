@@ -18,7 +18,8 @@ const ReviewCarousel = () => {
     },
     {
       name: "Emily Davis",
-      review: "Friendly staff and delicious food make for a great experience.",
+      review:
+        "Friendly staff and delicious food make for a great experience.",
       img: "https://randomuser.me/api/portraits/women/63.jpg",
       rating: 5,
     },
@@ -79,7 +80,7 @@ const ReviewCarousel = () => {
       </div>
 
       <div className="bg-[#004D43] min-h-[50vh] p-4 md:p-20 items-center justify-center flex relative ">
-        <div className="w-full max-w-7xl md:overflow-hidden overflow-x-auto  ">
+        <div className="w-full max-w-7xl md:overflow-hidden overflow-x-auto">
           <div
             className="flex transition-transform duration-300 ease-in-out"
             style={{
@@ -92,7 +93,8 @@ const ReviewCarousel = () => {
                 key={index}
                 className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 "
               >
-                <div className="relative h-[40vh] md:h-[35vh] p-4 rounded-xl md:w-full w-[42vh] bg-amber-200 z-10 overflow-hidden">
+                {/* Ensure consistent height for all cards */}
+                <div className="relative h-[350px] p-4 rounded-xl md:w-full w-[42vh] bg-amber-200 z-10 overflow-hidden flex flex-col justify-between">
                   <div className="items-center flex flex-col justify-center mb-3">
                     <img
                       src={review.img}
@@ -108,7 +110,8 @@ const ReviewCarousel = () => {
                         ))}
                     </div>
                   </div>
-                  <p className="text-center text-lg leading-6 tracking-wide  mt-4 ">
+                  {/* Consistent text wrapping */}
+                  <p className="text-center text-lg leading-6 tracking-wide mt-4 break-words flex-grow">
                     {review.review}
                   </p>
                 </div>
@@ -120,13 +123,13 @@ const ReviewCarousel = () => {
           <>
             <button
               onClick={prevSlide}
-              className=" hidden md:block absolute left-20 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2"
+              className="hidden md:block absolute left-20 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2"
             >
               <MdArrowBackIos className="text-[#004D43]" />
             </button>
             <button
               onClick={nextSlide}
-              className=" hidden md:block absolute right-20 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2"
+              className="hidden md:block absolute right-20 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2"
             >
               <MdArrowForwardIos className="text-[#004D43]" />
             </button>
