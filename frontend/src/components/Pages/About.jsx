@@ -20,7 +20,7 @@ export default function About() {
           </div>
 
           {/* Paragraph */}
-          <div className="relative z-10 flex justify-center w-full mt-10 align-middle md:pl-32">
+          <div className="relative z-10 flex justify-center w-full mt-10 align-middle md:pl-32 md:mt-32">
             <p className="text-gray-200 text-l md:text-xl"> {/* Change text color for better contrast */}
               How it works..
               Our name says it all!
