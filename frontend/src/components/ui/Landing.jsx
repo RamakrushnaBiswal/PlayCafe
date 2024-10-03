@@ -1,3 +1,6 @@
+import React from "react";
+import Typewriter from "typewriter-effect";
+
 import heropic from "../../assets/landing/hero pic.jpg";
 import coffecup from "../../assets/landing/coffecup.png";
 
@@ -6,11 +9,19 @@ export default function Landing() {
     <div>
       <section className="relative pb-24 h-screen-dvh w-screen bg-cover bg-center overflow-hidden">
         <div className="flex flex-col md:flex-row items-center pt-10 md:pt-20 z-1">
-          {/* Text Content */}
+     
           <div className="w-full md:w-1/2 p-4 text-center md:text-left z-10">
             <h1 className="text-4xl sm:text-6xl md:text-9xl font-bold leading-tight">
-              A unique café experience awaits you
+            <Typewriter
+                options={{
+                  strings: ["A unique café experience awaits you"],
+                  autoStart: true,
+                  loop: true,
+                  delay: 75, 
+                }}
+              />
             </h1>
+            
           </div>
 
           <div className="flex justify-center w-full mt-10 md:mt-0">
