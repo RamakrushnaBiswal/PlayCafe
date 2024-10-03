@@ -1,17 +1,27 @@
-import bgpic from "../../assets/img/abt1.jpg"
+import bgpic from "../../assets/img/abt1.jpg";
 
 export default function About() {
   return (
-    <div id="about" className="w-full md:mt-28 h-screen relative">
+    <div id="about" className="relative w-full h-screen md:mt-28">
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-center bg-cover"
         style={{ backgroundImage: `url(${bgpic})` }}
       >
-        <div className="absolute inset-0 bg-black opacity-60"></div> {/* Black overlay with 40% opacity */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center justify-center h-full p-4">
-          <h1 className="text-7xl md:text-9xl font-bold text-center p-8 text-white">ABOUT US</h1>
-          <div className="flex w-full justify-center align-middle mt-10 md:px-36 relative z-10">
-            <p className="text-l md:text-xl text-gray-200 w-full"> {/* Change text color for better contrast */}
+        {/* Black overlay with 60% opacity */}
+        <div className="absolute inset-0 bg-black opacity-60"></div>
+
+        {/* Content container */}
+        <div className="relative z-10 flex flex-col justify-center h-full px-4 text-center md:flex-row md:px-10 lg:px-20 md:text-left">
+          {/* Title */}
+          <div className="flex items-center justify-center md:w-1/2">
+            <h1 className="text-5xl font-bold text-center text-white sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+              ABOUT US
+            </h1>
+          </div>
+
+          {/* Paragraph */}
+          <div className="relative z-10 flex justify-center w-full mt-10 align-middle md:pl-32">
+            <p className="text-gray-200 text-l md:text-xl"> {/* Change text color for better contrast */}
               How it works..
               Our name says it all!
               Founder, Jonathan Li, shares a passion for board games, boba, and
