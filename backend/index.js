@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 
 app.use(
   cors({
-    origin: ["https://localhost:3000", "https://play-cafe.vercel.app"],
+    origin: ["http://localhost:3000", "https://play-cafe.vercel.app"],
   })
 );
 
