@@ -83,9 +83,9 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
 <br>
 <center>
 <div>
-<a href="https://github.com/RamakrushnaBiswal/PlayCafe/graphs/contributors">
-  <img width="5%" src="https://contrib.rocks/image?repo=RamakrushnaBiswal/PlayCafe" />
-</a>
+ 
+[![All Contributors](https://img.shields.io/github/all-contributors/RamakrushnaBiswal/PlayCafe?color=ee8449&style=flat-square)](#contributors)
+
 
 ## ⭐Support 
 
