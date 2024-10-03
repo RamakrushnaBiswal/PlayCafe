@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import pic from "../../assets/img/abt1.jpg";
 import pic2 from "../../assets/img/abt1.png";
 import pic3 from "../../assets/img/abt2.png";
@@ -6,40 +5,6 @@ import pic4 from "../../assets/img/abt3.png";
 import pic5 from "../../assets/img/abt4.png";
 
 export default function Register() {
-  const [Guests, setGuests] = useState();
-  const [Date, setDate] = useState("");
-  const [Time, setTime] = useState("");
-
-  useEffect(() => {
-    console.log(Guests);
-  }, [Guests]);
-
-  useEffect(() => {
-    console.log(Date);
-  }, [Date]);
-
-  useEffect(() => {
-    console.log(Time);
-  }, [Time]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch("http://localhost:3000/create-reservation", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        Guests,
-        Date,
-        Time,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
-  };
-
   return (
     <>
       <div className="w-full mx-auto mt-10 lg:mt-0 md:mt-0">
@@ -81,7 +46,6 @@ export default function Register() {
                     </label>
                     <select
                       id="guests"
-                      onChange={(e) => setGuests(e.target.value)}
                       className="flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <option value="">Select number of guests</option>
@@ -103,7 +67,6 @@ export default function Register() {
                     <input
                       type="date"
                       id="date"
-                      onChange={(e) => setDate(e.target.value)}
                       className="flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </div>
@@ -117,7 +80,6 @@ export default function Register() {
                   </label>
                   <select
                     id="time"
-                    onChange={(e) => setTime(e.target.value)}
                     className="flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     <option value="">Select time</option>
@@ -131,7 +93,6 @@ export default function Register() {
                 <button
                   className="inline-flex items-center justify-center p-4 bg-[#D9D9D9] hover:bg-[#C9C9C9]"
                   type="submit"
-                  onClick={handleSubmit}
                 >
                   Reserve Now
                 </button>
