@@ -1,11 +1,37 @@
+import  { useState } from 'react';
 import heropic from "../../assets/landing/hero pic.jpg";
 import coffecup from "../../assets/landing/coffecup.png";
+import { motion } from 'framer-motion';
 
+const parallaxVariants = {
+  initial: { scale: 1 },
+  animate: { scale: 1.05 },
+};
+
+const transition = {
+  type: "spring",
+  stiffness: 200,
+  damping: 10,
+};
 
 export default function Landing() {
+
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  
+    const handleMouseMove = (e) => {
+      const { clientX, clientY } = e;
+      setMousePosition({ x: clientX, y: clientY });
+    };
+  
+    const parallaxEffect = {
+      x: mousePosition.x / 100,
+      y: mousePosition.y / 100,
+      
+      
+    };
   return (
     <div>
-      <section className="relative pb-24 h-screen-dvh w-screen bg-cover bg-center overflow-hidden">
+      <section className="relative pb-24 mb-36 h-screen-dvh w-screen bg-cover bg-center overflow-hidden" >
         <div className="flex-col md:flex pt-20 z-1">
           {/* Text Content */}
           <div className="w-screen p-4 md:w-1/2 mb-6 md:mb-0 text-center md:text-left z-10 pt-14">
@@ -27,7 +53,7 @@ export default function Landing() {
       </section>
 
 
-      <section className="flex flex-row justify-center items-center p-32">
+      <section className="flex flex-row justify-center items-center p-32" >
         {/* <div className="w-3/5 p-28 mt-20">
           <h1 className="text-8xl font-bold text-black ">
             Our name says it all!
@@ -50,8 +76,19 @@ export default function Landing() {
           <button className="p-2 border-2 border-slate-500">Learn more↗️</button>
         </div> */}
         
-        <div className="w-1/2 absolute p-4 md:right-40 m-auto">
-          <img src={coffecup} alt="" className="w-96 rotate-12"/>
+        <div className="w-1/2 absolute p-4 md:right-40 m-auto rotate-12" onMouseMove={handleMouseMove}>
+        <motion.img
+              src={coffecup}
+              alt="Coffee Cup"
+              className="cursor-pointer"
+              variants={parallaxVariants}
+              initial="initial"
+              animate="animate"
+              whileHover={{ scale: 1.1 }}
+              transition={transition}
+              style={parallaxEffect }
+
+            />
         </div>
         <div className="py-28 z-10">
           <h1 className="text-[4rem] md:text-[18rem] font-bold text-black">
