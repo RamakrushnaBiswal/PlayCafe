@@ -1,3 +1,4 @@
+import { useState } from "react";
 import pic from "../../assets/img/abt1.jpg";
 import pic2 from "../../assets/img/abt1.png";
 import pic3 from "../../assets/img/abt2.png";
@@ -5,6 +6,31 @@ import pic4 from "../../assets/img/abt3.png";
 import pic5 from "../../assets/img/abt4.png";
 
 export default function Register() {
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [guests, setGuests] = useState();
+
+  const handleSubmit = (e) => {
+    console.log(guests);
+    console.log(time);
+    console.log(date);
+    e.preventDefault();
+    fetch("http://localhost:3000/api/reservation/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        guests,
+        date,
+        time,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <div className="w-full mx-auto mt-10 lg:mt-0 md:mt-0">
@@ -46,6 +72,9 @@ export default function Register() {
                     </label>
                     <select
                       id="guests"
+                      onChange={(e) => {
+                        setGuests(e.target.value);
+                      }}
                       className="flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <option value="">Select number of guests</option>
@@ -67,7 +96,10 @@ export default function Register() {
                     <input
                       type="date"
                       id="date"
-                      className="flex h-10 w-full items-center rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      onChange={(e) => {
+                        setDate(e.target.value);
+                      }}
+                      className="flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </div>
                 </div>
@@ -80,6 +112,9 @@ export default function Register() {
                   </label>
                   <select
                     id="time"
+                    onChange={(e) => {
+                      setTime(e.target.value);
+                    }}
                     className="flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     <option value="">Select time</option>
@@ -93,6 +128,7 @@ export default function Register() {
                 <button
                   className="inline-flex items-center justify-center p-4 bg-[#D9D9D9] hover:bg-[#C9C9C9]"
                   type="submit"
+                  onClick={handleSubmit}
                 >
                   Reserve Now
                 </button>
@@ -101,8 +137,8 @@ export default function Register() {
           </div>
         </section>
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-amber-100 bg-green-900 p-5 text-center">
-                    Popular Board Games
-                </h1>
+          Popular Board Games
+        </h1>
         <div className="mt-8 w-full flex justify-center bg-white ">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8 mb-10">
             <div
