@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 
 app.use(
   cors({
-    origin: "*",
+    origin: ["https://localhost:3000", "https://play-cafe.vercel.app"],
   })
 );
 
@@ -24,6 +24,7 @@ mongoose
   .catch((error) => {
     console.error("Database connection failed:", error.message);
     console.error(error.stack);
+    process.exit(1);
   });
 
 app.use("/api", require("./routes/index"));

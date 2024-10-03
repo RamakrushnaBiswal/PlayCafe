@@ -1,10 +1,18 @@
 const express = require("express");
+const Reservation = require("../models/reservation.model");
 
 const router = express.Router();
 
 router.use("/reservation", require("./reservationRouter"));
 router.get("/", (req, res) => {
-  res.send("Welcome to the restaurant API!");
+  res.json({
+    message: "Welcome to the restaurant API!",
+    version: "1.0.0",
+    endpoints: {
+      Reservation: "/reservation",
+    },
+    documentation: "https://api-docs-url.com",
+  });
 });
 
 module.exports = router;
