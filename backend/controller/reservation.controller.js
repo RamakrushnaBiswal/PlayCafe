@@ -3,15 +3,9 @@ const Reservation = require("../models/reservation.model");
 
 // Define the Zod schema for reservation validation
 const reservationSchema = z.object({
-  Guests: z.string().refine((val) => !isNaN(Date.parse(val)), {
-    message: "Invalid Guests format",
-  }),
-  Date: z.string().refine((val) => !isNaN(Date.parse(val)), {
-    message: "Invalid date format",
-  }),
-  Time: z.string().regex(/^([01]\d|2[0-3]):?([0-5]\d)$/, {
-    message: "Invalid time format",
-  }),
+  Guests: z.string(),
+  Date: z.string(),
+  Time: z.string(),
 });
 
 async function createReservation(req, res) {
@@ -24,7 +18,12 @@ async function createReservation(req, res) {
     }
 
     // Create the reservation if validation passes
-    const reservation = await Reservation.create(req.body);
+    const reservation = await Reservation.create({
+      Guests: validationResult.data.Guests,
+      Date: validationResult.data.Date,
+      Time: validationResult.data.Time,
+    });
+
     res.status(201).json(reservation);
   } catch (error) {
     res.status(400).json({ message: error.message });
