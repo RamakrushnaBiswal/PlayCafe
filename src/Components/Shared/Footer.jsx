@@ -49,6 +49,7 @@ const Footer = () => {
           <h4 className="text-lg font-bold mb-4">Contact Us</h4>
           <a
             href={`mailto:${emailAddress}`}
+            rel="noopener noreferrer"
             className="block mb-2 hover:underline"
           >
             {emailAddress}
