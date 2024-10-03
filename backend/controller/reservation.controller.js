@@ -3,9 +3,9 @@ const Reservation = require("../models/reservation.model");
 
 // Define the Zod schema for reservation validation
 const reservationSchema = z.object({
-  guests: z.number().int().positive(),
-  date: z.string().regex(/^\d{2}\/\d{2}\/\d{4}$/),
-  time: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/),
+  guests: z.string(),
+  date: z.string(),
+  time: z.string(),
 });
 
 async function createReservation(req, res) {
