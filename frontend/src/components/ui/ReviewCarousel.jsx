@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { MdStars, MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 const ReviewCarousel = () => {
@@ -55,12 +55,12 @@ const ReviewCarousel = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showMoreStates, setShowMoreStates] = useState(
-    reviews.map(() => false) // Initializing state for each review to false
+    reviews.map(() => false) 
   );
 
   const toggleShowMore = (index) => {
     const updatedStates = [...showMoreStates];
-    updatedStates[index] = !updatedStates[index]; // Toggle the specific review
+    updatedStates[index] = !updatedStates[index];
     setShowMoreStates(updatedStates);
   };
 
@@ -75,6 +75,24 @@ const ReviewCarousel = () => {
       prevIndex === 0 ? reviews.length - 4 : prevIndex - 1
     );
   };
+  const [cardsToShow, setCardsToShow] = useState(1); 
+
+  const updateCardsToShow = () => {
+    if (window.innerWidth >= 768) {
+      setCardsToShow(4); 
+    } else {
+      setCardsToShow(1); 
+    }
+  };
+
+  useEffect(() => {
+    updateCardsToShow(); 
+    window.addEventListener("resize", updateCardsToShow);
+
+    return () => {
+      window.removeEventListener("resize", updateCardsToShow);
+    };
+  }, []);
 
   return (
     <div className="mb-20">
@@ -89,8 +107,8 @@ const ReviewCarousel = () => {
           <div
             className="flex transition-transform duration-300 ease-in-out"
             style={{
-              transform: `translateX(-${currentIndex * (100 / 4)}%)`,
-              width: `${reviews.length * (100 / 4)}%`,
+              transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)`, // Moves the grid based on cardsToShow
+              width: `${(reviews.length / cardsToShow) * 100}%`, // Dynamic width based on the number of cards
             }}
           >
             {reviews.map((review, index) => (
@@ -105,7 +123,7 @@ const ReviewCarousel = () => {
                       alt=""
                       className="w-20 h-20 rounded-full"
                     />
-                    <h1 className="text-xl font-semibold">{review.name}</h1>
+                    <h1 className="text-xl font-semibold text-center">{review.name}</h1>
                     <div className="flex">
                       {Array(review.rating)
                         .fill()
