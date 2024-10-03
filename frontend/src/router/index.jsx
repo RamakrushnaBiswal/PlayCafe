@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import {
     createBrowserRouter,
     createRoutesFromElements,
     Route,
 } from "react-router-dom";
-
+import React from "react";
 import App from "../App";
 import Home from "../components/Pages/Home";
 import About from "../components/Pages/About";
