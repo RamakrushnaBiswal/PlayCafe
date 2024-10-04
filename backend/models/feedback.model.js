@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const validator = require("validator");
 
 const feedbackSchema = new Schema(
   {
@@ -37,22 +38,9 @@ const feedbackSchema = new Schema(
 );
 
 feedbackSchema.pre("save", function (next) {
-  // Basic sanitization example - replace with a robust sanitization library in production
-  const sanitize = (str) =>
-    str.replace(
-      /[&<>"']/g,
-      (m) =>
-        ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#39;",
-        }[m])
-    );
-
-  this.name = sanitize(this.name);
-  this.feedback = sanitize(this.feedback);
+  const feedback = this;
+  feedback.name = validator.escape(feedback.name);
+  feedback.feedback = validator.escape(feedback.feedback);
   next();
 });
 
