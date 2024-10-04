@@ -14,8 +14,9 @@ export default function Register() {
     console.log(guests);
     console.log(time);
     console.log(date);
+    // console.log(import.meta.env.VITE_BACKEND_URL);
     e.preventDefault();
-    fetch("http://localhost:3000/api/reservation/create", {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/reservation/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
