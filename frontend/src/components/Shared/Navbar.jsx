@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import Logo from "../../assets/Logo/playcafe.png";
 import { Link, useLocation } from "react-router-dom";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import { message } from "antd"; 
 
 const Navbar = () => {
   const { login, logout, isAuthenticated } = useKindeAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-
+  const [wasAuthenticated, setWasAuthenticated] = useState(false); 
   const menuItems = [
     { name: "Home", path: "/" },
     { name: "Events", path: "/events" },
@@ -30,6 +31,14 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Check when user goes from not authenticated to authenticated
+    if (!wasAuthenticated && isAuthenticated) {
+      message.success("Login successful!"); 
+    }
+    setWasAuthenticated(isAuthenticated);
+  }, [isAuthenticated, wasAuthenticated]); 
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -47,6 +56,27 @@ const Navbar = () => {
   const hoverTextColorClass = isScrolled ? "hover:text-gray-900" : "hover:text-gray-800";
   const baseTextColorClass = isScrolled ? "text-gray-800" : "text-gray-900";
   const mobileMenuBaseTextColorClass = isScrolled ? "text-gray-900" : "text-gray-800";
+
+  // Handle login
+  const handleLogin = async () => {
+    try {
+      await login();
+     
+    } catch (error) {
+      message.error("Login failed. Please try again."); 
+    }
+  };
+
+ 
+  const handleLogout = async () => {
+    try {
+      await logout();
+      message.success("Logout successful!"); 
+    } catch (error) {
+      message.error("Logout failed. Please try again."); 
+    }
+  };
+
   return (
     <nav
       className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"}
@@ -75,7 +105,7 @@ const Navbar = () => {
               ))}
               {isAuthenticated ? (
                 <button
-                  onClick={logout}
+                  onClick={handleLogout} 
                   className={`${baseTextColorClass} ${hoverTextColorClass}`}
                   type="button"
                 >
@@ -83,7 +113,7 @@ const Navbar = () => {
                 </button>
               ) : (
                 <button
-                  onClick={login}
+                  onClick={handleLogin}
                   className={`${baseTextColorClass} ${hoverTextColorClass}`}
                   type="button"
                 >
@@ -125,7 +155,7 @@ const Navbar = () => {
             ))}
             {isAuthenticated ? (
               <button
-                onClick={logout}
+                onClick={handleLogout}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                             ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
@@ -133,7 +163,7 @@ const Navbar = () => {
               </button>
             ) : (
               <button
-                onClick={login}
+                onClick={handleLogin}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                               ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
