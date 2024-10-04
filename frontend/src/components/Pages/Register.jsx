@@ -14,9 +14,9 @@ export default function Register() {
     console.log(guests);
     console.log(time);
     console.log(date);
-    // console.log(import.meta.env.BACKEND_URL);
+    // console.log(import.meta.env.VITE_BACKEND_URL);
     e.preventDefault();
-    fetch(`${import.meta.env.BACKEND_URL}/api/reservation/create`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/reservation/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
