@@ -35,8 +35,18 @@ const Navbar = () => {
   };
 
   const isHomePage = location.pathname === "/";
-  const buttonTextClass = isScrolled ? "text-gray-900" : isHomePage ? "text-white" : "text-black";
+  let buttonTextClass;
+  if (isScrolled) {
+    buttonTextClass = "text-gray-900";
+  } else if (isHomePage) {
+    buttonTextClass = "text-white";
+  } else {
+    buttonTextClass = "text-black";
+  }
 
+  const hoverTextColorClass = isScrolled ? "hover:text-gray-900" : "hover:text-gray-800";
+  const baseTextColorClass = isScrolled ? "text-gray-800" : "text-gray-900";
+  const mobileMenuBaseTextColorClass = isScrolled ? "text-gray-900" : "text-gray-800";
   return (
     <nav
       className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"}
@@ -57,7 +67,7 @@ const Navbar = () => {
                 <li key={item.name}>
                   <Link
                     to={item.path}
-                    className={`hover:${isScrolled ? "text-gray-900" : "text-gray-800"}`}
+                    className={`${baseTextColorClass} ${hoverTextColorClass}`}
                   >
                     {item.name}
                   </Link>
@@ -66,7 +76,7 @@ const Navbar = () => {
               {isAuthenticated ? (
                 <button
                   onClick={logout}
-                  className={`hover:${isScrolled ? "text-gray-900" : "text-gray-800"}`}
+                  className={`${baseTextColorClass} ${hoverTextColorClass}`}
                   type="button"
                 >
                   Log Out
@@ -75,14 +85,14 @@ const Navbar = () => {
                 <>
                   <button
                     onClick={register}
-                    className={`hover:${isScrolled ? "text-gray-900" : "text-gray-800"}`}
+                    className={`${baseTextColorClass} ${hoverTextColorClass}`}
                     type="button"
                   >
                     Register
                   </button>
                   <button
                     onClick={login}
-                    className={`hover:${isScrolled ? "text-gray-900" : "text-gray-800"}`}
+                    className={`${baseTextColorClass} ${hoverTextColorClass}`}
                     type="button"
                   >
                     Log In
@@ -112,7 +122,7 @@ const Navbar = () => {
                 key={item.name}
                 to={item.path}
                 className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                            ${isScrolled ? "text-gray-900" : "text-gray-800"} hover:bg-amber-300 hover:text-black`}
+                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 {item.name}
               </Link>
@@ -121,7 +131,7 @@ const Navbar = () => {
               <button
                 onClick={logout}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                            ${isScrolled ? "text-gray-900" : "text-gray-800"} hover:bg-amber-300 hover:text-black`}
+                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 Log Out
               </button>
@@ -130,14 +140,14 @@ const Navbar = () => {
                 <button
                   onClick={register}
                   className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                              ${isScrolled ? "text-gray-900" : "text-gray-800"} hover:bg-amber-300 hover:text-black`}
+                              ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
                 >
                   Register
                 </button>
                 <button
                   onClick={login}
                   className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                              ${isScrolled ? "text-gray-900" : "text-gray-800"} hover:bg-amber-300 hover:text-black`}
+                              ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
                 >
                   Log In
                 </button>
