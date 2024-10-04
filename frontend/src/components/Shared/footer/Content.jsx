@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Logo from "../../../assets/Logo/logo.png";
+import Logo from "../../../assets/Logo/newlogoo.png";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 
 export default function Content() {
@@ -28,7 +28,7 @@ const Section2 = () => {
       {!isWide && (
         <div className="flex justify-center">
           <img
-            className="w-20 bg-white p-2 rounded-3xl h-20"
+            className="w-24 bg-transparent p-0 rounded-3xl h-24"
             alt="logo"
             src={Logo}
           />
