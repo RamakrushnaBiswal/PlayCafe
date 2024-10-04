@@ -36,6 +36,26 @@ const feedbackSchema = new Schema(
   }
 );
 
+feedbackSchema.pre("save", function (next) {
+  // Basic sanitization example - replace with a robust sanitization library in production
+  const sanitize = (str) =>
+    str.replace(
+      /[&<>"']/g,
+      (m) =>
+        ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        }[m])
+    );
+
+  this.name = sanitize(this.name);
+  this.feedback = sanitize(this.feedback);
+  next();
+});
+
 const Feedback = mongoose.model("Feedback", feedbackSchema);
 
 module.exports = {

@@ -6,9 +6,9 @@ module.exports = {
       path: "/create",
       method: "POST",
       parameters: {
-        name: "string (required)",
-        email: "string (required)",
-        message: "string (required)",
+        name: { type: "string", required: true },
+        email: { type: "string", required: true },
+        message: { type: "string", required: true },
       },
     },
   },

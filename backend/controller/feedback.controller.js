@@ -37,7 +37,9 @@ async function createFeedback(req, res) {
   }
 }
 
-module.exports = createFeedback;
+module.exports = {
+  createFeedback,
+};
 
 //dummy api call for feedback
 // {
