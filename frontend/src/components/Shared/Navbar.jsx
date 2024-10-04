@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Logo from "../../assets/Logo/logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import { message } from "antd"; 
+import { message } from "antd";
 
 const Navbar = () => {
   const { login, logout, isAuthenticated } = useKindeAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const [wasAuthenticated, setWasAuthenticated] = useState(false); 
+  const wasAuthenticated = useRef(false);
   const menuItems = [
     { name: "Home", path: "/" },
     { name: "Events", path: "/events" },
@@ -33,11 +33,14 @@ const Navbar = () => {
 
   useEffect(() => {
     // Check when user goes from not authenticated to authenticated
-    if (!wasAuthenticated && isAuthenticated) {
-      message.success("Login successful!"); 
+    if (wasAuthenticated.current && !isAuthenticated) {
+      message.success("Logout successful!");
     }
-    setWasAuthenticated(isAuthenticated);
-  }, [isAuthenticated, wasAuthenticated]); 
+    if (!wasAuthenticated.current && isAuthenticated) {
+      message.success("Login successful!");
+    }
+    wasAuthenticated.current = isAuthenticated;
+  }, [isAuthenticated]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -61,19 +64,19 @@ const Navbar = () => {
   const handleLogin = async () => {
     try {
       await login();
-     
+
     } catch (error) {
-      message.error("Login failed. Please try again."); 
+      message.error("Login failed. Please try again.");
     }
   };
 
- 
+
   const handleLogout = async () => {
     try {
       await logout();
-      message.success("Logout successful!"); 
+      message.success("Logout successful!");
     } catch (error) {
-      message.error("Logout failed. Please try again."); 
+      message.error("Logout failed. Please try again.");
     }
   };
 
@@ -105,7 +108,7 @@ const Navbar = () => {
               ))}
               {isAuthenticated ? (
                 <button
-                  onClick={handleLogout} 
+                  onClick={handleLogout}
                   className={`${baseTextColorClass} ${hoverTextColorClass}`}
                   type="button"
                 >
