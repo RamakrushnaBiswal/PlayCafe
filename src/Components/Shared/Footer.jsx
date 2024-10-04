@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "./footer/Footer";
+import Footer from "./footer/Footer.jsx";
 
 const StickyFooter = () => {
   return (

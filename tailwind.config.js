@@ -1,8 +1,15 @@
 //** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  darkMode:'class',
+  content: ['./src/**/*.{js,jsx,ts,tsx,css}', './public/index.html'],
   theme: {
     extend: {
+      colors:{
+        'light-bg':'#FDF3C7',
+        'dark-bg':'#1a1a1a',
+        'light-text':'#000',
+        'dark-text':'#fff'
+      },
       height: {
         'screen-dvh': '100dvh',
       },

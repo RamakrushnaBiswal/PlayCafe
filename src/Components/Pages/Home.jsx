@@ -6,7 +6,7 @@ import About from "./About";
 
 export default function Home() {
     return (
-        <div id="home" className="bg-[#FDF3C7]">
+        <div id="home" className="bg-[#FDF3C7] dark:bg-dark-bg">
             <Landing />
             <About/>
             <ReviewCarousel/>

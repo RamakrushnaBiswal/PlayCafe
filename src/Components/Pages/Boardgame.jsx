@@ -210,7 +210,7 @@ export default function Boardgame() {
                     </div>
                 </div>
             </section>
-            <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+            <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-[#070707]">
                 <div className="container mx-auto px-4 md:px-6 text-center">
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-4">
                         Subscribe to our Newsletter
@@ -221,7 +221,7 @@ export default function Boardgame() {
                     <form className="flex flex-col items-center space-y-4 sm:space-y-0 sm:flex-row sm:space-x-4 justify-center">
                         <input
                             type="email"
-                            className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-[#fff] dark:text-black"
                             placeholder="Enter your email"
                             required
                         />

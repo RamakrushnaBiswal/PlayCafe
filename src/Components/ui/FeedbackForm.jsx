@@ -32,7 +32,8 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div className="bg-amber-100 h-full py-16 px-4 sm:px-6 lg:px-8">
+    <div className="dark:bg-dark-bg dark:text-dark-text">
+    <div className="bg-amber-100 dark:bg-dark-bg h-full py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
@@ -42,10 +43,10 @@ const FeedbackForm = () => {
           className="lg:grid lg:grid-cols-2 lg:gap-8"
         >
           <div className="mb-8 lg:mb-0 relative">
-            <h2 className="text-3xl  font-extrabold text-[#004D43] sm:text-4xl">
+            <h2 className="text-3xl  font-extrabold text-[#004D43] dark:text-[#4FF0D4] sm:text-4xl">
               We Value Your Feedback
             </h2>
-            <p className="mt-4 text-lg text-gray-700 pb-3">
+            <p className="mt-4 text-lg text-gray-700 dark:text-[#929599] pb-3">
               Your thoughts help us improve. Share your experience and
               suggestions with us!
             </p>
@@ -63,7 +64,7 @@ const FeedbackForm = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-[#004D43]"
+                  className="block text-lg font-medium text-[#004D43] dark:text-[#4FF0D4]"
                 >
                   Name
                 </label>
@@ -73,13 +74,13 @@ const FeedbackForm = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43] dark:bg-[#fff] dark:text-black"
                 />
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-[#004D43]"
+                  className="block text-lg font-medium text-[#004D43] dark:text-[#4FF0D4]"
                 >
                   Email
                 </label>
@@ -89,13 +90,13 @@ const FeedbackForm = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43] dark:bg-[#fff] dark:text-black"
                 />
               </div>
               <div>
                 <label
                   htmlFor="feedback"
-                  className="block text-sm font-medium text-[#004D43]"
+                  className="block text-lg font-medium text-[#004D43] dark:text-[#4FF0D4]"
                 >
                   Feedback
                 </label>
@@ -105,13 +106,13 @@ const FeedbackForm = () => {
                   value={feedback}
                   onChange={(e) => setFeedback(e.target.value)}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43] dark:bg-[#fff] dark:text-black"
                 ></textarea>
               </div>
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#004D43] hover:bg-[#003d35] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004D43]"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-[#004D43] hover:bg-[#003d35] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004D43] "
                 >
                   Submit Feedback
                 </button>
@@ -129,6 +130,7 @@ const FeedbackForm = () => {
           </div>
         </motion.div>
       </div>
+    </div>
     </div>
   );
 };

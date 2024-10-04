@@ -69,15 +69,13 @@ const ReviewCarousel = () => {
       prevIndex === 0 ? reviews.length - 4 : prevIndex - 1
     );
   };
-
   return (
     <div className="mb-20">
       <div className="items-center flex justify-center mb-10 p-20">
-        <h1 className="md:text-6xl text-4xl pl-3 pr-3 text-center font-bold text-[#004D43]">
+        <h1 className="md:text-6xl text-4xl pl-3 pr-3 text-center font-bold text-[#004D43] dark:text-[#4FF0D4]">
           Customer Feedback
         </h1>
       </div>
-
       <div className="bg-[#004D43] min-h-[50vh] p-4 md:p-20 items-center justify-center flex relative ">
         <div className="w-full max-w-7xl md:overflow-hidden overflow-x-auto  ">
           <div
@@ -92,15 +90,15 @@ const ReviewCarousel = () => {
                 key={index}
                 className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 "
               >
-                <div className="relative h-[40vh] md:h-[35vh] p-4 rounded-xl md:w-full w-[42vh] bg-amber-200 z-10 overflow-hidden">
+                <div className="relative h-[40vh] md:h-[35vh] p-4 rounded-xl md:w-full w-[42vh] bg-amber-200  z-10 overflow-hidden">
                   <div className="items-center flex flex-col justify-center mb-3">
                     <img
                       src={review.img}
                       alt=""
                       className="rounded-full h-20 w-20"
                     />
-                    <h1 className="text-xl font-semibold">{review.name}</h1>
-                    <div className="flex">
+                    <h1 className="text-xl dark: text-black font-semibold">{review.name}</h1>
+                    <div className="flex ">
                       {Array(review.rating)
                         .fill()
                         .map((_, i) => (
@@ -108,7 +106,7 @@ const ReviewCarousel = () => {
                         ))}
                     </div>
                   </div>
-                  <p className="text-center text-lg leading-6 tracking-wide  mt-4 ">
+                  <p className="text-center text-lg dark:text-black leading-6 tracking-wide  mt-4 ">
                     {review.review}
                   </p>
                 </div>
