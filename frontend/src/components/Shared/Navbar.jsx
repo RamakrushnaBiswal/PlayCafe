@@ -64,7 +64,7 @@ const Navbar = () => {
   const handleLogin = async () => {
     try {
       await login();
-
+      
     } catch (error) {
       message.error("Login failed. Please try again.");
     }
@@ -74,7 +74,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      message.success("Logout successful!");
+      
     } catch (error) {
       message.error("Logout failed. Please try again.");
     }
