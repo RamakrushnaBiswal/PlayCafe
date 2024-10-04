@@ -84,38 +84,18 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
 - Make sure you show some love by giving ⭐ to our repository
 
 <br>
-<center>
-<div>
- 
-[![All Contributors](https://img.shields.io/github/all-contributors/RamakrushnaBiswal/PlayCafe?color=ee8449&style=flat-square)](#contributors)
-
-
-## ⭐Support 
-
-- 💰 Become our [Sponsor](https://github.com/sponsors/RamakrushnaBiswal)!
-- ⭐ Star our Repo 
-
-
-
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mishradev1"><img src="https://avatars.githubusercontent.com/u/118660840?v=4?s=100" width="100px;" alt="Dev Mishra"/><br /><sub><b>Dev Mishra</b></sub></a><br /><a href="https://github.com/RamakrushnaBiswal/PlayCafe/commits?author=mishradev1" title="Code">💻</a></td>
-    </tr>
-  </tbody>
-</table>
+
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+ 
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+## ⭐Support 
+
+- 💰 Become our [Sponsor](https://github.com/sponsors/RamakrushnaBiswal)!
+- ⭐ Star our Repo 
