@@ -3,6 +3,7 @@ const Reservation = require("../models/reservation.model");
 
 const router = express.Router();
 
+router.use("/feedback", require("./feedbackRouter"));
 router.use("/reservation", require("./reservationRouter"));
 router.get("/", (req, res) => {
   res.json({

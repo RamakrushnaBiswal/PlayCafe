@@ -19,9 +19,22 @@ const FeedbackForm = () => {
   const [feedback, setFeedback] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(`Name: ${name}, Email: ${email}, Feedback: ${feedback}`);
+    const response = await fetch("http://localhost:3000/api/feedback/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, feedback }),
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      console.error("Feedback submission failed:", data.message);
+      return;
+    }
+
     setSubmitted(true);
     setTimeout(() => {
       setName("");
