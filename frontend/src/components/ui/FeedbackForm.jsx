@@ -24,32 +24,37 @@ const FeedbackForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log(`Name: ${name}, Email: ${email}, Feedback: ${feedback}`);
-    const response = await fetch(`${API_URL}/feedback/create`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, feedback }),
-    });
-    const data = await response.json();
-    if (!response.ok) {
-      const errorMessage =
-        data.message || "An error occurred while submitting feedback.";
-      setError(errorMessage);
-      console.error("Feedback submission failed:", errorMessage);
-      return;
-    }
+    try {
+      const response = await fetch(`${API_URL}/feedback/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, feedback }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        const errorMessage =
+          data.message || "An error occurred while submitting feedback.";
+        setError(errorMessage);
+        console.error("Feedback submission failed:", errorMessage);
+        return;
+      }
 
-    setSubmitted(true);
-    setIsLoading(false);
-    setError(null);
-    setTimeout(() => {
-      setName("");
-      setEmail("");
-      setFeedback("");
-      setSubmitted(false);
-    }, 3000);
+      setSubmitted(true);
+      setError(null);
+      setTimeout(() => {
+        setName("");
+        setEmail("");
+        setFeedback("");
+        setSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      setError("An error occurred while submitting feedback.");
+      console.error("Feedback submission failed:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

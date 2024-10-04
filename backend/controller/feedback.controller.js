@@ -1,5 +1,5 @@
 const { z } = require("zod");
-const Feedback = require("../models/feedback.model");
+const { Feedback } = require("../models/feedback.model");
 
 // Define the Zod schema for feedback validation
 const feedbackSchema = z.object({
