@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 const Navbar = () => {
-  const { login, register, logout, isAuthenticated } = useKindeAuth();
+  const { login, logout, isAuthenticated } = useKindeAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -82,22 +82,13 @@ const Navbar = () => {
                   Log Out
                 </button>
               ) : (
-                <>
-                  <button
-                    onClick={register}
-                    className={`${baseTextColorClass} ${hoverTextColorClass}`}
-                    type="button"
-                  >
-                    Register
-                  </button>
-                  <button
-                    onClick={login}
-                    className={`${baseTextColorClass} ${hoverTextColorClass}`}
-                    type="button"
-                  >
-                    Log In
-                  </button>
-                </>
+                <button
+                  onClick={login}
+                  className={`${baseTextColorClass} ${hoverTextColorClass}`}
+                  type="button"
+                >
+                  Log In
+                </button>
               )}
             </ul>
           </div>
@@ -136,22 +127,13 @@ const Navbar = () => {
                 Log Out
               </button>
             ) : (
-              <>
-                <button
-                  onClick={register}
-                  className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
+              <button
+                onClick={login}
+                className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                               ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
-                >
-                  Register
-                </button>
-                <button
-                  onClick={login}
-                  className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                              ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
-                >
-                  Log In
-                </button>
-              </>
+              >
+                Log In
+              </button>
             )}
           </div>
         </div>
