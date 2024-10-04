@@ -3,7 +3,18 @@ const Reservation = require("../models/reservation.model");
 
 const router = express.Router();
 
-router.use("/feedback", require("./feedbackRouter"));
+let feedbackRouter;
+try {
+  feedbackRouter = require("./feedbackRouter");
+} catch (error) {
+  console.error("Error loading feedbackRouter:", error);
+  feedbackRouter = (req, res, next) => {
+    res
+      .status(500)
+      .json({ error: "Feedback functionality is currently unavailable" });
+  };
+}
+router.use("/feedback", feedbackRouter);
 router.use("/reservation", require("./reservationRouter"));
 router.get("/", (req, res) => {
   res.json({

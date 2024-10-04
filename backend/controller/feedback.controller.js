@@ -3,9 +3,9 @@ const Feedback = require("../models/feedback.model");
 
 // Define the Zod schema for feedback validation
 const feedbackSchema = z.object({
-  name: z.string(),
-  email: z.string(),
-  feedback: z.string(),
+  name: z.string().min(2).max(100),
+  email: z.string().email(),
+  feedback: z.string().min(10),
 });
 
 async function createFeedback(req, res) {

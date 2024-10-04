@@ -6,15 +6,14 @@ const router = express.Router();
 
 router.post("/create", createFeedback);
 
+const apiInfo = require("../config/api.info");
+
 router.get("/", (req, res) => {
-  res.json({
-    message: "Welcome to the feedback API!",
-    version: "1.0.0",
-    endpoints: {
-      createFeedback: "/create [POST]",
-    },
-    documentation: "https://api-docs-url.com",
-  });
+  try {
+    res.json(apiInfo);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 module.exports = router;
