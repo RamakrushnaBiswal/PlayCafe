@@ -1,4 +1,7 @@
 # 🎲 PlayCafe Website
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Welcome to the **[PlayCafe]** website repository! This project is part of **GirlScript Summer of Code (GSSoC) Extended** 🚀. Our cafe offers a warm and exciting environment for board game enthusiasts to gather, relax, and enjoy great food. This repository contains the code for the cafe's official website, which aims to create a fun and immersive online presence.
 if you have any doubt about the project join [discord](https://discord.gg/Jh3bWQ7FRN)
@@ -84,7 +87,7 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
 <center>
 <div>
  
-[![All Contributors](https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/github/all-contributors/RamakrushnaBiswal/PlayCafe?color=ee8449&style=flat-square)](#contributors)
 
 
 ## ⭐Support 
@@ -94,3 +97,25 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
 
 
 
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mishradev1"><img src="https://avatars.githubusercontent.com/u/118660840?v=4?s=100" width="100px;" alt="Dev Mishra"/><br /><sub><b>Dev Mishra</b></sub></a><br /><a href="https://github.com/RamakrushnaBiswal/PlayCafe/commits?author=mishradev1" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

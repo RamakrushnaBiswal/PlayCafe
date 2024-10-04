@@ -30,3 +30,5 @@ mongoose
 app.use("/api", require("./routes/index"));
 
 app.listen(port, () => console.log(`Server is running on port ${port}!`));
+
+module.exports = app;
