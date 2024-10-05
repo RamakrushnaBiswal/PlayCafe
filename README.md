@@ -142,10 +142,24 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Nvntdad">
+                    <img src="https://avatars.githubusercontent.com/u/156535853?v=4" width="100;" alt="Nvntdad"/>
+                    <br />
+                    <sub><b>Navneet Dadhich</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/mishradev1">
                     <img src="https://avatars.githubusercontent.com/u/118660840?v=4" width="100;" alt="mishradev1"/>
                     <br />
                     <sub><b>Dev Mishra</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Sapna127">
+                    <img src="https://avatars.githubusercontent.com/u/91309280?v=4" width="100;" alt="Sapna127"/>
+                    <br />
+                    <sub><b>Sapna Kul</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -162,6 +176,8 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Vaibhav-Kumar-K-R</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/vishnuprasad2004">
                     <img src="https://avatars.githubusercontent.com/u/116942066?v=4" width="100;" alt="vishnuprasad2004"/>
