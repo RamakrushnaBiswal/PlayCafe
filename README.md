@@ -1,6 +1,6 @@
 # 🎲 PlayCafe Website
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Welcome to the **[PlayCafe]** website repository! This project is part of **GirlScript Summer of Code (GSSoC) Extended** 🚀. Our cafe offers a warm and exciting environment for board game enthusiasts to gather, relax, and enjoy great food. This repository contains the code for the cafe's official website, which aims to create a fun and immersive online presence.
@@ -86,36 +86,122 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
 <br>
 <center>
 <div>
- 
-[![All Contributors](https://img.shields.io/github/all-contributors/RamakrushnaBiswal/PlayCafe?color=ee8449&style=flat-square)](#contributors)
+ <!-- readme: contributors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/RamakrushnaBiswal">
+                    <img src="https://avatars.githubusercontent.com/u/125277258?v=4" width="100;" alt="RamakrushnaBiswal"/>
+                    <br />
+                    <sub><b>Ramakrushna Biswal</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/samar12-rad">
+                    <img src="https://avatars.githubusercontent.com/u/128586929?v=4" width="100;" alt="samar12-rad"/>
+                    <br />
+                    <sub><b>Samarth Vaidya</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/17arindam">
+                    <img src="https://avatars.githubusercontent.com/u/65901047?v=4" width="100;" alt="17arindam"/>
+                    <br />
+                    <sub><b>Arindam</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/tejasbenibagde">
+                    <img src="https://avatars.githubusercontent.com/u/124677750?v=4" width="100;" alt="tejasbenibagde"/>
+                    <br />
+                    <sub><b>Tejas Benibagde</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Suhas-Koheda">
+                    <img src="https://avatars.githubusercontent.com/u/72063139?v=4" width="100;" alt="Suhas-Koheda"/>
+                    <br />
+                    <sub><b>Suhas Koheda</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/sajalbatra">
+                    <img src="https://avatars.githubusercontent.com/u/125984550?v=4" width="100;" alt="sajalbatra"/>
+                    <br />
+                    <sub><b>Sajal Batra</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/itznayan">
+                    <img src="https://avatars.githubusercontent.com/u/136584376?v=4" width="100;" alt="itznayan"/>
+                    <br />
+                    <sub><b>Mahera Nayan</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Nvntdad">
+                    <img src="https://avatars.githubusercontent.com/u/156535853?v=4" width="100;" alt="Nvntdad"/>
+                    <br />
+                    <sub><b>Navneet Dadhich</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/mishradev1">
+                    <img src="https://avatars.githubusercontent.com/u/118660840?v=4" width="100;" alt="mishradev1"/>
+                    <br />
+                    <sub><b>Dev Mishra</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Sapna127">
+                    <img src="https://avatars.githubusercontent.com/u/91309280?v=4" width="100;" alt="Sapna127"/>
+                    <br />
+                    <sub><b>Sapna Kul</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Syed-Farazuddin">
+                    <img src="https://avatars.githubusercontent.com/u/119295880?v=4" width="100;" alt="Syed-Farazuddin"/>
+                    <br />
+                    <sub><b>Syed Faraz</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Vaibhav-Kumar-K-R">
+                    <img src="https://avatars.githubusercontent.com/u/132189791?v=4" width="100;" alt="Vaibhav-Kumar-K-R"/>
+                    <br />
+                    <sub><b>Vaibhav-Kumar-K-R</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/vishnuprasad2004">
+                    <img src="https://avatars.githubusercontent.com/u/116942066?v=4" width="100;" alt="vishnuprasad2004"/>
+                    <br />
+                    <sub><b>Vishnu Prasad Korada</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
+<!-- readme: contributors -end -->
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+ 
 
 ## ⭐Support 
 
 - 💰 Become our [Sponsor](https://github.com/sponsors/RamakrushnaBiswal)!
 - ⭐ Star our Repo 
-
-
-
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mishradev1"><img src="https://avatars.githubusercontent.com/u/118660840?v=4?s=100" width="100px;" alt="Dev Mishra"/><br /><sub><b>Dev Mishra</b></sub></a><br /><a href="https://github.com/RamakrushnaBiswal/PlayCafe/commits?author=mishradev1" title="Code">💻</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
