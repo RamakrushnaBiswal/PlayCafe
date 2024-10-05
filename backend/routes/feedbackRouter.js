@@ -1,12 +1,9 @@
 const express = require("express");
-const { Feedback } = require("../models/feedback.model");
-const createFeedback = require("../controller/feedback.controller");
-
+const { createFeedback } = require("../controller/feedback.controller");
 const router = express.Router();
+const apiInfo = require("../config/api.info");
 
 router.post("/create", createFeedback);
-
-const apiInfo = require("../config/api.info");
 
 router.get("/", (req, res) => {
   try {
