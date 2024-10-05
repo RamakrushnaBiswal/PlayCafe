@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
-import Logo from "../../assets/Logo/playcafe.png";
+import { useState, useEffect, useRef } from "react";
+import Logo from "../../assets/Logo/logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import { message } from "antd";
 
 const Navbar = () => {
   const { login, logout, isAuthenticated } = useKindeAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-
+  const wasAuthenticated = useRef(null);
   const menuItems = [
     { name: "Home", path: "/" },
     { name: "Events", path: "/events" },
@@ -30,6 +31,20 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (wasAuthenticated.current === null) {
+      wasAuthenticated.current = isAuthenticated;
+      return;
+    }
+    if (wasAuthenticated.current && !isAuthenticated) {
+      message.success("Logout successful!");
+    }
+    if (!wasAuthenticated.current && isAuthenticated) {
+      message.success("Login successful!");
+    }
+    wasAuthenticated.current = isAuthenticated;
+  }, [isAuthenticated]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -47,6 +62,27 @@ const Navbar = () => {
   const hoverTextColorClass = isScrolled ? "hover:text-gray-900" : "hover:text-gray-800";
   const baseTextColorClass = isScrolled ? "text-gray-800" : "text-gray-900";
   const mobileMenuBaseTextColorClass = isScrolled ? "text-gray-900" : "text-gray-800";
+
+  // Handle login
+  const handleLogin = async () => {
+    try {
+      await login();
+
+    } catch (error) {
+      message.error("Login failed. Please try again.");
+    }
+  };
+
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+
+    } catch (error) {
+      message.error("Logout failed. Please try again.");
+    }
+  };
+
   return (
     <nav
       className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"}
@@ -75,7 +111,7 @@ const Navbar = () => {
               ))}
               {isAuthenticated ? (
                 <button
-                  onClick={logout}
+                  onClick={handleLogout}
                   className={`${baseTextColorClass} ${hoverTextColorClass}`}
                   type="button"
                 >
@@ -83,7 +119,7 @@ const Navbar = () => {
                 </button>
               ) : (
                 <button
-                  onClick={login}
+                  onClick={handleLogin}
                   className={`${baseTextColorClass} ${hoverTextColorClass}`}
                   type="button"
                 >
@@ -96,13 +132,13 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="flex md:hidden">
             <button onClick={toggleMenu} className={`${buttonTextClass} focus:outline-none`}>
-              {isMenuOpen ? 
-              <svg className="h-6 w-6" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-              : <svg className="h-6 w-6" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              {isMenuOpen ?
+                <svg className="h-6 w-6" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                : <svg className="h-6 w-6" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               }
             </button>
           </div>
@@ -125,7 +161,7 @@ const Navbar = () => {
             ))}
             {isAuthenticated ? (
               <button
-                onClick={logout}
+                onClick={handleLogout}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                             ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
@@ -133,7 +169,7 @@ const Navbar = () => {
               </button>
             ) : (
               <button
-                onClick={login}
+                onClick={handleLogin}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                               ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
