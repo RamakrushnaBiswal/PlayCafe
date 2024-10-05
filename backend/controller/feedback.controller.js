@@ -21,7 +21,7 @@ async function createFeedback(req, res) {
       return res.status(400).json({
         success: false,
         message: "Validation failed",
-        stack: validationResult.error.errors,
+        errors: validationResult.error.errors,
       });
     }
 

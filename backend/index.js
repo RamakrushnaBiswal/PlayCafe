@@ -40,7 +40,6 @@ app.get("/health", (req, res) => {
   res.status(200).json({ status: "OK" });
 });
 
-// Error Handling Middleware
 app.use(errorMiddleware);
 
 // Start server
