@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Logo from "../../assets/Logo/logo.png";
+import Logo from "../../assets/Logo/playcafe.png";
 import { Link, useLocation } from "react-router-dom";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
@@ -56,7 +56,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/">
             <div className="flex-shrink-0">
-              <img className="w-14 h-14 bg-white rounded-full p-1" alt="logo" src={Logo} />
+              <img className="w-14 h-14 bg-white rounded-full p-0" alt="logo" src={Logo} />
             </div>
           </Link>
 
