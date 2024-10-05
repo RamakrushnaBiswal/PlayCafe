@@ -54,7 +54,7 @@ const Navbar = () => {
             </div>
           </Link>
           <div className="hidden md:flex">
-            <ul className="ml-4 flex space-x-7 Playfair font-bold text-lg ">
+            <ul className="ml-4 flex space-x-7 Poppins font-bold text-lg ">
               <li className="transform hover:scale-110 hover:-translate-y-1 transition hover:text-orange-500  duration-300">
                 <Link
                   to={"/"}
