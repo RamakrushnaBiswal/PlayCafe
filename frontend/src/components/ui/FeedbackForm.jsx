@@ -13,22 +13,48 @@ const FeedbackForm = () => {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
-
+  const API_URL = import.meta.env.VITE_BACKEND_URI || "http://localhost:3000/";
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [feedback, setFeedback] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(`Name: ${name}, Email: ${email}, Feedback: ${feedback}`);
-    setSubmitted(true);
-    setTimeout(() => {
-      setName("");
-      setEmail("");
-      setFeedback("");
-      setSubmitted(false);
-    }, 3000);
+    setIsLoading(true);
+    try {
+      const response = await fetch(`${API_URL}/feedback/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, feedback }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        const errorMessage =
+          data.message || "An error occurred while submitting feedback.";
+        setError(errorMessage);
+        console.error("Feedback submission failed:", errorMessage);
+        return;
+      }
+
+      setSubmitted(true);
+      setError(null);
+      setTimeout(() => {
+        setName("");
+        setEmail("");
+        setFeedback("");
+        setSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      setError("An error occurred while submitting feedback.");
+      console.error("Feedback submission failed:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -116,7 +142,7 @@ const FeedbackForm = () => {
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#004D43] hover:bg-[#003d35] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004D43]"
                 >
-                  Submit Feedback
+                  {isLoading ? "Submitting..." : "Submit Feedback"}
                 </button>
               </div>
             </form>
@@ -127,6 +153,15 @@ const FeedbackForm = () => {
                 className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded"
               >
                 Thank you for your feedback!
+              </motion.div>
+            )}
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded"
+              >
+                {error}
               </motion.div>
             )}
           </div>

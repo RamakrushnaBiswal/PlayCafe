@@ -1,10 +1,9 @@
 // src/App.js
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
 import Navbar from './components/Shared/Navbar';
 import Footer from './components/Shared/Footer';
 import { Outlet } from 'react-router-dom';
-import { FaArrowUp } from 'react-icons/fa';  // For the arrow icon
 
 function App() {
   const [showButton, setShowButton] = useState(false);
@@ -30,29 +29,6 @@ function App() {
       <Navbar />
       <Outlet />
       <Footer />
-
-      {/* "Back to Top" button, visible when scrolled to the bottom */}
-      {showButton && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-10 right-10 p-4 bg-black text-white rounded-full shadow-lg flex items-center justify-center animate-bounce"
-          style={{ animation: "bounce 1s infinite" }}
-        >
-          <FaArrowUp size={30} />
-        </button>
-      )}
-
-      {/* Keyframes for bounce animation */}
-      <style jsx>{`
-        @keyframes bounce {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-      `}</style>
     </div>
   );
 }
