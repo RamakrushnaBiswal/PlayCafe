@@ -142,8 +142,8 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Nvntdad">
-                    <img src="https://avatars.githubusercontent.com/u/156535853?v=4" width="100;" alt="Nvntdad"/>
+                <a href="https://github.com/Navneetdadhich">
+                    <img src="https://avatars.githubusercontent.com/u/156535853?v=4" width="100;" alt="Navneetdadhich"/>
                     <br />
                     <sub><b>Navneet Dadhich</b></sub>
                 </a>
