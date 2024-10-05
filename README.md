@@ -132,15 +132,8 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Mahera Nayan</b></sub>
                 </a>
             </td>
-
-            <td align="center">
-                <a href="https://github.com/Navneetdadhich">
-                    <img src="https://avatars.githubusercontent.com/u/156535853?v=4" width="100;" alt="Navneetdadhich"/>
-                    <br />
-                    <sub><b>Navneet Dadhich</b></sub>
-                </a>
-            </td>
-
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/mishradev1">
                     <img src="https://avatars.githubusercontent.com/u/118660840?v=4" width="100;" alt="mishradev1"/>
@@ -169,14 +162,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Vishnu Prasad Korada</b></sub>
                 </a>
             </td>
-       <td align="center">
-                <a href="https://github.com/ayush215mb">
-                    <img src="" width="100;" alt="ayush215mb"/>
-                    <br />
-                    <sub><b>Ayush Yadav</b></sub>
-                </a>
-            </td>
-      
 		</tr>
 	<tbody>
 </table>
