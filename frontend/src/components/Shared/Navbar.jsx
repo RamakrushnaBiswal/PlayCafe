@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react";
-import Logo from "../../assets/Logo/logo.png";
+import Logo from "../../assets/Logo/playcafe.png";
 import { Link, useLocation } from "react-router-dom";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 const Navbar = () => {
+  const { login, logout, isAuthenticated } = useKindeAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  const menuItems = [
+    { name: "Home", path: "/" },
+    { name: "Events", path: "/events" },
+    { name: "Menu", path: "/menu" },
+    { name: "Reservation", path: "/reservation" },
+    { name: "Boardgames", path: "/boardgame" },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      if (scrollPosition > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(scrollPosition > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -27,33 +33,40 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  const isHomePage = location.pathname === "/";
-  const buttonTextClass = isScrolled
-    ? "text-gray-900"
-    : isHomePage
-    ? "text-white"
-    : "text-black";
 
+  const isHomePage = location.pathname === "/";
+
+  let buttonTextClass;
+  if (isScrolled) {
+    buttonTextClass = "text-gray-900";
+  } else if (isHomePage) {
+    buttonTextClass = "text-white";
+  } else {
+    buttonTextClass = "text-black";
+  }
+
+
+  const hoverTextColorClass = isScrolled ? "hover:text-gray-900" : "hover:text-gray-800";
+  const baseTextColorClass = isScrolled ? "text-gray-800" : "text-gray-900";
+  const mobileMenuBaseTextColorClass = isScrolled ? "text-gray-900" : "text-gray-800";
   return (
     <nav
-      className={`w-full fixed top-0 z-50 transition duration-300  ${
-        isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"
-      } 
-                   ${isScrolled ? "text-gray-800" : "text-black"} 
-                   ${isScrolled ? "shadow-lg" : ""}`}
+
+      className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"}
+                  ${isScrolled ? "text-gray-800" : "text-black"} ${isScrolled ? "shadow-lg" : ""}`}
+
     >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16 ">
+        <div className="flex justify-between items-center h-16">
           <Link to="/">
             <div className="flex-shrink-0">
-              <img
-                className="w-14 h-14 bg-white rounded-full p-1 "
-                alt="logo"
-                src={Logo}
-              />
+              <img className="w-14 h-14 bg-white rounded-full p-0" alt="logo" src={Logo} />
             </div>
           </Link>
+
+          {/* Desktop Menu */}
           <div className="hidden md:flex">
+
             <ul className="ml-4 flex space-x-7 Poppins font-bold text-lg ">
               <li className="transform hover:scale-110 hover:-translate-y-1 transition hover:text-orange-500  duration-300">
                 <Link
@@ -105,33 +118,29 @@ const Navbar = () => {
                   Boardgames
                 </Link>
               </li>
+
             </ul>
           </div>
+
+          {/* Mobile Menu Button */}
           <div className="flex md:hidden">
-            <button
-              onClick={toggleMenu}
-              className={`${buttonTextClass} focus:outline-none`}
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="black"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+            <button onClick={toggleMenu} className={`${buttonTextClass} focus:outline-none`}>
+              {isMenuOpen ? 
+              <svg className="h-6 w-6" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
+              : <svg className="h-6 w-6" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              }
             </button>
           </div>
         </div>
       </div>
+
       {/* Mobile Menu */}
       {isMenuOpen && (
+
         <div
           className={`md:hidden ${
             isScrolled ? "bg-amber-100 shadow-lg" : "bg-[#E0F0B1] shadow-lg"
@@ -178,6 +187,7 @@ const Navbar = () => {
             >
               Boardgames
             </a>
+
           </div>
         </div>
       )}

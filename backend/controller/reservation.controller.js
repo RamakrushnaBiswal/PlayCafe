@@ -1,5 +1,6 @@
 const { z } = require("zod");
 const Reservation = require("../models/reservation.model");
+const logger = require("../config/logger"); // Import your logger
 
 // Define the Zod schema for reservation validation
 const reservationSchema = z.object({
@@ -13,7 +14,10 @@ async function createReservation(req, res) {
     const validationResult = reservationSchema.safeParse(req.body);
 
     if (!validationResult.success) {
-      console.error("Validation error:", validationResult.error.errors);
+      logger.error("Validation error:", {
+        errors: validationResult.error.errors,
+        body: req.body,
+      });
       return res.status(400).json({
         success: false,
         message: "Validation failed",
@@ -29,7 +33,12 @@ async function createReservation(req, res) {
       data: reservation,
     });
   } catch (error) {
-    console.error("Error creating reservation:", error);
+    logger.error("Error creating reservation:", {
+      message: error.message,
+      stack: error.stack,
+      body: req.body,
+    });
+
     res.status(500).json({
       success: false,
       message: "An error occurred while creating the reservation",
