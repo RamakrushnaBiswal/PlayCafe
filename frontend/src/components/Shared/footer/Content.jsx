@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Logo from "../../../assets/Logo/newlogoo.png";
+import Logo from "../../../assets/Logo/playcafe.png";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 
 export default function Content() {
