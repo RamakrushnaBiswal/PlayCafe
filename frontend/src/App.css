@@ -17,3 +17,13 @@ body,
 body{
     background: #F1EADC;
 }
+/* App.css */
+
+.navbar-link {
+    font-size: 1.25rem; /* Change this value to increase/decrease the font size */
+}
+
+/* Optional: Add hover effect for better visibility */
+.navbar-link:hover {
+    font-size: 1.35rem; /* Slightly increase on hover for effect */
+}

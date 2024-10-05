@@ -1,34 +1,36 @@
-/* eslint-disable no-unused-vars */
-import {
-    createBrowserRouter,
-    createRoutesFromElements,
-    Route,
-} from "react-router-dom";
+// Navbar.jsx
+
 import React from "react";
-import App from "../App";
-import Home from "../components/Pages/Home";
-import About from "../components/Pages/About";
-import Menu from "../components/Pages/Menu"
-import Boardgame from "../components/Pages/Boardgame"
-import Event from "../components/Pages/Event"
-import MyBook from "../components/Pages/MyBook"
-import NotFound from "../components/Pages/Notfound"
-import Register from "../components/Pages/Register"
+import { Link } from "react-router-dom"; 
 
+const Navbar = () => {
+    return (
+        <nav className="bg-gray-800 p-4">
+            <ul className="flex space-x-6">
+                <li>
+                    <Link to="/" className="navbar-link text-white transition duration-300 ease-in-out hover:text-gray-400 hover:scale-105 hover:underline hover:shadow-lg">Home</Link>
+                </li>
+                <li>
+                    <Link to="/about" className="navbar-link text-white transition duration-300 ease-in-out hover:text-gray-400 hover:scale-105 hover:underline hover:shadow-lg">About</Link>
+                </li>
+                <li>
+                    <Link to="/menu" className="navbar-link text-white transition duration-300 ease-in-out hover:text-gray-400 hover:scale-105 hover:underline hover:shadow-lg">Menu</Link>
+                </li>
+                <li>
+                    <Link to="/boardgame" className="navbar-link text-white transition duration-300 ease-in-out hover:text-gray-400 hover:scale-105 hover:underline hover:shadow-lg">Boardgame</Link>
+                </li>
+                <li>
+                    <Link to="/events" className="navbar-link text-white transition duration-300 ease-in-out hover:text-gray-400 hover:scale-105 hover:underline hover:shadow-lg">Events</Link>
+                </li>
+                <li>
+                    <Link to="/book" className="navbar-link text-white transition duration-300 ease-in-out hover:text-gray-400 hover:scale-105 hover:underline hover:shadow-lg">My Book</Link>
+                </li>
+                <li>
+                    <Link to="/reservation" className="navbar-link text-white transition duration-300 ease-in-out hover:text-gray-400 hover:scale-105 hover:underline hover:shadow-lg">Reservation</Link>
+                </li>
+            </ul>
+        </nav>
+    );
+};
 
-const router = createBrowserRouter(
-    createRoutesFromElements(
-        <Route path="/" element={<App />}>
-            <Route index={true} path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/boardgame" element={<Boardgame />} />
-            <Route path="/events" element={<Event />} />
-            <Route path="/book" element={<MyBook />} />
-            <Route path="/reservation" element={<Register />} />
-            <Route path="*" element={<NotFound />} />
-        </Route>
-    )
-);
-
-export default router;
+export default Navbar;
