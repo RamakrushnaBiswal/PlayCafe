@@ -95,22 +95,10 @@ export default function customerFeedback() {
         cssEase: "linear",
     };
 
-    const [currentIndex, setCurrentIndex] = useState(0);
-
     function getRandomColor(colorsArray) {
         const randomIndex = Math.floor(Math.random() * colorsArray.length);
         return colorsArray[randomIndex];
       }
-      
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
-        }, 3000);
-
-
-        return () => clearInterval(intervalId); // Clean up interval on component unmount
-    }, [reviews.length]);
 
 
     return (
