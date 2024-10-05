@@ -1,4 +1,7 @@
 # 🎲 PlayCafe Website
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Welcome to the **[PlayCafe]** website repository! This project is part of **GirlScript Summer of Code (GSSoC) Extended** 🚀. Our cafe offers a warm and exciting environment for board game enthusiasts to gather, relax, and enjoy great food. This repository contains the code for the cafe's official website, which aims to create a fun and immersive online presence.
 if you have any doubt about the project join [discord](https://discord.gg/Jh3bWQ7FRN)
@@ -81,16 +84,18 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
 - Make sure you show some love by giving ⭐ to our repository
 
 <br>
-<center>
-<div>
- 
-[![All Contributors](https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&style=flat-square)](#contributors)
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+ 
 
 ## ⭐Support 
 
 - 💰 Become our [Sponsor](https://github.com/sponsors/RamakrushnaBiswal)!
 - ⭐ Star our Repo 
-
-
-
