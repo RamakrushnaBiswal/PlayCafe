@@ -98,9 +98,9 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex">
-            <ul className="ml-4 flex space-x-4 font-semibold">
+            <ul className="ml-4 flex space-x-5 Poppins font-semibold text-lg">
               {menuItems.map((item) => (
-                <li key={item.name}>
+                <li key={item.name} className="transform hover:scale-110 hover:-translate-y-1 transition ">
                   <Link
                     to={item.path}
                     className={`${baseTextColorClass} ${hoverTextColorClass}`}
@@ -111,8 +111,9 @@ const Navbar = () => {
               ))}
               {isAuthenticated ? (
                 <button
+
                   onClick={handleLogout}
-                  className={`${baseTextColorClass} ${hoverTextColorClass}`}
+                  className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
                   type="button"
                 >
                   Log Out
@@ -120,7 +121,7 @@ const Navbar = () => {
               ) : (
                 <button
                   onClick={handleLogin}
-                  className={`${baseTextColorClass} ${hoverTextColorClass}`}
+                  className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
                   type="button"
                 >
                   Log In
