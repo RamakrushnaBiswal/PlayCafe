@@ -149,6 +149,13 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Ayush215mb">
+                    <img src="https://avatars.githubusercontent.com/u/154300084?v=4" width="100;" alt="Ayush215mb"/>
+                    <br />
+                    <sub><b>Ayush Yadav</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/mishradev1">
                     <img src="https://avatars.githubusercontent.com/u/118660840?v=4" width="100;" alt="mishradev1"/>
                     <br />
@@ -169,6 +176,8 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Sapna Kul</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Syed-Farazuddin">
                     <img src="https://avatars.githubusercontent.com/u/119295880?v=4" width="100;" alt="Syed-Farazuddin"/>
@@ -176,8 +185,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Syed Faraz</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Vaibhav-Kumar-K-R">
                     <img src="https://avatars.githubusercontent.com/u/132189791?v=4" width="100;" alt="Vaibhav-Kumar-K-R"/>
