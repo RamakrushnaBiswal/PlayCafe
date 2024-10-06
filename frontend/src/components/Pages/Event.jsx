@@ -60,10 +60,14 @@ export default function Event() {
       ease: "power1.inOut",
       delay: 1,
     });
-  });
+    return () => {
+      tl.kill();
+      splitText.revert();
+    };
+  }, []);
 
   useEffect(() => {
-    new Splide(".splide", {
+    const splide = new Splide(".splide", {
       type: "loop",
       perPage: 1,
       perMove: 1,
@@ -75,7 +79,11 @@ export default function Event() {
       pagination: false,
       gap: "2rem",
     }).mount({ AutoScroll });
+    return () => {
+      splide.destroy();
+    };
   }, []);
+
   return (
     <>
       <div
@@ -295,10 +303,13 @@ export default function Event() {
                   Chameleons: A cooperative card game
                 </h1>
                 <h4 className="text-xl text-muted text-slate-700 italic mt-2 leading-8 ">
-                  Chameleons is a cooperative card game designed for
+                  - Chameleons is a cooperative card game designed for
                   fast-paced,A lighthearted game where players must identify a
                   hidden Chameleon among them using deduction, quick thinking,
-                  and clever bluffing.
+                  and clever bluffing. + Chameleons is a cooperative card game
+                  designed for fast-paced, lighthearted play where players must
+                  identify a hidden Chameleon among them using deduction, quick
+                  thinking, and clever bluffing.
                 </h4>
                 <div className="text-xl text-muted text-slate-700 italic mt-2 leading-8">
                   <b>Date: </b> <i>May 10, 2023</i>
