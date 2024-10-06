@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { MdStars, MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+import { MdStars} from "react-icons/md";
 import quote from "../../assets/img/quote.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
