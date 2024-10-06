@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import Logo from "../../assets/Logo/logo.png";
+import Logo from "../../assets/Logo/playcafe.png";
 import { Link, useLocation } from "react-router-dom";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { message } from "antd";
