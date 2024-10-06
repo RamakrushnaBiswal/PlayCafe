@@ -9,7 +9,7 @@ const reservationSchema = z.object({
   date: z.string(),
   time: z.string(),
   email: z.string().email(), // Include email validation in the schema
-});
+}).strict(); // Disallow unknown keys
 
 async function createReservation(req, res) {
   try {
@@ -38,7 +38,6 @@ async function createReservation(req, res) {
     } catch (emailError) {
       logger.error("Error sending reservation confirmation email:", {
         message: emailError.message,
-        stack: emailError.stack,
       });
       // Email error should not block the main reservation process, so no need to return a failure response
     }
@@ -46,7 +45,7 @@ async function createReservation(req, res) {
     // Send the success response
     res.status(201).json({
       success: true,
-      message: "Reservation created successfully, confirmation email sent",
+      message: "Reservation created successfully",
       data: reservation,
     });
   } catch (error) {
