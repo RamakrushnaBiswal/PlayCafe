@@ -1,7 +1,9 @@
-import  { useState } from 'react';
+import  { useState, useEffect } from 'react';
 import heropic from "../../assets/landing/hero pic.jpg";
 import coffecup from "../../assets/landing/coffecup.png";
 import { motion } from 'framer-motion';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const parallaxVariants = {
   initial: { scale: 1 },
@@ -15,6 +17,12 @@ const transition = {
 };
 
 export default function Landing() {
+    useEffect(() => {
+      AOS.init({
+        duration: 1000,
+        once: true,
+      })
+    }, [])
 
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
@@ -90,9 +98,23 @@ export default function Landing() {
 
             />
         </div>
+
         <div className="py-28 z-10">
           <h1 className="text-[4rem] md:text-[18rem] font-bold text-black">
-            PLAYCAFE
+            <span 
+          data-aos="fade-left" 
+          data-aos-delay="600" 
+          className=""
+        >
+          PLAY
+        </span>
+        <span 
+          data-aos="fade-left" 
+          data-aos-delay="1000" 
+          className=""
+        >
+          CAFE
+        </span>
           </h1>
         </div>
       </section>

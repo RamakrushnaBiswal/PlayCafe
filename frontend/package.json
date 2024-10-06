@@ -12,6 +12,7 @@
   "dependencies": {
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
+    "aos": "^2.3.4",
     "autoprefixer": "^10.4.19",
     "clsx": "^2.1.1",
     "framer-motion": "^11.5.6",
