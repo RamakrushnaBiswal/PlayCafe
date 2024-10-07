@@ -18,24 +18,16 @@ body{
     background: #F1EADC;
 }
 
-
-.perspective {
-    perspective: 1000px; /* Adjust the value as needed */
-  }
-
-.glow-effect {
-    box-shadow: 0 0 10px rgba(63, 63, 63, 0.5), 0 0 20px rgba(72, 72, 72, 0.3);
-  }
-  
-  .glow-effect:hover {
-    box-shadow: 0 0 20px rgba(55, 56, 26, 0.7), 0 0 30px rgba(255, 239, 69, 0.5);
-  }
-
-  .perspective {
-    perspective: 1000px;
-  }
   
   .group:hover {
     border-color: rgba(143, 143, 143, 0.5);
   }
   
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05) rotateZ(2deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
