@@ -30,22 +30,27 @@ const months = [
 ];
 export default function Event() {
   const [events, setEvents] = useState([]);
-
+  const [error, setError] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/event", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/event/all`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         const data = await response.json();
         console.log(data);
         setEvents(data);
+        console.log(events);
         // You can update the state with the fetched data here
       } catch (error) {
+        setError(error);
         console.error("Error fetching events:", error);
       }
     };
@@ -84,7 +89,11 @@ export default function Event() {
       ease: "power1.inOut",
       delay: 1,
     });
-  });
+    return () => {
+      tl.kill();
+      splitText.revert();
+    };
+  }, []);
 
   useEffect(() => {
     new Splide(".splide", {
@@ -141,7 +150,7 @@ export default function Event() {
                 {Array(firstDayOfMonth)
                   .fill(null)
                   .map((_, i) => (
-                    <div key={`empty-${i}`} className="p-2"></div>
+                    <div key={{ i }} className="p-2"></div>
                   ))}
                 {dates.map((day) => (
                   <div
@@ -195,12 +204,10 @@ export default function Event() {
             </div>
           </div>
         </div>
-        <section
-          className="w-full py-12 md:py-24 lg:py-16 flex justify-center"
-          id="event"
-        >
+        <section className="w-full py-12 md:py-24 lg:py-16 flex justify-center">
           <div className="container grid grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-1 md:px-6">
             <div className="event-list">
+              {error && <p className="text-red-500">{error}</p>}
               {events.map((event) => (
                 <div
                   key={event._id}

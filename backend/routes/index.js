@@ -20,7 +20,7 @@ try {
   eventRouter = require("./eventRouter");
 } catch (error) {
   logger.error("Error loading eventRouter:", error); // Log the error with Winston
-  feedbackRouter = (req, res) => {
+  eventRouter = (req, res) => {
     res
       .status(500)
       .json({ error: "Event functionality is currently unavailable" });
