@@ -45,12 +45,10 @@ export default function Event() {
         );
 
         const data = await response.json();
-        console.log(data);
         setEvents(data);
-        console.log(events);
         // You can update the state with the fetched data here
       } catch (error) {
-        setError(error);
+        setError(error.message);
         console.error("Error fetching events:", error);
       }
     };
@@ -154,7 +152,7 @@ export default function Event() {
                 {Array(firstDayOfMonth)
                   .fill(null)
                   .map((_, i) => (
-                    <div key={{ i }} className="p-2"></div>
+                    <div key={{i}} className="p-2"></div>
                   ))}
                 {dates.map((day) => (
                   <div
