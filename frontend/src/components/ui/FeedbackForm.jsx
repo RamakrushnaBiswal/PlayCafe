@@ -45,7 +45,7 @@ const FeedbackForm = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={animationVariants}
-          className="lg:grid lg:grid-cols-2 lg:gap-8"
+          className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center"
         >
           <div className="mb-8 lg:mb-0 relative">
             <h2 className="text-5xl font-black text-[#004D43]">
