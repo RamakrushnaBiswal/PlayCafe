@@ -14,8 +14,9 @@ export default function Register() {
     console.log(guests);
     console.log(time);
     console.log(date);
+    // console.log(import.meta.env.VITE_BACKEND_URL);
     e.preventDefault();
-    fetch("http://localhost:3000/api/reservation/create", {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/reservation/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -141,90 +142,34 @@ export default function Register() {
         </h1>
         <div className="mt-8 w-full flex justify-center bg-white ">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8 mb-10">
-            <div
-              className="rounded-lg border bg-card text-card-foreground shadow-sm"
-              data-v0-t="card"
-            >
-              <div className="flex flex-col items-center justify-center p-6">
-                <img
-                  src={pic2}
-                  alt="Catan"
-                  className="mb-4 w-64 h-64 object-cover"
-                />
-                <div className="font-medium">Catan</div>
-                <div className="text-muted-foreground text-sm">4-6 players</div>
+            {[
+              { src: pic2, title: "Catan", players: "4-6 players" },
+              { src: pic3, title: "Ticket to Ride", players: "2-5 players" },
+              { src: pic4, title: "Codenames", players: "4-8 players" },
+              { src: pic4, title: "Codenames", players: "4-8 players" },
+              { src: pic4, title: "Codenames", players: "4-8 players" },
+              { src: pic5, title: "Pandemic", players: "2-4 players" },
+            ].map((game, index) => (
+              <div
+                key={index}
+                className="relative overflow-hidden transition-transform duration-300 ease-in-out perspective group"
+                data-v0-t="card"
+              >
+                <div className="flex flex-col items-center justify-center p-6 rounded-lg border bg-card text-card-foreground shadow-sm group-hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-lg">
+                  <img
+                    src={game.src}
+                    alt={game.title}
+                    className="mb-4 w-64 h-64 object-cover"
+                  />
+                  <div className="font-medium">{game.title}</div>
+                  <div className="text-muted-foreground text-sm">
+                    {game.players}
+                  </div>
+                </div>
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-lg bg-yellow-500 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-25"></div>
               </div>
-            </div>
-            <div
-              className="rounded-lg border bg-card text-card-foreground shadow-sm"
-              data-v0-t="card"
-            >
-              <div className="flex flex-col items-center justify-center p-6">
-                <img
-                  src={pic3}
-                  alt="Ticket to Ride"
-                  className="mb-4 w-64 h-64 object-cover"
-                />
-                <div className="font-medium">Ticket to Ride</div>
-                <div className="text-muted-foreground text-sm">2-5 players</div>
-              </div>
-            </div>
-            <div
-              className="rounded-lg border bg-card text-card-foreground shadow-sm"
-              data-v0-t="card"
-            >
-              <div className="flex flex-col items-center justify-center p-6">
-                <img
-                  src={pic4}
-                  alt="Codenames"
-                  className="mb-4 w-64 h-64 object-cover"
-                />
-                <div className="font-medium">Codenames</div>
-                <div className="text-muted-foreground text-sm">4-8 players</div>
-              </div>
-            </div>
-            <div
-              className="rounded-lg border bg-card text-card-foreground shadow-sm"
-              data-v0-t="card"
-            >
-              <div className="flex flex-col items-center justify-center p-6">
-                <img
-                  src={pic4}
-                  alt="Codenames"
-                  className="mb-4 w-64 h-64 object-cover"
-                />
-                <div className="font-medium">Codenames</div>
-                <div className="text-muted-foreground text-sm">4-8 players</div>
-              </div>
-            </div>
-            <div
-              className="rounded-lg border bg-card text-card-foreground shadow-sm"
-              data-v0-t="card"
-            >
-              <div className="flex flex-col items-center justify-center p-6">
-                <img
-                  src={pic4}
-                  alt="Codenames"
-                  className="mb-4 w-64 h-64 object-cover"
-                />
-                <div className="font-medium">Codenames</div>
-                <div className="text-muted-foreground text-sm">4-8 players</div>
-              </div>
-            </div>
-            <div
-              className="rounded-lg border bg-card text-card-foreground shadow-sm"
-              data-v0-t="card"
-            >
-              <div className="flex flex-col items-center justify-center p-6">
-                <img
-                  src={pic5}
-                  alt="Pandemic"
-                  className="mb-4 w-64 h-64 object-cover"
-                />
-                <div className="font-medium">Pandemic</div>
-                <div className="text-muted-foreground text-sm">2-4 players</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
