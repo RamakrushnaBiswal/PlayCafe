@@ -135,13 +135,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/AbhijitMotekar99">
-                    <img src="https://avatars.githubusercontent.com/u/109235675?v=4" width="100;" alt="AbhijitMotekar99"/>
-                    <br />
-                    <sub><b>Abhijit Motekar</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/itznayan">
                     <img src="https://avatars.githubusercontent.com/u/136584376?v=4" width="100;" alt="itznayan"/>
                     <br />
@@ -153,13 +146,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <img src="https://avatars.githubusercontent.com/u/156535853?v=4" width="100;" alt="Navneetdadhich"/>
                     <br />
                     <sub><b>Navneet Dadhich</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Ayush215mb">
-                    <img src="https://avatars.githubusercontent.com/u/154300084?v=4" width="100;" alt="Ayush215mb"/>
-                    <br />
-                    <sub><b>Ayush Yadav</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -176,8 +162,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Bashua Mutiat</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Sapna127">
                     <img src="https://avatars.githubusercontent.com/u/91309280?v=4" width="100;" alt="Sapna127"/>
@@ -192,6 +176,8 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Syed Faraz</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Vaibhav-Kumar-K-R">
                     <img src="https://avatars.githubusercontent.com/u/132189791?v=4" width="100;" alt="Vaibhav-Kumar-K-R"/>
