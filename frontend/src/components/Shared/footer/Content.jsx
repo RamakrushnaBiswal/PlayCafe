@@ -84,11 +84,11 @@ const Nav = () => {
     },
   ];
   const socialLink = [
-    { name: "Facebook", link: "https://www.facebook.com/sipnplaynyc/" },
-    { name: "Instagram", link: "https://www.instagram.com/sipnplaynyc/?hl=en" },
+    { name: "Facebook", link: "https://www.facebook.com/sipnplaynyc/", icon: <FaFacebook /> },
+    { name: "Instagram", link: "https://www.instagram.com/sipnplaynyc/?hl=en", icon: <FaInstagram />},
     {
       name: "Tiktok",
-      link: "https://www.tiktok.com/@sipnplaynycofficial?lang=en",
+      link: "https://www.tiktok.com/@sipnplaynycofficial?lang=en", icon: <FaTiktok />
     },
   ];
   const emailAddress = "sipnplaynyc@gmail.com";
@@ -112,10 +112,11 @@ const Nav = () => {
         {socialLink.map((item, index) => (
           <a
             target="_blank"
-            className="hover:text-white duration-300"
+            className="hover:text-white duration-300 flex items-center gap-2"
             key={index}
             href={item.link}
           >
+            {item.icon}
             {item.name}
           </a>
         ))}
