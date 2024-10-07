@@ -94,11 +94,6 @@ export default function Event() {
       splitText.revert();
     };
   }, []);
-    return () => {
-      tl.kill();
-      splitText.revert();
-    };
-  }, []);
 
   useEffect(() => {
     const splide = new Splide(".splide", {
