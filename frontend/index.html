@@ -10,10 +10,70 @@
       rel="stylesheet"
     />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+      }
 
+      /* Main content should fill the remaining space */
+      #root {
+        flex: 1;
+      }
+
+      /* Follow Us Section */
+      .follow-us {
+        background-color: #f4f4f4;
+        padding: 20px;
+        text-align: center;
+        margin-top: auto;
+      }
+
+      .follow-us h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .follow-us a {
+        text-decoration: none;
+        margin: 0 15px;
+        color: #333;
+      }
+
+      .follow-us a:hover {
+        color: #007bff;
+      }
+
+      .follow-us a span {
+        font-size: 2.5em; /* Increase the size of emojis */
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Main content goes here -->
+    </div>
+
+    <!-- Follow Us Section at the bottom -->
+    <div class="follow-us">
+      <h2>Follow Us</h2>
+      <a href="https://www.linkedin.com/in/ramakrushna-biswal/" target="_blank">
+        <span>🔗</span> LinkedIn
+      </a>
+      <a href="https://developers.google.com/profile/u/RamakrushnaBiswal19" target="_blank">
+        <span>👨‍💻</span> Google Developer
+      </a>
+      <a href="https://x.com/Ramakrushna23" target="_blank">
+        <span>🐦</span> X (Twitter)
+      </a>
+      <a href="https://github.com/RamakrushnaBiswal19" target="_blank">
+        <span>🐙</span> GitHub
+      </a>
+    </div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
