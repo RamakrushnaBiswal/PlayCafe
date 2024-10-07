@@ -40,177 +40,37 @@ export default function Boardgame() {
                 </section>
                 <section className="w-full py-12 md:py-24 lg:py-32">
                     <div className="container mx-auto grid grid-cols-1 gap-6 px-4 md:grid-cols-2 lg:grid-cols-3 md:px-6">
-                        <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
-                            <a className="absolute inset-0 z-10" href="#">
-                                <span className="sr-only">View</span>
-                            </a>
-                            <img
-                                src={board1}
-                                alt="Catan"
-                                width="500"
-                                height="400"
-                                className="object-cover w-full h-64"
-                                style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
-                            />
-                            <div className="p-4 bg-background">
-                                <h3 className="text-xl font-bold">Catan</h3>
-                                <p className="text-sm text-muted-foreground">
-                                    Settle the island of Catan in this classic resource management game.
-                                </p>
+                        {[
+                            { src: board1, title: "Catan", description: "Settle the island of Catan in this classic resource management game." },
+                            { src: board2, title: "Ticket to Ride", description: "Connect cities across a map and complete your railway routes." },
+                            { src: board3, title: "Pandemic", description: "Work together to contain the spread of deadly diseases across the globe." },
+                            { src: board4, title: "Codenames", description: "Compete to make word associations and guess your team's secret code words." },
+                            { src: board5, title: "Azul", description: "Collect and place beautiful tiles to decorate the walls of a palace." },
+                            { src: board6, title: "Azul", description: "Collect and place beautiful tiles to decorate the walls of a palace." },
+                            { src: board7, title: "Azul", description: "Collect and place beautiful tiles to decorate the walls of a palace." },
+                            { src: board8, title: "Azul", description: "Collect and place beautiful tiles to decorate the walls of a palace." },
+                            { src: board10, title: "Wingspan", description: "Attract and collect birds in this relaxing engine-building game." },
+                        ].map((board, index) => (
+                            <div key={index} className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 card border border-white bg-white">
+                                <a className="absolute inset-0 z-10" href="#">
+                                    <span className="sr-only">View</span>
+                                </a>
+                                <div className="relative overflow-hidden">
+                                    <img
+                                        src={board.src}
+                                        alt={board.title}
+                                        width="500"
+                                        height="400"
+                                        className="object-cover w-full h-48 transition-all duration-300 ease-in-out group-hover:h-32" 
+                                        style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
+                                    />
+                                    <div className="p-4 bg-background transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:translate-y-4">
+                                        <h3 className="text-xl font-bold">{board.title}</h3>
+                                        <p className="text-sm text-muted-foreground">{board.description}</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
-                            <a className="absolute inset-0 z-10" href="#">
-                                <span className="sr-only">View</span>
-                            </a>
-                            <img
-                                src={board2}
-                                alt="Ticket to Ride"
-                                width="500"
-                                height="400"
-                                className="object-cover w-full h-64"
-                                style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
-                            />
-                            <div className="p-4 bg-background">
-                                <h3 className="text-xl font-bold">Ticket to Ride</h3>
-                                <p className="text-sm text-muted-foreground">
-                                    Connect cities across a map and complete your railway routes.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
-                            <a className="absolute inset-0 z-10" href="#">
-                                <span className="sr-only">View</span>
-                            </a>
-                            <img
-                                src={board3}
-                                alt="Pandemic"
-                                width="500"
-                                height="400"
-                                className="object-cover w-full h-64"
-                                style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
-                            />
-                            <div className="p-4 bg-background">
-                                <h3 className="text-xl font-bold">Pandemic</h3>
-                                <p className="text-sm text-muted-foreground">
-                                    Work together to contain the spread of deadly diseases across the globe.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
-                            <a className="absolute inset-0 z-10" href="#">
-                                <span className="sr-only">View</span>
-                            </a>
-                            <img
-                                src={board4}
-                                alt="Codenames"
-                                width="500"
-                                height="400"
-                                className="object-cover w-full h-64"
-                                style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
-                            />
-                            <div className="p-4 bg-background">
-                                <h3 className="text-xl font-bold">Codenames</h3>
-                                <p className="text-sm text-muted-foreground">
-                                    Compete to make word associations and guess your teams secret code words.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
-                            <a className="absolute inset-0 z-10" href="#">
-                                <span className="sr-only">View</span>
-                            </a>
-                            <img
-                                src={board5}
-                                alt="Azul"
-                                width="500"
-                                height="400"
-                                className="object-cover w-full h-64"
-                                style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
-                            />
-                            <div className="p-4 bg-background">
-                                <h3 className="text-xl font-bold">Azul</h3>
-                                <p className="text-sm text-muted-foreground">
-                                    Collect and place beautiful tiles to decorate the walls of a palace.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
-                            <a className="absolute inset-0 z-10" href="#">
-                                <span className="sr-only">View</span>
-                            </a>
-                            <img
-                                src={board6}
-                                alt="Azul"
-                                width="500"
-                                height="400"
-                                className="object-cover w-full h-64"
-                                style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
-                            />
-                            <div className="p-4 bg-background">
-                                <h3 className="text-xl font-bold">Azul</h3>
-                                <p className="text-sm text-muted-foreground">
-                                    Collect and place beautiful tiles to decorate the walls of a palace.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
-                            <a className="absolute inset-0 z-10" href="#">
-                                <span className="sr-only">View</span>
-                            </a>
-                            <img
-                                src={board7}
-                                alt="Azul"
-                                width="500"
-                                height="400"
-                                className="object-cover w-full h-64"
-                                style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
-                            />
-                            <div className="p-4 bg-background">
-                                <h3 className="text-xl font-bold">Azul</h3>
-                                <p className="text-sm text-muted-foreground">
-                                    Collect and place beautiful tiles to decorate the walls of a palace.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
-                            <a className="absolute inset-0 z-10" href="#">
-                                <span className="sr-only">View</span>
-                            </a>
-                            <img
-                                src={board8}
-                                alt="Azul"
-                                width="500"
-                                height="400"
-                                className="object-cover w-full h-64"
-                                style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
-                            />
-                            <div className="p-4 bg-background">
-                                <h3 className="text-xl font-bold">Azul</h3>
-                                <p className="text-sm text-muted-foreground">
-                                    Collect and place beautiful tiles to decorate the walls of a palace.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
-                            <a className="absolute inset-0 z-10" href="#">
-                                <span className="sr-only">View</span>
-                            </a>
-                            <img
-                                src={board10}
-                                alt="Wingspan"
-                                width="500"
-                                height="400"
-                                className="object-cover w-full h-64"
-                                style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
-                            />
-                            <div className="p-4 bg-background">
-                                <h3 className="text-xl font-bold">Wingspan</h3>
-                                <p className="text-sm text-muted-foreground">
-                                    Attract and collect birds in this relaxing engine-building game.
-                                </p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </section>
                 <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">

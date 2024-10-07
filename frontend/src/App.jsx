@@ -1,11 +1,11 @@
 // src/App.js
 
-import './App.css';
-import Navbar from '../src/components/Shared/Navbar';
-import Footer from "../src/components/Shared/Footer"
-import { Outlet } from 'react-router-dom';
+import "./App.css";
+import Navbar from "../src/components/Shared/Navbar";
+import Footer from "../src/components/Shared/Footer";
+import { Outlet } from "react-router-dom";
 import { AuthProvider } from './components/Shared/AuthContext';
-import {KindeProvider} from "@kinde-oss/kinde-auth-react";
+import { KindeProvider } from "@kinde-oss/kinde-auth-react";
 
 function App() {
   return (
