@@ -94,9 +94,14 @@ export default function Event() {
       splitText.revert();
     };
   }, []);
+    return () => {
+      tl.kill();
+      splitText.revert();
+    };
+  }, []);
 
   useEffect(() => {
-    new Splide(".splide", {
+    const splide = new Splide(".splide", {
       type: "loop",
       perPage: 1,
       perMove: 1,
@@ -108,7 +113,11 @@ export default function Event() {
       pagination: false,
       gap: "2rem",
     }).mount({ AutoScroll });
+    return () => {
+      splide.destroy();
+    };
   }, []);
+
   return (
     <>
       <div id="event" className="w-full h-fit bg-amber-100 md:overflow-hidden ">

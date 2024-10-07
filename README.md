@@ -135,10 +135,10 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/itznayan">
-                    <img src="https://avatars.githubusercontent.com/u/136584376?v=4" width="100;" alt="itznayan"/>
+                <a href="https://github.com/vishnuprasad2004">
+                    <img src="https://avatars.githubusercontent.com/u/116942066?v=4" width="100;" alt="vishnuprasad2004"/>
                     <br />
-                    <sub><b>Mahera Nayan</b></sub>
+                    <sub><b>Vishnu Prasad Korada</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -146,6 +146,20 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <img src="https://avatars.githubusercontent.com/u/156535853?v=4" width="100;" alt="Navneetdadhich"/>
                     <br />
                     <sub><b>Navneet Dadhich</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/itznayan">
+                    <img src="https://avatars.githubusercontent.com/u/136584376?v=4" width="100;" alt="itznayan"/>
+                    <br />
+                    <sub><b>Mahera Nayan</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/AbhijitMotekar99">
+                    <img src="https://avatars.githubusercontent.com/u/109235675?v=4" width="100;" alt="AbhijitMotekar99"/>
+                    <br />
+                    <sub><b>Abhijit Motekar</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -162,6 +176,15 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Dev Mishra</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/jaidh01">
+                    <img src="https://avatars.githubusercontent.com/u/117927011?v=4" width="100;" alt="jaidh01"/>
+                    <br />
+                    <sub><b>Jai Dhingra</b></sub>
+                </a>
+            </td>
             <td align="center">
                 <a href="https://github.com/MutiatBash">
                     <img src="https://avatars.githubusercontent.com/u/108807732?v=4" width="100;" alt="MutiatBash"/>
@@ -176,8 +199,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Sapna Kul</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Syed-Farazuddin">
                     <img src="https://avatars.githubusercontent.com/u/119295880?v=4" width="100;" alt="Syed-Farazuddin"/>
@@ -190,13 +211,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <img src="https://avatars.githubusercontent.com/u/132189791?v=4" width="100;" alt="Vaibhav-Kumar-K-R"/>
                     <br />
                     <sub><b>Vaibhav-Kumar-K-R</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/vishnuprasad2004">
-                    <img src="https://avatars.githubusercontent.com/u/116942066?v=4" width="100;" alt="vishnuprasad2004"/>
-                    <br />
-                    <sub><b>Vishnu Prasad Korada</b></sub>
                 </a>
             </td>
 		</tr>
