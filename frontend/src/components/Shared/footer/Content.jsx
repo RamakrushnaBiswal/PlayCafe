@@ -115,6 +115,7 @@ const Nav = () => {
             className="hover:text-white duration-300 flex items-center gap-2"
             key={index}
             href={item.link}
+            aria-label={`${item.name} - opens in a new tab`} 
           >
             {item.icon}
             {item.name}
