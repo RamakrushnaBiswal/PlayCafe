@@ -18,3 +18,16 @@ body{
     background: #F1EADC;
 }
 
+.rating-button {
+    @apply flex-grow bg-neutral-50 text-center p-2 rounded-md cursor-pointer select-none
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.star {
+    cursor: pointer;
+    font-size: 2rem;
+    margin-bottom: 0;
+}
