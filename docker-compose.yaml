@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  backend:
+    build:
+      context: ./backend  # Make sure this points to the correct folder
+    ports:
+      - "3002:3000"
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: ./frontend  # Make sure this points to the correct folder
+    ports:
+      - "3003:3000"  # Make sure this does not conflict with any other service
