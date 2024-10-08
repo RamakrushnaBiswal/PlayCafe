@@ -9,12 +9,26 @@ import board7 from "../../assets/Boardgames/board7.png";
 import board8 from "../../assets/Boardgames/board8.png";
 import board10 from "../../assets/Boardgames/board10.png";
 import bg from "../../assets/Boardgames/bg.jpg";
+import axios from 'axios';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function Boardgame() {
     const [selectedBoard, setSelectedBoard] = useState(null);
+    const [email, setEmail] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            // Make the POST request to /newsletter/subscribe endpoint
+            const response = await axios.post('http://localhost:3000/api/newsletter/subscribe', { email });
+            alert('Subscription successful! Check your email for confirmation.');
+        } catch (error) {
+            console.error('Error subscribing to newsletter:', error);
+            alert('Error subscribing. Please try again.');
+        }
+    };
 
     const handleOpenInstructions = (board) => {
         setSelectedBoard(board);
@@ -215,6 +229,32 @@ export default function Boardgame() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </section>
+                <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+                    <div className="container mx-auto px-4 md:px-6 text-center">
+                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-4">
+                            Subscribe to our Newsletter
+                        </h2>
+                        <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl mb-6">
+                            Stay updated with our latest boardgame collections, special offers, and events. Subscribe now and never miss out!
+                        </p>
+                        <form className="flex flex-col items-center space-y-4 sm:space-y-0 sm:flex-row sm:space-x-4 justify-center"  onSubmit={handleSubmit}>
+                            <input
+                                type="email"
+                                className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Enter your email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)} // Update email state on input change
+                                required
+                            />
+                            <button
+                                type="submit"
+                                className="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            >
+                                Subscribe
+                            </button>
+                        </form>
                     </div>
                 </section>
 

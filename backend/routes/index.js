@@ -37,6 +37,7 @@ router.use("/admin", require("./adminRouter"));
 router.use("/feedback", feedbackRouter);
 router.use("/user", require("./customerRouter"));
 router.use("/reservation", require("./reservationRouter"));
+router.use("/newsletter", require("./newsletterRoute"));
 
 
 module.exports = router;
