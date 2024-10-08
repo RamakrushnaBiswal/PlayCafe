@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Logo from "../../assets/Logo/playcafe.png";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isloggedIn, setisloggedIn] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -24,8 +25,6 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -33,6 +32,11 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLogout = () => {
+    setisloggedIn(false); // Set isLoggedIn to false on confirmation
+    setIsModalOpen(false); // Close the modal
   };
 
   const isHomePage = location.pathname === "/";
@@ -51,9 +55,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full fixed top-0 z-50 transition duration-300 ${
-        isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"
-      } ${isScrolled ? "text-gray-800" : "text-black"} ${isScrolled ? "shadow-lg" : ""}`}
+      className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"
+        } ${isScrolled ? "text-gray-800" : "text-black"} ${isScrolled ? "shadow-lg" : ""}`}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
@@ -78,16 +81,17 @@ const Navbar = () => {
               ))}
               {isloggedIn ? (
                 <button
-
                   className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
-                  type="button" onClick={()=> {setisloggedIn(false)}}
+                  type="button"
+                  onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
                 >
                   Log Out
                 </button>
-              ):(
+              ) : (
                 <button
                   className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
-                  type="button" onClick={() => {setisloggedIn(true)}}
+                  type="button"
+                  onClick={() => setisloggedIn(true)}
                 >
                   Log In
                 </button>
@@ -138,21 +142,46 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-          {isloggedIn ? (
+            {isloggedIn ? (
               <button
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                           ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
               >
                 Log Out
               </button>
-          ) : (
+            ) : (
               <button
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                             ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                onClick={() => setisloggedIn(true)}
               >
                 Log In
               </button>
-          )}
+            )}
+          </div>
+        </div>
+      )}
+
+        {/* Logout Confirmation Modal */}
+        {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60">
+          <div className="bg-gray-800 rounded-lg shadow-lg p-6 w-96 relative">
+            <h2 className="text-lg font-semibold mb-4 text-white">Are you sure you want to logout?</h2>
+            <div className="flex justify-end space-x-4">
+              <button
+                className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition"
+                onClick={() => setIsModalOpen(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700 transition"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       )}
