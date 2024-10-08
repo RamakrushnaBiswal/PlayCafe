@@ -1,5 +1,5 @@
 const express = require("express");
-const { createUser, loginUser } = require("../controller/user.controller");
+const { loginCustomer, createCustomer } = require("../controller/customer.controller");
 const router = express.Router();
 require("dotenv").config();
 
@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
     documentation: "https://api-docs-url.com",});
 });
 
-router.post("/register", createUser);
-router.post("/login", loginUser);
+router.post("/register", createCustomer);
+router.post("/login", loginCustomer);
 
 module.exports = router;

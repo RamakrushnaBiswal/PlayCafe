@@ -3,18 +3,18 @@ const Schema = mongoose.Schema;
 
 
 
-const userSchema = new Schema({
+const customerSchema = new Schema({
   name: String,
   password: String,
   email: String,
   role: {
     type: String,
-    default: "user"
+    default: "customer"
   },
   bio: String,
   profilePicture: String,
 });
 
-const User = mongoose.models.User || mongoose.model('User', userSchema);
+const Customer = mongoose.model('Customer', customerSchema);
 
-module.exports = User;
+module.exports = Customer;

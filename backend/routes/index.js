@@ -35,7 +35,7 @@ router.get("/", (req, res) => {
 
 router.use("/admin", require("./adminRouter"));
 router.use("/feedback", feedbackRouter);
-router.use("/user", require("./userRouter"));
+router.use("/user", require("./customerRouter"));
 router.use("/reservation", require("./reservationRouter"));
 
 

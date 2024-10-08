@@ -1,17 +1,19 @@
 const bcrypt = require("bcrypt");
 const { z } = require("zod");
-const User = require("../models/user.model");
+const Customer = require("../models/customer.model");
+
+
 
 // Define the schema
-const userSchema = z.object({
+const customerSchema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email address"),
   password: z.string().min(6, "Password must be at least 6 characters long"),
 });
 
-async function createUser(req, res) {
+async function createCustomer(req, res) {
   // Validate the request body
-  const validation = userSchema.safeParse(req.body);
+  const validation = customerSchema.safeParse(req.body);
 
   if (!validation.success) {
     return res.status(400).json({ error: validation.error.errors });
@@ -19,37 +21,37 @@ async function createUser(req, res) {
 
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    const user = new User({
+    const customer = new Customer({
       name: req.body.name,
       email: req.body.email,
       password: hashedPassword,
     });
-    await user.save();
-    res.status(201).json({ message: "User created successfully" });
+    await customer.save();
+    res.status(201).json({ message: "Customer created successfully" });
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
   }
 }
 
-async function loginUser(req, res) {
-  const userSchema = z.object({
+async function loginCustomer(req, res) {
+  const customerSchema = z.object({
     email: z.string().email("Invalid email address"),
     password: z.string().min(6, "Password must be at least 6 characters long"),
   });
   // Validate the request body
-  const validation = userSchema.safeParse(req.body);
+  const validation = customerSchema.safeParse(req.body);
   if (!validation.success) {
     return res.status(400).json({ error: validation.error.errors });
   }
 
   try {
-    const user = await User.findOne({ email: req.body.email });
-    if (!user) {
+    const customer = await Customer.findOne({ email: req.body.email });
+    if (!customer) {
       return res.status(404).json({ error: "User not found" });
     }
     const validPassword = await bcrypt.compare(
       req.body.password,
-      user.password
+      customer.password
     );
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid password" });
@@ -63,6 +65,6 @@ async function loginUser(req, res) {
 
 
 module.exports = {
-    createUser,
-    loginUser
- };
+  createCustomer,
+  loginCustomer
+}
