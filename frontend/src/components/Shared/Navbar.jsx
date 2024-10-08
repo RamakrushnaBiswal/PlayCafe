@@ -18,7 +18,7 @@ const Navbar = () => {
     { name: "Events", path: "/events" },
     { name: "Menu", path: "/menu" },
     { name: "Reservation", path: "/reservation" },
-    { name: "Boardgames", path: "/boardgame" },
+    { name: "BoardGames", path: "/boardgame" },
   ];
 
   useEffect(() => {
