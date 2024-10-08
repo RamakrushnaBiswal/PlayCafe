@@ -22,7 +22,7 @@ export default function Boardgame() {
         e.preventDefault();
         try {
             // Make the POST request to /newsletter/subscribe endpoint
-            const response = await axios.post('http://localhost:3000/api/newsletter/subscribe', { email });
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/newsletter/subscribe`, { email });
             alert('Subscription successful! Check your email for confirmation.');
         } catch (error) {
             console.error('Error subscribing to newsletter:', error);

@@ -20,8 +20,12 @@ exports.subscribeToNewsletter = async (req, res) => {
         const newEmail = new NewsletterEmail({ email });
         await newEmail.save();
 
-        // Send a confirmation email
-        await sendSubscriptionConfirmation(email);
+        try {
+            await sendSubscriptionConfirmation(email);
+        } catch (error) {
+            console.error('Error sending confirmation email:', error);
+            return res.status(500).json({ error: 'Subscription successful, but there was an error sending the confirmation email.' });
+        }
 
         return res.status(201).json({ message: 'Subscription successful! A confirmation email has been sent.' });
     } catch (error) {
