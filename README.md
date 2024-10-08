@@ -193,6 +193,13 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/AliGates915">
+                    <img src="https://avatars.githubusercontent.com/u/128673394?v=4" width="100;" alt="AliGates915"/>
+                    <br />
+                    <sub><b>Ali Gates</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/mishradev1">
                     <img src="https://avatars.githubusercontent.com/u/118660840?v=4" width="100;" alt="mishradev1"/>
                     <br />
@@ -213,6 +220,8 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Mohit Rana </b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/MutiatBash">
                     <img src="https://avatars.githubusercontent.com/u/108807732?v=4" width="100;" alt="MutiatBash"/>
@@ -220,8 +229,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Bashua Mutiat</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Sapna127">
                     <img src="https://avatars.githubusercontent.com/u/91309280?v=4" width="100;" alt="Sapna127"/>
