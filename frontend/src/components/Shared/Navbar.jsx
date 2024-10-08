@@ -11,7 +11,9 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const wasAuthenticated = useRef(null);
-  const { setEmail } = useAuth();
+
+  // Get setEmail from useAuth, or fallback to an empty object if useAuth is undefined
+  const { setEmail } = useAuth() || {};
 
   const menuItems = [
     { name: "Home", path: "/" },
@@ -44,7 +46,6 @@ const Navbar = () => {
     }
     if (!wasAuthenticated.current && isAuthenticated) {
       message.success("Login successful!");
-      // Fetch user details only when authentication is successful
       fetchUserDetails();
     }
     wasAuthenticated.current = isAuthenticated;
@@ -53,8 +54,8 @@ const Navbar = () => {
   const fetchUserDetails = async () => {
     try {
       const user = getUser();
-      if (user) {
-        setEmail(user.email); // Store email in the context
+      if (user && setEmail) {
+        setEmail(user.email); // Only call setEmail if it's defined
         console.log("User email:", user.email);
       }
     } catch (error) {
@@ -92,7 +93,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      setEmail(null);
+      if (setEmail) setEmail(null);
     } catch (error) {
       message.error("Logout failed. Please try again.");
     }
@@ -127,7 +128,6 @@ const Navbar = () => {
               ))}
               {isAuthenticated ? (
                 <button
-
                   onClick={handleLogout}
                   className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
                   type="button"
@@ -184,7 +184,7 @@ const Navbar = () => {
                 key={item.name}
                 to={item.path}
                 className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                       ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 {item.name}
               </Link>
@@ -193,7 +193,7 @@ const Navbar = () => {
               <button
                 onClick={handleLogout}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                       ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 Log Out
               </button>
@@ -201,7 +201,7 @@ const Navbar = () => {
               <button
                 onClick={handleLogin}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                         ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 Log In
               </button>
