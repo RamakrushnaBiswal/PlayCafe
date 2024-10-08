@@ -9,12 +9,19 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+
+
 // CORS configuration
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://play-cafe.vercel.app"],
   })
 );
+
+// CORS configuration
+const corsOptions = {
+  origin: ["http://localhost:5173", "https://play-cafe.vercel.app"],
+};
 
 app.use(express.json());
 
