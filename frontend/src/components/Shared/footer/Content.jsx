@@ -1,12 +1,26 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Logo from "../../../assets/Logo/playcafe.png";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 
 export default function Content() {
   return (
-    <div className="bg-black pt-24 py-8 px-12 h-full w-full flex flex-col justify-between">
+    <div className="bg-black pt-10 h-full w-full flex flex-col justify-center items-center">
       <Nav />
       <Section2 />
+
+            {/* Social Media Icons */}
+          <div className="text-white mt-10 flex justify-center space-x-6">
+          <a href="https://www.facebook.com/sipnplaynyc/" aria-label="Facebook" className="hover:text-gray-400">
+            <FaFacebook size={24} />
+          </a>
+          <a href="https://www.instagram.com/sipnplaynyc/?hl=en" aria-label="Instagram" className="hover:text-gray-400">
+            <FaInstagram size={24} />
+          </a>
+          <a href="https://www.tiktok.com/@sipnplaynycofficial?lang=en" aria-label="Tiktok" className="hover:text-gray-400">
+            <FaTiktok size={24} />
+          </a>
+        </div>
+
     </div>
   );
 }
@@ -25,23 +39,14 @@ const Section2 = () => {
 
   return (
     <>
-      {!isWide && (
-        <div className="flex justify-center">
-          <img
-            className="w-24 bg-transparent p-0 rounded-3xl h-24"
-            alt="logo"
-            src={Logo}
-          />
-        </div>
-      )}
       <div
         className={`flex ${
-          isWide ? "justify-between items-end" : "flex-col items-center"
+          isWide ? "justify-between items-end mt-20" : "flex-col items-center"
         } text-white`}
       >
         <h1
           className={`${
-            isWide ? "text-[9vw]" : "text-[12vw] mt-10"
+            isWide ? "text-[9vw] mr-8" : "text-[12vw] mt-10"
           } leading-[0.8]`}
         >
           BoardGame {!isWide && <br />}
@@ -67,15 +72,15 @@ const Nav = () => {
     },
     {
       name: "Events",
-      link: "/event",
+      link: "/events",
     },
 
     {
       name: "Reservation",
-      link: "/register",
+      link: "/reservation",
     },
     {
-      name: "Boardgame",
+      name: "BoardGame",
       link: "/boardgame",
     },
     {
@@ -94,8 +99,16 @@ const Nav = () => {
   const emailAddress = "sipnplaynyc@gmail.com";
 
   return (
-    <div className="flex shrink-0 gap-4 sm:gap-20">
+    <div className="flex shrink-0 gap-4 mt-10 sm:gap-20 justify-between">
+      <div className="mr-20 mt-4">
+          <img
+            className="w-36  bg-transparent p-0 rounded-3xl h-36"
+            alt="logo"
+            src={Logo}
+          />
+        </div>
       <div className="flex flex-col gap-2 text-gray-400">
+        
         <h3 className="mb-2 uppercase text-white">About</h3>
         {navLinks.map((item, index) => (
           <a
