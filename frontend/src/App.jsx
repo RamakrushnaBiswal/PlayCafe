@@ -37,11 +37,13 @@ function App() {
       <Outlet />
       <Footer />
 
+      {/* Back to Top Button */}
       {showButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-[#E0F0B1] hover:bg-amber-300 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-transform duration-300 transform hover:scale-110"        >
-          ↑ 
+          className="fixed bottom-8 right-8 bg-[#E0F0B1] hover:bg-amber-300 text-white font-bold py-2 px-4 rounded-full shadow-lg animate-bounce"
+        >
+          ↑
         </button>
       )}
     </KindeProvider>
