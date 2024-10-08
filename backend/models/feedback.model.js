@@ -27,6 +27,12 @@ const feedbackSchema = new Schema(
       trim: true,
       maxlength: [1000, "Feedback cannot be more than 1000 characters"],
     },
+    rating: {
+      type: Number,
+      required: true,
+      min: 1,
+      max: 5,
+    },
     createdAt: {
       type: Date,
       default: Date.now,
