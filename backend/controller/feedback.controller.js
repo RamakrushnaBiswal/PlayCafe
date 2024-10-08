@@ -1,5 +1,6 @@
 const { z } = require("zod");
 const { Feedback } = require("../models/feedback.model");
+const logger = require("../config/logger"); // Import your logger
 
 // Define the Zod schema for feedback validation
 const feedbackSchema = z.object({
@@ -13,7 +14,10 @@ async function createFeedback(req, res) {
     const validationResult = feedbackSchema.safeParse(req.body);
 
     if (!validationResult.success) {
-      console.error("Validation error:", validationResult.error.errors);
+      logger.error("Validation error:", {
+        errors: validationResult.error.errors, // Log the detailed validation errors
+        body: req.body, // Optionally log the request body for context
+      }); // Use logger for validation errors
       return res.status(400).json({
         success: false,
         message: "Validation failed",
@@ -29,7 +33,7 @@ async function createFeedback(req, res) {
       data: feedback,
     });
   } catch (error) {
-    console.error("Error creating feedback:", error);
+    logger.error("Error creating feedback:", error); // Log the error using Winston
     res.status(500).json({
       success: false,
       message: "An error occurred while creating the feedback",
@@ -41,7 +45,7 @@ module.exports = {
   createFeedback,
 };
 
-//dummy api call for feedback
+// Dummy API call for feedback
 // {
 //     "name": "John Doe",
 //     "email": "john@1212.com",

@@ -1,13 +1,17 @@
-import { useState, useEffect } from "react";
-import Logo from "../../assets/Logo/logo.png";
+import { useState, useEffect, useRef } from "react";
+import Logo from "../../assets/Logo/playcafe.png";
 import { Link, useLocation } from "react-router-dom";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import { message } from "antd";
+import { useAuth } from "./AuthContext";
 
 const Navbar = () => {
-  const { login, logout, isAuthenticated } = useKindeAuth();
+  const { login, logout, isAuthenticated, getUser } = useKindeAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const wasAuthenticated = useRef(null);
+  const { setEmail } = useAuth();
 
   const menuItems = [
     { name: "Home", path: "/" },
@@ -30,6 +34,34 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (wasAuthenticated.current === null) {
+      wasAuthenticated.current = isAuthenticated;
+      return;
+    }
+    if (wasAuthenticated.current && !isAuthenticated) {
+      message.success("Logout successful!");
+    }
+    if (!wasAuthenticated.current && isAuthenticated) {
+      message.success("Login successful!");
+      // Fetch user details only when authentication is successful
+      fetchUserDetails();
+    }
+    wasAuthenticated.current = isAuthenticated;
+  }, [isAuthenticated]);
+
+  const fetchUserDetails = async () => {
+    try {
+      const user = getUser();
+      if (user) {
+        setEmail(user.email); // Store email in the context
+        console.log("User email:", user.email);
+      }
+    } catch (error) {
+      console.error("Failed to get user details:", error);
+    }
+  };
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -47,24 +79,44 @@ const Navbar = () => {
   const hoverTextColorClass = isScrolled ? "hover:text-gray-900" : "hover:text-gray-800";
   const baseTextColorClass = isScrolled ? "text-gray-800" : "text-gray-900";
   const mobileMenuBaseTextColorClass = isScrolled ? "text-gray-900" : "text-gray-800";
+
+  // Handle login
+  const handleLogin = async () => {
+    try {
+      await login();
+    } catch (error) {
+      message.error("Login failed. Please try again.");
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setEmail(null);
+    } catch (error) {
+      message.error("Logout failed. Please try again.");
+    }
+  };
+
   return (
     <nav
-      className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"}
-                  ${isScrolled ? "text-gray-800" : "text-black"} ${isScrolled ? "shadow-lg" : ""}`}
+      className={`w-full fixed top-0 z-50 transition duration-300 ${
+        isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"
+      } ${isScrolled ? "text-gray-800" : "text-black"} ${isScrolled ? "shadow-lg" : ""}`}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link to="/">
             <div className="flex-shrink-0">
-              <img className="w-14 h-14 bg-white rounded-full p-1" alt="logo" src={Logo} />
+              <img className="w-14 h-14 bg-white rounded-full p-0" alt="logo" src={Logo} />
             </div>
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex">
-            <ul className="ml-4 flex space-x-4 font-semibold">
+            <ul className="ml-4 flex space-x-5 Poppins font-semibold text-lg">
               {menuItems.map((item) => (
-                <li key={item.name}>
+                <li key={item.name} className="transform hover:scale-110 hover:-translate-y-1 transition ">
                   <Link
                     to={item.path}
                     className={`${baseTextColorClass} ${hoverTextColorClass}`}
@@ -75,16 +127,17 @@ const Navbar = () => {
               ))}
               {isAuthenticated ? (
                 <button
-                  onClick={logout}
-                  className={`${baseTextColorClass} ${hoverTextColorClass}`}
+
+                  onClick={handleLogout}
+                  className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
                   type="button"
                 >
                   Log Out
                 </button>
               ) : (
                 <button
-                  onClick={login}
-                  className={`${baseTextColorClass} ${hoverTextColorClass}`}
+                  onClick={handleLogin}
+                  className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
                   type="button"
                 >
                   Log In
@@ -96,9 +149,27 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="flex md:hidden">
             <button onClick={toggleMenu} className={`${buttonTextClass} focus:outline-none`}>
-              <svg className="h-6 w-6" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              {isMenuOpen ? (
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="black"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="black"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
@@ -113,24 +184,24 @@ const Navbar = () => {
                 key={item.name}
                 to={item.path}
                 className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 {item.name}
               </Link>
             ))}
             {isAuthenticated ? (
               <button
-                onClick={logout}
+                onClick={handleLogout}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 Log Out
               </button>
             ) : (
               <button
-                onClick={login}
+                onClick={handleLogin}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                              ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 Log In
               </button>

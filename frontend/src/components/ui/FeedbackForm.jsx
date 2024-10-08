@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import chess from "../../assets/img/chess.gif";
+import { FaStar } from "react-icons/fa6";
 
 const FeedbackForm = () => {
   const { ref, inView } = useInView({
@@ -18,11 +19,28 @@ const FeedbackForm = () => {
   const [email, setEmail] = useState("");
   const [feedback, setFeedback] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  const [rating, setRating] = useState(null);
+
+  const [hover, setHover] = useState(null);
+  const [totalStars, setTotalStars] = useState(5);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log(`Name: ${name}, Email: ${email}, Feedback: ${feedback}, rating: ${rating}`);
+    setSubmitted(true);
+    setTimeout(() => {
+      setName("");
+      setEmail("");
+      setFeedback("");
+      setRating(null);
+      setSubmitted(false);
+    }, 3000);
+
     setIsLoading(true);
     try {
       const response = await fetch(`${API_URL}/feedback/create`, {
@@ -55,6 +73,7 @@ const FeedbackForm = () => {
     } finally {
       setIsLoading(false);
     }
+
   };
 
   return (
@@ -65,13 +84,13 @@ const FeedbackForm = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={animationVariants}
-          className="lg:grid lg:grid-cols-2 lg:gap-8"
+          className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center"
         >
           <div className="mb-8 lg:mb-0 relative">
-            <h2 className="text-3xl  font-extrabold text-[#004D43] sm:text-4xl">
-              We Value Your Feedback
+            <h2 className="text-5xl font-black text-[#004D43]">
+              We value Your Feedback!
             </h2>
-            <p className="mt-4 text-lg text-gray-700 pb-3">
+            <p className="mt-1 text-lg text-gray-700 pb-3">
               Your thoughts help us improve. Share your experience and
               suggestions with us!
             </p>
@@ -84,19 +103,20 @@ const FeedbackForm = () => {
             </div>
           </div>
 
-          <div className="mt-8 lg:mt-0">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-[#004D43] rounded-xl p-3 pt-4 h-fit">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label
+                {/* <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-[#004D43]"
+                  className="block text-sm font-medium text-white"
                 >
                   Name
-                </label>
+                </label> */}
                 <input
                   type="text"
                   id="name"
                   value={name}
+                  placeholder="Name"
                   onChange={(e) => setName(e.target.value)}
                   required
                   autoComplete="off"
@@ -104,15 +124,16 @@ const FeedbackForm = () => {
                 />
               </div>
               <div>
-                <label
+                {/* <label
                   htmlFor="email"
                   className="block text-sm font-medium text-[#004D43]"
                 >
                   Email
-                </label>
+                </label> */}
                 <input
                   type="email"
                   id="email"
+                  placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -121,26 +142,52 @@ const FeedbackForm = () => {
                 />
               </div>
               <div>
-                <label
+                {/* <label
                   htmlFor="feedback"
                   className="block text-sm font-medium text-[#004D43]"
                 >
                   Feedback
-                </label>
+                </label> */}
                 <textarea
                   id="feedback"
+                  placeholder="Your valuable feedback here"
                   rows="4"
                   value={feedback}
                   onChange={(e) => setFeedback(e.target.value)}
                   required
-                  autoComplete="off"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
                 ></textarea>
+              </div>
+              <div className="flex flex-row justify-center gap-2">
+                {[...Array(totalStars)].map((star, index) => {
+                  const currentRating = index + 1;
+                  return (
+                    <label key={index}>
+                      <input
+                        type="radio"
+                        name="rating"
+                        value={currentRating}
+                        onChange={() => setRating(currentRating)}
+                      />
+                      <span
+                        className="star"
+                        style={{
+                          color:
+                            currentRating <= (hover || rating) ? "#ffc107" : "#e4e5e9"
+                        }}
+                        onMouseEnter={() => setHover(currentRating)}
+                        onMouseLeave={() => setHover(null)}
+                      >
+                        <FaStar />
+                      </span>
+                    </label>
+                  );
+                })}
               </div>
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#004D43] hover:bg-[#003d35] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004D43]"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#09342e] hover:bg-[#072d28] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004D43]"
                 >
                   {isLoading ? "Submitting..." : "Submit Feedback"}
                 </button>
@@ -148,8 +195,8 @@ const FeedbackForm = () => {
             </form>
             {submitted && (
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: -10, display:"none", height:0 }}
+                animate={{ opacity: 1, y: 0, display: "block", height: "auto" }}
                 className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded"
               >
                 Thank you for your feedback!

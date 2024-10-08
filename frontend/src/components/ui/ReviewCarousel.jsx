@@ -1,5 +1,7 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { MdStars, MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const ReviewCarousel = () => {
   const reviews = [
@@ -55,7 +57,7 @@ const ReviewCarousel = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showMoreStates, setShowMoreStates] = useState(
-    reviews.map(() => false) 
+    reviews.map(() => false)
   );
 
   const toggleShowMore = (index) => {
@@ -75,18 +77,18 @@ const ReviewCarousel = () => {
       prevIndex === 0 ? reviews.length - 4 : prevIndex - 1
     );
   };
-  const [cardsToShow, setCardsToShow] = useState(1); 
+  const [cardsToShow, setCardsToShow] = useState(1);
 
   const updateCardsToShow = () => {
     if (window.innerWidth >= 768) {
-      setCardsToShow(4); 
+      setCardsToShow(4);
     } else {
-      setCardsToShow(1); 
+      setCardsToShow(1);
     }
   };
 
   useEffect(() => {
-    updateCardsToShow(); 
+    updateCardsToShow();
     window.addEventListener("resize", updateCardsToShow);
 
     return () => {
@@ -118,11 +120,19 @@ const ReviewCarousel = () => {
               >
                 <div className="relative min-h-[250px] max-h-[350px] md:min-h-[300px] md:max-h-[400px] p-4 rounded-xl bg-amber-200 z-10 overflow-hidden">
                   <div className="flex flex-col items-center justify-center mb-1">
-                    <img
+                    {/* <img
                       src={review.img}
                       alt=""
                       className="w-20 h-20 rounded-full"
-                    />
+                    /> */}
+                    <LazyLoadImage
+                      alt={`${index}img`}
+                      effect="blur"
+                      className="w-20 h-20 rounded-full"
+                      wrapperProps={{
+                        style: { transitionDelay: "1s" },
+                      }}
+                      src={review.img} />
                     <h1 className="text-xl font-semibold text-center">{review.name}</h1>
                     <div className="flex">
                       {Array(review.rating)
