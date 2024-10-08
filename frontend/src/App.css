@@ -17,30 +17,4 @@ body,
 body{
     background: #F1EADC;
 }
-
-/* App.css */
-.back-to-top-btn {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    padding: 16px;
-    background-color: black;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    animation: bounce 1s infinite;
-  }
-  
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
   
