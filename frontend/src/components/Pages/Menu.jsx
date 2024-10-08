@@ -1,6 +1,7 @@
 import  { useState } from 'react';
 import { motion } from 'framer-motion';
 import Mybook from './MyBook';
+import TodaysSpecial from './TodaysSpecial';
 import { GiArrowDunk } from "react-icons/gi";
 import Cafe3dImg from "../../assets/Menu_assets/mega-creator.png"
 const parallaxVariants = {
@@ -58,6 +59,7 @@ function ParallaxImage() {
         <div className="w-full md:flex md:items-center md:justify-center">
           <Mybook />
         </div>
+        <TodaysSpecial />
       </div>
     </>
   );
