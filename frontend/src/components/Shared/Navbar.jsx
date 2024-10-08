@@ -1,17 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import Logo from "../../assets/Logo/playcafe.png";
 import { Link, useLocation } from "react-router-dom";
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import { message } from "antd";
-import { useAuth } from "./AuthContext";
 
 const Navbar = () => {
-  const { login, logout, isAuthenticated, getUser } = useKindeAuth();
+  const [isloggedIn, setisloggedIn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const wasAuthenticated = useRef(null);
-  const { setEmail } = useAuth();
 
   const menuItems = [
     { name: "Home", path: "/" },
@@ -29,38 +24,12 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
+    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  useEffect(() => {
-    if (wasAuthenticated.current === null) {
-      wasAuthenticated.current = isAuthenticated;
-      return;
-    }
-    if (wasAuthenticated.current && !isAuthenticated) {
-      message.success("Logout successful!");
-    }
-    if (!wasAuthenticated.current && isAuthenticated) {
-      message.success("Login successful!");
-      // Fetch user details only when authentication is successful
-      fetchUserDetails();
-    }
-    wasAuthenticated.current = isAuthenticated;
-  }, [isAuthenticated]);
-
-  const fetchUserDetails = async () => {
-    try {
-      const user = getUser();
-      if (user) {
-        setEmail(user.email); // Store email in the context
-        console.log("User email:", user.email);
-      }
-    } catch (error) {
-      console.error("Failed to get user details:", error);
-    }
-  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -79,24 +48,6 @@ const Navbar = () => {
   const hoverTextColorClass = isScrolled ? "hover:text-gray-900" : "hover:text-gray-800";
   const baseTextColorClass = isScrolled ? "text-gray-800" : "text-gray-900";
   const mobileMenuBaseTextColorClass = isScrolled ? "text-gray-900" : "text-gray-800";
-
-  // Handle login
-  const handleLogin = async () => {
-    try {
-      await login();
-    } catch (error) {
-      message.error("Login failed. Please try again.");
-    }
-  };
-
-  const handleLogout = async () => {
-    try {
-      await logout();
-      setEmail(null);
-    } catch (error) {
-      message.error("Logout failed. Please try again.");
-    }
-  };
 
   return (
     <nav
@@ -125,20 +76,18 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
-              {isAuthenticated ? (
+              {isloggedIn ? (
                 <button
 
-                  onClick={handleLogout}
                   className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
-                  type="button"
+                  type="button" onClick={()=> {setisloggedIn(false)}}
                 >
                   Log Out
                 </button>
-              ) : (
+              ):(
                 <button
-                  onClick={handleLogin}
                   className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
-                  type="button"
+                  type="button" onClick={() => {setisloggedIn(true)}}
                 >
                   Log In
                 </button>
@@ -189,23 +138,21 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            {isAuthenticated ? (
+          {isloggedIn ? (
               <button
-                onClick={handleLogout}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                           ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 Log Out
               </button>
-            ) : (
+          ) : (
               <button
-                onClick={handleLogin}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                             ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 Log In
               </button>
-            )}
+          )}
           </div>
         </div>
       )}

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useAuth } from "../Shared/AuthContext";
 import pic from "../../assets/img/abt1.jpg";
 import pic2 from "../../assets/img/abt1.png";
 import pic3 from "../../assets/img/abt2.png";
@@ -10,7 +9,6 @@ export default function Register() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState();
-  const { email } = useAuth();
 
   const handleSubmit = (e) => {
     console.log(guests);
@@ -24,7 +22,6 @@ export default function Register() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email,
         guests,
         date,
         time,
