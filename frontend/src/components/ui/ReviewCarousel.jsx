@@ -164,15 +164,15 @@ const ReviewCarousel = () => {
           <>
             <button
               onClick={prevSlide}
-              className="absolute hidden p-2 transform -translate-y-1/2 bg-white rounded-full md:block left-20 top-1/2"
+              className="absolute hidden p-2  transform -translate-y-1/2 bg-white rounded-full md:block left-10 top-1/2"
             >
-              <MdArrowBackIos className="text-[#004D43]" />
+              <MdArrowBackIos className="text-[#004D43]" size={18} />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute hidden p-2 transform -translate-y-1/2 bg-white rounded-full md:block right-20 top-1/2"
+              className="absolute hidden p-2 transform -translate-y-1/2 bg-white rounded-full md:block right-10 top-1/2"
             >
-              <MdArrowForwardIos className="text-[#004D43]" />
+              <MdArrowForwardIos className="text-[#004D43]" size={18} />
             </button>
           </>
         )}
