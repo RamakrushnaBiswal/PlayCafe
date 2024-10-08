@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -14,7 +15,7 @@ const FeedbackForm = () => {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
-  const API_URL = import.meta.env.VITE_BACKEND_URI || "http://localhost:3000/";
+  const API_URL = import.meta.env.VITE_BACKEND_URI || "http://localhost:3000";
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -43,12 +44,12 @@ const FeedbackForm = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch(`${API_URL}/feedback/create`, {
+      const response = await fetch(`${API_URL}/api/feedback/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, feedback }),
+        body: JSON.stringify({ name, email, feedback,rating }),
       });
       const data = await response.json();
       if (!response.ok) {
