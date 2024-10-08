@@ -19,6 +19,11 @@ async function createCustomer(req, res) {
     return res.status(400).json({ error: validation.error.errors });
   }
 
+       const existingCustomer = await Customer.findOne({ email: req.body.email });
+     if (existingCustomer) {
+       return res.status(400).json({ error: "Email is already registered" });
+     }
+
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const customer = new Customer({
@@ -34,12 +39,12 @@ async function createCustomer(req, res) {
 }
 
 async function loginCustomer(req, res) {
-  const customerSchema = z.object({
+  const customerLoginSchema = z.object({
     email: z.string().email("Invalid email address"),
     password: z.string().min(6, "Password must be at least 6 characters long"),
   });
   // Validate the request body
-  const validation = customerSchema.safeParse(req.body);
+  const validation = customerLoginSchema.safeParse(req.body);
   if (!validation.success) {
     return res.status(400).json({ error: validation.error.errors });
   }
@@ -47,14 +52,14 @@ async function loginCustomer(req, res) {
   try {
     const customer = await Customer.findOne({ email: req.body.email });
     if (!customer) {
-      return res.status(404).json({ error: "User not found" });
+      return res.status(401).json({ error: "Invalid email or password" });
     }
     const validPassword = await bcrypt.compare(
       req.body.password,
       customer.password
     );
     if (!validPassword) {
-      return res.status(401).json({ error: "Invalid password" });
+      return res.status(401).json({ error: "Invalid email or password" });
     }
     res.json({ message: "Login successful" });
   } catch (error) {
