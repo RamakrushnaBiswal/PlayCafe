@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuth } from "../Shared/AuthContext";
 import pic from "../../assets/img/abt1.jpg";
 import pic2 from "../../assets/img/abt1.png";
 import pic3 from "../../assets/img/abt2.png";
@@ -49,6 +50,7 @@ export default function Register() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState();
+  const { email } = useAuth();
 
   const handleSubmit = (e) => {
     console.log(guests);
@@ -62,11 +64,13 @@ export default function Register() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        email,
         guests,
         date,
         time,
       }),
     })
+
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
@@ -177,7 +181,6 @@ export default function Register() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-amber-100 bg-green-900 p-5 text-center">
           Popular Board Games
         </h1>
-
         <div className="w-full flex justify-center bg-white">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8 mb-10 px-4 lg:px-0">
             {boardGames.map((game, index) => (
