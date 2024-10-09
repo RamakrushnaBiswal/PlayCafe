@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import  { useState , useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Mybook from './MyBook';
 import TodaysSpecial from './TodaysSpecial';
@@ -27,6 +27,10 @@ function ParallaxImage() {
     x: mousePosition.x / 30,
     y: mousePosition.y / 30,
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import photo from "../../assets/login.png";
 
 const Signup = () => {
@@ -25,6 +25,10 @@ const Signup = () => {
         const result = await response.json();
         console.log(result);    
     };
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center pt-10">
