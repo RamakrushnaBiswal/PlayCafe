@@ -1,6 +1,6 @@
+import React, { useState , useEffect } from "react";
 import { Link } from "react-router-dom";
 import photo from "../../assets/login.png";
-import React, { useState , useEffect } from "react";
 
 const Login = () => {
   const API_URL = process.env.VITE_BACKEND_URL || "http://localhost:3000";
