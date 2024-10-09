@@ -11,6 +11,40 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Function to send newsletter subscription confirmation via email
+exports.sendSubscriptionConfirmation = async (email) => {
+  // Construct the email content
+  const emailText = `
+    Dear Customer,
+    
+    Thank you for subscribing to our newsletter! We're excited to have you on board.
+
+    You will now receive regular updates about our latest boardgame collections, special offers, and upcoming events.
+
+    If you have any questions or feedback, feel free to reach out.
+
+    Best regards,
+    PlayCafe Team
+  `;
+
+  try {
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "Thank You for Subscribing!",
+      text: emailText,
+    });
+    logger.info('Newsletter subscription confirmation sent successfully via email', { email });
+  } catch (error) {
+    logger.error('Failed to send newsletter subscription confirmation email', { error, email });
+    if (error.code === 'ECONNREFUSED') {
+      throw new Error('Failed to connect to email server. Please try again later.');
+    } else {
+      throw new Error(`Failed to send subscription confirmation email: ${error.message}`);
+    }
+  }
+};
+
 // Function to send reservation confirmation via email
 exports.sendReservationConfirmation = async (email, reservationDetails) => {
   const { reservationDate, guests, time } = reservationDetails;
