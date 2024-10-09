@@ -79,7 +79,6 @@ async function loginAdmin(req, res) {
   } catch (error) {
     logger.error("Error logging in admin:", {
       message: error.message,
-      stack: error.stack,
     });
     res.status(500).json({ error: "Internal server error" });
   }

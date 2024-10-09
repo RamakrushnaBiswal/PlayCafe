@@ -14,7 +14,7 @@ const authenticateAdmin = (req, res, next) => {
       }
 
       req.user = decoded;
-      logger.info(`Admin authenticated: ${JSON.stringify(decoded.email)}`);
+      logger.info(`Admin authenticated: ${JSON.stringify(decoded.id)}`);
       next();
     });
   } else {
