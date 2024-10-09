@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Logo from "../../../assets/Logo/playcafe.png";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+import GoogleTranslate from "../GoogleTranslate";
 
 export default function Content() {
   return (
@@ -35,21 +36,18 @@ const Section2 = () => {
         </div>
       )}
       <div
-        className={`flex ${
-          isWide ? "justify-between items-end" : "flex-col items-center"
-        } text-white`}
+        className={`flex ${isWide ? "justify-between items-end" : "flex-col items-center"
+          } text-white`}
       >
         <h1
-          className={`${
-            isWide ? "text-[9vw]" : "text-[12vw] mt-10"
-          } leading-[0.8]`}
+          className={`${isWide ? "text-[9vw]" : "text-[12vw] mt-10"
+            } leading-[0.8]`}
         >
           BoardGame {!isWide && <br />}
         </h1>
         <h1
-          className={`${
-            isWide ? "text-[9vw]" : "text-[12vw] mt-4"
-          } leading-[0.8]`}
+          className={`${isWide ? "text-[9vw]" : "text-[12vw] mt-4"
+            } leading-[0.8]`}
         >
           Cafe
         </h1>
@@ -85,7 +83,7 @@ const Nav = () => {
   ];
   const socialLink = [
     { name: "Facebook", link: "https://www.facebook.com/sipnplaynyc/", icon: <FaFacebook /> },
-    { name: "Instagram", link: "https://www.instagram.com/sipnplaynyc/?hl=en", icon: <FaInstagram />},
+    { name: "Instagram", link: "https://www.instagram.com/sipnplaynyc/?hl=en", icon: <FaInstagram /> },
     {
       name: "Tiktok",
       link: "https://www.tiktok.com/@sipnplaynycofficial?lang=en", icon: <FaTiktok />
@@ -115,7 +113,7 @@ const Nav = () => {
             className="hover:text-white duration-300 flex items-center gap-2"
             key={index}
             href={item.link}
-            aria-label={`${item.name} - opens in a new tab`} 
+            aria-label={`${item.name} - opens in a new tab`}
           >
             {item.icon}
             {item.name}
@@ -133,6 +131,15 @@ const Nav = () => {
         <a href="tel:+17189711684" className="mb-2 hover:underline">
           718-971-1684
         </a>
+      
+        <div className="flex items-center justify-center mt-4">
+          <img
+            src="https://w7.pngwing.com/pngs/211/630/png-transparent-google-translate-translation-android-noodle-blue-english-text.png"
+            alt="Google Translate"
+            className="w-12 h-12"
+          />
+          <GoogleTranslate/>
+        </div>
       </div>
     </div>
   );
