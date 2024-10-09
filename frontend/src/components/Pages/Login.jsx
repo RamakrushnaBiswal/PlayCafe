@@ -1,22 +1,27 @@
 import { Link } from "react-router-dom";
-import photo from "../../assets/login.png"
-import React, { useState } from 'react';
+import photo from "../../assets/login.png";
+import React, { useState } from "react";
 
 const Login = () => {
+  const API_URL = process.env.VITE_BACKEND_URL || "http://localhost:3000";
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
 
-    const [data, setData] = useState({
-      email: "",
-      password: "",
-    });
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
-    const handleChange = (e) => {
-      setData({ ...data, [e.target.name]: e.target.value });
-    };
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      console.log(data);
-      const response = await fetch("http://localhost:3000/api/user/login", {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(`${API_URL}/api/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,13 +29,25 @@ const Login = () => {
         body: JSON.stringify(data),
       });
       const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.message || "Login failed");
+      }
       console.log(result);
-    };
+      // Handle successful login (e.g., store token, redirect)
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="w-screen h-screen flex items-center justify-center pt-10">
       <img src={photo} alt="login" className=" w-3/4 absolute" />
-      <form className="form z-10 p-16 bg-lightblue flex flex-col items-start justify-center gap-5 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]">
+      <form
+        onSubmit={(e) => handleSubmit(e)}
+        className="form z-10 p-16 bg-lightblue flex flex-col items-start justify-center gap-5 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]"
+      >
         <div className="title text-[#323232] font-black text-7xl mb-6">
           Welcome,
           <br />
@@ -61,14 +78,14 @@ const Login = () => {
           </span>
         </h3>
         <button
+          type="submit"
           className="button-confirm mx-auto mt-12 px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
-          onClick={(e) => handleSubmit(e)}
         >
           Let’s go →
         </button>
       </form>
     </div>
   );
-}
+};
 
-export default Login
+export default Login;
