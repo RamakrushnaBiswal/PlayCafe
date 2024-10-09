@@ -58,7 +58,22 @@ Make sure you follow our contributing guidlines:-  [here](https://github.com/Ram
    npm run dev
 4. Open your browser at `http://localhost:3000` to see the project running! 🌟
 
+Set-up using Dockerfile:-
 
+1. **Build Docker Image**:
+   ```bash
+   docker build -t playcafe .
+2. **Run Docker Image**
+   ```bash
+   docker run -p 5173:5173 -p 3000:3000 playcafe
+3. Open your browser at `http://localhost:5173` to see the project running! 🌟
+
+Set-up using docker-compose :-
+
+1. **Build Docker Image and Run the Application**:
+   ```bash
+   docker compose up --build
+   
 ## 🤝 Contributing
 We love contributions! 💙 Whether you're a participant in **GSSoC** or an open-source enthusiast, we welcome your input. Here's how you can contribute:
 
