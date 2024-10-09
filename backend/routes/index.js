@@ -4,6 +4,9 @@ const logger = require("../config/logger"); // Import your Winston logger
 const router = express.Router();
 
 let feedbackRouter;
+
+
+
 try {
   feedbackRouter = require("./feedbackRouter");
 } catch (error) {
@@ -27,9 +30,8 @@ try {
   };
 }
 
-router.use("/feedback", feedbackRouter);
-router.use("/reservation", require("./reservationRouter"));
-router.use("/event", eventRouter);
+
+
 
 router.get("/", (req, res) => {
   res.json({
@@ -42,5 +44,13 @@ router.get("/", (req, res) => {
     documentation: "https://api-docs-url.com",
   });
 });
+
+
+router.use("/event", eventRouter);
+router.use("/admin", require("./adminRouter"));
+router.use("/feedback", feedbackRouter);
+router.use("/user", require("./customerRouter"));
+router.use("/reservation", require("./reservationRouter"));
+
 
 module.exports = router;

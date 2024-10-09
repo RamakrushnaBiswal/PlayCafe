@@ -1,15 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import Logo from "../../assets/Logo/playcafe.png";
 import { Link, useLocation } from "react-router-dom";
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import { message } from "antd";
 
 const Navbar = () => {
-  const { login, logout, isAuthenticated } = useKindeAuth();
+  const [isloggedIn, setisloggedIn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const wasAuthenticated = useRef(null);
+
   const menuItems = [
     { name: "Home", path: "/" },
     { name: "Events", path: "/events" },
@@ -26,24 +24,12 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
+    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  useEffect(() => {
-    if (wasAuthenticated.current === null) {
-      wasAuthenticated.current = isAuthenticated;
-      return;
-    }
-    if (wasAuthenticated.current && !isAuthenticated) {
-      message.success("Logout successful!");
-    }
-    if (!wasAuthenticated.current && isAuthenticated) {
-      message.success("Login successful!");
-    }
-    wasAuthenticated.current = isAuthenticated;
-  }, [isAuthenticated]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -63,30 +49,11 @@ const Navbar = () => {
   const baseTextColorClass = isScrolled ? "text-gray-800" : "text-gray-900";
   const mobileMenuBaseTextColorClass = isScrolled ? "text-gray-900" : "text-gray-800";
 
-  // Handle login
-  const handleLogin = async () => {
-    try {
-      await login();
-
-    } catch (error) {
-      message.error("Login failed. Please try again.");
-    }
-  };
-
-
-  const handleLogout = async () => {
-    try {
-      await logout();
-
-    } catch (error) {
-      message.error("Logout failed. Please try again.");
-    }
-  };
-
   return (
     <nav
-      className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"}
-                  ${isScrolled ? "text-gray-800" : "text-black"} ${isScrolled ? "shadow-lg" : ""}`}
+      className={`w-full fixed top-0 z-50 transition duration-300 ${
+        isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"
+      } ${isScrolled ? "text-gray-800" : "text-black"} ${isScrolled ? "shadow-lg" : ""}`}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
@@ -109,20 +76,18 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
-              {isAuthenticated ? (
+              {isloggedIn ? (
                 <button
 
-                  onClick={handleLogout}
                   className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
-                  type="button"
+                  type="button" onClick={()=> {setisloggedIn(false)}}
                 >
                   Log Out
                 </button>
-              ) : (
+              ):(
                 <button
-                  onClick={handleLogin}
                   className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
-                  type="button"
+                  type="button" onClick={() => {setisloggedIn(true)}}
                 >
                   Log In
                 </button>
@@ -133,14 +98,27 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="flex md:hidden">
             <button onClick={toggleMenu} className={`${buttonTextClass} focus:outline-none`}>
-              {isMenuOpen ?
-                <svg className="h-6 w-6" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              {isMenuOpen ? (
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="black"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
-                : <svg className="h-6 w-6" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              ) : (
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="black"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
-              }
+              )}
             </button>
           </div>
         </div>
@@ -155,28 +133,26 @@ const Navbar = () => {
                 key={item.name}
                 to={item.path}
                 className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 {item.name}
               </Link>
             ))}
-            {isAuthenticated ? (
+          {isloggedIn ? (
               <button
-                onClick={handleLogout}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 Log Out
               </button>
-            ) : (
+          ) : (
               <button
-                onClick={handleLogin}
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                              ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
               >
                 Log In
               </button>
-            )}
+          )}
           </div>
         </div>
       )}

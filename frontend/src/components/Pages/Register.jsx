@@ -27,6 +27,7 @@ export default function Register() {
         time,
       }),
     })
+    
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
