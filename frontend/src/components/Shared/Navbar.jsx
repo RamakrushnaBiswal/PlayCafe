@@ -165,18 +165,21 @@ const Navbar = () => {
 
         {/* Logout Confirmation Modal */}
         {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="bg-gray-800 rounded-lg shadow-lg p-6 w-96 relative">
-            <h2 className="text-lg font-semibold mb-4 text-white">Are you sure you want to logout?</h2>
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
+          <div className="w-full max-w-md p-6 rounded-lg border-2 border-black bg-amber-100">
+            <h2 className="text-3xl font-bold tracking-tighter mb-4">Confirm Logout</h2>
+            <p className="text-base text-muted-foreground mb-6">
+              Are you sure you want to log out of your account?
+            </p>
             <div className="flex justify-end space-x-4">
               <button
-                className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition"
+                className="px-4 py-2 bg-[#D9D9D9] hover:bg-[#C9C9C9] text-black rounded"
                 onClick={() => setIsModalOpen(false)}
               >
                 Cancel
               </button>
               <button
-                className="px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700 transition"
+                className="px-4 py-2 bg-green-900 hover:bg-green-800 text-amber-100 rounded"
                 onClick={handleLogout}
               >
                 Logout
