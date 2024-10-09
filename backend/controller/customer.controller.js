@@ -2,8 +2,6 @@ const bcrypt = require("bcrypt");
 const { z } = require("zod");
 const Customer = require("../models/customer.model");
 
-
-
 // Define the schema
 const customerSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -19,10 +17,10 @@ async function createCustomer(req, res) {
     return res.status(400).json({ error: validation.error.errors });
   }
 
-       const existingCustomer = await Customer.findOne({ email: req.body.email });
-     if (existingCustomer) {
-       return res.status(400).json({ error: "Email is already registered" });
-     }
+  const existingCustomer = await Customer.findOne({ email: req.body.email });
+  if (existingCustomer) {
+    return res.status(400).json({ error: "Email is already registered" });
+  }
 
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -56,7 +54,7 @@ async function loginCustomer(req, res) {
     }
     const validPassword = await bcrypt.compare(
       req.body.password,
-      customer.password
+      customer.password,
     );
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid email or password" });
@@ -67,9 +65,7 @@ async function loginCustomer(req, res) {
   }
 }
 
-
-
 module.exports = {
   createCustomer,
-  loginCustomer
-}
+  loginCustomer,
+};

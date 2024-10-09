@@ -17,9 +17,9 @@ async function createAdmin(req, res) {
   if (!validation.success) {
     return res.status(400).json({ error: validation.error.errors });
   }
-   const existingAdmin = await Admin.findOne({ email: req.body.email });
+  const existingAdmin = await Admin.findOne({ email: req.body.email });
   if (existingAdmin) {
-   return res.status(409).json({ error: "Email is already registered" });
+    return res.status(409).json({ error: "Email is already registered" });
   }
 
   try {
@@ -33,46 +33,44 @@ async function createAdmin(req, res) {
     res.status(201).json({ message: "Admin created successfully" });
   } catch (error) {
     logger.error("Error creating admin:", {
-        message: error.message,
-        stack: error.stack,
-        });
+      message: error.message,
+      stack: error.stack,
+    });
     res.status(500).json({ error: "Internal server error" });
   }
 }
 
 async function loginAdmin(req, res) {
-
-    const adminLoginSchema = z.object({
-        email: z.string().email("Invalid email address"),
-        password: z.string().min(6, "Password must be at least 6 characters long"),
-    });
-    // Validate the request body
-    const validation = adminLoginSchema.safeParse(req.body);
-    if(!validation.success) {
-        return res.status(400).json({ error: validation.error.errors });
-    }
+  const adminLoginSchema = z.object({
+    email: z.string().email("Invalid email address"),
+    password: z.string().min(6, "Password must be at least 6 characters long"),
+  });
+  // Validate the request body
+  const validation = adminLoginSchema.safeParse(req.body);
+  if (!validation.success) {
+    return res.status(400).json({ error: validation.error.errors });
+  }
 
   try {
     const admin = await Admin.findOne({ email: req.body.email });
     if (!admin) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
-    const validPassword = await bcrypt.compare(req.body.password, admin.password);
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      admin.password,
+    );
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
     res.json({ message: "Login successful" });
-    }
-    catch (error) {
-        logger.error("Error logging in admin:", {
-            message: error.message,
-            stack: error.stack,
-        });
-        res.status(500).json({ error: "Internal server error" });
-        }
-    }
+  } catch (error) {
+    logger.error("Error logging in admin:", {
+      message: error.message,
+      stack: error.stack,
+    });
+    res.status(500).json({ error: "Internal server error" });
+  }
+}
 
-
-module.exports = { createAdmin
-    , loginAdmin
- };
+module.exports = { createAdmin, loginAdmin };

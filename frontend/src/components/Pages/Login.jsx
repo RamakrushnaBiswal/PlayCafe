@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
-import photo from "../../assets/login.png";
-import React, { useState } from "react";
+import { Link } from 'react-router-dom';
+import photo from '../../assets/login.png';
+import React, { useState } from 'react';
 
 const Login = () => {
-  const API_URL = process.env.VITE_BACKEND_URL || "http://localhost:3000";
+  const API_URL = process.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const [data, setData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const handleChange = (e) => {
@@ -22,15 +22,15 @@ const Login = () => {
     setError(null);
     try {
       const response = await fetch(`${API_URL}/api/user/login`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
       const result = await response.json();
       if (!response.ok) {
-        throw new Error(result.message || "Login failed");
+        throw new Error(result.message || 'Login failed');
       }
       console.log(result);
       // Handle successful login (e.g., store token, redirect)
@@ -74,7 +74,7 @@ const Login = () => {
         <h3 className="flex items-center justify-between w-full">
           Dont have an account?
           <span className="block text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition">
-            <Link to={"/signup"}>Register Here</Link>
+            <Link to={'/signup'}>Register Here</Link>
           </span>
         </h3>
         <button
