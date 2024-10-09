@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import photo from "../../assets/login.png";
 import React, { useState } from "react";
 
@@ -12,7 +12,7 @@ const Login = () => {
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-
+  const navigate = useNavigate(); // Correctly initialize useNavigate
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -34,8 +34,10 @@ const Login = () => {
       }
       console.log(result);
       // Handle successful login (e.g., store token, redirect)
+      alert("Login successful");
+      navigate("/profile");
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "An error occurred. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -77,11 +79,12 @@ const Login = () => {
             <Link to={"/signup"}>Register Here</Link>
           </span>
         </h3>
+        {error && <p className="text-red-500 mt-2">{error}</p>}
         <button
           type="submit"
           className="button-confirm mx-auto mt-12 px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
         >
-          Let’s go →
+          {isLoading ? "Loading..." : "Let’s Log you in →"}
         </button>
       </form>
     </div>

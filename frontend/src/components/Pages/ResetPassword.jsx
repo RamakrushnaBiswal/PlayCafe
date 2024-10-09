@@ -18,10 +18,27 @@ const ResetPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // Helper function for email validation
+  const isValidEmail = (email) => {
+    // Basic email regex, consider using a more robust solution in production
+    return /\S+@\S+\.\S+/.test(email);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
+
+    // Add input validation // Basic validation examples
+    if (!isValidEmail(data.email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    if (data.password.length < 8) {
+      setError("Password must be at least 8 characters long");
+      return;
+    }
 
     const passwordMatch = data.password === data.confirmPassword;
     if (!passwordMatch) {
@@ -79,6 +96,8 @@ const ResetPassword = () => {
           name="email"
           placeholder="Email"
           type="email"
+          aria-required="true"
+          autoComplete="email"
           onChange={(e) => handleChange(e)}
         />
 
