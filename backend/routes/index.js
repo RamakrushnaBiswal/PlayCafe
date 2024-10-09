@@ -1,5 +1,4 @@
 const express = require("express");
-const Reservation = require("../models/reservation.model");
 const logger = require("../config/logger"); // Import your Winston logger
 
 const router = express.Router();
@@ -19,6 +18,20 @@ try {
   };
 }
 
+let eventRouter;
+try {
+  eventRouter = require("./eventRouter");
+} catch (error) {
+  logger.error("Error loading eventRouter:", error); // Log the error with Winston
+  eventRouter = (req, res) => {
+    res
+      .status(500)
+      .json({ error: "Event functionality is currently unavailable" });
+  };
+}
+
+
+
 
 router.get("/", (req, res) => {
   res.json({
@@ -33,6 +46,7 @@ router.get("/", (req, res) => {
 });
 
 
+router.use("/event", eventRouter);
 router.use("/admin", require("./adminRouter"));
 router.use("/feedback", feedbackRouter);
 router.use("/user", require("./customerRouter"));

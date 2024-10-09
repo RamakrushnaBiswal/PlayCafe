@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Logo from "../../assets/Logo/playcafe.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isloggedIn, setisloggedIn] = useState(false);
@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate(); // Correctly initialize useNavigate
 
   const menuItems = [
     { name: "Home", path: "/" },
@@ -49,9 +50,13 @@ const Navbar = () => {
     buttonTextClass = "text-black";
   }
 
-  const hoverTextColorClass = isScrolled ? "hover:text-gray-900" : "hover:text-gray-800";
+  const hoverTextColorClass = isScrolled
+    ? "hover:text-gray-900"
+    : "hover:text-gray-800";
   const baseTextColorClass = isScrolled ? "text-gray-800" : "text-gray-900";
-  const mobileMenuBaseTextColorClass = isScrolled ? "text-gray-900" : "text-gray-800";
+  const mobileMenuBaseTextColorClass = isScrolled
+    ? "text-gray-900"
+    : "text-gray-800";
 
   return (
     <nav
@@ -62,7 +67,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/">
             <div className="flex-shrink-0">
-              <img className="w-14 h-14 bg-white rounded-full p-0" alt="logo" src={Logo} />
+              <img
+                className="w-14 h-14 bg-white rounded-full p-0"
+                alt="logo"
+                src={Logo}
+              />
             </div>
           </Link>
 
@@ -70,7 +79,10 @@ const Navbar = () => {
           <div className="hidden md:flex">
             <ul className="ml-4 flex space-x-5 Poppins font-semibold text-lg">
               {menuItems.map((item) => (
-                <li key={item.name} className="transform hover:scale-110 hover:-translate-y-1 transition ">
+                <li
+                  key={item.name}
+                  className="transform hover:scale-110 hover:-translate-y-1 transition"
+                >
                   <Link
                     to={item.path}
                     className={`${baseTextColorClass} ${hoverTextColorClass}`}
@@ -89,9 +101,9 @@ const Navbar = () => {
                 </button>
               ) : (
                 <button
-                  className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
+                  className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition`}
                   type="button"
-                  onClick={() => setisloggedIn(true)}
+                  onClick={() => navigate("/login")}
                 >
                   Log In
                 </button>
@@ -101,7 +113,10 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden">
-            <button onClick={toggleMenu} className={`${buttonTextClass} focus:outline-none`}>
+            <button
+              onClick={toggleMenu}
+              className={`${buttonTextClass} focus:outline-none`}
+            >
               {isMenuOpen ? (
                 <svg
                   className="h-6 w-6"
@@ -110,7 +125,12 @@ const Navbar = () => {
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               ) : (
                 <svg
@@ -120,7 +140,12 @@ const Navbar = () => {
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </svg>
               )}
             </button>
@@ -130,7 +155,11 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className={`md:hidden ${isScrolled ? "bg-amber-100 shadow-lg" : "bg-[#E0F0B1] shadow-lg"}`}>
+        <div
+          className={`md:hidden ${
+            isScrolled ? "bg-amber-100 shadow-lg" : "bg-[#E0F0B1] shadow-lg"
+          }`}
+        >
           <div className="px-4 pt-4 pb-4 space-y-2">
             {menuItems.map((item) => (
               <Link
@@ -154,7 +183,7 @@ const Navbar = () => {
               <button
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                             ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
-                onClick={() => setisloggedIn(true)}
+                onClick={() => navigate("/login")}
               >
                 Log In
               </button>
