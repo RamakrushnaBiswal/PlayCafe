@@ -9,7 +9,7 @@ import board7 from "../../assets/Boardgames/board7.png";
 import board8 from "../../assets/Boardgames/board8.png";
 import board10 from "../../assets/Boardgames/board10.png";
 import bg from "../../assets/Boardgames/bg.jpg";
-import axios from 'axios';
+
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -21,8 +21,20 @@ export default function Boardgame() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Make the POST request to /newsletter/subscribe endpoint
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/newsletter/subscribe`, { email });
+            // Make the POST request to /newsletter/subscribe endpoint using fetch
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/newsletter/subscribe`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+        
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+        
+            const data = await response.json();
             alert('Subscription successful! Check your email for confirmation.');
         } catch (error) {
             console.error('Error subscribing to newsletter:', error);
