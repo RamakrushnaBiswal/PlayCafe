@@ -9,12 +9,19 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+
+
 // CORS configuration
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://play-cafe.vercel.app"],
   })
 );
+
+// CORS configuration
+const corsOptions = {
+  origin: ["http://localhost:5173", "https://play-cafe.vercel.app"],
+};
 
 app.use(express.json());
 
@@ -31,6 +38,9 @@ mongoose
     logger.error("Database connection failed:", error.message); // Use logger for connection error
     process.exit(1);
   });
+
+// Enable CORS preflight for the create reservation route only
+app.options("/api/reservation/create", cors(corsOptions));  
 
 // API routes
 app.use("/api", require("./routes/index"));

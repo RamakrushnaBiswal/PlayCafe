@@ -7,6 +7,7 @@ const feedbackSchema = z.object({
   name: z.string().min(2).max(100),
   email: z.string().email(),
   feedback: z.string().min(10),
+  rating: z.number().min(1).max(5),
 });
 
 async function createFeedback(req, res) {
