@@ -3,6 +3,7 @@ import photo from "../../assets/login.png";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -45,7 +46,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/user/register", {
+      const response = await fetch(`${API_URL}/api/user/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

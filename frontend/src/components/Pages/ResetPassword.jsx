@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import photo from "../../assets/login.png";
 import React, { useState } from "react";
+import { message } from "antd";
 
 const ResetPassword = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -61,7 +62,7 @@ const ResetPassword = () => {
       }
 
       // Display success message and navigate to login
-      alert("Password reset successfully! Please log in.");
+      message.success("Password reset successfully! Please log in.");
       navigate("/login");
     } catch (err) {
       setError(err.message);
