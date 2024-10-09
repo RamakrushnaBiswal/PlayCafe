@@ -81,23 +81,26 @@ const Signup = () => {
             Register to continue
           </span>
         </div>
-
+        <label htmlFor="name" className="sr-only"></label>
         <input
           className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
           name="name"
           placeholder="Name"
           type="name"
+          autoComplete="name"
           aria-required="true"
           onChange={(e) => handleChange(e)}
         />
+        <label htmlFor="email" className="sr-only"></label>
         <input
           className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
           name="email"
           placeholder="Email"
+          autoComplete="email"
           type="email"
           onChange={(e) => handleChange(e)}
         />
-
+        <label htmlFor="password" className="sr-only"></label>
         <input
           className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
           name="password"
