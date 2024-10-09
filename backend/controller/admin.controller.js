@@ -35,7 +35,6 @@ async function createAdmin(req, res) {
   } catch (error) {
     logger.error("Error creating admin:", {
       message: error.message,
-      stack: error.stack,
     });
     res.status(500).json({ error: "Internal server error" });
   }
@@ -64,9 +63,13 @@ async function loginAdmin(req, res) {
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
-    const token = jwt.sign({ email: admin.email }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
+    const token = jwt.sign(
+      { id: admin._id, role: "admin" },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "1h",
+      }
+    );
     res.json({
       message: "Login successful",
       token,
