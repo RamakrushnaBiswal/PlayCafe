@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const { z } = require("zod");
 const Customer = require("../models/customer.model");
+const jwt = require("jsonwebtoken");
 
 // Define the schema
 const customerSchema = z.object({
@@ -59,7 +60,21 @@ async function loginCustomer(req, res) {
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
-    res.json({ message: "Login successful" });
+    const token = jwt.sign(
+      { id: customer._id, username: customer.name },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" } // Expires in 1 hour
+    );
+    res.json({
+      message: "Login successful",
+      token,
+      role: "customer",
+      user: {
+        id: customer._id,
+        name: customer.name,
+        email: customer.email,
+      },
+    });
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
   }
