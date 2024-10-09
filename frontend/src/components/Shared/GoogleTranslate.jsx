@@ -88,10 +88,6 @@ const GoogleTranslate = () => {
           border: 1px solid #cce5ff; /* Light blue border */
           border-radius: 0.5rem; /* Slightly more rounded */
         }
-        /* Hide the banner frame */
-        .goog-te-banner-frame {
-          display: none !important;
-        }
         /* Customize the iframe */
         .skiptranslate > iframe {
           height: 0 !important;

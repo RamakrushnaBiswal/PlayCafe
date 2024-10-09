@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Logo from "../../../assets/Logo/playcafe.png";
+import googleImage from "../../../assets/img/google.png"
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 import GoogleTranslate from "../GoogleTranslate";
 
@@ -134,7 +135,7 @@ const Nav = () => {
       
         <div className="flex items-center justify-center mt-4">
           <img
-            src="https://w7.pngwing.com/pngs/211/630/png-transparent-google-translate-translation-android-noodle-blue-english-text.png"
+            src={googleImage}
             alt="Google Translate"
             className="w-12 h-12"
           />
