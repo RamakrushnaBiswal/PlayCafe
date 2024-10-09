@@ -14,6 +14,8 @@ import Event from "../components/Pages/Event"
 import MyBook from "../components/Pages/MyBook"
 import NotFound from "../components/Pages/Notfound"
 import Register from "../components/Pages/Register"
+import Signup from "../components/Pages/Signup";
+import Login from "../components/Pages/Login";
 
 
 const router = createBrowserRouter(
@@ -27,6 +29,8 @@ const router = createBrowserRouter(
             <Route path="/book" element={<MyBook />} />
             <Route path="/reservation" element={<Register />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
         </Route>
     )
 );
