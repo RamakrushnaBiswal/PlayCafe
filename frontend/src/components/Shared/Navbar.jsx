@@ -105,13 +105,6 @@ const Navbar = () => {
                   Log In
                 </button>
               )}
-              <button
-                className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition`}
-                type="button"
-                onClick={() => navigate("/signup")}
-              >
-                Sign Up
-              </button>
             </ul>
           </div>
 

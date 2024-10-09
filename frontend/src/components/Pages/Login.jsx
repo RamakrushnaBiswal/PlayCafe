@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import photo from "../../assets/login.png"
 import React, { useState } from 'react';
 
@@ -43,7 +44,7 @@ const Login = () => {
           name="email"
           placeholder="Email"
           type="email"
-            onChange={(e) => handleChange(e)}
+          onChange={(e) => handleChange(e)}
         />
 
         <input
@@ -51,11 +52,17 @@ const Login = () => {
           name="password"
           placeholder="Password"
           type="password"
-            onChange={(e) => handleChange(e)}
+          onChange={(e) => handleChange(e)}
         />
-
-        <button className="button-confirm mx-auto mt-12 px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
-        onClick={(e) => handleSubmit(e)}
+        <h3 className="flex items-center justify-between w-full">
+          Dont have an account?
+          <span className="block text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition">
+            <Link to={"/signup"}>Register Here</Link>
+          </span>
+        </h3>
+        <button
+          className="button-confirm mx-auto mt-12 px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
+          onClick={(e) => handleSubmit(e)}
         >
           Let’s go →
         </button>
