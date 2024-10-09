@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isloggedIn, setisloggedIn] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -34,7 +35,12 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const isHomePage = location.pathname === '/';
+  const handleLogout = () => {
+    setisloggedIn(false); // Set isLoggedIn to false on confirmation
+    setIsModalOpen(false); // Close the modal
+  };
+
+  const isHomePage = location.pathname === "/";
   let buttonTextClass;
   if (isScrolled) {
     buttonTextClass = 'text-gray-900';
@@ -54,11 +60,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full fixed top-0 z-50 transition duration-300 ${
-        isScrolled ? 'bg-[#E0F0B1]' : 'bg-transparent'
-      } ${isScrolled ? 'text-gray-800' : 'text-black'} ${
-        isScrolled ? 'shadow-lg' : ''
-      }`}
+      className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"
+        } ${isScrolled ? "text-gray-800" : "text-black"} ${isScrolled ? "shadow-lg" : ""}`}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
@@ -90,9 +93,9 @@ const Navbar = () => {
               ))}
               {isloggedIn ? (
                 <button
-                  className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition`}
+                  className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
                   type="button"
-                  onClick={() => setisloggedIn(false)}
+                  onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
                 >
                   Log Out
                 </button>
@@ -172,6 +175,7 @@ const Navbar = () => {
               <button
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                           ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
               >
                 Log Out
               </button>
@@ -184,6 +188,32 @@ const Navbar = () => {
                 Log In
               </button>
             )}
+          </div>
+        </div>
+      )}
+
+        {/* Logout Confirmation Modal */}
+        {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
+          <div className="w-full max-w-md p-6 rounded-lg border-2 border-black bg-amber-100">
+            <h2 className="text-3xl font-bold tracking-tighter mb-4">Confirm Logout</h2>
+            <p className="text-base text-muted-foreground mb-6">
+              Are you sure you want to log out of your account?
+            </p>
+            <div className="flex justify-end space-x-4">
+              <button
+                className="px-4 py-2 bg-[#D9D9D9] hover:bg-[#C9C9C9] text-black rounded"
+                onClick={() => setIsModalOpen(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="px-4 py-2 bg-green-900 hover:bg-green-800 text-amber-100 rounded"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       )}

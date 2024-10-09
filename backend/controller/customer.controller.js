@@ -65,7 +65,33 @@ async function loginCustomer(req, res) {
   }
 }
 
+async function resetPassword(req, res) {
+  const customerResetPasswordSchema = z.object({
+    email: z.string().email("Invalid email address"),
+    password: z.string().min(6, "Password must be at least 6 characters long"),
+  });
+  // Validate the request body
+  const validation = customerResetPasswordSchema.safeParse(req.body);
+  if (!validation.success) {
+    return res.status(400).json({ error: validation.error.errors });
+  }
+
+  try {
+    const customer = await Customer.findOne({ email: req.body.email });
+    if (!customer) {
+      return res.status(401).json({ error: "Invalid email" });
+    }
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    customer.password = hashedPassword;
+    await customer.save();
+    res.json({ message: "Password reset successful" });
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+}
+
 module.exports = {
   createCustomer,
   loginCustomer,
+  resetPassword,
 };
