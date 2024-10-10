@@ -1,56 +1,59 @@
-import { useState, useEffect } from "react";
-import { MdStars, MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+import { useState, useEffect } from 'react';
+import { MdStars, MdArrowBackIos, MdArrowForwardIos } from 'react-icons/md';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const ReviewCarousel = () => {
   const reviews = [
     {
-      name: "Jane Smith",
-      review: "Great games and coffee. The perfect spot to unwind with friends!",
-      img: "https://randomuser.me/api/portraits/men/51.jpg",
+      name: 'Jane Smith',
+      review:
+        'Great games and coffee. The perfect spot to unwind with friends!',
+      img: 'https://randomuser.me/api/portraits/men/51.jpg',
       rating: 5,
     },
     {
-      name: "Sophia Lee",
-      review: "Cozy place with a fantastic selection of snacks and games!",
-      img: "https://randomuser.me/api/portraits/women/90.jpg",
+      name: 'Sophia Lee',
+      review: 'Cozy place with a fantastic selection of snacks and games!',
+      img: 'https://randomuser.me/api/portraits/women/90.jpg',
       rating: 4,
     },
     {
-      name: "Emily Davis",
-      review: "Friendly staff and delicious food make for a great experience.",
-      img: "https://randomuser.me/api/portraits/women/63.jpg",
+      name: 'Emily Davis',
+      review: 'Friendly staff and delicious food make for a great experience.',
+      img: 'https://randomuser.me/api/portraits/women/63.jpg',
       rating: 5,
     },
     {
-      name: "Chris Wilson",
-      review: "Amazing variety of games and excellent drinks to enjoy.",
-      img: "https://randomuser.me/api/portraits/men/22.jpg",
+      name: 'Chris Wilson',
+      review: 'Amazing variety of games and excellent drinks to enjoy.',
+      img: 'https://randomuser.me/api/portraits/men/22.jpg',
       rating: 5,
     },
     {
-      name: "Michael Johnson",
-      review: "Had a fantastic time with the games and tasty beverages!",
-      img: "https://randomuser.me/api/portraits/men/85.jpg",
+      name: 'Michael Johnson',
+      review: 'Had a fantastic time with the games and tasty beverages!',
+      img: 'https://randomuser.me/api/portraits/men/85.jpg',
       rating: 5,
     },
     {
-      name: "Jia Wang",
-      review: "Loved the games, the ambiance, and the overall vibe here!",
-      img: "https://randomuser.me/api/portraits/women/61.jpg",
+      name: 'Jia Wang',
+      review: 'Loved the games, the ambiance, and the overall vibe here!',
+      img: 'https://randomuser.me/api/portraits/women/61.jpg',
       rating: 5,
     },
     {
-      name: "Olivia Green",
-      review: "Great atmosphere and an excellent selection of board games. Will be back!",
-      img: "https://randomuser.me/api/portraits/women/72.jpg",
+      name: 'Olivia Green',
+      review:
+        'Great atmosphere and an excellent selection of board games. Will be back!',
+      img: 'https://randomuser.me/api/portraits/women/72.jpg',
       rating: 4,
     },
     {
-      name: "Ethan White",
-      review: "The vibe is amazing, and the staff is super friendly. Highly recommend!",
-      img: "https://randomuser.me/api/portraits/men/33.jpg",
+      name: 'Ethan White',
+      review:
+        'The vibe is amazing, and the staff is super friendly. Highly recommend!',
+      img: 'https://randomuser.me/api/portraits/men/33.jpg',
       rating: 5,
     },
   ];
@@ -89,10 +92,10 @@ const ReviewCarousel = () => {
 
   useEffect(() => {
     updateCardsToShow();
-    window.addEventListener("resize", updateCardsToShow);
+    window.addEventListener('resize', updateCardsToShow);
 
     return () => {
-      window.removeEventListener("resize", updateCardsToShow);
+      window.removeEventListener('resize', updateCardsToShow);
     };
   }, []);
 
@@ -130,10 +133,13 @@ const ReviewCarousel = () => {
                       effect="blur"
                       className="w-20 h-20 rounded-full"
                       wrapperProps={{
-                        style: { transitionDelay: "1s" },
+                        style: { transitionDelay: '1s' },
                       }}
-                      src={review.img} />
-                    <h1 className="text-xl font-semibold text-center">{review.name}</h1>
+                      src={review.img}
+                    />
+                    <h1 className="text-xl font-semibold text-center">
+                      {review.name}
+                    </h1>
                     <div className="flex">
                       {Array(review.rating)
                         .fill()
@@ -151,7 +157,7 @@ const ReviewCarousel = () => {
                       className="text-blue-500 cursor-pointer"
                       onClick={() => toggleShowMore(index)}
                     >
-                      {showMoreStates[index] ? " Show less" : " Read more"}
+                      {showMoreStates[index] ? ' Show less' : ' Read more'}
                     </span>
                   </p>
                 </div>

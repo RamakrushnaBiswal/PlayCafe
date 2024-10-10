@@ -19,7 +19,9 @@ async function createAdmin(req, res) {
     return res.status(400).json({ error: validation.error.errors });
   }
   const existingAdmin = await Admin.findOne({ email: req.body.email });
+  const existingAdmin = await Admin.findOne({ email: req.body.email });
   if (existingAdmin) {
+    return res.status(409).json({ error: "Email is already registered" });
     return res.status(409).json({ error: "Email is already registered" });
   }
 
@@ -41,6 +43,15 @@ async function createAdmin(req, res) {
 }
 
 async function loginAdmin(req, res) {
+  const adminLoginSchema = z.object({
+    email: z.string().email("Invalid email address"),
+    password: z.string().min(6, "Password must be at least 6 characters long"),
+  });
+  // Validate the request body
+  const validation = adminLoginSchema.safeParse(req.body);
+  if (!validation.success) {
+    return res.status(400).json({ error: validation.error.errors });
+  }
   const adminLoginSchema = z.object({
     email: z.string().email("Invalid email address"),
     password: z.string().min(6, "Password must be at least 6 characters long"),

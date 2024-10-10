@@ -10,7 +10,7 @@ const logger = winston.createLogger({
       return `${timestamp} [${level}] ${message}${
         stack ? `\nStack: ${stack}` : ""
       }${errors ? `\nErrors: ${JSON.stringify(errors)}` : ""}`; // Custom format
-    })
+    }),
   ),
   transports: [
     new winston.transports.Console(), // Log to console

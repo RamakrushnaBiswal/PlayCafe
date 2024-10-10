@@ -44,9 +44,10 @@ const BackToTopButton = () => {
       {shouldRender && (
         <button
           onClick={scrollToTop}
-          className={`z-50 fixed bottom-12 right-8 bg-green-700 hover:bg-green-600 text-white font-bold px-5 py-3 rounded-md shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 ${isVisible ? 'animate-fadeInBounce' : 'animate-fadeOutBounce'
-            }`}
-          style={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)" }}
+          className={`z-50 fixed bottom-12 right-8 bg-green-700 hover:bg-green-600 text-white font-bold px-5 py-3 rounded-md shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 ${
+            isVisible ? 'animate-fadeInBounce' : 'animate-fadeOutBounce'
+          }`}
+          style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
         >
           ↑
         </button>
