@@ -32,7 +32,7 @@ const eventSchema = new mongoose.Schema({
     validate: {
       validator: function (v) {
         return /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(
-          v
+          v,
         );
       },
       message: (props) => `${props.value} is not a valid URL!`,

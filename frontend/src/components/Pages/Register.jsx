@@ -1,13 +1,13 @@
-import { useState } from "react";
-import pic from "../../assets/img/abt1.jpg";
-import pic2 from "../../assets/img/abt1.png";
-import pic3 from "../../assets/img/abt2.png";
-import pic4 from "../../assets/img/abt3.png";
-import pic5 from "../../assets/img/abt4.png";
+import { useState } from 'react';
+import pic from '../../assets/img/abt1.jpg';
+import pic2 from '../../assets/img/abt1.png';
+import pic3 from '../../assets/img/abt2.png';
+import pic4 from '../../assets/img/abt3.png';
+import pic5 from '../../assets/img/abt4.png';
 
 export default function Register() {
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
   const [guests, setGuests] = useState();
 
   const handleSubmit = (e) => {
@@ -17,9 +17,9 @@ export default function Register() {
     // console.log(import.meta.env.VITE_BACKEND_URL);
     e.preventDefault();
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/reservation/create`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         guests,
@@ -27,7 +27,6 @@ export default function Register() {
         time,
       }),
     })
-    
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
@@ -144,12 +143,12 @@ export default function Register() {
         <div className="mt-8 w-full flex justify-center bg-white ">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8 mb-10">
             {[
-              { src: pic2, title: "Catan", players: "4-6 players" },
-              { src: pic3, title: "Ticket to Ride", players: "2-5 players" },
-              { src: pic4, title: "Codenames", players: "4-8 players" },
-              { src: pic4, title: "Codenames", players: "4-8 players" },
-              { src: pic4, title: "Codenames", players: "4-8 players" },
-              { src: pic5, title: "Pandemic", players: "2-4 players" },
+              { src: pic2, title: 'Catan', players: '4-6 players' },
+              { src: pic3, title: 'Ticket to Ride', players: '2-5 players' },
+              { src: pic4, title: 'Codenames', players: '4-8 players' },
+              { src: pic4, title: 'Codenames', players: '4-8 players' },
+              { src: pic4, title: 'Codenames', players: '4-8 players' },
+              { src: pic5, title: 'Pandemic', players: '2-4 players' },
             ].map((game, index) => (
               <div
                 key={index}

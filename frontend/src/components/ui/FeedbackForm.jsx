@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import chess from "../../assets/img/chess.gif";
-import { FaStar } from "react-icons/fa6";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import chess from '../../assets/img/chess.gif';
+import { FaStar } from 'react-icons/fa6';
 
 const FeedbackForm = () => {
   const { ref, inView } = useInView({
@@ -15,10 +15,10 @@ const FeedbackForm = () => {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
-  const API_URL = import.meta.env.VITE_BACKEND_URI || "http://localhost:3000";
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [feedback, setFeedback] = useState("");
+  const API_URL = import.meta.env.VITE_BACKEND_URI || 'http://localhost:3000';
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [feedback, setFeedback] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const [rating, setRating] = useState(null);
@@ -28,16 +28,17 @@ const FeedbackForm = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(`Name: ${name}, Email: ${email}, Feedback: ${feedback}, rating: ${rating}`);
+    console.log(
+      `Name: ${name}, Email: ${email}, Feedback: ${feedback}, rating: ${rating}`
+    );
     setSubmitted(true);
     setTimeout(() => {
-      setName("");
-      setEmail("");
-      setFeedback("");
+      setName('');
+      setEmail('');
+      setFeedback('');
       setRating(null);
       setSubmitted(false);
     }, 3000);
@@ -45,36 +46,35 @@ const FeedbackForm = () => {
     setIsLoading(true);
     try {
       const response = await fetch(`${API_URL}/api/feedback/create`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, feedback,rating }),
+        body: JSON.stringify({ name, email, feedback, rating }),
       });
       const data = await response.json();
       if (!response.ok) {
         const errorMessage =
-          data.message || "An error occurred while submitting feedback.";
+          data.message || 'An error occurred while submitting feedback.';
         setError(errorMessage);
-        console.error("Feedback submission failed:", errorMessage);
+        console.error('Feedback submission failed:', errorMessage);
         return;
       }
 
       setSubmitted(true);
       setError(null);
       setTimeout(() => {
-        setName("");
-        setEmail("");
-        setFeedback("");
+        setName('');
+        setEmail('');
+        setFeedback('');
         setSubmitted(false);
       }, 3000);
     } catch (error) {
-      setError("An error occurred while submitting feedback.");
-      console.error("Feedback submission failed:", error);
+      setError('An error occurred while submitting feedback.');
+      console.error('Feedback submission failed:', error);
     } finally {
       setIsLoading(false);
     }
-
   };
 
   return (
@@ -83,7 +83,7 @@ const FeedbackForm = () => {
         <motion.div
           ref={ref}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={inView ? 'visible' : 'hidden'}
           variants={animationVariants}
           className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center"
         >
@@ -172,7 +172,9 @@ const FeedbackForm = () => {
                         className="star"
                         style={{
                           color:
-                            currentRating <= (hover || rating) ? "#ffc107" : "#e4e5e9"
+                            currentRating <= (hover || rating)
+                              ? '#ffc107'
+                              : '#e4e5e9',
                         }}
                         onMouseEnter={() => setHover(currentRating)}
                         onMouseLeave={() => setHover(null)}
@@ -188,14 +190,14 @@ const FeedbackForm = () => {
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#09342e] hover:bg-[#072d28] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004D43]"
                 >
-                  {isLoading ? "Submitting..." : "Submit Feedback"}
+                  {isLoading ? 'Submitting...' : 'Submit Feedback'}
                 </button>
               </div>
             </form>
             {submitted && (
               <motion.div
-                initial={{ opacity: 0, y: -10, display:"none", height:0 }}
-                animate={{ opacity: 1, y: 0, display: "block", height: "auto" }}
+                initial={{ opacity: 0, y: -10, display: 'none', height: 0 }}
+                animate={{ opacity: 1, y: 0, display: 'block', height: 'auto' }}
                 className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded"
               >
                 Thank you for your feedback!
