@@ -2,7 +2,7 @@ import { MdStars} from "react-icons/md";
 import quote from "../../assets/img/quote.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick"; // Import Slider
+import Slider from "react-slick"
 
 
 
@@ -113,13 +113,14 @@ export default function customerFeedback() {
                     />
 
 
-                </div>
+                </div >
 
-                <div className="flex text-5xl font-extrabold text-white mt-3">
+                <div className="flex text-5xl font-extrabold text-white mt-3 ">
                     What Our {<br />} Customer Say
                 </div>
 
-                <div className="text-2xl text-yellow-300 text-wrap text-justify md:w-400  ">
+            <div className="container mx-auto p-4">
+                <div className="text-2xl text-yellow-300 text-wrap text-justify  ">
                     Here’s what our Valued Customers
                     {<br />}
                     said about their experiences with us.
@@ -134,6 +135,7 @@ export default function customerFeedback() {
 
 
                 </div>
+            </div>    
 
 
 
@@ -142,12 +144,12 @@ export default function customerFeedback() {
 
 
             <div className="absolute -top-24 -right-16 ">
-            <Slider {...settings} className="carousel rounded-box w-[840px] gap-10 h-[550px] overflow-hidden hover:scale-105 ">
+            <Slider {...settings} className="carousel rounded-box w-[840px] gap-10 h-[550px] overflow-hidden hover:scale-105  ">
                 {reviews.map((review, index) => {
                     const shade = getRandomColor(colors);
                     return (
                         <div key={review.id || index} className={`carousel-item transition-opacity duration-1000 ease-in-out`}>
-                            <div className={`card glass w-96 ${shade} lg:h-[550px] sm:h-[350px]`}>
+                            <div className={`card glass w-96 ${shade} lg:min-h-[550px]`}>
                                 <figure>
                                     <img
                                         src={review.img}
