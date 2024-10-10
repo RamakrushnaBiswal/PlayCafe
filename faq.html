@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="https://play-cafe.vercel.app/assets/playcafe-ojAVDcf2.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Sip & Play</title>
+    <style >
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+    min-height: 100vh;
+}
+.card-container {
+            width: 60%;
+            padding: 20px;
+            background-color: #004d43;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+.faq-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fde68a;
+    ;
+}
+
+.faq-card {
+    background-color:beige;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #fde68a;
+    cursor: pointer;
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.toggle-icon {
+    font-size: 24px;
+    color: #333;
+}
+
+.faq-answer {
+    display: none;
+    padding: 20px;
+    background-color: beige;
+    font-size: 16px;
+    color: #555;
+}
+
+.faq-answer p {
+    margin: 0;
+
+}
+
+@media (max-width: 768px) {
+    .faq-container {
+        width: 100%;
+        padding: -30px;
+        margin-left: 1000px;
+    }
+
+    .faq-question h3 {
+        font-size: 16px;    
+        padding: 1px;
+        align-items: left;
+        align-content: left;
+    }
+
+    .faq-answer {
+        font-size: 14px;
+    }
+}
+@media (max-width: 768px) {
+            .card-container {
+                width: -100%;
+                padding: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-container {
+                width: 100%;
+                padding: 100px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card-container" style="margin-top: 40px; margin-bottom: 40px;">
+
+    <div class="faq-container" style="margin-left: 50px;">
+        <h1>FAQ's</h1>
+        <div class="faq-card" style="margin-left: -30px;">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h3>What Is Play Cafe ? </h3>
+                <span class="toggle-icon">🔻</span>
+            </div>
+            <div class="faq-answer">
+                <p>It is a straightforward concept, come in with your friends and family to play any board game 🕹️ from our library of 300+ games! and enjoy favourite beverage 🍵 , It is a combination of sip and play. ❤️</p>
+            </div>
+        </div>
+        <div class="faq-card" style="margin-left: -30px;">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h3>How can I attend the events ?</h3>
+                <span class="toggle-icon">🔻</span>
+            </div>
+            <div class="faq-answer">
+                <p>Events are organised as per the scheduled dates 📆 , you can check in events section as well.</p>
+            </div>
+        </div>
+        <div class="faq-card"style="margin-left: -30px;">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h3>Can I reserve a seat ? </h3>
+                <span class="toggle-icon">🔻</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, Definately you can reserve your seat 🛋️, in reservation section. </p>
+            </div>
+        </div>
+        <div class="faq-card"style="margin-left: -30px;">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h3>How many Boardgames are available ? </h3>
+                <span class="toggle-icon">🔻</span>
+            </div>
+            <div class="faq-answer">
+                <p>Monopoly, Catan, Codenames, Monopoly and many more ... , you can checkout other games in Boardgames section. </p>
+            </div>
+        </div>
+        <div class="faq-card"style="margin-left: -30px;">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h3>How can I recieve updates ? </h3>
+                <span class="toggle-icon">🔻</span>
+            </div>
+            <div class="faq-answer">
+                <p>For recieving updates about events📅 , new released games🎮 , for reservation confirmation , new menu 📃 additionals and many more , before that please login yourself, In login section. </p>
+            </div>
+        </div>
+        <div class="faq-card"style="margin-left: -30px;">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h3>Hours and Location of the store ?</h3>
+                <span class="toggle-icon">🔻</span>
+            </div>
+            <div class="faq-answer">
+                <p>
+                    New opening hours🕙:<br>
+                    Sunday: 10am-11pm<br>
+                    Mon-Thurs: 11am-11pm<br>
+                    Fri: 11am-midnight<br>
+                    Sat: 10am-midnight<br><br>
+                    Our kitchen closes 2.5-3 hours before we close!
+                    <br>
+
+                    *While sometimes hours may affect due to the religious occasions or general rallies !
+ 
+                </p>
+            </div>
+        </div>
+        <div class="faq-card"style="margin-left: -30px;">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <h3>Where can I submit my feedback ?</h3>
+                <span class="toggle-icon">🔻</span>
+            </div>
+            <div class="faq-answer">
+                <p>Submit your feedback in the customer feedback. 📝</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>function toggleFAQ(faqElement) {
+        const answer = faqElement.nextElementSibling;
+        const icon = faqElement.querySelector(".toggle-icon");
+    
+        // Toggle the display of the answer
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+            icon.textContent = "🔻";
+        } else {
+            answer.style.display = "block";
+            icon.textContent = "🔺";
+        }
+    }
+    </script>
+</body>
+</html>
