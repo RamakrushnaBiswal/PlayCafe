@@ -149,10 +149,10 @@ const Nav = () => {
           <img
             src={googleImage}
             alt="Google Translate"
-            className="w-12 h-12"
+            className="w-[2rem] h-[2rem] mr-[65px]"
           />
-          <GoogleTranslate/>
         </div>
+          <GoogleTranslate/>
       </div>
     </div>
   );
