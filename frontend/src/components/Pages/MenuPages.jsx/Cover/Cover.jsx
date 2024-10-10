@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
 const Cover = ({ coverImg, title }) => {
   const coverImgStyle = {
     backgroundImage: `url(${coverImg})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    width: "100%",
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
   };
 
   return (

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Logo from "../../../assets/Logo/playcafe.png";
+import React, { useEffect, useState } from 'react';
+import Logo from '../../../assets/Logo/playcafe.png';
 import googleImage from "../../../assets/img/google.png"
-import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa';
 import GoogleTranslate from "../GoogleTranslate";
 
 export default function Content() {
@@ -19,8 +19,8 @@ const Section2 = () => {
   useEffect(() => {
     const handleResize = () => setIsWide(window.innerWidth > 640);
     handleResize(); // Set initial value
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   if (isWide === null) return null;
@@ -37,22 +37,25 @@ const Section2 = () => {
         </div>
       )}
       <div
-        className={`flex ${isWide ? "justify-between items-end" : "flex-col items-center"
-          } text-white`}
+        className={`flex ${
+          isWide ? 'justify-between items-end' : 'flex-col items-center'
+        } text-white`}
       >
         <h1
-          className={`${isWide ? "text-[9vw]" : "text-[12vw] mt-10"
-            } leading-[0.8]`}
+          className={`${
+            isWide ? 'text-[9vw]' : 'text-[12vw] mt-10'
+          } leading-[0.8]`}
         >
           BoardGame {!isWide && <br />}
         </h1>
         <h1
-          className={`${isWide ? "text-[9vw]" : "text-[12vw] mt-4"
-            } leading-[0.8]`}
+          className={`${
+            isWide ? 'text-[9vw]' : 'text-[12vw] mt-4'
+          } leading-[0.8]`}
         >
           Cafe
         </h1>
-        <p className={isWide ? "" : "mt-8"}>©2024 by Sip & Play</p>
+        <p className={isWide ? '' : 'mt-8'}>©2024 by Sip & Play</p>
       </div>
     </>
   );
@@ -61,36 +64,45 @@ const Section2 = () => {
 const Nav = () => {
   const navLinks = [
     {
-      name: "Home",
-      link: "/",
+      name: 'Home',
+      link: '/',
     },
     {
-      name: "Events",
-      link: "/event",
+      name: 'Events',
+      link: '/event',
     },
 
     {
-      name: "Reservation",
-      link: "/register",
+      name: 'Reservation',
+      link: '/register',
     },
     {
-      name: "Boardgame",
-      link: "/boardgame",
+      name: 'Boardgame',
+      link: '/boardgame',
     },
     {
-      name: "About",
-      link: "/about",
+      name: 'About',
+      link: '/about',
     },
   ];
   const socialLink = [
-    { name: "Facebook", link: "https://www.facebook.com/sipnplaynyc/", icon: <FaFacebook /> },
-    { name: "Instagram", link: "https://www.instagram.com/sipnplaynyc/?hl=en", icon: <FaInstagram /> },
     {
-      name: "Tiktok",
-      link: "https://www.tiktok.com/@sipnplaynycofficial?lang=en", icon: <FaTiktok />
+      name: 'Facebook',
+      link: 'https://www.facebook.com/sipnplaynyc/',
+      icon: <FaFacebook />,
+    },
+    {
+      name: 'Instagram',
+      link: 'https://www.instagram.com/sipnplaynyc/?hl=en',
+      icon: <FaInstagram />,
+    },
+    {
+      name: 'Tiktok',
+      link: 'https://www.tiktok.com/@sipnplaynycofficial?lang=en',
+      icon: <FaTiktok />,
     },
   ];
-  const emailAddress = "sipnplaynyc@gmail.com";
+  const emailAddress = 'sipnplaynyc@gmail.com';
 
   return (
     <div className="flex shrink-0 gap-4 sm:gap-20">
