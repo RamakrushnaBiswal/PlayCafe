@@ -16,7 +16,7 @@ const Admin = () => {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
-                        },
+                        },  
                     }
                 );
                 
@@ -32,7 +32,7 @@ const Admin = () => {
         }, []);
 
     const Admin = {
-        name: "Samar",
+        name: "AdminName", 
     };
 
     const [formData, setFormData] = useState({
@@ -85,7 +85,7 @@ const Admin = () => {
         console.error('Error adding event:', error);
         message.error('Error adding event');
     }
-    };
+    }; 
 
 
     // Delete event function
