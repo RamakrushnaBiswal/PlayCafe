@@ -11,11 +11,11 @@ const Navbar = () => {
   const navigate = useNavigate(); // Correctly initialize useNavigate
 
   const menuItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Events', path: '/events' },
-    { name: 'Menu', path: '/menu' },
-    { name: 'Reservation', path: '/reservation' },
-    { name: 'Boardgames', path: '/boardgame' },
+    { name: 'HOME', path: '/' },
+    { name: 'EVENTS', path: '/events' },
+    { name: 'MENU', path: '/menu' },
+    { name: 'RESERVATION', path: '/reservation' },
+    { name: 'BOARDGAMES', path: '/boardgame' },
   ];
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Navbar = () => {
     setIsModalOpen(false); // Close the modal
   };
 
-  const isHomePage = location.pathname === "/";
+  const isHomePage = location.pathname === '/';
   let buttonTextClass;
   if (isScrolled) {
     buttonTextClass = 'text-gray-900';
@@ -60,8 +60,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled ? "bg-[#E0F0B1]" : "bg-transparent"
-        } ${isScrolled ? "text-gray-800" : "text-black"} ${isScrolled ? "shadow-lg" : ""}`}
+      className={`w-full fixed top-0 z-50 transition duration-300 ${
+        isScrolled ? 'bg-[#E0F0B1]' : 'bg-transparent'
+      } ${isScrolled ? 'text-gray-800' : 'text-black'} ${isScrolled ? 'shadow-lg' : ''}`}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
@@ -77,11 +78,11 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex">
-            <ul className="ml-4 flex space-x-5 Poppins font-semibold text-lg">
+            <ul className="ml-4 flex space-x-8 Poppins font-medium text-lg">
               {menuItems.map((item) => (
                 <li
                   key={item.name}
-                  className="transform hover:scale-110 hover:-translate-y-1 transition"
+                  className="transform hover:scale-110 hover:-translate-y-1 transition hover:font-semibold"
                 >
                   <Link
                     to={item.path}
@@ -91,24 +92,27 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
-              {isloggedIn ? (
-                <button
-                  className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition `}
-                  type="button"
-                  onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
-                >
-                  Log Out
-                </button>
-              ) : (
-                <button
-                  className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition`}
-                  type="button"
-                  onClick={() => navigate('/login')}
-                >
-                  Log In
-                </button>
-              )}
             </ul>
+          </div>
+
+          <div className="hidden md:flex font-semibold Poppins text-lg">
+            {isloggedIn ? (
+              <button
+                className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold text-[#323232]`}
+                type="button"
+                onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
+              >
+                LOGOUT
+              </button>
+            ) : (
+              <button
+                className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold text-[#323232]`}
+                type="button"
+                onClick={() => navigate('/login')}
+              >
+                LOGIN
+              </button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -192,11 +196,13 @@ const Navbar = () => {
         </div>
       )}
 
-        {/* Logout Confirmation Modal */}
-        {isModalOpen && (
+      {/* Logout Confirmation Modal */}
+      {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
           <div className="w-full max-w-md p-6 rounded-lg border-2 border-black bg-amber-100">
-            <h2 className="text-3xl font-bold tracking-tighter mb-4">Confirm Logout</h2>
+            <h2 className="text-3xl font-bold tracking-tighter mb-4">
+              Confirm Logout
+            </h2>
             <p className="text-base text-muted-foreground mb-6">
               Are you sure you want to log out of your account?
             </p>
