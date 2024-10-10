@@ -7,8 +7,8 @@ export default {
         'screen-dvh': '100dvh',
       },
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif'],
-        'roboto': ['"Roboto Serif"', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        roboto: ['"Roboto Serif"', 'sans-serif'],
       },
       keyframes: {
         fadeInBounce: {

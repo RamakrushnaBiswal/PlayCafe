@@ -1,19 +1,22 @@
-import lemonade from "../../../../assets/Menu_assets/lemonade.png";
+import lemonade from '../../../../assets/Menu_assets/lemonade.png';
 
 const lemonadeStyle = {
   backgroundImage: `url(${lemonade})`,
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "contain",
-  backgroundPosition: "center",
-  minHeight: "50vh",
-  opacity: "0.09",
-  width: "100%",
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'contain',
+  backgroundPosition: 'center',
+  minHeight: '50vh',
+  opacity: '0.09',
+  width: '100%',
 };
 
 const SixthPage = () => {
   return (
     <div className="h-full">
-      <div style={lemonadeStyle} className="h-full absolute inset-0 md:min-h-100vh"></div>
+      <div
+        style={lemonadeStyle}
+        className="h-full absolute inset-0 md:min-h-100vh"
+      ></div>
       <main className="h-full w-full bg-secondary page-shadow relative z-10 md:p-10 p-2">
         <div className="md:space-y-2 space-y-0">
           <div className="text-center">
@@ -29,16 +32,22 @@ const SixthPage = () => {
             <div className="space-y-2 w-1/2">
               <div className="flex justify-between">
                 <div>
-                  <h2 className="md:text-xl text-xs font-semibold">Pina Colada</h2>
+                  <h2 className="md:text-xl text-xs font-semibold">
+                    Pina Colada
+                  </h2>
                   <p className="text-xs md:text-[16px]">Medium: $4.75</p>
                   <p className="text-xs md:text-[16px]">Large: $5.75</p>
-                  <p className="text-xs md:text-[16px] md:block hidden">Our coconut boba with pineapple flavor!</p>
+                  <p className="text-xs md:text-[16px] md:block hidden">
+                    Our coconut boba with pineapple flavor!
+                  </p>
                 </div>
               </div>
 
               <div className="flex justify-between">
                 <div>
-                  <h2 className="md:text-xl text-xs font-semibold">MATCHA LEMONADE</h2>
+                  <h2 className="md:text-xl text-xs font-semibold">
+                    MATCHA LEMONADE
+                  </h2>
                   <p className="text-xs md:text-[16px]">Medium: $5.00</p>
                   <p className="text-xs md:text-[16px]">Large: $6.00</p>
                 </div>
@@ -63,15 +72,10 @@ const SixthPage = () => {
                   </p>
                 </div>
               </div>
-
-              
-             
             </div>
 
-
-
             <div className="space-y-2 w-1/2">
-               <div className="flex justify-between">
+              <div className="flex justify-between">
                 <div>
                   <h2 className="md:text-xl text-xs font-semibold">
                     Berry Lavender Lemonade
@@ -79,8 +83,8 @@ const SixthPage = () => {
                   <p className="text-xs md:text-[16px]">Medium: $5.25</p>
                   <p className="text-xs md:text-[16px]">Large: $6.25</p>
                   <p className="text-xs md:text-[16px] md:block hidden">
-                    Made with real bourbon and definitely the drink we&apos;re most
-                    excited for this fall.
+                    Made with real bourbon and definitely the drink we&apos;re
+                    most excited for this fall.
                   </p>
                 </div>
               </div>
@@ -91,7 +95,9 @@ const SixthPage = () => {
                     Citrus Boba (Grapefruit or Orange)
                   </h2>
                   <p className="text-xs md:text-[16px]">Large: $6.00</p>
-                  <p className="text-xs md:text-[16px] md:block hidden  ">Made with real fruit juice and fruit slices!</p>
+                  <p className="text-xs md:text-[16px] md:block hidden  ">
+                    Made with real fruit juice and fruit slices!
+                  </p>
                 </div>
               </div>
 
@@ -101,8 +107,9 @@ const SixthPage = () => {
                     ROTATING BEER/WINE PROGRAM
                   </h2>
                   <p className="text-xs md:text-[16px] md:bg-amber-200 md:px-6 md:py-4 md:rounded-full">
-                    Check out our beer and wine at the front of our store! We&apos;re
-                    constantly rotating out product from local breweries!
+                    Check out our beer and wine at the front of our store!
+                    We&apos;re constantly rotating out product from local
+                    breweries!
                   </p>
                 </div>
               </div>

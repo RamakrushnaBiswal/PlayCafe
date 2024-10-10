@@ -1,5 +1,5 @@
-import  { forwardRef } from "react";
-import PropTypes from "prop-types";
+import { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 
 const Page = forwardRef((props, ref) => {
   return (
@@ -12,7 +12,7 @@ const Page = forwardRef((props, ref) => {
   );
 });
 
-Page.displayName = "Page";
+Page.displayName = 'Page';
 
 Page.propTypes = {
   children: PropTypes.node,

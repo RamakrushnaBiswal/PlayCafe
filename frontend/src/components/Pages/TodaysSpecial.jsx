@@ -11,24 +11,64 @@ import caesar_salad from '../../assets/TSimg/caesar_salad.webp';
 
 const menuItems = {
   coffee: [
-    { name: "Espresso", description: "Rich and bold coffee shot.", image: espresso },
-    { name: "Cappuccino", description: "Creamy coffee with frothy milk.", image: cappuccino },
-    { name: "Latte", description: "Smooth coffee with steamed milk.", image: latte },
+    {
+      name: 'Espresso',
+      description: 'Rich and bold coffee shot.',
+      image: espresso,
+    },
+    {
+      name: 'Cappuccino',
+      description: 'Creamy coffee with frothy milk.',
+      image: cappuccino,
+    },
+    {
+      name: 'Latte',
+      description: 'Smooth coffee with steamed milk.',
+      image: latte,
+    },
   ],
   drinks: [
-    { name: "Mango Smoothie", description: "Refreshing mango blend.", image: mango_smoothie },
-    { name: "Lemonade", description: "Zesty and chilled lemonade.", image: lemonade },
-    { name: "Iced Tea", description: "Cool iced tea with lemon.", image: iced_tea },
+    {
+      name: 'Mango Smoothie',
+      description: 'Refreshing mango blend.',
+      image: mango_smoothie,
+    },
+    {
+      name: 'Lemonade',
+      description: 'Zesty and chilled lemonade.',
+      image: lemonade,
+    },
+    {
+      name: 'Iced Tea',
+      description: 'Cool iced tea with lemon.',
+      image: iced_tea,
+    },
   ],
   food: [
-    { name: "Cheese Sandwich", description: "Toasted sandwich with cheese.", image: cheese_sandwich },
-    { name: "Pasta Primavera", description: "Veggies and pasta in a light sauce.", image: pasta_primavera },
-    { name: "Caesar Salad", description: "Crispy salad with Caesar dressing.", image: caesar_salad },
+    {
+      name: 'Cheese Sandwich',
+      description: 'Toasted sandwich with cheese.',
+      image: cheese_sandwich,
+    },
+    {
+      name: 'Pasta Primavera',
+      description: 'Veggies and pasta in a light sauce.',
+      image: pasta_primavera,
+    },
+    {
+      name: 'Caesar Salad',
+      description: 'Crispy salad with Caesar dressing.',
+      image: caesar_salad,
+    },
   ],
 };
 
 const TodaysSpecial = () => {
-  const [todaysSpecial, setTodaysSpecial] = useState({ coffee: {}, drink: {}, food: {} });
+  const [todaysSpecial, setTodaysSpecial] = useState({
+    coffee: {},
+    drink: {},
+    food: {},
+  });
 
   // Function to update today's special (cycling through 3 items)
   const updateTodaysSpecial = () => {
@@ -52,17 +92,29 @@ const TodaysSpecial = () => {
       <h2 className="text-5xl font-bold text-center mb-9">Today's Special</h2>
       <div className="flex flex-col md:flex-row justify-around items-center mb-8 space-y-8 md:space-y-0 md:space-x-4">
         <div className="card bg-pink-100 p-4 rounded-lg shadow-lg max-w-xs text-center">
-          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.coffee.image} alt={todaysSpecial.coffee.name} />
+          <img
+            className="w-64 h-48 object-cover object-center rounded-md mb-4"
+            src={todaysSpecial.coffee.image}
+            alt={todaysSpecial.coffee.name}
+          />
           <h3 className="text-xl font-semibold">{todaysSpecial.coffee.name}</h3>
           <p className="text-gray-600">{todaysSpecial.coffee.description}</p>
         </div>
         <div className="card bg-teal-100 p-4 rounded-lg shadow-lg max-w-xs text-center">
-          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.food.image} alt={todaysSpecial.food.name} />
+          <img
+            className="w-64 h-48 object-cover object-center rounded-md mb-4"
+            src={todaysSpecial.food.image}
+            alt={todaysSpecial.food.name}
+          />
           <h3 className="text-xl font-semibold">{todaysSpecial.food.name}</h3>
           <p className="text-gray-600">{todaysSpecial.food.description}</p>
         </div>
         <div className="card bg-pink-100 p-4 rounded-lg shadow-lg max-w-xs text-center">
-          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.drink.image} alt={todaysSpecial.drink.name} />
+          <img
+            className="w-64 h-48 object-cover object-center rounded-md mb-4"
+            src={todaysSpecial.drink.image}
+            alt={todaysSpecial.drink.name}
+          />
           <h3 className="text-xl font-semibold">{todaysSpecial.drink.name}</h3>
           <p className="text-gray-600">{todaysSpecial.drink.description}</p>
         </div>

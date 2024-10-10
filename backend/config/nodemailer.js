@@ -1,6 +1,6 @@
 require("dotenv").config();
 const nodemailer = require("nodemailer");
-const logger = require('./logger');
+const logger = require("./logger");
 
 // Create a Nodemailer transporter using SMTP
 const transporter = nodemailer.createTransport({
@@ -72,13 +72,22 @@ exports.sendReservationConfirmation = async (email, reservationDetails) => {
       subject: "Reservation Confirmation",
       text: emailText,
     });
-    logger.info('Reservation confirmation sent successfully via email', { email });
+    logger.info("Reservation confirmation sent successfully via email", {
+      email,
+    });
   } catch (error) {
-    logger.error('Failed to send reservation confirmation email', { error, email });
-    if (error.code === 'ECONNREFUSED') {
-      throw new Error('Failed to connect to email server. Please try again later.');
+    logger.error("Failed to send reservation confirmation email", {
+      error,
+      email,
+    });
+    if (error.code === "ECONNREFUSED") {
+      throw new Error(
+        "Failed to connect to email server. Please try again later.",
+      );
     } else {
-      throw new Error(`Failed to send reservation confirmation email: ${error.message}`);
+      throw new Error(
+        `Failed to send reservation confirmation email: ${error.message}`,
+      );
     }
   }
 };

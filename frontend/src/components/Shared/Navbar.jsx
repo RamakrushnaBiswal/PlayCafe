@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import Logo from "../../assets/Logo/playcafe.png";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import Logo from '../../assets/Logo/playcafe.png';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isloggedIn, setisloggedIn] = useState(false);
@@ -11,11 +11,11 @@ const Navbar = () => {
   const navigate = useNavigate(); // Correctly initialize useNavigate
 
   const menuItems = [
-    { name: "Home", path: "/" },
-    { name: "Events", path: "/events" },
-    { name: "Menu", path: "/menu" },
-    { name: "Reservation", path: "/reservation" },
-    { name: "Boardgames", path: "/boardgame" },
+    { name: 'Home', path: '/' },
+    { name: 'Events', path: '/events' },
+    { name: 'Menu', path: '/menu' },
+    { name: 'Reservation', path: '/reservation' },
+    { name: 'Boardgames', path: '/boardgame' },
   ];
 
   useEffect(() => {
@@ -24,10 +24,10 @@ const Navbar = () => {
       setIsScrolled(scrollPosition > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -43,20 +43,20 @@ const Navbar = () => {
   const isHomePage = location.pathname === "/";
   let buttonTextClass;
   if (isScrolled) {
-    buttonTextClass = "text-gray-900";
+    buttonTextClass = 'text-gray-900';
   } else if (isHomePage) {
-    buttonTextClass = "text-white";
+    buttonTextClass = 'text-white';
   } else {
-    buttonTextClass = "text-black";
+    buttonTextClass = 'text-black';
   }
 
   const hoverTextColorClass = isScrolled
-    ? "hover:text-gray-900"
-    : "hover:text-gray-800";
-  const baseTextColorClass = isScrolled ? "text-gray-800" : "text-gray-900";
+    ? 'hover:text-gray-900'
+    : 'hover:text-gray-800';
+  const baseTextColorClass = isScrolled ? 'text-gray-800' : 'text-gray-900';
   const mobileMenuBaseTextColorClass = isScrolled
-    ? "text-gray-900"
-    : "text-gray-800";
+    ? 'text-gray-900'
+    : 'text-gray-800';
 
   return (
     <nav
@@ -103,7 +103,7 @@ const Navbar = () => {
                 <button
                   className={`${baseTextColorClass} ${hoverTextColorClass} transform hover:scale-110 hover:-translate-y-1 transition`}
                   type="button"
-                  onClick={() => navigate("/login")}
+                  onClick={() => navigate('/login')}
                 >
                   Log In
                 </button>
@@ -157,7 +157,7 @@ const Navbar = () => {
       {isMenuOpen && (
         <div
           className={`md:hidden ${
-            isScrolled ? "bg-amber-100 shadow-lg" : "bg-[#E0F0B1] shadow-lg"
+            isScrolled ? 'bg-amber-100 shadow-lg' : 'bg-[#E0F0B1] shadow-lg'
           }`}
         >
           <div className="px-4 pt-4 pb-4 space-y-2">
@@ -183,7 +183,7 @@ const Navbar = () => {
               <button
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                             ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
-                onClick={() => navigate("/login")}
+                onClick={() => navigate('/login')}
               >
                 Log In
               </button>

@@ -40,7 +40,7 @@ const feedbackSchema = new Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 feedbackSchema.pre("save", function (next) {
