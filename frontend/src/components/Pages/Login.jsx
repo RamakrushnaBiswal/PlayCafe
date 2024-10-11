@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import photo from '../../assets/login.png';
 import React, { useState } from 'react';
 import { message } from 'antd';
-
+import Cookies from 'js-cookie'
 const Login = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const [data, setData] = useState({
@@ -34,6 +34,10 @@ const Login = () => {
         throw new Error(result.message || 'Login failed');
       }
       // Handle successful login (e.g., store token, redirect)
+      Cookies.set('authToken',result.token,{
+        expire:'1h',
+        secure:true
+      });
       message.success('Login successful');
       navigate('/');
     } catch (err) {
