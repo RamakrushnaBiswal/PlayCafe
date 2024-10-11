@@ -58,7 +58,7 @@ Make sure you follow our contributing guidlines:-  [here](https://github.com/Ram
    npm run dev
 4. Open your browser at `http://localhost:3000` to see the project running! 🌟
 
-Set-up using Dockerfile:-
+Set-up using Dockerfile(Male sure you installed docker in your PC):-
 
 1. **Build Docker Image**:
    ```bash
@@ -73,7 +73,21 @@ Set-up using docker-compose :-
 1. **Build Docker Image and Run the Application**:
    ```bash
    docker compose up --build
-   
+
+## Please run it before pushing the code
+To run ESLint, use the following commands:
+
+```bash
+    npm run lint
+```
+To automatically fix linting issues, run:
+```bash
+    npm run lint:fix
+```
+To format your code with Prettier, use:
+```bash
+    npm run format
+```
 ## 🤝 Contributing
 We love contributions! 💙 Whether you're a participant in **GSSoC** or an open-source enthusiast, we welcome your input. Here's how you can contribute:
 
