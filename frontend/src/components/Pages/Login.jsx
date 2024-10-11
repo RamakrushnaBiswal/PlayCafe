@@ -1,10 +1,7 @@
 
 import React, { useState , useEffect } from "react";
-import { Link } from "react-router-dom";
 import photo from "../../assets/login.png";
 import { Link, useNavigate } from "react-router-dom";
-import photo from "../../assets/login.png";
-import React, { useState } from "react";
 import { message } from "antd";
 
 
