@@ -3,7 +3,7 @@ import React, { useState , useEffect } from "react";
 import photo from "../../assets/login.png";
 import { Link, useNavigate } from "react-router-dom";
 import { message } from "antd";
-
+import Cookies from 'js-cookie'
 
 const Login = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
@@ -36,6 +36,10 @@ const Login = () => {
         throw new Error(result.message || 'Login failed');
       }
       // Handle successful login (e.g., store token, redirect)
+      Cookies.set('authToken',result.token,{
+        expire:'1h',
+        secure:true
+      });
       message.success('Login successful');
       navigate('/');
     } catch (err) {

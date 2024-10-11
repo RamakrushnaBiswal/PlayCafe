@@ -229,6 +229,13 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Amnyadav">
+                    <img src="https://avatars.githubusercontent.com/u/127370497?v=4" width="100;" alt="Amnyadav"/>
+                    <br />
+                    <sub><b>Aman Yadav</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/AliGates915">
                     <img src="https://avatars.githubusercontent.com/u/128673394?v=4" width="100;" alt="AliGates915"/>
                     <br />
@@ -242,6 +249,8 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Dev Mishra</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/jaidh01">
                     <img src="https://avatars.githubusercontent.com/u/117927011?v=4" width="100;" alt="jaidh01"/>
@@ -249,8 +258,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Jai Dhingra</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Jay-1409">
                     <img src="https://avatars.githubusercontent.com/u/166749819?v=4" width="100;" alt="Jay-1409"/>
@@ -286,6 +293,8 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Sapna Kul</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/stutxi">
                     <img src="https://avatars.githubusercontent.com/u/95741837?v=4" width="100;" alt="stutxi"/>
@@ -293,8 +302,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Stuti </b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Syed-Farazuddin">
                     <img src="https://avatars.githubusercontent.com/u/119295880?v=4" width="100;" alt="Syed-Farazuddin"/>
