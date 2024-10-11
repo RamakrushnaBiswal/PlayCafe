@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: frontend-build # Reference the frontend build stage
+    working_dir: /app/frontend
+    volumes:
+      - ./frontend:/app/frontend  # Bind-mount the frontend code to support hot-reloading
+    ports:
+      - "5173:5173" 
+    command: ["npm", "run", "dev"]  
+    environment:
+      - NODE_ENV=development
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend-build # Reference the backend build stage
+    working_dir: /app/backend
+    volumes:
+      - ./backend:/app/backend  # Bind-mount the backend code to support hot-reloading
+    ports:
+      - "3000:3000"  
+    command: ["npm", "run", "dev"]  
+    environment:
+      - NODE_ENV=development
+
+  full-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - frontend
+      - backend
+    ports:
+      - "5173:5173" 
+      - "3000:3000" 
+    command: ["sh", "./start.sh"]
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./frontend:/app/frontend
+      - ./backend:/app/backend

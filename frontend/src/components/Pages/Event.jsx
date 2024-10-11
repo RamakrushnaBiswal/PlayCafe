@@ -1,32 +1,32 @@
-import { useEffect, useRef, useState } from "react";
-import SplitType from "split-type";
-import gsap from "gsap";
-import Splide from "@splidejs/splide";
-import "@splidejs/splide/dist/css/splide.min.css";
-import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
-import img1 from "../../assets/img/event1.jpg";
-import img2 from "../../assets/img/event2.jpg";
-import img3 from "../../assets/img/event3.jpg";
-import img4 from "../../assets/img/event4.jpg";
-import img5 from "../../assets/img/event6.jpg";
-import band from "../../assets/landing/band.gif";
-import game from "../../assets/Boardgames/carrom.gif";
-import spin from "../../assets/Boardgames/spin.gif";
+import { useEffect, useRef, useState } from 'react';
+import SplitType from 'split-type';
+import gsap from 'gsap';
+import Splide from '@splidejs/splide';
+import '@splidejs/splide/dist/css/splide.min.css';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import img1 from '../../assets/img/event1.jpg';
+import img2 from '../../assets/img/event2.jpg';
+import img3 from '../../assets/img/event3.jpg';
+import img4 from '../../assets/img/event4.jpg';
+import img5 from '../../assets/img/event6.jpg';
+import band from '../../assets/landing/band.gif';
+import game from '../../assets/Boardgames/carrom.gif';
+import spin from '../../assets/Boardgames/spin.gif';
 
-const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
 ];
 export default function Event() {
   const [events, setEvents] = useState([]);
@@ -37,9 +37,9 @@ export default function Event() {
         const response = await fetch(
           `${import.meta.env.VITE_BACKEND_URL}/api/event/all`,
           {
-            method: "GET",
+            method: 'GET',
             headers: {
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
             },
           }
         );
@@ -49,7 +49,7 @@ export default function Event() {
         // You can update the state with the fetched data here
       } catch (error) {
         setError(error.message);
-        console.error("Error fetching events:", error);
+        console.error('Error fetching events:', error);
       }
     };
 
@@ -69,7 +69,7 @@ export default function Event() {
   const textRef = useRef(null);
 
   useEffect(() => {
-    const splitText = new SplitType(textRef.current, { types: "chars, words" });
+    const splitText = new SplitType(textRef.current, { types: 'chars, words' });
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
 
     // Set initial opacity to 0 for all characters
@@ -79,12 +79,12 @@ export default function Event() {
       opacity: 1,
       duration: 0.1,
       stagger: 0.1,
-      ease: "power1.inOut",
+      ease: 'power1.inOut',
     }).to(splitText.chars, {
       opacity: 0,
       duration: 0.1,
       stagger: 0.1,
-      ease: "power1.inOut",
+      ease: 'power1.inOut',
       delay: 1,
     });
     return () => {
@@ -94,8 +94,8 @@ export default function Event() {
   }, []);
 
   useEffect(() => {
-    const splide = new Splide(".splide", {
-      type: "loop",
+    const splide = new Splide('.splide', {
+      type: 'loop',
       perPage: 1,
       perMove: 1,
       autoScroll: {
@@ -104,7 +104,7 @@ export default function Event() {
       noDrag: true,
       arrows: false,
       pagination: false,
-      gap: "2rem",
+      gap: '2rem',
     }).mount({ AutoScroll });
     return () => {
       splide.destroy();
@@ -144,7 +144,7 @@ export default function Event() {
               <div className="text-center mb-4">
                 <span className="text-2xl font-semibold">
                   {months[currentMonth]}
-                </span>{" "}
+                </span>{' '}
                 <span className="text-2xl">{currentYear}</span>
               </div>
               <div className="grid grid-cols-7 gap-4 text-center">
@@ -156,15 +156,15 @@ export default function Event() {
                 {Array(firstDayOfMonth)
                   .fill(null)
                   .map((_, i) => (
-                    <div key={{i}} className="p-2"></div>
+                    <div key={{ i }} className="p-2"></div>
                   ))}
                 {dates.map((day) => (
                   <div
                     key={day}
                     className={`p-2 border rounded-md ${
                       day === currentDate
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-100"
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-gray-100'
                     }`}
                   >
                     {day}

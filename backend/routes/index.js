@@ -5,8 +5,6 @@ const router = express.Router();
 
 let feedbackRouter;
 
-
-
 try {
   feedbackRouter = require("./feedbackRouter");
 } catch (error) {
@@ -30,9 +28,6 @@ try {
   };
 }
 
-
-
-
 router.get("/", (req, res) => {
   res.json({
     message: "Welcome to the restaurant API!",
@@ -45,13 +40,11 @@ router.get("/", (req, res) => {
   });
 });
 
-
 router.use("/event", eventRouter);
 router.use("/admin", require("./adminRouter"));
 router.use("/feedback", feedbackRouter);
 router.use("/user", require("./customerRouter"));
 router.use("/reservation", require("./reservationRouter"));
 router.use("/newsletter", require("./newsletterRoute"));
-
 
 module.exports = router;

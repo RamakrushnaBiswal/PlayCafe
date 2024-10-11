@@ -4,10 +4,11 @@ const {
   createCustomer,
   resetPassword,
 } = require("../controller/customer.controller");
+const authenticateCustomer = require("../middlewares/authCustomer");
 const router = express.Router();
 require("dotenv").config();
 
-router.get("/", (req, res) => {
+router.get("/", authenticateCustomer, (req, res) => {
   res.json({
     message: "Welcome to the User API!",
     version: "1.0.0",

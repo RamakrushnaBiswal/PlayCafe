@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-useless-escape */
 // models/Event.js
 
 const mongoose = require("mongoose");
+const { string } = require("zod");
 
 // Define the Event schema
 const eventSchema = new mongoose.Schema({
@@ -14,11 +17,11 @@ const eventSchema = new mongoose.Schema({
     required: true,
   },
   date: {
-    type: Date,
+    type: String,
     required: true,
   },
   time: {
-    type: Date,
+    type: String,
     required: true,
   },
   ageRange: {
@@ -28,11 +31,11 @@ const eventSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    required: true,
+    default: "https://imgur.com/4fSKUI4.jpg",
     validate: {
       validator: function (v) {
         return /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(
-          v
+          v,
         );
       },
       message: (props) => `${props.value} is not a valid URL!`,

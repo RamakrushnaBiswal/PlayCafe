@@ -1,5 +1,7 @@
+
 import bgpic from "../../assets/img/abt1.jpg";
 import React, { useEffect } from 'react';
+
 
 export default function About() {
   useEffect(() => {
@@ -24,12 +26,11 @@ export default function About() {
           {/* Paragraph */}
           <div className="relative z-10 flex justify-center w-full mt-6 md:mt-0 md:px-36 ">
             <p className="w-full text-sm text-gray-200 md:text-base lg:text-xl">
-              How it works..
-              Our name says it all!
-              Founder, Jonathan Li, shares a passion for board games, boba, and
-              delicious food, so he combined them all to become Sip & Play, Park Slope’s
-              first board game cafe. It is a straightforward concept, come in with your
-              friends and family to play any board game from our library of{" "}
+              How it works.. Our name says it all! Founder, Jonathan Li, shares
+              a passion for board games, boba, and delicious food, so he
+              combined them all to become Sip & Play, Park Slope’s first board
+              game cafe. It is a straightforward concept, come in with your
+              friends and family to play any board game from our library of{' '}
               <span className="text-amber-600">300+ games!</span>
               We hope when you visit, you also enjoy our coffee, espresso, boba,
               sandwiches, and snacks!

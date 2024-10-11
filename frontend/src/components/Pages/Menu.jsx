@@ -1,16 +1,18 @@
+
 import  { useState , useEffect } from 'react';
+
 import { motion } from 'framer-motion';
 import Mybook from './MyBook';
 import TodaysSpecial from './TodaysSpecial';
-import { GiArrowDunk } from "react-icons/gi";
-import Cafe3dImg from "../../assets/Menu_assets/mega-creator.png"
+import { GiArrowDunk } from 'react-icons/gi';
+import Cafe3dImg from '../../assets/Menu_assets/mega-creator.png';
 const parallaxVariants = {
   initial: { scale: 1 },
   animate: { scale: 1.05 },
 };
 
 const transition = {
-  type: "spring",
+  type: 'spring',
   stiffness: 200,
   damping: 10,
 };
@@ -34,10 +36,15 @@ function ParallaxImage() {
 
   return (
     <>
-      <div className="w-full h-auto bg-amber-100 items-center justify-center overflow-hidden" onMouseMove={handleMouseMove}>
+      <div
+        className="w-full h-auto bg-amber-100 items-center justify-center overflow-hidden"
+        onMouseMove={handleMouseMove}
+      >
         <div className="flex md:flex-row flex-col items-center justify-between mt-24 mb-20">
           <div className="w-3/4 pl-8 text-left animate-fadeIn">
-            <h1 className="md:text-7xl text-4xl text-black font-bold font-mono mb-4">Discover Sip & Play</h1>
+            <h1 className="md:text-7xl text-4xl text-black font-bold font-mono mb-4">
+              Discover Sip & Play
+            </h1>
             <p className="md:text-3xl text-xl font-mono mb-8">
               Dive into a world of flavor with our immersive 3D Menu experience
             </p>

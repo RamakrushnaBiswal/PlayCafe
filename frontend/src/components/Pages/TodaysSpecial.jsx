@@ -24,10 +24,12 @@ const menuItems = {
     { name: "Cheese Sandwich", description: "Toasted sandwich with cheese.", image: cheese_sandwich, originalPrice: "$3.50", offerPrice: "$3.00" },
     { name: "Pasta Primavera", description: "Veggies and pasta in a light sauce.", image: pasta_primavera, originalPrice: "$5.50", offerPrice: "$5.00" },
     { name: "Caesar Salad", description: "Crispy salad with Caesar dressing.", image: caesar_salad, originalPrice: "$5.00", offerPrice: "$4.50" },
+
   ],
 };
 
 const TodaysSpecial = () => {
+
   const [todaysSpecial, setTodaysSpecial] = useState({ coffee: {}, drink: {}, food: {} });
   const [hoveredItem, setHoveredItem] = useState(null); // State to track the hovered item
 
@@ -60,6 +62,7 @@ const TodaysSpecial = () => {
           onMouseLeave={() => setHoveredItem(null)}
         >
           <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.coffee.image} alt={todaysSpecial.coffee.name} />
+
           <h3 className="text-xl font-semibold">{todaysSpecial.coffee.name}</h3>
           <p className="text-gray-600">{todaysSpecial.coffee.description}</p>
           {/* Show prices below the image and description */}
@@ -79,6 +82,7 @@ const TodaysSpecial = () => {
           onMouseLeave={() => setHoveredItem(null)}
         >
           <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.food.image} alt={todaysSpecial.food.name} />
+
           <h3 className="text-xl font-semibold">{todaysSpecial.food.name}</h3>
           <p className="text-gray-600">{todaysSpecial.food.description}</p>
           {/* Show prices below the image and description */}
@@ -98,6 +102,7 @@ const TodaysSpecial = () => {
           onMouseLeave={() => setHoveredItem(null)}
         >
           <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.drink.image} alt={todaysSpecial.drink.name} />
+
           <h3 className="text-xl font-semibold">{todaysSpecial.drink.name}</h3>
           <p className="text-gray-600">{todaysSpecial.drink.description}</p>
           {/* Show prices below the image and description */}

@@ -1,3 +1,4 @@
+
 import Notfound from "../../assets/Menu_assets/Notfound.gif"
 import React, { useState , useEffect } from 'react';
 
@@ -21,5 +22,4 @@ const NotFound = () => {
        </div>
     );
 }
-
 export default NotFound;
