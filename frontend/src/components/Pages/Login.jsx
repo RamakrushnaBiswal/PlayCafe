@@ -34,6 +34,8 @@ const Login = () => {
         throw new Error(result.message || 'Login failed');
       }
       // Handle successful login (e.g., store token, redirect)
+      const token=result.token;
+      localStorage.setItem("token",JSON.stringify(token));
       message.success('Login successful');
       navigate('/');
     } catch (err) {

@@ -7,6 +7,7 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const token=localStorage.getItem("token");
   const location = useLocation();
   const navigate = useNavigate(); // Correctly initialize useNavigate
 
@@ -36,8 +37,12 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    setisloggedIn(false); // Set isLoggedIn to false on confirmation
+    // setisloggedIn(false); // Set isLoggedIn to false on confirmation
+    //managing log in , logout using jwt tokens 
+    localStorage.removeItem("token");
     setIsModalOpen(false); // Close the modal
+    setIsMenuOpen(false) // after getting logged out close the menu if it is open
+    navigate("/login");//navigate to login after get logged out
   };
 
   const isHomePage = location.pathname === '/';
@@ -96,7 +101,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex font-semibold Poppins text-lg">
-            {isloggedIn ? (
+            {token ? (
               <button
                 className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold text-[#323232]`}
                 type="button"
@@ -175,7 +180,7 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            {isloggedIn ? (
+            {token ? (
               <button
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                           ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
