@@ -31,6 +31,7 @@ const Section2 = () => {
             className="w-24 bg-transparent p-0 rounded-3xl h-24"
             alt="logo"
             src={Logo}
+            loading="lazy"
           />
         </div>
       )}

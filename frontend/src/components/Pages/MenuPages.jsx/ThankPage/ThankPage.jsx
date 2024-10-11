@@ -10,6 +10,7 @@ const ThankPage = () => {
         <img
           src={logo}
           alt="Sip&Play Cafe Logo"
+          loading="lazy"
           className="md:hidden block absolute w-3/4 h-3/4 -mt-44 items-center object-contain opacity-[0.5]"
           style={{
             top: '50%',
@@ -22,6 +23,7 @@ const ThankPage = () => {
           <img
             src={logo}
             alt="Sip&Play Cafe Logo"
+            loading="lazy"
             className="absolute w-3/4 h-3/4 object-contain opacity-[0.1]"
             style={{
               top: '50%',
