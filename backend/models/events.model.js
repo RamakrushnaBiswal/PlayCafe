@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-useless-escape */
 // models/Event.js
 
 const mongoose = require("mongoose");
@@ -23,7 +25,7 @@ const eventSchema = new mongoose.Schema({
     required: true,
   },
   ageRange: {
-    type: String, 
+    type: String,
     required: true,
     enum: ["0-12", "13-17", "18+", "All Ages"],
   },

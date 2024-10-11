@@ -1,6 +1,10 @@
 const express = require("express");
 const logger = require("../config/logger");
-const { createEvent, getEvents, deleteEvent } = require("../controller/event.controller");
+const {
+  createEvent,
+  getEvents,
+  deleteEvent,
+} = require("../controller/event.controller");
 
 const router = express.Router();
 

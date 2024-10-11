@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const bcrypt = require("bcrypt");
 const { z } = require("zod");
 const Customer = require("../models/customer.model");
@@ -63,7 +64,7 @@ async function loginCustomer(req, res) {
     const token = jwt.sign(
       { id: customer._id },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" } // Expires in 1 hour
+      { expiresIn: "1h" }, // Expires in 1 hour
     );
     res.json({
       message: "Login successful",

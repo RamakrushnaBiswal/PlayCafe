@@ -45,14 +45,12 @@ const deleteEvent = async (req, res) => {
     }
 
     await Event.findByIdAndDelete(eventId);
-    res.status(200).json({message: "Event deleted "});
+    res.status(200).json({ message: "Event deleted " });
   } catch (error) {
     logger.error("Error deleting event:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
-
 
 const getEvents = async (req, res) => {
   try {
