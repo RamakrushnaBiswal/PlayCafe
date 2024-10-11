@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 import board1 from '../../assets/Boardgames/board1.png';
 import board2 from '../../assets/Boardgames/board2.png';
 import board3 from '../../assets/Boardgames/board3.jpg';
@@ -10,37 +12,39 @@ import board8 from '../../assets/Boardgames/board8.png';
 import board10 from '../../assets/Boardgames/board10.png';
 import bg from '../../assets/Boardgames/bg.jpg';
 
-
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function Boardgame() {
-    const [selectedBoard, setSelectedBoard] = useState(null);
-    const [email, setEmail] = useState('');
+  const [selectedBoard, setSelectedBoard] = useState(null);
+  const [email, setEmail] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            // Make the POST request to /newsletter/subscribe endpoint using fetch
-            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/newsletter/subscribe`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email }),
-            });
-        
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-        
-            const data = await response.json();
-            alert('Subscription successful! Check your email for confirmation.');
-        } catch (error) {
-            console.error('Error subscribing to newsletter:', error);
-            alert('Error subscribing. Please try again.');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // Make the POST request to /newsletter/subscribe endpoint using fetch
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/newsletter/subscribe`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
         }
-    };
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      alert('Subscription successful! Check your email for confirmation.');
+    } catch (error) {
+      console.error('Error subscribing to newsletter:', error);
+      alert('Error subscribing. Please try again.');
+    }
+  };
 
   const handleOpenInstructions = (board) => {
     setSelectedBoard(board);
@@ -200,85 +204,132 @@ export default function Boardgame() {
     },
   ];
 
-    return (
-        <>
-            <div className="w-full mt-10 md:mt-0">
-                <section className="w-full pt-12 md:pt-24 lg:pt-32">
-                    <div className="container mx-auto space-y-10 xl:space-y-16">
-                        <div className="flex flex-col items-center space-y-4 text-center">
-                            <div className="space-y-2">
-                                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-                                    Discover Our Boardgame Collection
-                                </h1>
-                                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                                    Explore our diverse selection of captivating boardgames, perfect for game nights, family gatherings, and strategic adventures.
-                                </p>
-                            </div>
-                        </div>
-                        <LazyLoadImage
-                            alt={"bg"}
-                            effect="blur"
-                            wrapperProps={{
-                                style: { transitionDelay: "1s" },
-                            }}
-                            className="mx-auto w-full aspect-[3/1] overflow-hidden rounded-t-xl object-cover object-center shadow-2xl"
-                            src={bg} />
-                    </div>
-                </section>
-                <section className="w-full py-12 md:py-24 lg:py-32">
-                    <div className="container mx-auto grid grid-cols-1 gap-6 px-4 md:grid-cols-2 lg:grid-cols-3 md:px-6">
-                        {boards.map((board, index) => (
-                            <div key={index} className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 card border border-white bg-white">
-                                <div className="relative overflow-hidden">
-                                    <img
-                                        src={board.src}
-                                        alt={board.title}
-                                        width="500"
-                                        height="400"
-                                        className="object-cover w-full h-48 transition-all duration-300 ease-in-out group-hover:h-32" 
-                                        style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
-                                    />
-                                    <div className="p-4 bg-background transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:translate-y-4">
-                                        <h3 className="text-xl font-bold">{board.title}</h3>
-                                        <p className="text-sm text-muted-foreground">{board.description}</p>
-                                        <button
-                                            onClick={() => handleOpenInstructions(board)}
-                                            className="mt-4 px-4 py-2 text-white bg-green-500 rounded-lg opacity-0 transition-opacity duration-700 delay-300 group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                        >
-                                            See Instructions
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-                <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
-                    <div className="container mx-auto px-4 md:px-6 text-center">
-                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-4">
-                            Subscribe to our Newsletter
-                        </h2>
-                        <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl mb-6">
-                            Stay updated with our latest boardgame collections, special offers, and events. Subscribe now and never miss out!
-                        </p>
-                        <form className="flex flex-col items-center space-y-4 sm:space-y-0 sm:flex-row sm:space-x-4 justify-center"  onSubmit={handleSubmit}>
-                            <input
-                                type="email"
-                                className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Enter your email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)} // Update email state on input change
-                                required
-                            />
-                            <button
-                                type="submit"
-                                className="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            >
-                                Subscribe
-                            </button>
-                        </form>
-                    </div>
-                </section>
+  return (
+    <>
+      <div className="w-full mt-10 md:mt-0">
+        <section className="w-full pt-12 md:pt-24 lg:pt-32">
+          <div className="container mx-auto space-y-10 xl:space-y-16">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+                  Discover Our Boardgame Collection
+                </h1>
+                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                  Explore our diverse selection of captivating boardgames,
+                  perfect for game nights, family gatherings, and strategic
+                  adventures.
+                </p>
+              </div>
+            </div>
+            <Splide
+              options={{
+                type: 'loop',
+                perPage: 1,
+                autoplay: true,
+                interval: 3000,
+                lazyLoad: 'sequential',
+              }}
+              className="mx-auto w-full rounded-t-xl object-cover object-center shadow-2xl"
+            >
+              <SplideSlide>
+                <LazyLoadImage
+                  alt="bg"
+                  effect="blur"
+                  src="https://images.unsplash.com/photo-1656686631034-e88d4fbde1e3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  className="w-full h-full object-cover"
+                />
+              </SplideSlide>
+              <SplideSlide>
+                <LazyLoadImage
+                  alt="bg1"
+                  effect="blur"
+                  src="https://images.unsplash.com/photo-1681402720847-961bb1aab8d8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  className="w-full object-cover"
+                />
+              </SplideSlide>
+              <SplideSlide>
+                <LazyLoadImage
+                  alt="bg1"
+                  effect="blur"
+                  src="https://images.unsplash.com/photo-1609818698346-8cb3be6e0bc0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  className="w-full object-cover"
+                />
+              </SplideSlide>
+              <SplideSlide>
+                <LazyLoadImage
+                  alt={'board2'}
+                  effect="blur"
+                  src="https://images.unsplash.com/photo-1659480142923-0cd01191e0e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  className="w-full h-full object-cover"
+                />
+              </SplideSlide>
+              {/* Add more slides as necessary */}
+            </Splide>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container mx-auto grid grid-cols-1 gap-6 px-4 md:grid-cols-2 lg:grid-cols-3 md:px-6">
+            {boards.map((board, index) => (
+              <div
+                key={index}
+                className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 card border border-white bg-white"
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={board.src}
+                    alt={board.title}
+                    width="500"
+                    height="400"
+                    className="object-cover w-full h-48 transition-all duration-300 ease-in-out group-hover:h-32"
+                    style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
+                  />
+                  <div className="p-4 bg-background transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:translate-y-4">
+                    <h3 className="text-xl font-bold">{board.title}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      {board.description}
+                    </p>
+                    <button
+                      onClick={() => handleOpenInstructions(board)}
+                      className="mt-4 px-4 py-2 text-white bg-green-500 rounded-lg opacity-0 transition-opacity duration-700 delay-300 group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      See Instructions
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+          <div className="container mx-auto px-4 md:px-6 text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-4">
+              Subscribe to our Newsletter
+            </h2>
+            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl mb-6">
+              Stay updated with our latest boardgame collections, special
+              offers, and events. Subscribe now and never miss out!
+            </p>
+            <form
+              className="flex flex-col items-center space-y-4 sm:space-y-0 sm:flex-row sm:space-x-4 justify-center"
+              onSubmit={handleSubmit}
+            >
+              <input
+                type="email"
+                className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)} // Update email state on input change
+                required
+              />
+              <button
+                type="submit"
+                className="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </section>
 
         {/* Modal for instructions */}
         {selectedBoard && (
