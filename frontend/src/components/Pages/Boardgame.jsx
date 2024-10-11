@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import board1 from '../../assets/Boardgames/board1.png';
 import board2 from '../../assets/Boardgames/board2.png';
 import board3 from '../../assets/Boardgames/board3.jpg';
