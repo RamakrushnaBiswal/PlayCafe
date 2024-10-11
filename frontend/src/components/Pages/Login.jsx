@@ -1,10 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
-import photo from "../../assets/login.png";
-import React, { useState } from "react";
-import { message } from "antd";
+import { Link, useNavigate } from 'react-router-dom';
+import photo from '../../assets/login.png';
+import React, { useState } from 'react';
+import { message } from 'antd';
 
 const Login = () => {
-  const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+  const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const [data, setData] = useState({
     email: '',
     password: '',
@@ -34,10 +34,10 @@ const Login = () => {
         throw new Error(result.message || 'Login failed');
       }
       // Handle successful login (e.g., store token, redirect)
-      message.success("Login successful");
-      navigate("/");
+      message.success('Login successful');
+      navigate('/');
     } catch (err) {
-      setError(err.message || "An error occurred. Please try again.");
+      setError(err.message || 'An error occurred. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -84,7 +84,7 @@ const Login = () => {
           type="submit"
           className="button-confirm mx-auto mt-12 px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
         >
-          {isLoading ? "Loading..." : "Let’s Log you in →"}
+          {isLoading ? 'Loading...' : 'Let’s Log you in →'}
         </button>
       </form>
     </div>
