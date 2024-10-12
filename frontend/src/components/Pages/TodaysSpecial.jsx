@@ -52,8 +52,7 @@ const TodaysSpecial = () => {
 
   return (
     <div className="mt-10">
-      <h2 className="text-6xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-teal-500 drop-shadow-lg" style={{ fontFamily: 'Lobster, cursive' , lineHeight: '1.2', paddingBottom: '10px'}} // Applying the new font
->
+      <h2 className="text-5xl font-bold text-center mb-9">
   Today's Special
 </h2>
       <div className="flex flex-col md:flex-row justify-around items-center mb-8 space-y-8 md:space-y-0 md:space-x-4">
