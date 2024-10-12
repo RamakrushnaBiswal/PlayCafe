@@ -2,6 +2,7 @@
 import { useState , useEffect } from "react";
 import photo from "../../assets/login.png";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
@@ -118,6 +119,12 @@ const Signup = () => {
             {error}
           </div>
         )}
+        <h3 className="flex items-center justify-between w-full">
+          Already have an account?
+          <span className="block text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition">
+            <Link to={'/login'}>Login</Link>
+          </span>
+        </h3>
         <button
           className="button-confirm mx-auto mt-12 px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
           onClick={(e) => handleSubmit(e)}
