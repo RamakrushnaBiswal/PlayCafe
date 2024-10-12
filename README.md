@@ -185,6 +185,13 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/itznayan">
+                    <img src="https://avatars.githubusercontent.com/u/136584376?v=4" width="100;" alt="itznayan"/>
+                    <br />
+                    <sub><b>Mahera Nayan</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/Amnyadav">
                     <img src="https://avatars.githubusercontent.com/u/127370497?v=4" width="100;" alt="Amnyadav"/>
                     <br />
@@ -196,13 +203,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <img src="https://avatars.githubusercontent.com/u/109235675?v=4" width="100;" alt="AbhijitMotekar99"/>
                     <br />
                     <sub><b>Abhijit Motekar</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/itznayan">
-                    <img src="https://avatars.githubusercontent.com/u/136584376?v=4" width="100;" alt="itznayan"/>
-                    <br />
-                    <sub><b>Mahera Nayan</b></sub>
                 </a>
             </td>
 		</tr>
