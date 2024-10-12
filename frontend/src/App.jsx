@@ -9,7 +9,7 @@ import Preloader from './components/Preloader';
 function App() {
   return (
     <>
-      {/* <Preloader /> */}
+      <Preloader />
       <BackToTopButton />
       <Navbar />
       <Outlet />
