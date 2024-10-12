@@ -274,6 +274,7 @@ const Admin = () => {
                     <img
                       src={event.image}
                       alt={event.title}
+                      loading='lazy'
                       className="h-[400px] w-full"
                     />
                   </div>

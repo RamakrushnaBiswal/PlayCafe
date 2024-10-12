@@ -77,7 +77,7 @@ const Signup = () => {
 
   return (
     <div className="w-screen h-screen flex items-center justify-center pt-10">
-      <img src={photo} alt="login" className=" w-3/4 absolute" />
+      <img src={photo} alt="login" loading="lazy" className=" w-3/4 absolute" />
       <form className="form z-10 p-16 bg-lightblue flex flex-col items-start justify-center gap-5 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]">
         <div className="title text-[#323232] font-black text-7xl mb-6">
           Play Cafe,

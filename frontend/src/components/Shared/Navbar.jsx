@@ -82,6 +82,7 @@ const Navbar = () => {
                 className="w-14 h-14 bg-white rounded-full p-0"
                 alt="logo"
                 src={Logo}
+                loading="lazy"
               />
             </div>
           </Link>

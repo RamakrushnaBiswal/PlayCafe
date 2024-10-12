@@ -46,11 +46,11 @@ function Landing() {
           <div>
             <div className="flex justify-center pt-64 z-0">
               <div className="absolute flex justify-center md:w-2/4 md:left-2/4 rotate-12 -bottom-20 items-center">
-                <img src={heropic} alt="" className="w-2/4" />
+                <img src={heropic} alt="" loading="lazy" className="w-2/4" />
               </div>
 
               <div className="absolute flex justify-center md:w-2/4 md:left-2/4 -rotate-12 -bottom-16">
-                <img src={heropic} alt="" className="w-2/4" />
+                <img src={heropic} alt="" loading="lazy" className="w-2/4" />
               </div>
             </div>
           </div>
