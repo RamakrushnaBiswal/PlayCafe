@@ -95,12 +95,12 @@ const Nav = () => {
     },
     {
       name: 'Tiktok',
-      link: 'https://www.tiktok.com/@sipnplaynyc?lang=en',
+      link: 'https://www.tiktok.com/@sipnplaynycofficial?lang=en',
       icon: <FaTiktok />,
     },
     {
       name: 'GitHub',
-      link: 'https://github.com/devxMani/PlayCafe',
+      link: 'https://github.com/RamakrushnaBiswal/PlayCafe',
       icon: <FaGithub />,
     },
   ];
