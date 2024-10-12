@@ -141,17 +141,33 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Ashwinib26">
+                    <img src="https://avatars.githubusercontent.com/u/149402720?v=4" width="100;" alt="Ashwinib26"/>
+                    <br />
+                    <sub><b>Ashwini_ab</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/itznayan">
+                    <img src="https://avatars.githubusercontent.com/u/136584376?v=4" width="100;" alt="itznayan"/>
+                    <br />
+                    <sub><b>Mahera Nayan</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/tejasbenibagde">
                     <img src="https://avatars.githubusercontent.com/u/124677750?v=4" width="100;" alt="tejasbenibagde"/>
                     <br />
                     <sub><b>Tejas Benibagde</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
-                <a href="https://github.com/Ashwinib26">
-                    <img src="https://avatars.githubusercontent.com/u/149402720?v=4" width="100;" alt="Ashwinib26"/>
+                <a href="https://github.com/Shirisha-16">
+                    <img src="https://avatars.githubusercontent.com/u/148051550?v=4" width="100;" alt="Shirisha-16"/>
                     <br />
-                    <sub><b>Ashwini_ab</b></sub>
+                    <sub><b>Tyarla Shirisha</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -161,8 +177,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Haseeb Zaki</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Suhas-Koheda">
                     <img src="https://avatars.githubusercontent.com/u/72063139?v=4" width="100;" alt="Suhas-Koheda"/>
@@ -191,6 +205,8 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Aman Yadav</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/AbhijitMotekar99">
                     <img src="https://avatars.githubusercontent.com/u/109235675?v=4" width="100;" alt="AbhijitMotekar99"/>
@@ -198,15 +214,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Abhijit Motekar</b></sub>
                 </a>
             </td>
-            <td align="center">
-                <a href="https://github.com/itznayan">
-                    <img src="https://avatars.githubusercontent.com/u/136584376?v=4" width="100;" alt="itznayan"/>
-                    <br />
-                    <sub><b>Mahera Nayan</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Navneetdadhich">
                     <img src="https://avatars.githubusercontent.com/u/156535853?v=4" width="100;" alt="Navneetdadhich"/>
@@ -242,6 +249,8 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>MANI </b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Ayush215mb">
                     <img src="https://avatars.githubusercontent.com/u/154300084?v=4" width="100;" alt="Ayush215mb"/>
@@ -249,8 +258,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Ayush Yadav</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/AliGates915">
                     <img src="https://avatars.githubusercontent.com/u/128673394?v=4" width="100;" alt="AliGates915"/>
@@ -286,6 +293,8 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Mohit Rana </b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/MutiatBash">
                     <img src="https://avatars.githubusercontent.com/u/108807732?v=4" width="100;" alt="MutiatBash"/>
@@ -293,8 +302,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Bashua Mutiat</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/NilanchalaPanda">
                     <img src="https://avatars.githubusercontent.com/u/110488337?v=4" width="100;" alt="NilanchalaPanda"/>
