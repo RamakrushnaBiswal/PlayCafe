@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '../../../assets/Logo/playcafe.png';
-import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTiktok, FaGithub } from 'react-icons/fa';
 
 export default function Content() {
   return (
@@ -70,7 +70,6 @@ const Nav = () => {
       name: 'Events',
       link: '/event',
     },
-
     {
       name: 'Reservation',
       link: '/register',
@@ -99,6 +98,11 @@ const Nav = () => {
       name: 'Tiktok',
       link: 'https://www.tiktok.com/@sipnplaynycofficial?lang=en',
       icon: <FaTiktok />,
+    },
+    {
+      name: 'GitHub',
+      link: 'https://github.com/RamakrushnaBiswal/PlayCafe',
+      icon: <FaGithub />,
     },
   ];
   const emailAddress = 'sipnplaynyc@gmail.com';
