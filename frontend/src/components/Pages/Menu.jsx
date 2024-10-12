@@ -1,11 +1,11 @@
-
-import  { useState , useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import { motion } from 'framer-motion';
 import Mybook from './MyBook';
 import TodaysSpecial from './TodaysSpecial';
 import { GiArrowDunk } from 'react-icons/gi';
 import Cafe3dImg from '../../assets/Menu_assets/mega-creator.png';
+import MainHOC from '../MainHOC';
 const parallaxVariants = {
   initial: { scale: 1 },
   animate: { scale: 1.05 },
@@ -71,15 +71,22 @@ function ParallaxImage() {
           <Mybook />
         </div>
         <TodaysSpecial /> */}
-        <div className="w-full md:flex md:items-center md:justify-center mb-20"> {/* Adjust this container */}
+        <div className="w-full md:flex md:items-center md:justify-center mb-20">
+          {' '}
+          {/* Adjust this container */}
           <Mybook />
         </div>
-        <div className="w-full md:flex md:items-center md:justify-center" style={{ paddingBottom: '80px' }}> {/* Add bottom padding here */}
+        <div
+          className="w-full md:flex md:items-center md:justify-center"
+          style={{ paddingBottom: '80px' }}
+        >
+          {' '}
+          {/* Add bottom padding here */}
           <TodaysSpecial />
-</div>
+        </div>
       </div>
     </>
   );
 }
 
-export default ParallaxImage;
+export default MainHOC(ParallaxImage);

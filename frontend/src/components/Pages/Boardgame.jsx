@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import board1 from '../../assets/Boardgames/board1.png';
 import board2 from '../../assets/Boardgames/board2.png';
 import board3 from '../../assets/Boardgames/board3.jpg';
@@ -9,11 +9,11 @@ import board7 from '../../assets/Boardgames/board7.png';
 import board8 from '../../assets/Boardgames/board8.png';
 import board10 from '../../assets/Boardgames/board10.png';
 import bg from '../../assets/Boardgames/bg.jpg';
-
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-
-export default function Boardgame() {
+import MainHOC from '../MainHOC';
+export default MainHOC(Boardgame);
+function Boardgame() {
   const [selectedBoard, setSelectedBoard] = useState(null);
   const [email, setEmail] = useState('');
 
