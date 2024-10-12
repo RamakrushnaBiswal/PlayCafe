@@ -222,17 +222,17 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/tanishirai">
-                    <img src="https://avatars.githubusercontent.com/u/178164785?v=4" width="100;" alt="tanishirai"/>
-                    <br />
-                    <sub><b>Tanishi Rai</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/rithvikreddybasani">
                     <img src="https://avatars.githubusercontent.com/u/147538307?v=4" width="100;" alt="rithvikreddybasani"/>
                     <br />
                     <sub><b>rithvik reddy</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/tanishirai">
+                    <img src="https://avatars.githubusercontent.com/u/178164785?v=4" width="100;" alt="tanishirai"/>
+                    <br />
+                    <sub><b>Tanishi Rai</b></sub>
                 </a>
             </td>
             <td align="center">
