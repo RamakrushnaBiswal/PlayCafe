@@ -1,9 +1,10 @@
 const express = require("express");
 const { createAdmin, loginAdmin } = require("../controller/admin.controller");
+const authenticateAdmin = require("../middlewares/authAdmin");
 const router = express.Router();
 require("dotenv").config();
 
-router.get("/", (req, res) => {
+router.get("/", authenticateAdmin, (req, res) => {
   res.json({
     message: "Welcome to the Admin API!",
     version: "1.0.0",

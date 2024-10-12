@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect  } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+
 import board1 from '../../assets/Boardgames/board1.png';
 import board2 from '../../assets/Boardgames/board2.png';
 import board3 from '../../assets/Boardgames/board3.jpg';
@@ -204,6 +205,11 @@ export default function Boardgame() {
     },
   ];
 
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <div className="w-full mt-10 md:mt-0">
@@ -278,6 +284,7 @@ export default function Boardgame() {
                   <img
                     src={board.src}
                     alt={board.title}
+                    loading="lazy"
                     width="500"
                     height="400"
                     className="object-cover w-full h-48 transition-all duration-300 ease-in-out group-hover:h-32"

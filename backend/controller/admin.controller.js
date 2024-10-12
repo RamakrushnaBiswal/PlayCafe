@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 const { z } = require("zod");
 const Admin = require("../models/admin.model");
 const logger = require("../config/logger");
+const jwt = require("jsonwebtoken");
 
 // Define the schema
 const adminSchema = z.object({
@@ -17,6 +18,7 @@ async function createAdmin(req, res) {
   if (!validation.success) {
     return res.status(400).json({ error: validation.error.errors });
   }
+
   const existingAdmin = await Admin.findOne({ email: req.body.email });
   if (existingAdmin) {
     return res.status(409).json({ error: "Email is already registered" });
@@ -34,7 +36,6 @@ async function createAdmin(req, res) {
   } catch (error) {
     logger.error("Error creating admin:", {
       message: error.message,
-      stack: error.stack,
     });
     res.status(500).json({ error: "Internal server error" });
   }
@@ -63,11 +64,22 @@ async function loginAdmin(req, res) {
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
-    res.json({ message: "Login successful" });
+    const token = jwt.sign(
+      { id: admin._id, role: "admin" },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "1h",
+      },
+    );
+    res.json({
+      message: "Login successful",
+      token,
+      role: "admin",
+      admin: { id: admin._id, name: admin.name, email: admin.email },
+    });
   } catch (error) {
     logger.error("Error logging in admin:", {
       message: error.message,
-      stack: error.stack,
     });
     res.status(500).json({ error: "Internal server error" });
   }

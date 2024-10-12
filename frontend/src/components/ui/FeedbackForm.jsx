@@ -99,6 +99,7 @@ const FeedbackForm = () => {
               <img
                 src={chess}
                 alt="Chess"
+                loading="lazy"
                 className="md:p-10 p-5 object-contain bg-[#004D43] rounded-full shadow-2xl"
               />
             </div>
