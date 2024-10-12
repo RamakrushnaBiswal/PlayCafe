@@ -1,0 +1,64 @@
+name: Auto Close Issues Based on Priority Levels
+
+on:
+  schedule:
+    # Run the job every day at midnight
+    - cron: '0 0 * * *'
+
+jobs:
+  close_issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+
+      - name: Close Issues Based on Labels
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const now = new Date();
+            const issues = await github.paginate(github.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+            });
+
+            for (const issue of issues) {
+              if (issue.labels.some(label => label.name === "level 1")) {
+                // Close level 1 issues after 1 day
+                const daysSinceOpened = (now - new Date(issue.created_at)) / (1000 * 60 * 60 * 24);
+                if (daysSinceOpened >= 1) {
+                  await github.issues.update({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issue.number,
+                    state: "closed"
+                  });
+                  console.log(`Closed level 1 issue #${issue.number}`);
+                }
+              } else if (issue.labels.some(label => label.name === "level 2")) {
+                // Close level 2 issues after 2 days
+                const daysSinceOpened = (now - new Date(issue.created_at)) / (1000 * 60 * 60 * 24);
+                if (daysSinceOpened >= 2) {
+                  await github.issues.update({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issue.number,
+                    state: "closed"
+                  });
+                  console.log(`Closed level 2 issue #${issue.number}`);
+                }
+              } else if (issue.labels.some(label => label.name === "level 3")) {
+                // Close level 3 issues after 4 days
+                const daysSinceOpened = (now - new Date(issue.created_at)) / (1000 * 60 * 60 * 24);
+                if (daysSinceOpened >= 4) {
+                  await github.issues.update({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issue.number,
+                    state: "closed"
+                  });
+                  console.log(`Closed level 3 issue #${issue.number}`);
+                }
+              }
+            }
