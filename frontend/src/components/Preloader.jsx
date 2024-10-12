@@ -22,11 +22,6 @@ const Preloader = () => {
   }, []);
 
   // Skill Animation Variants
-  const skillVariants = {
-    initial: { y: '100%' },
-    animate: { y: -290 },
-    exit: { y: '100%' },
-  };
 
   return (
     <>
@@ -39,21 +34,7 @@ const Preloader = () => {
             transition={{ duration: 1.4, ease: [0.83, 0, 0.17, 1] }}
             className="fixed top-0 left-0 w-full h-full bg-black z-[100] flex items-center justify-center overflow-hidden"
           >
-            {/* Marquee effect for Mahera Nayan */}
-            <div className="absolute top-14 w-full h-28 overflow-hidden"></div>
-
             {/* Skills Section in the Middle */}
-            <div className="text-white font-semibold text-2xl sm:text-4xl flex flex-col items-center gap-4">
-              <div className=" h-28  overflow-hidden flex items-center">
-                <motion.div
-                  initial={{ y: '100%' }}
-                  animate={{ y: 0 }}
-                  exit={{ y: '100%' }}
-                  transition={{ duration: 3.4, ease: 'easeInOut' }}
-                  className="flex flex-col gap-4"
-                ></motion.div>
-              </div>
-            </div>
 
             {/* Loading Percentage (aligned above the bar, right side) */}
             <motion.div
