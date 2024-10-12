@@ -1,9 +1,11 @@
-import { useState } from 'react';
-import pic from '../../assets/img/abt1.jpg';
-import pic2 from '../../assets/img/abt1.png';
-import pic3 from '../../assets/img/abt2.png';
-import pic4 from '../../assets/img/abt3.png';
-import pic5 from '../../assets/img/abt4.png';
+
+import { useState , useEffect } from "react";
+import pic from "../../assets/img/abt1.jpg";
+import pic2 from "../../assets/img/abt1.png";
+import pic3 from "../../assets/img/abt2.png";
+import pic4 from "../../assets/img/abt3.png";
+import pic5 from "../../assets/img/abt4.png";
+
 
 export default function Register() {
   const [date, setDate] = useState('');
@@ -32,6 +34,10 @@ export default function Register() {
       .catch((error) => console.log(error));
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <div className="w-full mx-auto mt-10 lg:mt-0 md:mt-0">
@@ -48,6 +54,7 @@ export default function Register() {
             <img
               src={pic}
               alt="Board Game Cafe"
+              loading="lazy"
               className="w-full h-auto  rounded-s-full"
             />
           </div>
@@ -159,6 +166,7 @@ export default function Register() {
                   <img
                     src={game.src}
                     alt={game.title}
+                    loading="lazy"
                     className="mb-4 w-64 h-64 object-cover"
                   />
                   <div className="font-medium">{game.title}</div>

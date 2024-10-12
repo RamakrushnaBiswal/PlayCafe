@@ -1,10 +1,12 @@
-import { Link, useNavigate } from "react-router-dom";
+
+import React, { useState , useEffect } from "react";
 import photo from "../../assets/login.png";
-import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { message } from "antd";
+import Cookies from 'js-cookie'
 
 const Login = () => {
-  const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+  const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const [data, setData] = useState({
     email: '',
     password: '',
@@ -34,18 +36,26 @@ const Login = () => {
         throw new Error(result.message || 'Login failed');
       }
       // Handle successful login (e.g., store token, redirect)
-      message.success("Login successful");
-      navigate("/");
+      Cookies.set('authToken',result.token,{
+        expire:'1h',
+        secure:true
+      });
+      message.success('Login successful');
+      navigate('/');
     } catch (err) {
-      setError(err.message || "An error occurred. Please try again.");
+      setError(err.message || 'An error occurred. Please try again.');
     } finally {
       setIsLoading(false);
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="w-screen h-screen flex items-center justify-center pt-10">
-      <img src={photo} alt="login" className=" w-3/4 absolute" />
+      <img src={photo} alt="login" loading="lazy" className=" w-3/4 absolute" />
       <form
         onSubmit={(e) => handleSubmit(e)}
         className="form z-10 p-16 bg-lightblue flex flex-col items-start justify-center gap-5 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]"
@@ -84,7 +94,7 @@ const Login = () => {
           type="submit"
           className="button-confirm mx-auto mt-12 px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
         >
-          {isLoading ? "Loading..." : "Let’s Log you in →"}
+          {isLoading ? 'Loading...' : 'Let’s Log you in →'}
         </button>
       </form>
     </div>

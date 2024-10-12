@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // middlewares/errorMiddleware.js
 const logger = require("../config/logger"); // Assuming you have a logger set up
 

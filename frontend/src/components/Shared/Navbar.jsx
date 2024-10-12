@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import Logo from '../../assets/Logo/playcafe.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie'
 
 const Navbar = () => {
   const [isloggedIn, setisloggedIn] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [token,setToken] = useState(Cookies.get('authToken'));
   const location = useLocation();
   const navigate = useNavigate(); // Correctly initialize useNavigate
 
@@ -17,7 +19,9 @@ const Navbar = () => {
     { name: 'RESERVATION', path: '/reservation' },
     { name: 'BOARDGAMES', path: '/boardgame' },
   ];
-
+  useEffect(() => {
+    setToken(Cookies.get('authToken'));
+  });
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -29,6 +33,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+    
   }, []);
 
   const toggleMenu = () => {
@@ -36,8 +41,13 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    setisloggedIn(false); // Set isLoggedIn to false on confirmation
+    // setisloggedIn(false); // Set isLoggedIn to false on confirmation
+    //managing log in , logout using jwt tokens 
+    Cookies.remove("authToken");
+    setToken(null);
     setIsModalOpen(false); // Close the modal
+    setIsMenuOpen(false) // after getting logged out close the menu if it is open
+    navigate("/login");//navigate to login after get logged out
   };
 
   const isHomePage = location.pathname === '/';
@@ -72,6 +82,7 @@ const Navbar = () => {
                 className="w-14 h-14 bg-white rounded-full p-0"
                 alt="logo"
                 src={Logo}
+                loading="lazy"
               />
             </div>
           </Link>
@@ -96,7 +107,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex font-semibold Poppins text-lg">
-            {isloggedIn ? (
+            {token ? (
               <button
                 className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold text-[#323232]`}
                 type="button"
@@ -175,7 +186,7 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            {isloggedIn ? (
+            {token ? (
               <button
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
                           ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
