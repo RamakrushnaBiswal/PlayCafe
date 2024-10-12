@@ -148,11 +148,13 @@ const ThirdPage = () => {
                   src={bubbleTea}
                   className="md:h-40 md:w-50 h-20 w-20 object-contain"
                   alt="Bubble Tea"
+                  loading="lazy"
                 />
                 <img
                   src={bubbleTea2}
                   className="md:h-40 md:w-50 h-20 w-20 object-contain"
                   alt="Bubble Tea"
+                  loading="lazy"
                 />
               </div>
             </div>

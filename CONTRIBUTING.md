@@ -78,6 +78,24 @@ To get started, look at the existing [**create a new issue**](https://github.com
   ```bash
   git push origin <your_branch_name>
   ```
+
+  ## Please run it before pushing the code
+To run ESLint, use the following commands:
+
+```bash
+npm run lint
+```
+
+To automatically fix linting issues, run:
+```bash
+npm run lint:fix
+```
+To format your code with Prettier, use:
+```bash
+npm run format
+```
+
+
 - Go to your forked repository on GitHub and click on `Compare & pull request`.
 - Add an appropriate title and description to your pull request explaining your changes and efforts done.
 - Click on `Create pull request`.
@@ -145,6 +163,6 @@ git commit -m "feat(auth): Implement user signup process (#789)"
 
 ---
 
-- If something is missing here, or you feel something is not well described, please [raise an issue](https://github.com/mdazfar2/HelpOps-Hub/issues).
+- If something is missing here, or you feel something is not well described, please [raise an issue](https://github.com/RamakrushnaBiswal/PlayCafe/issues).
 
 
