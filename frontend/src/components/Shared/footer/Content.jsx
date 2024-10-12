@@ -145,13 +145,13 @@ const Nav = () => {
           718-971-1684
         </a>
       
-        <div className="flex items-center justify-center mt-4">
+        {/* <div className="flex items-center justify-center mt-4">
           <img
             src={googleImage}
             alt="Google Translate"
             className="w-[2rem] h-[2rem] mr-[65px]"
           />
-        </div>
+        </div> */}
           <GoogleTranslate/>
       </div>
     </div>
