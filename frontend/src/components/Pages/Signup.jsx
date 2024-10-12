@@ -3,6 +3,8 @@ import { useState , useEffect } from "react";
 import photo from "../../assets/login.png";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa6";
 
 const Signup = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
@@ -14,6 +16,7 @@ const Signup = () => {
     email: '',
     password: '',
   });
+  const [hidden, setHidden] = useState(true)
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -107,13 +110,21 @@ const Signup = () => {
           onChange={(e) => handleChange(e)}
         />
         <label htmlFor="password" className="sr-only"></label>
-        <input
-          className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
-          name="password"
-          placeholder="Password"
-          type="password"
-          onChange={(e) => handleChange(e)}
-        />
+        <div className="relative w-full">
+          <input
+            className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
+            name="password"
+            placeholder="Password"
+            type={hidden ? "password" : "text"}
+            onChange={(e) => handleChange(e)}
+          />
+          <button className="absolute top-1/2 -translate-y-1/2 right-4" onClick={(e)=>{
+            e.preventDefault()
+            setHidden(!hidden)
+          }}>
+            {hidden ? <FaEyeSlash/> : <FaEye/>}
+          </button>
+        </div>
         {error && (
           <div className="w-full p-2 bg-red-100 text-red-700 border border-red-400 rounded-md">
             {error}
