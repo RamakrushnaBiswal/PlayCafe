@@ -245,6 +245,7 @@ export default function Boardgame() {
                   <img
                     src={board.src}
                     alt={board.title}
+                    loading="lazy"
                     width="500"
                     height="400"
                     className="object-cover w-full h-48 transition-all duration-300 ease-in-out group-hover:h-32"

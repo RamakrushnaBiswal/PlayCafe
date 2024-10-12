@@ -63,8 +63,9 @@ const TodaysSpecial = () => {
           onMouseEnter={() => setHoveredItem('coffee')}
           onMouseLeave={() => setHoveredItem(null)}
         >
+
           <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.coffee.image} alt={todaysSpecial.coffee.name} />
-          
+
           <h3 className="text-xl font-semibold">{todaysSpecial.coffee.name}</h3>
           <p className="text-gray-600">{todaysSpecial.coffee.description}</p>
           
@@ -81,7 +82,7 @@ const TodaysSpecial = () => {
           onMouseEnter={() => setHoveredItem('food')}
           onMouseLeave={() => setHoveredItem(null)}
         >
-          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.food.image} alt={todaysSpecial.food.name} />
+          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.food.image} alt={todaysSpecial.food.name} loading="lazy" />
 
           <h3 className="text-xl font-semibold">{todaysSpecial.food.name}</h3>
           <p className="text-gray-600">{todaysSpecial.food.description}</p>
@@ -99,7 +100,7 @@ const TodaysSpecial = () => {
           onMouseEnter={() => setHoveredItem('drink')}
           onMouseLeave={() => setHoveredItem(null)}
         >
-          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.drink.image} alt={todaysSpecial.drink.name} />
+          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.drink.image} alt={todaysSpecial.drink.name} loading="lazy"/>
 
           <h3 className="text-xl font-semibold">{todaysSpecial.drink.name}</h3>
           <p className="text-gray-600">{todaysSpecial.drink.description}</p>

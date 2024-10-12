@@ -54,6 +54,7 @@ export default function Register() {
             <img
               src={pic}
               alt="Board Game Cafe"
+              loading="lazy"
               className="w-full h-auto  rounded-s-full"
             />
           </div>
@@ -165,6 +166,7 @@ export default function Register() {
                   <img
                     src={game.src}
                     alt={game.title}
+                    loading="lazy"
                     className="mb-4 w-64 h-64 object-cover"
                   />
                   <div className="font-medium">{game.title}</div>
