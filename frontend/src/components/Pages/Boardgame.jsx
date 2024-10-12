@@ -1,5 +1,6 @@
 import React, { useState,useEffect  } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import '@splidejs/react-splide/css';
 
 import board1 from '../../assets/Boardgames/board1.png';
@@ -232,8 +233,11 @@ export default function Boardgame() {
                 type: 'loop',
                 perPage: 1,
                 autoplay: true,
-                interval: 3000,
                 lazyLoad: 'sequential',
+                autoScroll: {
+                  speed: 0.2, 
+                  pauseOnHover:true
+                }
               }}
               className="mx-auto w-full rounded-t-xl object-cover object-center shadow-2xl"
             >
@@ -242,7 +246,8 @@ export default function Boardgame() {
                   alt="bg"
                   effect="blur"
                   src="https://images.unsplash.com/photo-1656686631034-e88d4fbde1e3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  className="w-full h-full object-cover"
+                  className="object-cover w-full"
+                  style={{height : "500px" ,width:"2000px"}}
                 />
               </SplideSlide>
               <SplideSlide>
@@ -250,7 +255,8 @@ export default function Boardgame() {
                   alt="bg1"
                   effect="blur"
                   src="https://images.unsplash.com/photo-1681402720847-961bb1aab8d8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  className="w-full object-cover"
+                  className="object-cover w-full"
+                  style={{height : "500px",width:"2000px"}}
                 />
               </SplideSlide>
               <SplideSlide>
@@ -258,7 +264,8 @@ export default function Boardgame() {
                   alt="bg2"
                   effect="blur"
                   src="https://images.unsplash.com/photo-1609818698346-8cb3be6e0bc0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  className="w-full object-cover"
+                  className="object-cover"
+                  style={{height : "500px",width:"2000px"}}
                 />
               </SplideSlide>
               <SplideSlide>
@@ -266,7 +273,8 @@ export default function Boardgame() {
                   alt="bg3"
                   effect="blur"
                   src="https://images.unsplash.com/photo-1659480142923-0cd01191e0e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  className="w-full h-full object-cover"
+                  className="object-cover"
+                  style={{height : "500px",width:"2000px"}}
                 />
               </SplideSlide>
               {/* Add more slides as necessary */}
