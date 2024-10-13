@@ -1,30 +1,31 @@
-import React,{ useState, useEffect } from "react";
+
+import { useState , useEffect } from "react";
 import photo from "../../assets/login.png";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
-import zxcvbn from "zxcvbn";
+import zxcvbn from "zxcvbn"; // Import zxcvbn for password strength check
 
 const Signup = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [passwordStrength, setPasswordStrength] = useState(0); // State to track password strength
   const [data, setData] = useState({
     name: '',
     email: '',
     password: '',
   });
-  const [hidden, setHidden] = useState(true);
-  const [passwordStrength, setPasswordStrength] = useState(null);
+  const [hidden, setHidden] = useState(true)
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
 
     if (e.target.name === "password") {
-      const strength = zxcvbn(e.target.value);
-      setPasswordStrength(strength);
+      const result = zxcvbn(e.target.value);
+      setPasswordStrength(result.score); // Update password strength score
     }
   };
 
@@ -71,6 +72,7 @@ const Signup = () => {
         return;
       }
 
+      // Handle successful registration
       alert('Registered successfully! Please log in.');
       navigate('/');
     } catch (error) {
@@ -79,9 +81,19 @@ const Signup = () => {
     }
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
+  const getPasswordStrengthColor = (score) => {
+    const colors = ["#ff4d4d", "#ff944d", "#ffd24d", "#d2ff4d", "#4dff88"];
+    return colors[score];
+  };
+
+  const getPasswordStrengthText = (score) => {
+    const strengthLevels = ["Very Weak", "Weak", "Okay", "Good", "Strong"];
+    return strengthLevels[score];
+  };
 
   return (
     <div className="w-screen h-screen flex items-center justify-center pt-10">
@@ -122,23 +134,22 @@ const Signup = () => {
             type={hidden ? "password" : "text"}
             onChange={(e) => handleChange(e)}
           />
-          <button className="absolute top-1/2 -translate-y-1/2 right-4" onClick={(e) => {
-            e.preventDefault();
-            setHidden(!hidden);
+          <button className="absolute top-1/2 -translate-y-1/2 right-4" onClick={(e)=>{
+            e.preventDefault()
+            setHidden(!hidden)
           }}>
-            {hidden ? <FaEyeSlash /> : <FaEye />}
+            {hidden ? <FaEyeSlash/> : <FaEye/>}
           </button>
         </div>
-        {passwordStrength && (
-          <div className="w-full mt-2">
-            <div className={`password-strength strength-${passwordStrength.score}`}>
-              Password Strength: {["Very Weak", "Weak", "Okay", "Good", "Strong"][passwordStrength.score]}
-            </div>
-            <div className="progress-bar bg-gray-200 h-2 rounded">
-              <div className={`progress bg-${["red", "orange", "yellow", "green", "blue"][passwordStrength.score]} h-full rounded`} style={{ width: `${(passwordStrength.score + 1) * 20}%` }}></div>
-            </div>
-          </div>
-        )}
+
+        {/* Password Strength Meter */}
+        <div className="w-full mt-2">
+          <div className="h-2 rounded-full" style={{ backgroundColor: getPasswordStrengthColor(passwordStrength), width: `${(passwordStrength + 1) * 20}%` }}></div>
+          <p className="text-sm text-[#666] mt-1">
+            Strength: {getPasswordStrengthText(passwordStrength)}
+          </p>
+        </div>
+
         {error && (
           <div className="w-full p-2 bg-red-100 text-red-700 border border-red-400 rounded-md">
             {error}
