@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import Logo from '../../assets/Logo/playcafe.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 
 const Navbar = () => {
   const [isloggedIn, setisloggedIn] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [token,setToken] = useState(Cookies.get('authToken'));
+  const [token, setToken] = useState(Cookies.get('authToken'));
   const location = useLocation();
   const navigate = useNavigate(); // Correctly initialize useNavigate
 
@@ -33,7 +33,6 @@ const Navbar = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-    
   }, []);
 
   const toggleMenu = () => {
@@ -42,12 +41,12 @@ const Navbar = () => {
 
   const handleLogout = () => {
     // setisloggedIn(false); // Set isLoggedIn to false on confirmation
-    //managing log in , logout using jwt tokens 
-    Cookies.remove("authToken");
+    //managing log in , logout using jwt tokens
+    Cookies.remove('authToken');
     setToken(null);
     setIsModalOpen(false); // Close the modal
-    setIsMenuOpen(false) // after getting logged out close the menu if it is open
-    navigate("/login");//navigate to login after get logged out
+    setIsMenuOpen(false); // after getting logged out close the menu if it is open
+    navigate('/login'); //navigate to login after get logged out
   };
 
   const isHomePage = location.pathname === '/';

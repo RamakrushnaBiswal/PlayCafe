@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Logo from '../../../assets/Logo/playcafe.png';
 import googleImage from "../../../assets/img/google.png"
 import { FaFacebook, FaInstagram, FaTiktok, FaGithub } from 'react-icons/fa';
@@ -6,7 +6,7 @@ import GoogleTranslate from "../GoogleTranslate";
 
 export default function Content() {
   return (
-    <div className="bg-black pt-24 py-8 px-12 h-full w-full flex flex-col justify-between">
+    <div className="bg-black pt-16 py-8 px-12 h-full w-full flex flex-col justify-between md:pt-24`">
       <Nav />
       <Section2 />
     </div>
@@ -43,16 +43,12 @@ const Section2 = () => {
         } text-white`}
       >
         <h1
-          className={`${
-            isWide ? 'text-[9vw]' : 'text-[12vw] mt-10'
-          } leading-[0.8]`}
+          className={`${isWide ? 'text-[9vw]' : 'text-[12vw]'} leading-[0.8]`}
         >
           BoardGame {!isWide && <br />}
         </h1>
         <h1
-          className={`${
-            isWide ? 'text-[9vw]' : 'text-[12vw] mt-4'
-          } leading-[0.8]`}
+          className={`${isWide ? 'text-[9vw]' : 'text-[12vw]'} leading-[0.8]`}
         >
           Cafe
         </h1>
@@ -110,35 +106,37 @@ const Nav = () => {
   const emailAddress = 'sipnplaynyc@gmail.com';
 
   return (
-    <div className="flex shrink-0 gap-4 sm:gap-20">
-      <div className="flex flex-col gap-2 text-gray-400">
-        <h3 className="mb-2 uppercase text-white">About</h3>
-        {navLinks.map((item, index) => (
-          <a
-            className="hover:text-white duration-300"
-            key={index}
-            href={item.link}
-          >
-            {item.name}
-          </a>
-        ))}
+    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20">
+      <div className="flex justify-between md:gap-20">
+        <div className="flex flex-col gap-2 text-gray-400">
+          <h3 className="mb-2 uppercase text-white">About</h3>
+          {navLinks.map((item, index) => (
+            <a
+              className="hover:text-white duration-300"
+              key={index}
+              href={item.link}
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+        <div className="flex flex-col gap-2 text-gray-400">
+          <h3 className="mb-2 uppercase text-white">Socials</h3>
+          {socialLink.map((item, index) => (
+            <a
+              target="_blank"
+              className="hover:text-white duration-300 flex items-center gap-2"
+              key={index}
+              href={item.link}
+              aria-label={`${item.name} - opens in a new tab`}
+            >
+              {item.icon}
+              {item.name}
+            </a>
+          ))}
+        </div>
       </div>
-      <div className="flex flex-col gap-2 text-gray-400">
-        <h3 className="mb-2 uppercase text-white">Socials</h3>
-        {socialLink.map((item, index) => (
-          <a
-            target="_blank"
-            className="hover:text-white duration-300 flex items-center gap-2"
-            key={index}
-            href={item.link}
-            aria-label={`${item.name} - opens in a new tab`}
-          >
-            {item.icon}
-            {item.name}
-          </a>
-        ))}
-      </div>
-      <div className="flex flex-col gap-2 text-gray-400">
+      <div className="flex flex-col text-gray-400">
         <h3 className="mb-2 uppercase text-white">Contact Us</h3>
         <a
           href={`mailto:${emailAddress}`}
