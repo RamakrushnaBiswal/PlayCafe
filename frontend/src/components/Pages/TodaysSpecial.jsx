@@ -9,6 +9,7 @@ import latte from '../../assets/TSimg/latte.webp';
 import iced_tea from '../../assets/TSimg/iced_tea.webp';
 import caesar_salad from '../../assets/TSimg/caesar_salad.webp';
 
+
 const menuItems = {
   coffee: [
     { name: "Espresso", description: "Rich and bold coffee shot.", image: espresso, originalPrice: "$3.00", offerPrice: "$2.50" },
@@ -24,7 +25,6 @@ const menuItems = {
     { name: "Cheese Sandwich", description: "Toasted sandwich with cheese.", image: cheese_sandwich, originalPrice: "$3.50", offerPrice: "$3.00" },
     { name: "Pasta Primavera", description: "Veggies and pasta in a light sauce.", image: pasta_primavera, originalPrice: "$5.50", offerPrice: "$5.00" },
     { name: "Caesar Salad", description: "Crispy salad with Caesar dressing.", image: caesar_salad, originalPrice: "$5.00", offerPrice: "$4.50" },
-
   ],
 };
 
@@ -52,66 +52,63 @@ const TodaysSpecial = () => {
 
   return (
     <div className="mt-10">
-      <h2 className="text-5xl font-bold text-center mb-9">Today's Special</h2>
+      <h2 className="text-5xl font-bold text-center mb-9">
+  Today's Special
+</h2>
       <div className="flex flex-col md:flex-row justify-around items-center mb-8 space-y-8 md:space-y-0 md:space-x-4">
         {/* Coffee Card */}
         <div
           className="bg-pink-100 p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2"
-          style={{ minHeight: '300px' }} // Ensure a minimum height for the card
+          style={{ minHeight: '350px', maxHeight: '350px' }}  
           onMouseEnter={() => setHoveredItem('coffee')}
           onMouseLeave={() => setHoveredItem(null)}
         >
+
           <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.coffee.image} alt={todaysSpecial.coffee.name} />
 
           <h3 className="text-xl font-semibold">{todaysSpecial.coffee.name}</h3>
           <p className="text-gray-600">{todaysSpecial.coffee.description}</p>
-          {/* Show prices below the image and description */}
-          {hoveredItem === 'coffee' && (
-            <div className="mt-4">
-              <p className="text-lg font-bold text-red-700 line-through">{todaysSpecial.coffee.originalPrice}</p>
-              <p className="text-xl font-bold text-red-500">{todaysSpecial.coffee.offerPrice}</p>
-            </div>
-          )}
+          
+          <div className={`mt-4 transition-opacity duration-300 ease-in-out ${hoveredItem === 'coffee' ? 'opacity-100' : 'opacity-0'}`}>
+            <p className="text-lg font-bold text-red-700 line-through">{todaysSpecial.coffee.originalPrice}</p>
+            <p className="text-xl font-bold text-red-500">{todaysSpecial.coffee.offerPrice}</p>
+          </div>
         </div>
 
         {/* Food Card */}
         <div
           className="bg-teal-100 p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2"
-          style={{ minHeight: '300px' }} // Ensure a minimum height for the card
+          style={{ minHeight: '350px', maxHeight: '350px' }}  
           onMouseEnter={() => setHoveredItem('food')}
           onMouseLeave={() => setHoveredItem(null)}
         >
-          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.food.image} alt={todaysSpecial.food.name} />
+          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.food.image} alt={todaysSpecial.food.name} loading="lazy" />
 
           <h3 className="text-xl font-semibold">{todaysSpecial.food.name}</h3>
           <p className="text-gray-600">{todaysSpecial.food.description}</p>
-          {/* Show prices below the image and description */}
-          {hoveredItem === 'food' && (
-            <div className="mt-4">
+        
+          <div className={`mt-4 transition-opacity duration-300 ease-in-out ${hoveredItem === 'food' ? 'opacity-100' : 'opacity-0'}`}>
               <p className="text-lg font-bold text-red-700 line-through">{todaysSpecial.food.originalPrice}</p>
               <p className="text-xl font-bold text-red-500">{todaysSpecial.food.offerPrice}</p>
-            </div>
-          )}
+          </div>
         </div>
 
         {/* Drink Card */}
         <div
           className="bg-pink-100 p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2"
-          style={{ minHeight: '300px' }} // Ensure a minimum height for the card
+          style={{ minHeight: '350px', maxHeight: '350px'}}  
           onMouseEnter={() => setHoveredItem('drink')}
           onMouseLeave={() => setHoveredItem(null)}
         >
-          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.drink.image} alt={todaysSpecial.drink.name} />
+          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.drink.image} alt={todaysSpecial.drink.name} loading="lazy"/>
 
           <h3 className="text-xl font-semibold">{todaysSpecial.drink.name}</h3>
           <p className="text-gray-600">{todaysSpecial.drink.description}</p>
-          {/* Show prices below the image and description */}
-          {hoveredItem === 'drink' && (
-            <div className="mt-4">
-              <p className="text-lg font-bold text-red-700 line-through">{todaysSpecial.drink.originalPrice}</p>
-              <p className="text-xl font-bold text-red-500">{todaysSpecial.drink.offerPrice}</p>
-            </div>
-          )}
+        
+          <div className={`mt-4 transition-opacity duration-300 ease-in-out ${hoveredItem === 'drink' ? 'opacity-100' : 'opacity-0'}`}>
+            <p className="text-lg font-bold text-red-700 line-through">{todaysSpecial.drink.originalPrice}</p>
+            <p className="text-xl font-bold text-red-500">{todaysSpecial.drink.offerPrice}</p>
+          </div>
         </div>
       </div>
     </div>

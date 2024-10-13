@@ -1,37 +1,41 @@
-name: Close Old Issues
+name: Auto Close Inactive Issues
+
 on:
   schedule:
-    - cron: "0 0 * * *"
+    # Run the job once a day at midnight
+    - cron: '0 0 * * *'
 
 jobs:
-  close-issues:
+  close_inactive_issues:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Close Old Issues
-        run: |
-          open_issues=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/issues?state=open" \
-            | jq -r '.[] | .number')
-          for issue in $open_issues; do
-            # Get the last updated timestamp of the issue
-            last_updated=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-              "https://api.github.com/repos/${{ github.repository }}/issues/$issue" \
-              | jq -r '.updated_at')
-            days_since_update=$(( ( $(date +%s) - $(date -d "$last_updated" +%s) ) / 86400 ))
-            if [ $days_since_update -gt 30 ]; then
-              curl -s -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-                -H "Accept: application/vnd.github.v3+json" \
-                -d '{"state":"closed"}' \
-                "https://api.github.com/repos/${{ github.repository }}/issues/$issue"
+      - name: Close inactive issues
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const now = new Date();
+            const daysToClose = 3; // Close issues after 3 days of inactivity
+
+            const issues = await github.paginate(github.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+            });
+
+            for (const issue of issues) {
+              const lastUpdated = new Date(issue.updated_at);
+              const daysSinceUpdate = (now - lastUpdated) / (1000 * 60 * 60 * 24);
               
-              # Add a comment explaining when the issue will be closed
-              curl -s -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-                -H "Accept: application/vnd.github.v3+json" \
-                -d '{"body":"This issue has been automatically closed because it has been inactive for more than 30 days. If you believe this is still relevant, feel free to reopen it or create a new one. Thank you!"}' \
-                "https://api.github.com/repos/${{ github.repository }}/issues/$issue/comments"
-            fi
-          done
+              if (daysSinceUpdate >= daysToClose) {
+                await github.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  state: "closed"
+                });
+                console.log(`Closed inactive issue #${issue.number}, inactive for ${daysSinceUpdate.toFixed(1)} days.`);
+              }
+            }

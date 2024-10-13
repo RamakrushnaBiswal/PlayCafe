@@ -13,6 +13,7 @@ const NotFound = () => {
             <img
                 src={Notfound} // Replace with your actual GIF path
                 alt="Not Found GIF"
+                loading="lazy"
                 className="w-full max-w-md"
             />
             <p className="mt-8 text-lg text-gray-700 text-center">

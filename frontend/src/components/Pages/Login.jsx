@@ -4,6 +4,8 @@ import photo from "../../assets/login.png";
 import { Link, useNavigate } from "react-router-dom";
 import { message } from "antd";
 import Cookies from 'js-cookie'
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa6";
 
 const Login = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
@@ -11,6 +13,7 @@ const Login = () => {
     email: '',
     password: '',
   });
+  const [hidden, setHidden] = useState(true)
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -55,7 +58,7 @@ const Login = () => {
 
   return (
     <div className="w-screen h-screen flex items-center justify-center pt-10">
-      <img src={photo} alt="login" className=" w-3/4 absolute" />
+      <img src={photo} alt="login" loading="lazy" className=" w-3/4 absolute" />
       <form
         onSubmit={(e) => handleSubmit(e)}
         className="form z-10 p-16 bg-lightblue flex flex-col items-start justify-center gap-5 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]"
@@ -75,14 +78,21 @@ const Login = () => {
           type="email"
           onChange={(e) => handleChange(e)}
         />
-
-        <input
-          className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
-          name="password"
-          placeholder="Password"
-          type="password"
-          onChange={(e) => handleChange(e)}
-        />
+        <div className="relative w-full">
+          <input
+            className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
+            name="password"
+            placeholder="Password"
+            type={hidden ? "password" : "text"}
+            onChange={(e) => handleChange(e)}
+          />
+          <button className="absolute top-1/2 -translate-y-1/2 right-4" onClick={(e)=>{
+            e.preventDefault();
+            setHidden(!hidden)
+          }}>
+            {hidden ? <FaEyeSlash/> : <FaEye/>}
+          </button>
+        </div>
         <h3 className="flex items-center justify-between w-full">
           Dont have an account?
           <span className="block text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition">

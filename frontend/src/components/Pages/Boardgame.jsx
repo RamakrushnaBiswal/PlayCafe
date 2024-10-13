@@ -1,4 +1,8 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState,useEffect  } from 'react';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import '@splidejs/react-splide/css';
+
 import board1 from '../../assets/Boardgames/board1.png';
 import board2 from '../../assets/Boardgames/board2.png';
 import board3 from '../../assets/Boardgames/board3.jpg';
@@ -9,11 +13,11 @@ import board7 from '../../assets/Boardgames/board7.png';
 import board8 from '../../assets/Boardgames/board8.png';
 import board10 from '../../assets/Boardgames/board10.png';
 import bg from '../../assets/Boardgames/bg.jpg';
-
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-
-export default function Boardgame() {
+import MainHOC from '../MainHOC';
+export default MainHOC(Boardgame);
+function Boardgame() {
   const [selectedBoard, setSelectedBoard] = useState(null);
   const [email, setEmail] = useState('');
 
@@ -202,6 +206,7 @@ export default function Boardgame() {
     },
   ];
 
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -223,15 +228,57 @@ export default function Boardgame() {
                 </p>
               </div>
             </div>
-            <LazyLoadImage
-              alt={'bg'}
-              effect="blur"
-              wrapperProps={{
-                style: { transitionDelay: '1s' },
+            <Splide
+              options={{
+                type: 'loop',
+                perPage: 1,
+                autoplay: true,
+                lazyLoad: 'sequential',
+                autoScroll: {
+                  speed: 0.2, 
+                  pauseOnHover:true
+                }
               }}
-              className="mx-auto w-full aspect-[3/1] overflow-hidden rounded-t-xl object-cover object-center shadow-2xl"
-              src={bg}
-            />
+              className="mx-auto w-full rounded-t-xl object-cover object-center shadow-2xl"
+            >
+              <SplideSlide>
+                <LazyLoadImage
+                  alt="bg"
+                  effect="blur"
+                  src="https://images.unsplash.com/photo-1656686631034-e88d4fbde1e3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  className="object-cover w-full"
+                  style={{height : "500px" ,width:"2000px"}}
+                />
+              </SplideSlide>
+              <SplideSlide>
+                <LazyLoadImage
+                  alt="bg1"
+                  effect="blur"
+                  src="https://images.unsplash.com/photo-1681402720847-961bb1aab8d8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  className="object-cover w-full"
+                  style={{height : "500px",width:"2000px"}}
+                />
+              </SplideSlide>
+              <SplideSlide>
+                <LazyLoadImage
+                  alt="bg2"
+                  effect="blur"
+                  src="https://images.unsplash.com/photo-1609818698346-8cb3be6e0bc0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  className="object-cover"
+                  style={{height : "500px",width:"2000px"}}
+                />
+              </SplideSlide>
+              <SplideSlide>
+                <LazyLoadImage
+                  alt="bg3"
+                  effect="blur"
+                  src="https://images.unsplash.com/photo-1659480142923-0cd01191e0e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  className="object-cover"
+                  style={{height : "500px",width:"2000px"}}
+                />
+              </SplideSlide>
+              {/* Add more slides as necessary */}
+            </Splide>
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32">
@@ -245,6 +292,7 @@ export default function Boardgame() {
                   <img
                     src={board.src}
                     alt={board.title}
+                    loading="lazy"
                     width="500"
                     height="400"
                     className="object-cover w-full h-48 transition-all duration-300 ease-in-out group-hover:h-32"

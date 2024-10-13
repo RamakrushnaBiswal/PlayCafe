@@ -12,7 +12,7 @@ import img5 from '../../assets/img/event6.jpg';
 import band from '../../assets/landing/band.gif';
 import game from '../../assets/Boardgames/carrom.gif';
 import spin from '../../assets/Boardgames/spin.gif';
-
+import MainHOC from '../MainHOC';
 const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const months = [
   'January',
@@ -28,7 +28,7 @@ const months = [
   'November',
   'December',
 ];
-export default function Event() {
+function Event() {
   const [events, setEvents] = useState([]);
   const [error, setError] = useState(null);
   useEffect(() => {
@@ -124,14 +124,25 @@ export default function Event() {
               <img
                 src={band}
                 alt="band"
+                loading="lazy"
                 className="w-2/5 absolute left-1/2 top-[20%] z-10 translate-x-[-50%] mx-auto"
               />
               <h1 className="text-6xl md:text-9xl font-bold ml-4" ref={textRef}>
                 Upcoming Events and much more....
               </h1>
               <div className="flex w-full h-80 rounded-full items-center px-40  bg-yellow-100 justify-between shadow-md">
-                <img src={game} alt="game" className="w-28 h-28" />
-                <img src={spin} alt="game" className="w-28 h-28" />
+                <img
+                  src={game}
+                  alt="game"
+                  loading="lazy"
+                  className="w-28 h-28"
+                />
+                <img
+                  src={spin}
+                  alt="game"
+                  loading="lazy"
+                  className="w-28 h-28"
+                />
               </div>
             </div>
           </div>
@@ -189,19 +200,44 @@ export default function Event() {
                 <div className="splide__track w-full ">
                   <ul className="splide__list">
                     <li className="splide__slide ">
-                      <img src={img1} alt="Event 1" className="w-full h-full" />
+                      <img
+                        src={img1}
+                        alt="Event 1"
+                        loading="lazy"
+                        className="w-full h-full"
+                      />
                     </li>
                     <li className="splide__slide">
-                      <img src={img2} alt="Event 2" className="w-full h-full" />
+                      <img
+                        src={img2}
+                        alt="Event 2"
+                        loading="lazy"
+                        className="w-full h-full"
+                      />
                     </li>
                     <li className="splide__slide">
-                      <img src={img3} alt="Event 3" className="w-full h-full" />
+                      <img
+                        src={img3}
+                        alt="Event 3"
+                        loading="lazy"
+                        className="w-full h-full"
+                      />
                     </li>
                     <li className="splide__slide">
-                      <img src={img4} alt="Event 4" className="w-full h-full" />
+                      <img
+                        src={img4}
+                        alt="Event 4"
+                        loading="lazy"
+                        className="w-full h-full"
+                      />
                     </li>
                     <li className="splide__slide">
-                      <img src={img5} alt="Event 6" className="w-full h-full" />
+                      <img
+                        src={img5}
+                        alt="Event 6"
+                        loading="lazy"
+                        className="w-full h-full"
+                      />
                     </li>
                     {/* Add more images here */}
                   </ul>
@@ -223,6 +259,7 @@ export default function Event() {
                     <img
                       src={event.image}
                       alt={event.title}
+                      loading="lazy"
                       className="h-[400px] w-full"
                     />
                   </div>
@@ -252,3 +289,4 @@ export default function Event() {
     </>
   );
 }
+export default MainHOC(Event);
