@@ -5,12 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
+import zxcvbn from "zxcvbn"; // Import zxcvbn for password strength check
 
 const Signup = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [passwordStrength, setPasswordStrength] = useState(0); // State to track password strength
   const [data, setData] = useState({
     name: '',
     email: '',
@@ -20,12 +22,16 @@ const Signup = () => {
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
+
+    if (e.target.name === "password") {
+      const result = zxcvbn(e.target.value);
+      setPasswordStrength(result.score); // Update password strength score
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    // Add input validation
     if (!data.email || !data.password || !data.name) {
       setError('Please fill in all fields');
       setIsLoading(false);
@@ -79,6 +85,16 @@ const Signup = () => {
       window.scrollTo(0, 0);
     }, []);
 
+  const getPasswordStrengthColor = (score) => {
+    const colors = ["#ff4d4d", "#ff944d", "#ffd24d", "#d2ff4d", "#4dff88"];
+    return colors[score];
+  };
+
+  const getPasswordStrengthText = (score) => {
+    const strengthLevels = ["Very Weak", "Weak", "Okay", "Good", "Strong"];
+    return strengthLevels[score];
+  };
+
   return (
     <div className="w-screen h-screen flex items-center justify-center pt-10">
       <img src={photo} alt="login" loading="lazy" className=" w-3/4 absolute" />
@@ -125,6 +141,15 @@ const Signup = () => {
             {hidden ? <FaEyeSlash/> : <FaEye/>}
           </button>
         </div>
+
+        {/* Password Strength Meter */}
+        <div className="w-full mt-2">
+          <div className="h-2 rounded-full" style={{ backgroundColor: getPasswordStrengthColor(passwordStrength), width: `${(passwordStrength + 1) * 20}%` }}></div>
+          <p className="text-sm text-[#666] mt-1">
+            Strength: {getPasswordStrengthText(passwordStrength)}
+          </p>
+        </div>
+
         {error && (
           <div className="w-full p-2 bg-red-100 text-red-700 border border-red-400 rounded-md">
             {error}
