@@ -22,6 +22,12 @@
   }
 }
 
+/* ------- THIS IS WILL REMOVE THE EMPTY SPACE THAT IS BEING CREATED ON THE EXTREME RIGHT SIDE OF THE WEBSITE ------- */
+/* *::-webkit-scrollbar {
+  display: none;
+} */
+/* ------------------------------------------------------------------------------------------------------------------  */
+
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
@@ -36,4 +42,3 @@
   background-color: #004d43;
   border-radius: 10px;
 }
-
