@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -15,33 +16,30 @@ const FeedbackForm = () => {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
-  const API_URL = import.meta.env.VITE_BACKEND_URI || 'http://localhost:3000';
+  
+  // Use an environment variable for backend URL
+  const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [feedback, setFeedback] = useState('');
   const [submitted, setSubmitted] = useState(false);
-
   const [rating, setRating] = useState(null);
-
   const [hover, setHover] = useState(null);
-  const [totalStars, setTotalStars] = useState(5);
+  const [totalStars] = useState(5); // No need to set this dynamically unless you plan to change it later
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(
-      `Name: ${name}, Email: ${email}, Feedback: ${feedback}, rating: ${rating}`
-    );
-    setSubmitted(true);
-    setTimeout(() => {
-      setName('');
-      setEmail('');
-      setFeedback('');
-      setRating(null);
-      setSubmitted(false);
-    }, 3000);
+    // Basic client-side validation for security
+    if (!name || !email || !feedback || !rating) {
+      setError('All fields are required, including the rating.');
+      return;
+    }
+
+    // Clear any previous errors
+    setError(null);
 
     setIsLoading(true);
     try {
@@ -52,7 +50,15 @@ const FeedbackForm = () => {
         },
         body: JSON.stringify({ name, email, feedback, rating }),
       });
-      const data = await response.json();
+
+      // Check for JSON response
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        throw new Error('Invalid response format.');
+      }
+
       if (!response.ok) {
         const errorMessage =
           data.message || 'An error occurred while submitting feedback.';
@@ -62,11 +68,11 @@ const FeedbackForm = () => {
       }
 
       setSubmitted(true);
-      setError(null);
       setTimeout(() => {
         setName('');
         setEmail('');
         setFeedback('');
+        setRating(null);
         setSubmitted(false);
       }, 3000);
     } catch (error) {
@@ -92,10 +98,9 @@ const FeedbackForm = () => {
               We value Your Feedback!
             </h2>
             <p className="mt-1 text-lg text-gray-700 pb-3">
-              Your thoughts help us improve. Share your experience and
-              suggestions with us!
+              Your thoughts help us improve. Share your experience and suggestions with us!
             </p>
-            <div className="flex   md:h-[50vh] md:w-[70vh] item-center justify-center  ">
+            <div className="flex md:h-[50vh] md:w-[70vh] items-center justify-center">
               <img
                 src={chess}
                 alt="Chess"
@@ -108,12 +113,6 @@ const FeedbackForm = () => {
           <div className="bg-[#004D43] rounded-xl p-3 pt-4 h-fit">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                {/* <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-white"
-                >
-                  Name
-                </label> */}
                 <input
                   type="text"
                   id="name"
@@ -125,12 +124,6 @@ const FeedbackForm = () => {
                 />
               </div>
               <div>
-                {/* <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-[#004D43]"
-                >
-                  Email
-                </label> */}
                 <input
                   type="email"
                   id="email"
@@ -142,12 +135,6 @@ const FeedbackForm = () => {
                 />
               </div>
               <div>
-                {/* <label
-                  htmlFor="feedback"
-                  className="block text-sm font-medium text-[#004D43]"
-                >
-                  Feedback
-                </label> */}
                 <textarea
                   id="feedback"
                   placeholder="Your valuable feedback here"
@@ -190,6 +177,7 @@ const FeedbackForm = () => {
                 <button
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#09342e] hover:bg-[#072d28] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004D43]"
+                  disabled={isLoading} // Disable the button while loading
                 >
                   {isLoading ? 'Submitting...' : 'Submit Feedback'}
                 </button>
