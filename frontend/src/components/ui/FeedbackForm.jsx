@@ -100,7 +100,7 @@ const FeedbackForm = () => {
             <p className="mt-1 text-lg text-gray-700 pb-3">
               Your thoughts help us improve. Share your experience and suggestions with us!
             </p>
-            <div className="flex md:h-[50vh] md:w-[70vh] items-center justify-center">
+            <div className="flex md:h-[40vh] md:w-[60vh] items-center justify-center mt-10">
               <img
                 src={chess}
                 alt="Chess"
