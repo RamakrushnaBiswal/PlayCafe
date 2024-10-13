@@ -1,10 +1,10 @@
-
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import photo from "../../assets/login.png";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
+import zxcvbn from "zxcvbn";
 
 const Signup = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
@@ -16,16 +16,21 @@ const Signup = () => {
     email: '',
     password: '',
   });
-  const [hidden, setHidden] = useState(true)
+  const [hidden, setHidden] = useState(true);
+  const [passwordStrength, setPasswordStrength] = useState(null);
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
+
+    if (e.target.name === "password") {
+      const strength = zxcvbn(e.target.value);
+      setPasswordStrength(strength);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    // Add input validation
     if (!data.email || !data.password || !data.name) {
       setError('Please fill in all fields');
       setIsLoading(false);
@@ -66,7 +71,6 @@ const Signup = () => {
         return;
       }
 
-      // Handle successful registration
       alert('Registered successfully! Please log in.');
       navigate('/');
     } catch (error) {
@@ -75,9 +79,9 @@ const Signup = () => {
     }
   };
 
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center pt-10">
@@ -118,13 +122,23 @@ const Signup = () => {
             type={hidden ? "password" : "text"}
             onChange={(e) => handleChange(e)}
           />
-          <button className="absolute top-1/2 -translate-y-1/2 right-4" onClick={(e)=>{
-            e.preventDefault()
-            setHidden(!hidden)
+          <button className="absolute top-1/2 -translate-y-1/2 right-4" onClick={(e) => {
+            e.preventDefault();
+            setHidden(!hidden);
           }}>
-            {hidden ? <FaEyeSlash/> : <FaEye/>}
+            {hidden ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
+        {passwordStrength && (
+          <div className="w-full mt-2">
+            <div className={`password-strength strength-${passwordStrength.score}`}>
+              Password Strength: {["Very Weak", "Weak", "Okay", "Good", "Strong"][passwordStrength.score]}
+            </div>
+            <div className="progress-bar bg-gray-200 h-2 rounded">
+              <div className={`progress bg-${["red", "orange", "yellow", "green", "blue"][passwordStrength.score]} h-full rounded`} style={{ width: `${(passwordStrength.score + 1) * 20}%` }}></div>
+            </div>
+          </div>
+        )}
         {error && (
           <div className="w-full p-2 bg-red-100 text-red-700 border border-red-400 rounded-md">
             {error}
