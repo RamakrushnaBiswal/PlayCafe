@@ -1,16 +1,18 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import photo from '../../assets/login.png';
 import React, { useState } from 'react';
 import { message } from 'antd';
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa6";
 
 const ResetPassword = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const navigate = useNavigate(); // Use useNavigate for navigation
-  const [data, setData] = useState({
-    email: '',
-    password: '',
-    confirmPassword: '',
-  });
+  const { id } = useParams();
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [hidden, setHidden] = useState(true)
+  const [confHidden, setConfHidden] = useState(true)
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -19,29 +21,18 @@ const ResetPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Helper function for email validation
-  const isValidEmail = (email) => {
-    // Basic email regex, consider using a more robust solution in production
-    return /\S+@\S+\.\S+/.test(email);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
 
-    // Add input validation // Basic validation examples
-    if (!isValidEmail(data.email)) {
-      setError('Please enter a valid email address');
-      return;
-    }
-
-    if (data.password.length < 8) {
+    if (password.length < 8) {
       setError('Password must be at least 8 characters long');
       return;
     }
 
-    const passwordMatch = data.password === data.confirmPassword;
+    const passwordMatch = password === confirmPassword;
     if (!passwordMatch) {
       setError('Passwords do not match');
       setIsLoading(false);
@@ -49,12 +40,15 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await fetch(`${API_URL}/api/user/reset-password`, {
+      const response = await fetch(`${API_URL}/api/forgot/resetpassword`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          id: id,
+          password: password
+        }),
       });
       const result = await response.json();
       if (!response.ok) {
@@ -82,7 +76,7 @@ const ResetPassword = () => {
           Hey User,
         </span>
         <div className="title text-[#323232] font-black text-7xl mb-6">
-          Reset Your<br></br> Password
+          Enter your<br></br>New Password
           <br />
         </div>
 
@@ -92,36 +86,39 @@ const ResetPassword = () => {
           </div>
         )}
 
-        <input
-          className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
-          name="email"
-          placeholder="Email"
-          type="email"
-          aria-required="true"
-          autoComplete="email"
-          onChange={(e) => handleChange(e)}
-        />
+        <div className="relative w-full">
+          <input
+            className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
+            name="password"
+            placeholder="Password"
+            type={hidden ? "password" : "text"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="absolute top-1/2 -translate-y-1/2 right-4" onClick={(e)=>{
+            e.preventDefault()
+            setHidden(!hidden)
+          }}>
+            {hidden ? <FaEyeSlash/> : <FaEye/>}
+          </button>
+        </div>
 
-        <input
-          className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
-          name="password"
-          placeholder="Password"
-          type="password"
-          onChange={(e) => handleChange(e)}
-        />
-        <input
-          className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          type="password"
-          onChange={(e) => handleChange(e)}
-        />
-
-        <h3 className="flex items-center justify-between w-full">
-          <span className="block text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition">
-            <Link to={'/login'}>Go Back To Login Page</Link>
-          </span>
-        </h3>
+        <div className="relative w-full">
+          <input
+            className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            type={confHidden ? "password" : "text"}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirmPassword}
+          />
+          <button className="absolute top-1/2 -translate-y-1/2 right-4" onClick={(e)=>{
+            e.preventDefault()
+            setConfHidden(!confHidden)
+          }}>
+            {confHidden ? <FaEyeSlash/> : <FaEye/>}
+          </button>
+        </div>
 
         <button
           type="submit"
