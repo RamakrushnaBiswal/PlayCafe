@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { useState, useEffect } from 'react';
 import pic from '../../assets/img/abt1.jpg';
 import pic2 from '../../assets/img/abt1.png';
@@ -7,6 +8,7 @@ import pic5 from '../../assets/img/abt4.png';
 import MainHOC from '../MainHOC';
 
 function Register() {
+
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState();
