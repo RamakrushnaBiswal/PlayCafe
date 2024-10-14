@@ -8,10 +8,10 @@ import pic5 from '../../assets/img/abt4.png';
 import MainHOC from '../MainHOC';
 
 function Register() {
-
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState();
+  const [minDate, setMinDate] = useState('');
 
   const handleSubmit = (e) => {
     console.log(guests);
@@ -35,8 +35,18 @@ function Register() {
       .catch((error) => console.log(error));
   };
 
+  const handleDateValidation = () => {
+    if (date.length === 10 && date < minDate) {
+      // Reset to today's date if the selected date is invalid
+      setDate(minDate);
+      alert('You cannot select a date before today.');
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    const today = new Date().toISOString().split('T')[0];
+    setMinDate(today);
   }, []);
 
   return (
@@ -105,9 +115,10 @@ function Register() {
                     <input
                       type="date"
                       id="date"
-                      onChange={(e) => {
-                        setDate(e.target.value);
-                      }}
+                      min={minDate}
+                      value={date}
+                      onChange={(e) => setDate(e.target.value)}
+                      onBlur={handleDateValidation}
                       className="flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                     />
                   </div>
