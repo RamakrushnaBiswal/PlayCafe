@@ -39,7 +39,27 @@ function Landing() {
         <div className="flex-col md:flex pt-20 z-1">
           {/* Text Content */}
           <div className="p-4 md:w-1/2 mb-6 md:mb-0 text-center md:text-left z-10 pt-14">
-            <h1 className="text-6xl md:text-9xl font-bold ml-4" ref={textRef}>
+            <h1 
+              className="unique-text ml-4" 
+              ref={textRef}
+              style={{
+                fontSize: '4rem', /* Adjusted size */
+                fontWeight: 'bold',
+                textAlign: 'center',
+                color: '#333', /* Dark base color */
+                transition: 'transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)'; /* Slight zoom effect */
+                e.currentTarget.style.color = '#4e2c0a'; /* Brown text color */
+                e.currentTarget.style.textShadow = '0 0 5px rgba(78, 44, 10, 0.6), 0 0 10px rgba(78, 44, 10, 0.4)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = 'scale(1)'; /* Reset scale */
+                e.currentTarget.style.color = '#333'; /* Reset text color */
+                e.currentTarget.style.textShadow = 'none'; /* Remove glow */
+              }}
+            >
               A unique café experience awaits you
             </h1>
           </div>
