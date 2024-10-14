@@ -5,6 +5,10 @@ on:
     # Run the job every day at midnight
     - cron: '0 0 * * *'
 
+permissions:
+  issues: write
+  contents: read
+
 jobs:
   close_issues:
     runs-on: ubuntu-latest
@@ -17,7 +21,7 @@ jobs:
         with:
           script: |
             const now = new Date();
-            const issues = await github.paginate('GET /repos/{owner}/{repo}/issues', {
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: "open",
@@ -25,6 +29,10 @@ jobs:
 
             for (const issue of issues) {
               const daysSinceOpened = (now - new Date(issue.created_at)) / (1000 * 60 * 60 * 24);
+
+              // Log the issue and the number of days it has been open
+              console.log(`Checking issue #${issue.number}, opened ${daysSinceOpened.toFixed(1)} days ago.`);
+              console.log(`Issue #${issue.number} has labels: ${issue.labels.map(label => label.name).join(", ")}`);
 
               if (issue.labels.some(label => label.name === "level 1")) {
                 if (daysSinceOpened >= 1) {
