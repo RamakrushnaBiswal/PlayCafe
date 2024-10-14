@@ -17,7 +17,7 @@ jobs:
         with:
           script: |
             const now = new Date();
-            const issues = await github.paginate(github.issues.listForRepo, {
+            const issues = await github.paginate('GET /repos/{owner}/{repo}/issues', {
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: "open",
@@ -28,7 +28,7 @@ jobs:
 
               if (issue.labels.some(label => label.name === "level 1")) {
                 if (daysSinceOpened >= 1) {
-                  await github.issues.update({
+                  await github.rest.issues.update({
                     owner: context.repo.owner,
                     repo: context.repo.repo,
                     issue_number: issue.number,
@@ -38,7 +38,7 @@ jobs:
                 }
               } else if (issue.labels.some(label => label.name === "level 2")) {
                 if (daysSinceOpened >= 2) {
-                  await github.issues.update({
+                  await github.rest.issues.update({
                     owner: context.repo.owner,
                     repo: context.repo.repo,
                     issue_number: issue.number,
@@ -48,7 +48,7 @@ jobs:
                 }
               } else if (issue.labels.some(label => label.name === "level 3")) {
                 if (daysSinceOpened >= 4) {
-                  await github.issues.update({
+                  await github.rest.issues.update({
                     owner: context.repo.owner,
                     repo: context.repo.repo,
                     issue_number: issue.number,
