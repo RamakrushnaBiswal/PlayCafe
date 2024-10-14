@@ -24,9 +24,9 @@ jobs:
             });
 
             for (const issue of issues) {
+              const daysSinceOpened = (now - new Date(issue.created_at)) / (1000 * 60 * 60 * 24);
+
               if (issue.labels.some(label => label.name === "level 1")) {
-                // Close level 1 issues after 1 day
-                const daysSinceOpened = (now - new Date(issue.created_at)) / (1000 * 60 * 60 * 24);
                 if (daysSinceOpened >= 1) {
                   await github.issues.update({
                     owner: context.repo.owner,
@@ -37,8 +37,6 @@ jobs:
                   console.log(`Closed level 1 issue #${issue.number}`);
                 }
               } else if (issue.labels.some(label => label.name === "level 2")) {
-                // Close level 2 issues after 2 days
-                const daysSinceOpened = (now - new Date(issue.created_at)) / (1000 * 60 * 60 * 24);
                 if (daysSinceOpened >= 2) {
                   await github.issues.update({
                     owner: context.repo.owner,
@@ -49,8 +47,6 @@ jobs:
                   console.log(`Closed level 2 issue #${issue.number}`);
                 }
               } else if (issue.labels.some(label => label.name === "level 3")) {
-                // Close level 3 issues after 4 days
-                const daysSinceOpened = (now - new Date(issue.created_at)) / (1000 * 60 * 60 * 24);
                 if (daysSinceOpened >= 4) {
                   await github.issues.update({
                     owner: context.repo.owner,
