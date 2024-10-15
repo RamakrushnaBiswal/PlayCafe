@@ -103,12 +103,24 @@ Once the application is running, you can:
 ## 🔍 API Documentation
 The PlayCafe website communicates with a backend API to manage data. Here’s a brief overview of available API endpoints:
 
-| HTTP Method | Endpoint       | Description                              |
-|-------------|----------------|------------------------------------------|
-| GET         | `/api/games`   | Fetches the list of available games.     |
-| POST        | `/api/bookings`| Books a table for an event.              |
-| GET         | `/api/events`  | Retrieves upcoming events.               |
-| POST        | `/api/contact` | Sends a message through the contact form.|
+| HTTP Method | Endpoint              | Description                                            |
+|-------------|-----------------------|--------------------------------------------------------|
+| GET         | `/api/games`          | Fetches the list of available games.                   |
+| POST        | `/api/bookings`       | Books a table for an event.                            |
+| GET         | `/api/events`         | Retrieves upcoming events.                             |
+| POST        | `/api/contact`        | Sends a message through the contact form.              |
+| GET         | `/api/users`          | Retrieves a list of registered users.                  |
+| GET         | `/api/users/:id`      | Fetches details of a specific user by ID.              |
+| PUT         | `/api/users/:id`      | Updates user information based on user ID.             |
+| DELETE      | `/api/users/:id`      | Deletes a user from the system by ID.                  |
+| GET         | `/api/menus`          | Retrieves the menu items available at PlayCafe.        |
+| POST        | `/api/orders`         | Places a new order for food and beverages.             |
+| GET         | `/api/orders/:id`     | Fetches details of a specific order by ID.             |
+| GET         | `/api/reviews`        | Retrieves customer reviews for the cafe.               |
+| POST        | `/api/reviews`        | Submits a new review for a game or event.              |
+| GET         | `/api/bookings/:id`   | Retrieves details of a specific booking by ID.         |
+| DELETE      | `/api/bookings/:id`   | Cancels a specific booking by ID.                       |
+
 
 ## 🤝 Contributing
 We love contributions! 💙 Whether you're a participant in **GSSoC** or an open-source enthusiast, we welcome your input. Here's how you can contribute:
@@ -123,8 +135,7 @@ This project is part of **GirlScript Summer of Code 2024** (GSSoC) Extended, an 
 
 ## 🌟 Mentors
 Special thanks to our amazing mentors who are guiding this project! 🙌
-
-- **[to be announced]** - Full Stack Developer
+@Shiva-Bajpai- Full Stack Developer
   
 ## 👥 Our Contributors
 
@@ -426,6 +437,8 @@ We’d love to hear from you! Whether you have questions, feedback, or collabora
 Stay updated and engage with our community on social media:
 
 [Discord](https://discord.gg/Jh3bWQ7FRN).
+[Linkedin](https://www.linkedin.com/in/ramakrushna-biswal/)
+[Gmail](ramakrushnabunty@gmail.com)
 
 We are always here to help you! Don’t hesitate to connect with us and be part of the PlayCafe journey.
 
