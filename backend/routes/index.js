@@ -29,7 +29,7 @@ try {
 }
 
 router.get("/", (req, res) => {
-  res.json({
+  return res.json({
     message: "Welcome to the restaurant API!",
     version: "1.0.0",
     endpoints: {
@@ -46,5 +46,6 @@ router.use("/feedback", feedbackRouter);
 router.use("/user", require("./customerRouter"));
 router.use("/reservation", require("./reservationRouter"));
 router.use("/newsletter", require("./newsletterRoute"));
+router.use("/forgot", require("./forgotRouter"))
 
 module.exports = router;
