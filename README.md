@@ -35,7 +35,7 @@ Welcome to the **[PlayCafe]** website repository! This project is part of **Girl
 11. [👀 Our Contributors](#-our-contributors)
 12. [⭐ Support](#-support)
 13. [📄 License](#-license)
-14. [📬 Contact Us](#-Contact-Us)
+14. [📬 Contact Us](#-contact-us)
 
 ## ✨ Project Overview
 The **PlayCafe Website** project is an exciting open-source initiative under **GSSoC 2024 Extended**. We aim to build a modern and engaging website for the cafe, where visitors can learn about our games, book tables, and stay updated with our events and offers. 
