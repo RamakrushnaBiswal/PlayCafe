@@ -56,20 +56,21 @@ async function loginCustomer(req, res) {
     }
     const validPassword = await bcrypt.compare(
       req.body.password,
-      customer.password,
+      customer.password
     );
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
-      const payload = {
-    sub: customer._id, // User ID
-    name: customer.name, // Optional
-    email: customer.email, // Optional
-  };
+    const payload = {
+      sub: customer._id, // User ID
+      name: customer.name, // Optional
+      role: "customer", // Optional
+      email: customer.email, // Optional
+    };
     const token = jwt.sign(
       payload,
       process.env.JWT_SECRET,
-      { expiresIn: "1h" }, // Expires in 1 hour
+      { expiresIn: "1h" } // Expires in 1 hour
     );
     res.json({
       message: "Login successful",

@@ -59,18 +59,20 @@ async function loginAdmin(req, res) {
     }
     const validPassword = await bcrypt.compare(
       req.body.password,
-      admin.password,
+      admin.password
     );
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
-    const token = jwt.sign(
-      { id: admin._id, role: "admin" },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: "1h",
-      },
-    );
+    const payload = {
+      sub: admin._id, // User ID
+      name: admin.name, // Optional
+      role: "admin", // Optional
+      email: admin.email, // Optional
+    };
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
     res.json({
       message: "Login successful",
       token,
