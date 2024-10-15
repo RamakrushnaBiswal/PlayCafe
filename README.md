@@ -174,7 +174,7 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                 <a href="https://github.com/Amnyadav">
                     <img src="https://avatars.githubusercontent.com/u/127370497?v=4" width="100;" alt="Amnyadav"/>
                     <br />
-                    <sub><b>Aman Yadav</b></sub>
+                    <sub><b>Amnyadav</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -219,13 +219,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <img src="https://avatars.githubusercontent.com/u/110488337?v=4" width="100;" alt="NilanchalaPanda"/>
                     <br />
                     <sub><b>Nilanchal</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Amnyadav">
-                    <img src="https://avatars.githubusercontent.com/u/127370497?v=4" width="100;" alt="Amnyadav"/>
-                    <br />
-                    <sub><b>Amnyadav</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -365,13 +358,6 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <img src="https://avatars.githubusercontent.com/u/132189791?v=4" width="100;" alt="Vaibhav-Kumar-K-R"/>
                     <br />
                     <sub><b>Vaibhav-Kumar-K-R</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/lade6501">
-                    <img src="https://avatars.githubusercontent.com/u/83055827?v=4" width="100;" alt="lade6501"/>
-                    <br />
-                    <sub><b>Vishal Lade</b></sub>
                 </a>
             </td>
 		</tr>
