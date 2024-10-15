@@ -17,6 +17,10 @@ const customerSchema = new Schema(
         message: (props) => `${props.value} is not a valid email address!`,
       },
     },
+    verificationCode: {
+      type: String,
+      default: ""
+    },
     role: {
       type: String,
       default: "customer",

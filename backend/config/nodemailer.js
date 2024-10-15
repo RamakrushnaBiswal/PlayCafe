@@ -101,3 +101,45 @@ exports.sendReservationConfirmation = async (email, reservationDetails) => {
     }
   }
 };
+
+exports.sendVerificationMail = async (email, verificationCode) => {
+  const emailText = `
+    Dear Customer,
+    
+    Please use this verification code for resetting your password. Here's your code':
+
+    RCode: ${verificationCode}
+    
+    Thank you for choosing our service. We are happy to help you.
+
+    Best regards,
+    PlayCafe
+  `;
+
+  try {
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "Password Reset Verification Code",
+      text: emailText,
+    });
+    logger.info("Verification code sent successfully via email", {
+      email,
+    });
+  } catch (error) {
+    logger.error("Failed to send verification code email", {
+      error,
+      email,
+    });
+    if (error.code === "ECONNREFUSED") {
+      throw new Error(
+        "Failed to connect to email server. Please try again later.",
+      );
+    } else {
+      throw new Error(
+        `Failed to send verification email: ${error.message}`,
+      );
+    }
+  }
+
+}
