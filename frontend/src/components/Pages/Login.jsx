@@ -106,10 +106,21 @@ const Login = () => {
             <Link to={'/signup'}>Register Here</Link>
           </span>
         </h3>
+        <a
+          href="http://localhost:3000/api/user/auth/google"
+          className="text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition w-full"
+        >
+          <button
+            type="button"
+            className="button-confirm px-4 w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
+          >
+            Sign in with Google
+          </button>
+        </a>
         {error && <p className="text-red-500 mt-2">{error}</p>}
         <button
           type="submit"
-          className="button-confirm mx-auto mt-12 px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
+          className="button-confirm px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
         >
           {isLoading ? 'Loading...' : 'Let’s Log you in →'}
         </button>
