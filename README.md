@@ -360,6 +360,13 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Vaibhav-Kumar-K-R</b></sub>
                 </a>
             </td>
+            <td align="center">
+                <a href="https://github.com/lade6501">
+                    <img src="https://avatars.githubusercontent.com/u/83055827?v=4" width="100;" alt="lade6501"/>
+                    <br />
+                    <sub><b>Vishal Lade</b></sub>
+                </a>
+            </td>
 		</tr>
 	<tbody>
 </table>
