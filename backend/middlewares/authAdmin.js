@@ -5,20 +5,16 @@ const authenticateAdmin = (req, res, next) => {
   const token = req.header("Authorization")?.split(" ")[1]; // Expecting "Bearer <token>"
 
   if (token) {
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-      if (err) {
-        return res.sendStatus(403); // Forbidden
-      }
-      if (decoded.role !== "admin") {
-        return res.sendStatus(403); // Forbidden
-      }
-
-      req.user = decoded;
-      logger.info(`Admin authenticated: ${JSON.stringify(decoded.id)}`);
-      next();
-    });
-  } else {
-    res.sendStatus(401); // Unauthorized
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log(decoded.role);
+    if (decoded.role !== "admin") {
+      logger.error(
+        `Unauthorized access to admin route: ${JSON.stringify(decoded.id)}`
+      );
+      return res.status(401).json({ error: "Unauthorized access" });
+    }
+    logger.info(`Admin authenticated: ${JSON.stringify(decoded.sub)}`);
+    next();
   }
 };
 

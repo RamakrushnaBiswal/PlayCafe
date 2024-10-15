@@ -8,6 +8,7 @@ require("dotenv").config();
 router.get(
   "/",
   passport.authenticate("jwt", { session: false }),
+  authenticateAdmin,
   (req, res) => {
     res.json({
       message: "Welcome to the Admin API!",
