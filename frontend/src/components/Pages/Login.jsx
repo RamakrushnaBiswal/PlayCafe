@@ -61,10 +61,14 @@ const Login = () => {
       <img src={photo} alt="login" loading="lazy" className=" w-3/4 absolute" />
       <form
         onSubmit={(e) => handleSubmit(e)}
-        className="form z-10 p-16 bg-lightblue flex flex-col items-start justify-center gap-5 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]"
+        className="form z-10 p-16 bg-lightblue flex flex-col items-start justify-center gap-5 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] 
+        md: p-2
+        bg-[#f1e9dc]"
       >
-        <div className="title text-[#323232] font-black text-7xl mb-6">
-          Welcome,
+        <div className="title text-[#323232] font-black text-7xl md: text-2xl     mb-6
+        sm: p-2 sm: text-center 
+        " >
+          Welcome
           <br />
           <span className="block text-[#666] font-semibold text-2xl ">
             Log in to continue
