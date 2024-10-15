@@ -18,6 +18,8 @@ import Signup from '../components/Pages/Signup';
 import Login from '../components/Pages/Login';
 import ResetPassword from '../components/Pages/ResetPassword';
 import Admin from '../components/Pages/Admin';
+import VerifyOtp from '../components/Pages/VerifyOtp';
+import EmailVerify from '../components/Pages/EmailVerify';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,8 +34,10 @@ const router = createBrowserRouter(
       <Route path="*" element={<NotFound />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/reset-password/:id" element={<ResetPassword />} />
       <Route path="/admin" element={<Admin />} />
+      <Route path="/verifyotp/:id" element={<VerifyOtp />} />
+      <Route path="/email-verify" element={<EmailVerify />} />
     </Route>
   )
 );

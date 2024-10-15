@@ -177,6 +177,7 @@ const Navbar = () => {
           <div className="px-4 pt-4 pb-4 space-y-2">
             {menuItems.map((item) => (
               <Link
+                onClick={()=> setIsMenuOpen((prev)=>!prev)}
                 key={item.name}
                 to={item.path}
                 className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 
