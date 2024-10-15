@@ -26,7 +26,7 @@ Welcome to the **[PlayCafe]** website repository! This project is part of **Girl
 2. [🌐 Demo](#-demo)
 3. [🔥 Features](#-features)
 4. [🛠️ Tech Stack](#-tech-stack)
-5. [⚙️ Getting Started / 📥 Installation](#-getting-started--installation)
+5. [⚙️ Getting Started / 📥 Installation](#️-getting-started--installation)
 6. [📌 Usage](#-usage)
 7. [🔍 API Documentation](#-api-documentation)
 8. [🤝 Contributing](#-contributing)
