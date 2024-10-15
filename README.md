@@ -135,7 +135,7 @@ This project is part of **GirlScript Summer of Code 2024** (GSSoC) Extended, an 
 
 ## 🌟 Mentors
 Special thanks to our amazing mentors who are guiding this project! 🙌
-@Shiva-Bajpai- Full Stack Developer
+[@Shiva-Bajpai] - Full Stack Developer
   
 ## 👥 Our Contributors
 
