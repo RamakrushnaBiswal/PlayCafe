@@ -6,6 +6,7 @@ const {
 } = require("../controller/customer.controller");
 const authenticateCustomer = require("../middlewares/authCustomer");
 const passport = require("../config/passport.config");
+const { handleGoogleOAuth } = require("../controller/googleOAuth.controller");
 const router = express.Router();
 require("dotenv").config();
 
@@ -26,6 +27,11 @@ router.get(
 );
 
 router.post("/register", createCustomer);
+router.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["email"] })
+);
+
 router.post("/login", loginCustomer);
 router.post("/reset-password", resetPassword);
 

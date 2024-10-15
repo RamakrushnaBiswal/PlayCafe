@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const logger = require("./config/logger");
 const errorMiddleware = require("./middlewares/errrorMiddleware");
 const passport = require("passport");
+const { handleGoogleOAuth } = require("./controller/googleOAuth.controller");
 
 dotenv.config();
 const app = express();
@@ -49,6 +50,14 @@ app.use(passport.initialize());
 
 // API routes
 app.use("/api", require("./routes/index"));
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/login",
+    session: false,
+  }),
+  handleGoogleOAuth
+);
 
 app.options("*", cors(corsOptions));
 
