@@ -9,7 +9,7 @@ const authenticateAdmin = (req, res, next) => {
       console.log(decoded.role);
       if (decoded.role !== "admin") {
         logger.error(
-          `Unauthorized access to admin route: ${JSON.stringify(decoded.id)}`
+          `Unauthorized access to admin route: ${JSON.stringify(decoded.sub)}`
         );
         return res.status(401).json({ error: "Unauthorized access" });
       }
