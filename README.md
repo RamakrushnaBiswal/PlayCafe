@@ -436,10 +436,11 @@ We’d love to hear from you! Whether you have questions, feedback, or collabora
 
 Stay updated and engage with our community on social media:
 
-[Discord](https://discord.gg/Jh3bWQ7FRN).
-[Linkedin](https://www.linkedin.com/in/ramakrushna-biswal/)
-[Gmail](ramakrushnabunty@gmail.com)
+- [Discord](https://discord.gg/Jh3bWQ7FRN)
+- [LinkedIn](https://www.linkedin.com/in/ramakrushna-biswal/)
+- [Email](mailto:ramakrushnabunty@gmail.com)
 
 We are always here to help you! Don’t hesitate to connect with us and be part of the PlayCafe journey.
+
 
 
