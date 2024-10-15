@@ -138,6 +138,26 @@ const Nav = () => {
           </a>
         ))}
       </div>
+        <div className="flex flex-col gap-2 text-gray-400">
+    <h3 className="mb-2 uppercase text-white">Newsletter</h3>
+    <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
+      <input
+        type="email"
+        className="p-2 bg-gray-800 text-white rounded-md outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Enter your email"
+        aria-label="Enter your email"
+        required
+      />
+      <button
+        type="submit"
+        className="p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 duration-300"
+      >
+        Subscribe
+      </button>
+    </form>
+    <p className="text-sm mt-2" id="message">{message}</p>
+  </div>
+
       <div className="flex flex-col gap-2 text-gray-400">
         <h3 className="mb-2 uppercase text-white">Contact Us</h3>
         <a
