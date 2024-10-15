@@ -34,9 +34,10 @@ If you have any questions about the project, join our [Discord](https://discord.
 8. [🤝 Contributing](#-contributing)
 9. [🎯 Open Source Programs](#-open-source-programs)
 10. [🌟 Mentors](#-mentors)
-11. [📄 License](#-license)
-12. [👀 Our Contributors](#-our-contributors)
-13. [⭐ Support](#-support)
+11. [👀 Our Contributors](#-our-contributors)
+12. [⭐ Support](#-support)
+13. [📄 License](#-license)
+14. [📬 Contact Us](#-Contact-Us)
 
 ## ✨ Project Overview
 The **PlayCafe Website** project is an exciting open-source initiative under **GSSoC 2024 Extended**. We aim to build a modern and engaging website for the cafe, where visitors can learn about our games, book tables, and stay updated with our events and offers. 
@@ -126,19 +127,16 @@ This project is part of **GirlScript Summer of Code 2024** (GSSoC) Extended, an 
 Special thanks to our amazing mentors who are guiding this project! 🙌
 
 - **[to be announced]** - Full Stack Developer
+  
+## 👥 Our Contributors
 
-## 📄 License
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/RamakrushnaBiswal/PlayCafe/blob/main/LICENSE) file for more details.
+We extend our heartfelt gratitude to all the amazing contributors who have made this project what it is today. Your efforts are driving **HelpOps-Hub** to new heights! 🚀
 
-## 👀 Our Contributors
-We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating HelpOps-Hub to greater heights.
-
-Make sure you show some love by giving ⭐ to our repository.
+### 🌟 Show some love by giving a ⭐ to our repository!
 
 <br>
 <center>
 <div>
-<!-- readme: contributors -start -->
 <table>
 	<tbody>
 		<tr>
@@ -156,8 +154,103 @@ Make sure you show some love by giving ⭐ to our repository.
                     <sub><b>Samarth Vaidya</b></sub>
                 </a>
             </td>
-        </tr>
+            <td align="center">
+                <a href="https://github.com/17arindam">
+                    <img src="https://avatars.githubusercontent.com/u/65901047?v=4" width="100;" alt="17arindam"/>
+                    <br />
+                    <sub><b>Arindam</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Ashwinib26">
+                    <img src="https://avatars.githubusercontent.com/u/149402720?v=4" width="100;" alt="Ashwinib26"/>
+                    <br />
+                    <sub><b>Ashwini_ab</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/itznayan">
+                    <img src="https://avatars.githubusercontent.com/u/136584376?v=4" width="100;" alt="itznayan"/>
+                    <br />
+                    <sub><b>Mahera Nayan</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/tejasbenibagde">
+                    <img src="https://avatars.githubusercontent.com/u/124677750?v=4" width="100;" alt="tejasbenibagde"/>
+                    <br />
+                    <sub><b>Tejas Benibagde</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Shirisha-16">
+                    <img src="https://avatars.githubusercontent.com/u/148051550?v=4" width="100;" alt="Shirisha-16"/>
+                    <br />
+                    <sub><b>Tyarla Shirisha</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/haseebzaki-07">
+                    <img src="https://avatars.githubusercontent.com/u/147314463?v=4" width="100;" alt="haseebzaki-07"/>
+                    <br />
+                    <sub><b>Haseeb Zaki</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Suhas-Koheda">
+                    <img src="https://avatars.githubusercontent.com/u/72063139?v=4" width="100;" alt="Suhas-Koheda"/>
+                    <br />
+                    <sub><b>Suhas Koheda</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/vishnuprasad2004">
+                    <img src="https://avatars.githubusercontent.com/u/116942066?v=4" width="100;" alt="vishnuprasad2004"/>
+                    <br />
+                    <sub><b>Vishnu Prasad Korada</b></sub>
+                </a>
+            </td>
+		</tr>
+		<!-- Add more contributors as necessary -->
 	</tbody>
 </table>
 </div>
 </center>
+
+---
+
+## ⭐ Support
+
+Your support keeps us going! Here's how you can help:
+
+- **💰 Sponsor us**: Become a sponsor and help us keep growing. [Become a Sponsor](https://github.com/sponsors/RamakrushnaBiswal).
+- **⭐ Star our Repo**: Show some love by starring the repository. Your stars motivate us to continue developing and improving!
+
+Thank you for supporting **HelpOps-Hub**! 💖
+
+
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/RamakrushnaBiswal/PlayCafe/blob/main/LICENSE) file for more details.
+
+## 📬 Contact Us
+
+We’d love to hear from you! Whether you have questions, feedback, or collaboration ideas, feel free to reach out.
+
+- **Email**: [contact@playcafe.com](mailto:contact@playcafe.com)
+- **Twitter**: [@PlayCafe](https://twitter.com/PlayCafe)
+- **LinkedIn**: [PlayCafe](https://www.linkedin.com/company/playcafe)
+- **GitHub Issues**: [Submit a New Issue](https://github.com/PlayCafe/issues)
+
+### ✨ Join the Conversation
+
+Stay updated and engage with our community on social media:
+
+- **Discord**: [Join our Community](https://discord.gg/playcafe)
+- **Instagram**: [Follow us on Instagram](https://instagram.com/playcafe)
+- **Facebook**: [Like us on Facebook](https://facebook.com/playcafe)
+
+We are always here to help you! Don’t hesitate to connect with us and be part of the PlayCafe journey.
+
+
