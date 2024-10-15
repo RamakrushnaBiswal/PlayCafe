@@ -7,7 +7,6 @@ const Admin = require("../models/admin.model");
 
 // Secret key to sign the JWT token
 const secret = config.JWT_SECRET;
-console.log(secret);
 const opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: secret,
@@ -20,9 +19,13 @@ passport.use(
 
     const userId = jwt_payload.sub;
     const role = jwt_payload.role;
-    console.log(role);
-    if (role == "customer") {
-      Customer.findById(userId)
+    const roleModelMap = {
+      customer: Customer,
+      admin: Admin,
+    };
+    const Model = roleModelMap[role];
+    if (Model) {
+      Model.findById(userId)
         .then((user) => {
           if (user) {
             return done(null, user);
@@ -32,18 +35,9 @@ passport.use(
         .catch((error) => {
           return done(error, false);
         });
-    }
-    if (role == "admin") {
-      Admin.findById(userId)
-        .then((user) => {
-          if (user) {
-            return done(null, user);
-          }
-          return done(null, false);
-        })
-        .catch((error) => {
-          return done(error, false);
-        });
+    } else {
+      // Handle unknown roles
+      return done(null, false);
     }
   })
 );
