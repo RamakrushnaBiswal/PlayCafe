@@ -145,7 +145,7 @@ Feel free to reach out for guidance and support throughout the development proce
   
 ## 👥 Our Contributors
 
-We extend our heartfelt gratitude to all the amazing contributors who have made this project what it is today. Your efforts are driving **HelpOps-Hub** to new heights! 🚀
+We extend our heartfelt gratitude to all the amazing contributors who have made this project what it is today. Your efforts are driving **PlayCafe** to new heights! 🚀
 
 ### 🌟 Show some love by giving a ⭐ to our repository!
 
@@ -426,7 +426,7 @@ Your support keeps us going! Here's how you can help:
 - **💰 Sponsor us**: Become a sponsor and help us keep growing. [Become a Sponsor](https://github.com/sponsors/RamakrushnaBiswal).
 - **⭐ Star our Repo**: Show some love by starring the repository. Your stars motivate us to continue developing and improving!
 
-Thank you for supporting **HelpOps-Hub**! 💖
+Thank you for supporting **PlayCafe**! 💖
 
 
 ## 📄 License
