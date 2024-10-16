@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+/* eslint-disable prettier/prettier */
+// eslint-disable-next-line prettier/prettier
+import React , { useEffect, useState } from 'react';
 
 import { motion } from 'framer-motion';
 import Mybook from './MyBook';

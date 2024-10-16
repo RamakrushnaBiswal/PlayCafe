@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const passport = require("passport");
 const Customer = require("../models/customer.model"); // Adjust the path as needed
