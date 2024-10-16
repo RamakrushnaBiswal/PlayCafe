@@ -2,14 +2,17 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const passport = require("passport");
 const Customer = require("../models/customer.model"); // Adjust the path as needed
 const config = require("./secret"); // Import your secrets (client ID, client secret)
-
+console.log("config", config);
 passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID || config.GOOGLE_CLIENT_ID,
       clientSecret:
         process.env.GOOGLE_CLIENT_SECRET || config.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback",
+      callbackURL:
+        process.env.NODE_ENV === "production"
+          ? process.env.PROD_CALLBACK_URL // Use production callback URL
+          : process.env.CALLBACK_URL, // Use development (localhost) callback URL
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
