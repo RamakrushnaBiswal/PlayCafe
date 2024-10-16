@@ -3,22 +3,24 @@ const logger = require("../config/logger");
 
 const authenticateAdmin = (req, res, next) => {
   const token = req.header("Authorization")?.split(" ")[1]; // Expecting "Bearer <token>"
-
   if (token) {
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-      if (err) {
-        return res.sendStatus(403); // Forbidden
-      }
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      console.log(decoded.role);
       if (decoded.role !== "admin") {
-        return res.sendStatus(403); // Forbidden
+        logger.error(
+          `Unauthorized access to admin route: ${JSON.stringify(decoded.sub)}`
+        );
+        return res.status(401).json({ error: "Unauthorized access" });
       }
-
-      req.user = decoded;
-      logger.info(`Admin authenticated: ${JSON.stringify(decoded.id)}`);
+      logger.info(`Admin authenticated: ${JSON.stringify(decoded.sub)}`);
       next();
-    });
+    } catch (error) {
+      logger.error(`Error authenticating admin: ${error}`);
+      return res.status(401).json({ error: "Unauthorized access" });
+    }
   } else {
-    res.sendStatus(401); // Unauthorized
+    return res.status(401).json({ error: "No token was provided" });
   }
 };
 

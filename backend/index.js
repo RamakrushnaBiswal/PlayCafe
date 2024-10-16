@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const logger = require("./config/logger");
 const errorMiddleware = require("./middlewares/errrorMiddleware");
+const passport = require("passport");
 
 dotenv.config();
 const app = express();
@@ -13,7 +14,7 @@ const port = process.env.PORT || 3000;
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://play-cafe.vercel.app"],
-  }),
+  })
 );
 
 // CORS configuration
@@ -42,6 +43,9 @@ mongoose
 
 // Enable CORS preflight for the create reservation route only
 // app.options("/api/reservation/create", cors(corsOptions));
+
+// Initialize passport middleware
+app.use(passport.initialize());
 
 // API routes
 app.use("/api", require("./routes/index"));
