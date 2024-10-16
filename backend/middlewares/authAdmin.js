@@ -6,7 +6,7 @@ const authenticateAdmin = (req, res, next) => {
   if (token) {
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      console.log(decoded.role);
+      // Remove console.log or replace with logger.debug if needed
       if (decoded.role !== "admin") {
         return res.status(401).json({ error: "Forbidden" });
       }
