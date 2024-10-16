@@ -4,12 +4,14 @@ const passport = require("passport");
 const config = require("./secret");
 const Customer = require("../models/customer.model");
 const Admin = require("../models/admin.model");
+require("./oauth.config");
 
 // Secret key to sign the JWT token
 const secret = config.JWT_SECRET;
 const opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: secret,
+  secretOrKey: process.env.JWT_SECRET || secret,
+  algorithms: ["HS256"],
 };
 
 passport.use(

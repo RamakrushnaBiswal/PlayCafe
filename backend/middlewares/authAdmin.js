@@ -6,17 +6,13 @@ const authenticateAdmin = (req, res, next) => {
   if (token) {
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      console.log(decoded.role);
+      // Remove console.log or replace with logger.debug if needed
       if (decoded.role !== "admin") {
-        logger.error(
-          `Unauthorized access to admin route: ${JSON.stringify(decoded.sub)}`
-        );
-        return res.status(401).json({ error: "Unauthorized access" });
+        return res.status(401).json({ error: "Forbidden" });
       }
-      logger.info(`Admin authenticated: ${JSON.stringify(decoded.sub)}`);
+
       next();
     } catch (error) {
-      logger.error(`Error authenticating admin: ${error}`);
       return res.status(401).json({ error: "Unauthorized access" });
     }
   } else {
