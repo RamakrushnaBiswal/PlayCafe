@@ -95,19 +95,26 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center pt-10">
+    <div className="w-screen h-screen flex items-center justify-center pt-10"  >
       <img src={photo} alt="login" loading="lazy" className=" w-3/4 absolute" />
-      <form className="form z-10 p-16 bg-lightblue flex flex-col items-start justify-center gap-5 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]">
-        <div className="title text-[#323232] font-black text-7xl mb-6">
-          Play Cafe,
+      <form className="form z-10 p-7 mt-12 bg-lightblue flex flex-col items-start justify-center gap-5 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]">
+        <div className="title text-[#323232] font-black text-7xl mb-8 absolute 
+         sm:t-[22%] sm:h-[77%] sm:w-[77%]
+        "> 
+       <div className="mb-[97%]">
+       <span className="mb-[22%] text-4xl">
+       Play Cafe,</span>
+       </div>
           <br />
-          <span className="block text-[#666] font-semibold text-2xl ">
+          <span className="block text-[#666] font-semibold text-2xl mb-8 ">
             Register to continue
           </span>
         </div>
         <label htmlFor="name" className="sr-only"></label>
         <input
-          className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
+          className="input w-full h-10 rounded-md border-2 border-black reletive
+          md:mt-8 md:t-4 mt-[37%]
+          bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
           name="name"
           placeholder="Name"
           type="name"
@@ -163,7 +170,7 @@ const Signup = () => {
             {error}
           </div>
         )}
-        <h3 className="flex items-center justify-between w-full">
+        <h3 className="flex items-center justify-between w-full gap-2">
           Already have an account?
           <span className="block text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition">
             <Link to={'/login'}>Login</Link>
