@@ -280,14 +280,21 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Jay-1409">
+                    <img src="https://avatars.githubusercontent.com/u/166749819?v=4" width="100;" alt="Jay-1409"/>
+                    <br />
+                    <sub><b>Jay shah</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
                 <a href="https://github.com/Aditya90456">
                     <img src="https://avatars.githubusercontent.com/u/153073510?v=4" width="100;" alt="Aditya90456"/>
                     <br />
                     <sub><b>Aditya Bakshi</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/tanishirai">
                     <img src="https://avatars.githubusercontent.com/u/178164785?v=4" width="100;" alt="tanishirai"/>
@@ -323,6 +330,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Sawan kushwah </b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/devxMani">
                     <img src="https://avatars.githubusercontent.com/u/122438942?v=4" width="100;" alt="devxMani"/>
@@ -330,8 +339,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>MANI </b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Ayush215mb">
                     <img src="https://avatars.githubusercontent.com/u/154300084?v=4" width="100;" alt="Ayush215mb"/>
@@ -358,13 +365,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <img src="https://avatars.githubusercontent.com/u/117927011?v=4" width="100;" alt="jaidh01"/>
                     <br />
                     <sub><b>Jai Dhingra</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Jay-1409">
-                    <img src="https://avatars.githubusercontent.com/u/166749819?v=4" width="100;" alt="Jay-1409"/>
-                    <br />
-                    <sub><b>Jay shah</b></sub>
                 </a>
             </td>
             <td align="center">
