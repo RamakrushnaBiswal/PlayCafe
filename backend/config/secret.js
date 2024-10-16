@@ -4,6 +4,7 @@ const PORT = process.env.PORT;
 const CORS_ORIGIN = process.env.CORS_ORIGIN;
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const FRONTEND_URL = process.env.FRONTEND_URL;
 
 module.exports = {
   JWT_SECRET,
@@ -12,4 +13,5 @@ module.exports = {
   CORS_ORIGIN,
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
+  FRONTEND_URL,
 };

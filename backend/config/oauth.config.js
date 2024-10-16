@@ -29,7 +29,8 @@ passport.use(
         // Return the user if exists or after creation
         return done(null, user);
       } catch (error) {
-        return done(error, false);
+        console.error("Error during Google authentication:", error);
+        return done(null, false, { message: "Authentication failed" });
       }
     }
   )

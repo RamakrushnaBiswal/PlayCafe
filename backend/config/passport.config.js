@@ -11,6 +11,7 @@ const secret = config.JWT_SECRET;
 const opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: process.env.JWT_SECRET || secret,
+  algorithms: ["HS256"],
 };
 
 passport.use(

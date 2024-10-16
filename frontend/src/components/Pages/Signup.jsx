@@ -170,7 +170,7 @@ const Signup = () => {
           </span>
         </h3>
         <a
-          href="http://localhost:3000/api/user/auth/google"
+          href={`${import.meta.env.VITE_BACKEND_URL}/api/user/auth/google`}
           className="text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition w-full "
         >
           <button
