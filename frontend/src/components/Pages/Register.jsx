@@ -6,6 +6,7 @@ import pic3 from '../../assets/img/abt2.png';
 import pic4 from '../../assets/img/abt3.png';
 import pic5 from '../../assets/img/abt4.png';
 import MainHOC from '../MainHOC';
+import { message } from 'antd';
 
 function Register() {
   const [date, setDate] = useState('');
@@ -39,7 +40,7 @@ function Register() {
     if (date.length === 10 && date < minDate) {
       // Reset to today's date if the selected date is invalid
       setDate(minDate);
-      alert('You cannot select a date before today.');
+      message.warning('You cannot select a date before today.');
     }
   };
 
