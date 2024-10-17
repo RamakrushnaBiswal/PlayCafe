@@ -245,10 +245,17 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/PavanTeja2005">
-                    <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
+                <a href="https://github.com/Jay-1409">
+                    <img src="https://avatars.githubusercontent.com/u/166749819?v=4" width="100;" alt="Jay-1409"/>
                     <br />
-                    <sub><b>PavanTeja2005</b></sub>
+                    <sub><b>Jay shah</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/vishnuprasad2004">
+                    <img src="https://avatars.githubusercontent.com/u/116942066?v=4" width="100;" alt="vishnuprasad2004"/>
+                    <br />
+                    <sub><b>Vishnu Prasad Korada</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -259,10 +266,10 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/vishnuprasad2004">
-                    <img src="https://avatars.githubusercontent.com/u/116942066?v=4" width="100;" alt="vishnuprasad2004"/>
+                <a href="https://github.com/PavanTeja2005">
+                    <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
                     <br />
-                    <sub><b>Vishnu Prasad Korada</b></sub>
+                    <sub><b>PavanTeja2005</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -277,13 +284,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <img src="https://avatars.githubusercontent.com/u/156535853?v=4" width="100;" alt="Navneetdadhich"/>
                     <br />
                     <sub><b>Navneet Dadhich</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Jay-1409">
-                    <img src="https://avatars.githubusercontent.com/u/166749819?v=4" width="100;" alt="Jay-1409"/>
-                    <br />
-                    <sub><b>Jay shah</b></sub>
                 </a>
             </td>
 		</tr>
