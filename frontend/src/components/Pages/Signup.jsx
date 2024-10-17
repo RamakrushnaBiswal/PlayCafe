@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa6';
-import zxcvbn from 'zxcvbn'; // Import zxcvbn for password strength check
+// import zxcvbn from 'zxcvbn'; // Import zxcvbn for password strength check
 
 const Signup = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';

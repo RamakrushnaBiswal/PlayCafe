@@ -1,13 +1,11 @@
-/* eslint-disable prettier/prettier */
-// eslint-disable-next-line prettier/prettier
-import React , { useEffect, useState } from 'react';
-
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Mybook from './MyBook';
 import TodaysSpecial from './TodaysSpecial';
 import { GiArrowDunk } from 'react-icons/gi';
 import Cafe3dImg from '../../assets/Menu_assets/mega-creator.png';
-import MainHOC from '../MainHOC';
+import IncentiveOffers from '../ui/IncentiveOffers';
+
 const parallaxVariants = {
   initial: { scale: 1 },
   animate: { scale: 1.05 },
@@ -21,6 +19,7 @@ const transition = {
 
 function ParallaxImage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
@@ -35,6 +34,9 @@ function ParallaxImage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <>
@@ -62,6 +64,7 @@ function ParallaxImage() {
               animate="animate"
               whileHover={{ scale: 1.3 }}
               transition={transition}
+              onClick={openModal}
             />
           </div>
         </div>
@@ -69,26 +72,18 @@ function ParallaxImage() {
           <h1 className="text-5xl md:text-9xl font-roboto">Flip Menu</h1>
           <GiArrowDunk size={60} className="mt-2 text-orange-400" />
         </div>
-        {/* <div className="w-full md:flex md:items-center md:justify-center">
-          <Mybook />
-        </div>
-        <TodaysSpecial /> */}
         <div className="w-full md:flex md:items-center md:justify-center mb-20">
-          {' '}
-          {/* Adjust this container */}
           <Mybook />
         </div>
-        <div
-          className="w-full md:flex md:items-center md:justify-center"
-          style={{ paddingBottom: '80px' }}
-        >
-          {' '}
-          {/* Add bottom padding here */}
+        <div className="w-full md:flex md:items-center md:justify-center" style={{ paddingBottom: '80px' }}>
           <TodaysSpecial />
         </div>
       </div>
+      <IncentiveOffers isOpen={isModalOpen} onClose={closeModal}>
+        <img src={Cafe3dImg} alt="3D Coffee Shop" className="max-w-full max-h-[80vh] object-contain" />
+      </IncentiveOffers>
     </>
   );
 }
 
-export default MainHOC(ParallaxImage);
+export default ParallaxImage;
