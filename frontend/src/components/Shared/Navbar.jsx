@@ -18,7 +18,9 @@ const Navbar = () => {
     { name: 'MENU', path: '/menu' },
     { name: 'RESERVATION', path: '/reservation' },
     { name: 'BOARDGAMES', path: '/boardgame' },
+    { name: 'MEMBERSHIP', path: '/membership' }, // Add Membership here
   ];
+  
   useEffect(() => {
     setToken(Cookies.get('authToken'));
   });
