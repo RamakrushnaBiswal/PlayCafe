@@ -70,20 +70,19 @@ const Membership = () => {
   };
 
   const handleNext = () => {
-    // Here you can handle selectedFeatures if needed
     navigate('/signup');
   };
 
   return (
     <motion.div
-      className="w-full h-auto bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 py-16"
+      className="w-full h-auto bg-[#f7e8c3] py-16"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
       <div className="flex flex-col items-center mb-12">
-        <h1 className="text-5xl md:text-7xl font-bold text-white tracking-wide mb-6">Membership Plans</h1>
-        <p className="md:text-2xl text-xl font-mono text-gray-200 text-center max-w-3xl">
+        <h1 className="text-5xl md:text-7xl font-bold text-black tracking-wide mb-6">Membership Plans</h1>
+        <p className="md:text-2xl text-xl font-sans text-gray-700 text-center max-w-3xl">
           Choose the plan that suits your needs and start enjoying exclusive perks!
         </p>
       </div>
@@ -92,7 +91,7 @@ const Membership = () => {
         {membershipData.map((plan, index) => (
           <motion.div
             key={index}
-            className="bg-white bg-opacity-20 backdrop-blur-xl shadow-xl rounded-3xl p-8 max-w-sm w-full transform transition duration-500 hover:scale-105 hover:bg-opacity-30"
+            className="bg-black bg-opacity-70 shadow-2xl rounded-3xl p-8 max-w-sm w-full transform transition duration-500 hover:scale-105"
             whileHover={{ scale: 1.05 }}
             variants={cardVariants}
           >
@@ -107,14 +106,14 @@ const Membership = () => {
             <div className="text-2xl font-semibold text-white mb-6">{plan.price}</div>
             {plan.title === "Customizable Add-ons" ? (
               <button
-                className="fixed bottom-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white py-2 px-8 rounded-full hover:from-pink-500 hover:to-orange-500 transition-all"
-                onClick={() => setIsModalOpen(true)} // Open modal on click
+                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-2 px-8 rounded-full hover:from-orange-500 hover:to-yellow-500 transition-all"
+                onClick={() => setIsModalOpen(true)}
               >
                 Customize Add-ons
               </button>
             ) : (
               <button
-                className="fixed bottom-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white py-2 px-8 rounded-full hover:from-pink-500 hover:to-orange-500 transition-all"
+                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-2 px-8 rounded-full hover:from-orange-500 hover:to-yellow-500 transition-all"
                 onClick={() => navigate('/signup')}
               >
                 Sign Up
@@ -124,7 +123,6 @@ const Membership = () => {
         ))}
       </div>
 
-      {/* Modal for Customizable Add-ons */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
@@ -143,14 +141,14 @@ const Membership = () => {
               ))}
             </div>
             <button
-              className="bg-gradient-to-r from-orange-500 to-pink-500 text-white py-2 px-4 rounded-full hover:from-pink-500 hover:to-orange-500 transition-all"
+              className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-2 px-4 rounded-full hover:from-orange-500 hover:to-yellow-500 transition-all"
               onClick={handleNext}
             >
               Next
             </button>
             <button
               className="ml-2 bg-gray-300 text-gray-700 py-2 px-4 rounded-full hover:bg-gray-400 transition-all"
-              onClick={() => setIsModalOpen(false)} // Close modal
+              onClick={() => setIsModalOpen(false)}
             >
               Cancel
             </button>
