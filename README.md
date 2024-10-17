@@ -323,6 +323,13 @@ Special thanks to our amazing mentors who are guiding this project! 🙌
                     <sub><b>Vaibhav-Kumar-K-R</b></sub>
                 </a>
             </td>
+            <td align="center">
+                <a href="https://github.com/dev129">
+                    <img src="https://avatars.githubusercontent.com/u/76431221?v=4" width="100;" alt="dev129"/>
+                    <br />
+                    <sub><b>dev129</b></sub>
+                </a>
+            </td>
 		</tr>
 	<tbody>
 </table>
