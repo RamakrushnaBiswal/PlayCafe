@@ -8,6 +8,7 @@ import {
   trackWindowScroll,
 } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import '../../../src/index.css';
 
 function Landing() {
   const textRef = useRef(null);
@@ -34,7 +35,7 @@ function Landing() {
   });
 
   return (
-    <div>
+    <div className='bg-background-light dark:bg-background-dark'>
       <section className="relative pb-24 h-screen-dvh bg-cover bg-center overflow-hidden">
         <div className="flex-col md:flex pt-20 z-1">
           {/* Text Content */}
@@ -70,7 +71,7 @@ function Landing() {
           />
         </div>
         <div className="py-28 z-10">
-          <h1 className="text-[4rem] md:text-[18rem] font-bold text-black">
+          <h1 className="text-[4rem] md:text-[18rem] font-bold">
             PLAYCAFE
           </h1>
         </div>
