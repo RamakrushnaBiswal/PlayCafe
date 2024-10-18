@@ -289,6 +289,13 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
 		</tr>
 		<tr>
             <td align="center">
+                <a href="https://github.com/lade6501">
+                    <img src="https://avatars.githubusercontent.com/u/83055827?v=4" width="100;" alt="lade6501"/>
+                    <br />
+                    <sub><b>Vishal Lade</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/Aditya90456">
                     <img src="https://avatars.githubusercontent.com/u/153073510?v=4" width="100;" alt="Aditya90456"/>
                     <br />
@@ -323,6 +330,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Shiva Bajpai</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Sawan-Kushwah">
                     <img src="https://avatars.githubusercontent.com/u/138680328?v=4" width="100;" alt="Sawan-Kushwah"/>
@@ -330,8 +339,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Sawan kushwah </b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/devxMani">
                     <img src="https://avatars.githubusercontent.com/u/122438942?v=4" width="100;" alt="devxMani"/>
@@ -351,13 +358,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <img src="https://avatars.githubusercontent.com/u/128673394?v=4" width="100;" alt="AliGates915"/>
                     <br />
                     <sub><b>Ali Gates</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/chikatlarakesh">
-                    <img src="https://avatars.githubusercontent.com/u/178009894?v=4" width="100;" alt="chikatlarakesh"/>
-                    <br />
-                    <sub><b>CHIKATLA RAKESH</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -416,15 +416,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <img src="https://avatars.githubusercontent.com/u/132189791?v=4" width="100;" alt="Vaibhav-Kumar-K-R"/>
                     <br />
                     <sub><b>Vaibhav-Kumar-K-R</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td align="center">
-                <a href="https://github.com/lade6501">
-                    <img src="https://avatars.githubusercontent.com/u/83055827?v=4" width="100;" alt="lade6501"/>
-                    <br />
-                    <sub><b>Vishal Lade</b></sub>
                 </a>
             </td>
 		</tr>
