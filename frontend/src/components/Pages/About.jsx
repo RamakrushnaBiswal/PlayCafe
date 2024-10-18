@@ -1,14 +1,14 @@
 
 import bgpic from "../../assets/img/abt1.jpg";
 import React, { useEffect } from 'react';
-
+import '../../../src/index.css';
 
 export default function About() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div id="about" className="relative w-full h-screen md:mt-28">
+    <div id="about" className="dark relative w-full h-screen md:mt-28 dark:mt-0">
       <div
         className="absolute inset-0 bg-center bg-cover"
         style={{ backgroundImage: `url(${bgpic})` }}

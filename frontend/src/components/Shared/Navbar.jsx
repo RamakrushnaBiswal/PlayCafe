@@ -119,7 +119,7 @@ const Navbar = () => {
               </button>
             ) : (
               <button
-                className={` ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold`}
+                className={` ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black dark:border-white bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_white] font-semibold`}
                 type="button"
                 onClick={() => navigate('/login')}
               >

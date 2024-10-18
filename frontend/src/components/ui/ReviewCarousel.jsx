@@ -100,14 +100,14 @@ const ReviewCarousel = () => {
   }, []);
 
   return (
-    <div className="mb-20">
+    <div className="mb-20 dark:bg-black">
       <div className="flex items-center justify-center p-20 mb-10">
-        <h1 className="md:text-6xl text-4xl pl-3 pr-3 text-center font-bold text-[#004D43]">
+        <h1 className="md:text-6xl text-4xl pl-3 pr-3 text-center font-bold text-[#004D43] dark:text-white">
           Customer Feedback
         </h1>
       </div>
 
-      <div className="bg-[#004D43] h-full p-4 md:p-20 items-center justify-center flex relative ">
+      <div className="bg-black h-full p-4 md:p-20 items-center justify-center flex relative ">
         <div className="w-full overflow-x-auto max-w-7xl md:overflow-hidden ">
           <div
             className="flex transition-transform duration-300 ease-in-out"
@@ -121,7 +121,7 @@ const ReviewCarousel = () => {
                 key={index}
                 className="w-full p-2 sm:w-1/2 md:w-1/3 lg:w-1/4"
               >
-                <div className="relative min-h-[250px] max-h-[350px] md:min-h-[300px] md:max-h-[400px] p-4 rounded-xl bg-amber-200 z-10 overflow-hidden">
+                <div className="relative min-h-[250px] max-h-[350px] md:min-h-[300px] md:max-h-[400px] p-4 rounded-xl bg-amber-900 z-10 overflow-hidden">
                   <div className="flex flex-col items-center justify-center mb-1">
                     {/* <img
                       src={review.img}
