@@ -1,16 +1,24 @@
+import { useState, useEffect } from 'react';
+import { FaSun, FaMoon } from 'react-icons/fa';
 import useDarkMode from '../hooks/useDarkMode';
+import "../../src/index.css";
 
-const ThemeToggle = () => {
-  const [theme, setTheme] = useDarkMode();
-
+const ThemeSwitcher = () => {
+  const [isDarkMode, setIsDarkMode] = useDarkMode();
   return (
-    <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="p-2 border rounded-md"
-    >
-      {theme === 'dark' ? '🌞 Light Mode' : '🌙 Dark Mode'}
-    </button>
+    <div className="flex flex-row justify-center items-center"> 
+                    <label className="switch"> 
+                        <input type="checkbox"
+                        onChange={() => setIsDarkMode(isDarkMode === 'dark' ? 'light' : 'dark')}
+                         /> 
+                            <span className="slider"></span> 
+                    </label>
+
+                  
+
+                </div>
   );
 };
 
-export default ThemeToggle;
+export default ThemeSwitcher;
+

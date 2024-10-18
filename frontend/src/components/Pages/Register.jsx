@@ -41,13 +41,13 @@ function Register() {
 
   return (
     <>
-      <div className="w-full mx-auto mt-10 lg:mt-0 md:mt-0">
+      <div className="w-full mx-auto mt-10 lg:mt-0 md:mt-0 dark:bg-black dark:text-white">
         <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col md:flex-row">
           <div className="container px-4 md:px-6 text-center text-primary-foreground w-full md:w-2/5 md:mt-10">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-5xl lg:text-8xl text-gray-800">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-5xl lg:text-8xl text-gray-800 dark:text-white">
               RESERVE YOUR SPOT AT THE BOARD GAME CAFE
             </h1>
-            <button className="inline-flex items-center justify-center mt-4 bg-[#D9D9D9] hover:bg-[#C9C9C9] rounded-full p-4">
+            <button className="inline-flex items-center justify-center mt-4 bg-[#D9D9D9] hover:bg-[#C9C9C9] rounded-full p-4 dark:text-black">
               Make a Reservation
             </button>
           </div>
@@ -61,7 +61,7 @@ function Register() {
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 px-6 md:px-6 border-2 border-gray-200">
-          <div className="w-full md:w-3/5 lg:w-2/5 mx-auto border-2 p-7 rounded-lg border-black bg-amber-100">
+          <div className="w-full md:w-3/5 lg:w-2/5 mx-auto border-2 p-7 rounded-lg border-black bg-amber-100 dark:bg-amber-900">
             <div className="space-y-6">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter">
                 Reserve Your Spot
@@ -135,7 +135,7 @@ function Register() {
                   </select>
                 </div>
                 <button
-                  className="inline-flex items-center justify-center p-4 bg-[#D9D9D9] hover:bg-[#C9C9C9]"
+                  className="inline-flex items-center justify-center p-4 bg-[#D9D9D9] dark:bg-amber-500 dark:text-black hover:bg-[#C9C9C9]"
                   type="submit"
                   onClick={handleSubmit}
                 >
@@ -148,7 +148,7 @@ function Register() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-amber-100 bg-green-900 p-5 text-center">
           Popular Board Games
         </h1>
-        <div className="mt-8 w-full flex justify-center bg-white ">
+        <div className="mt-8 w-full flex justify-center bg-amber-100 dark:bg-black">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8 mb-10">
             {[
               { src: pic2, title: 'Catan', players: '4-6 players' },

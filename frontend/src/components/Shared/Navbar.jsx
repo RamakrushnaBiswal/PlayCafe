@@ -3,6 +3,7 @@ import Logo from '../../assets/Logo/playcafe.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import '../../../src/index.css';
+import ThemeToggle from '../../components/ThemeToggle';
 
 const Navbar = () => {
   const [isloggedIn, setisloggedIn] = useState(false);
@@ -78,7 +79,8 @@ const Navbar = () => {
 >
 
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center lg:h-16">
+        
           <Link to="/">
             <div className="flex-shrink-0">
               <img
@@ -106,9 +108,11 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
+            
           </div>
 
-          <div className="hidden md:flex font-semibold Poppins text-lg">
+          <div className="hidden md:flex font-semibold Poppins text-lg space-x-4">
+          <ThemeToggle />
             {token ? (
               <button
                 className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold`}
@@ -119,21 +123,24 @@ const Navbar = () => {
               </button>
             ) : (
               <button
-                className={` ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black dark:border-white bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_white] font-semibold`}
+                className={` ${hoverTextColorClass} dark:hover:text-white px-4 py-1 rounded-md border-2 border-black dark:border-white bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_white] font-semibold`}
                 type="button"
                 onClick={() => navigate('/login')}
               >
                 LOGIN
               </button>
+              
             )}
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden">
+          <div className="flex md:hidden space-x-6">
+          <ThemeToggle />
             <button
               onClick={toggleMenu}
               className={`${buttonTextClass} focus:outline-none`}
             >
+              
               {isMenuOpen ? (
                 <svg
                   className="h-6 w-6"
@@ -167,6 +174,7 @@ const Navbar = () => {
               )}
             </button>
           </div>
+          
         </div>
       </div>
 
