@@ -12,6 +12,12 @@ import board6 from '../../assets/Boardgames/board6.png';
 import board7 from '../../assets/Boardgames/board7.png';
 import board8 from '../../assets/Boardgames/board8.png';
 import board10 from '../../assets/Boardgames/board10.png';
+import ludo from "../../assets/Boardgames/ludo.jpg";
+import snake from "../../assets/Boardgames/snake.jpg";
+import tic from "../../assets/Boardgames/tic.png";
+import uno from "../../assets/Boardgames/uno.jpg";
+import word from "../../assets/Boardgames/word.jpg";
+import war from "../../assets/Boardgames/war.jpg";
 import bg from '../../assets/Boardgames/bg.jpg';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -204,6 +210,74 @@ function Boardgame() {
         'The game ends when one group dominates the market, leading to victory.',
       ],
     },
+    {
+      "src": ludo,
+      "title": "Ludo",
+      "description": "A classic board game where players race their tokens from start to finish based on dice rolls.",
+      "instructions": [
+        "Players take turns rolling a single die to move their tokens around the board.",
+        "To enter a token onto the board, players must roll a 6. Tokens move based on the number rolled.",
+        "Players can send opponents' tokens back to start by landing on the same space.",
+        "The first player to move all their tokens into the home area wins the game."
+      ]
+    },
+    {
+      "src": snake,
+      "title": "Snake and Ladders",
+      "description": "A race game where players climb ladders and avoid snakes to reach the end.",
+      "instructions": [
+        "Players take turns rolling a die to advance their token along the numbered board.",
+        "If a player lands at the base of a ladder, they climb to the top.",
+        "If a player lands on the head of a snake, they slide down to its tail.",
+        "The first player to reach the last square wins the game."
+      ]
+    },
+    {
+      "src": tic,
+      "title": "Tic-Tac-Toe",
+      "description": "A simple two-player game where players try to get three of their symbols in a row.",
+      "instructions": [
+        "Players take turns placing their symbol (X or O) in an empty square on a 3x3 grid.",
+        "The first player to align three symbols vertically, horizontally, or diagonally wins.",
+        "If all squares are filled without a winner, the game ends in a draw."
+      ]
+    },
+    {
+      "src": uno,
+      "title": "Uno",
+      "description": "A popular card game where players try to be the first to play all their cards.",
+      "instructions": [
+        "Players take turns matching a card from their hand to the top card of the discard pile by color or number.",
+        "Special action cards can change the gameplay, like skipping a turn or reversing play direction.",
+        "When a player has one card left, they must yell 'Uno!' to warn others.",
+        "The first player to play all their cards wins the game."
+      ]
+    },
+    {
+      "src": word,
+      "title": "Word Finder",
+      "description": "A fun puzzle game where players create words from a set of letters and fit them into designated boxes.",
+      "instructions": [
+        "Players are given a list of words to find, each composed of letters that can be rearranged.",
+        "A grid of boxes is provided, where players must fit the words either horizontally, vertically, or diagonally.",
+        "Each word must be filled in completely, and letters cannot be reused for different words.",
+        "The goal is to fill in all the boxes with the given words as quickly as possible."
+      ]
+    },
+    {
+      "src": war,
+      "title": "War",
+      "description": "A simple two-player card game where players compete to win all the cards.",
+      "instructions": [
+        "The deck is shuffled and split evenly between the two players.",
+        "Each player reveals the top card of their stack at the same time.",
+        "The player with the higher card wins both cards and adds them to the bottom of their stack.",
+        "In case of a tie, a 'war' occurs: each player places three cards face down and reveals the next card. The higher card wins all the cards on the table.",
+        "The game continues until one player has all the cards or until players decide to stop."
+      ]
+    }
+        
+                
   ];
 
 
