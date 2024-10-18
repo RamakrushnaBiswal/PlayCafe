@@ -56,6 +56,14 @@ function Boardgame() {
 
   const handleOpenInstructions = (board) => {
     setSelectedBoard(board);
+
+    // Scroll to the modal when it's opened to ensure it's centered in the viewport
+    setTimeout(() => {
+      const modalElement = document.getElementById('modal-instructions');
+      if (modalElement) {
+        modalElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100); // Adding a slight delay ensures that modal is rendered before scrolling
   };
 
   const handleCloseInstructions = () => {
@@ -377,12 +385,20 @@ function Boardgame() {
                     <p className="text-sm text-muted-foreground">
                       {board.description}
                     </p>
-                    <button
-                      onClick={() => handleOpenInstructions(board)}
-                      className="mt-4 px-4 py-2 text-white bg-green-500 rounded-lg opacity-0 transition-opacity duration-700 delay-300 group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      See Instructions
-                    </button>
+                    <div className="flex space-x-2 mt-4">
+                      <button
+                        onClick={() => handleOpenInstructions(board)}
+                        className="px-4 py-2 text-white bg-green-500 rounded-lg opacity-0 transition-opacity duration-700 delay-300 group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+                        See Instructions
+                      </button>
+                      <button
+                        onClick={() => handleInstantPlay(board)}
+                        className="px-4 py-2 text-white bg-blue-500 rounded-lg opacity-0 transition-opacity duration-700 delay-300 group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+                        Instant Play
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -420,10 +436,12 @@ function Boardgame() {
           </div>
         </section>
 
-        {/* Modal for instructions */}
         {selectedBoard && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white p-8 rounded-lg max-w-md mx-auto shadow-lg relative">
+            <div
+              id="modal-instructions"
+              className="bg-white p-8 rounded-lg max-w-md mx-auto shadow-lg relative overflow-y-auto max-h-[90vh]"
+            >
               <h2 className="text-2xl font-bold mb-4">
                 {selectedBoard.title} Instructions
               </h2>
