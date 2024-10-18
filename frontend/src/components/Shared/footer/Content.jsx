@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Logo from '../../../assets/Logo/playcafe.png';
 import googleImage from '../../../assets/img/google.png';
 import { FaFacebook, FaInstagram, FaTiktok, FaGithub } from 'react-icons/fa';
-import GoogleTranslate from '../GoogleTranslate';
+import Google from './Google';
 
 export default function Content() {
   return (
@@ -38,9 +38,8 @@ const Section2 = () => {
         </div>
       )}
       <div
-        className={`flex ${
-          isWide ? 'justify-between items-end' : 'flex-col items-center'
-        } text-white`}
+        className={`flex ${isWide ? 'justify-between items-end' : 'flex-col items-center'
+          } text-white`}
       >
         <h1
           className={`${isWide ? 'text-[9vw]' : 'text-[12vw]'} leading-[0.8]`}
@@ -155,7 +154,7 @@ const Nav = () => {
             className="w-[2rem] h-[2rem] mr-[65px]"
           />
         </div> */}
-        <GoogleTranslate />
+        <Google />
       </div>
     </div>
   );
