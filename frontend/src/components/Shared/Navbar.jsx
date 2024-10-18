@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import Logo from '../../assets/Logo/playcafe.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import '../../../src/index.css';
+import ThemeToggle from '../../components/ThemeToggle';
 
 const Navbar = () => {
   const [isloggedIn, setisloggedIn] = useState(false);
@@ -71,16 +73,20 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full fixed top-0 z-50 transition duration-300 ${
-        isScrolled ? 'bg-[#E0F0B1]' : 'bg-transparent'
-      } ${isScrolled ? 'text-gray-800' : 'text-black'} ${isScrolled ? 'shadow-lg' : ''}`}
-    >
+  className={`w-full fixed top-0 z-50 transition duration-300 ${
+    isScrolled 
+      ? 'bg-background-light dark:bg-background-dark shadow-lg ' 
+      : 'bg-transparent text-black dark:text-white'
+  }`}
+>
+
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center lg:h-16">
+        
           <Link to="/">
             <div className="flex-shrink-0">
               <img
-                className="w-14 h-14 bg-white rounded-full p-0"
+                className="w-14 h-14 rounded-full p-0"
                 alt="logo"
                 src={Logo}
                 loading="lazy"
@@ -98,19 +104,20 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.path}
-                    className={`${baseTextColorClass} ${hoverTextColorClass}`}
                   >
                     {item.name}
                   </Link>
                 </li>
               ))}
             </ul>
+            
           </div>
 
-          <div className="hidden md:flex font-semibold Poppins text-lg">
+          <div className="hidden md:flex font-semibold Poppins text-lg space-x-4">
+          <ThemeToggle />
             {token ? (
               <button
-                className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold text-[#323232]`}
+                className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold`}
                 type="button"
                 onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
               >
@@ -118,21 +125,24 @@ const Navbar = () => {
               </button>
             ) : (
               <button
-                className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold text-[#323232]`}
+                className={` ${hoverTextColorClass} dark:hover:text-white px-4 py-1 rounded-md border-2 border-black dark:border-white bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_white] font-semibold`}
                 type="button"
                 onClick={() => navigate('/login')}
               >
                 LOGIN
               </button>
+              
             )}
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden">
+          <div className="flex md:hidden space-x-6">
+          <ThemeToggle />
             <button
               onClick={toggleMenu}
               className={`${buttonTextClass} focus:outline-none`}
             >
+              
               {isMenuOpen ? (
                 <svg
                   className="h-6 w-6"
@@ -166,6 +176,7 @@ const Navbar = () => {
               )}
             </button>
           </div>
+          
         </div>
       </div>
 

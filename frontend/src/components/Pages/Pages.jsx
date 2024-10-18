@@ -8,7 +8,7 @@ const Page = forwardRef((props, ref) => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="demoPage bg-white" ref={ref}>
+    <div className="demoPage bg-amber-100" ref={ref}>
       <div className="h-full">{props.children}</div>
       <p className="text-xs text-end text-black pb-4">
         Page number: {props.number}

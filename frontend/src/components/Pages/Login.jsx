@@ -56,16 +56,16 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center pt-10">
+    <div className="w-screen h-screen flex items-center justify-center pt-10 dark:bg-black">
       <img src={photo} alt="login" loading="lazy" className=" w-3/4 absolute" />
       <form
         onSubmit={(e) => handleSubmit(e)}
-        className="form z-10 p-16 bg-lightblue flex flex-col items-start justify-center gap-4 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]"
+        className="form z-10 p-16 bg-lightblue dark:bg-amber-900 flex flex-col items-start justify-center gap-4 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]"
       >
-        <div className="title text-[#323232] font-black text-7xl mb-6">
+        <div className="title text-[#323232] dark:text-white font-black text-7xl mb-6 ">
           Welcome,
           <br />
-          <span className="block text-[#666] font-semibold text-2xl ">
+          <span className="block text-[#666] dark:text-white font-semibold text-2xl ">
             Log in to continue
           </span>
         </div>
@@ -96,23 +96,23 @@ const Login = () => {
           </button>
         </div>
 
-        <div className="transform hover:text-red-500 transition">
+        <div className="transform hover:text-red-500 dark:hover:text-yellow-300 transition">
           <Link to={'/email-verify'}>Forgot Password?</Link>
         </div>
 
         <h3 className="flex items-center justify-between w-full">
           Dont have an account?
-          <span className="block text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition">
+          <span className="block text-[#666] dark:text-white font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 dark:hover:text-green-200 transition">
             <Link to={'/signup'}>Register Here</Link>
           </span>
         </h3>
         <a
           href={`${API_URL}/api/user/auth/google`}
-          className="text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition w-full"
+          className="text-[#666] dark:text-white font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition w-full"
         >
           <button
             type="button"
-            className="button-confirm px-4 w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
+            className="button-confirm dark:text-white px-4 w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
           >
             Sign in with Google
           </button>
@@ -120,7 +120,7 @@ const Login = () => {
         {error && <p className="text-red-500 mt-2">{error}</p>}
         <button
           type="submit"
-          className="button-confirm px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
+          className="button-confirm dark:text-white px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
         >
           {isLoading ? 'Loading...' : 'Let’s Log you in →'}
         </button>

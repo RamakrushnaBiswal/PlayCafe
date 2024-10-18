@@ -50,7 +50,7 @@ const GoogleTranslate = () => {
         <div id="google_element" className="pl-20 md:pl-0">
             <style jsx>{`
                 .goog-te-combo {
-                    @apply w-full bg-white border border-gray-300 rounded px-2 py-1 text-sm;
+                    @apply w-full bg-amber-100 border border-gray-300 rounded px-2 py-1 text-sm;
                 }
                 .goog-te-gadget {
                     @apply flex flex-col items-start text-xs text-gray-500;
@@ -74,7 +74,7 @@ const GoogleTranslate = () => {
                     @apply hidden !important;
                 }
                 .goog-te-menu-frame {
-                    @apply max-h-96 overflow-y-auto bg-white border border-gray-300 rounded;
+                    @apply max-h-96 overflow-y-auto bg-amber-100 border border-gray-300 rounded;
                 }
                 .skiptranslate > iframe {
                     @apply h-0 border-none shadow-none;
