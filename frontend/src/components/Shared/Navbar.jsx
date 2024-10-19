@@ -20,7 +20,7 @@ const Navbar = () => {
     { name: 'BOARDGAMES', path: '/boardgame' },
     { name: 'MEMBERSHIP', path: '/membership' }, // Add Membership here
   ];
-  
+
   useEffect(() => {
     setToken(Cookies.get('authToken'));
   });
@@ -107,7 +107,7 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="hidden md:flex font-semibold Poppins text-lg">
+          <div className="hidden md:flex font-semibold Poppins text-lg hover:bg-lime-200">
             {token ? (
               <button
                 className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold text-[#323232]`}
