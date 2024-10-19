@@ -1,5 +1,12 @@
 const express = require("express");
 const logger = require("../config/logger"); // Import your Winston logger
+require("dotenv").config();
+
+const config = {
+  JWT_SECRET: process.env.JWT_SECRET,
+  GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+  GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+};
 
 const router = express.Router();
 
@@ -29,7 +36,7 @@ try {
 }
 
 router.get("/", (req, res) => {
-  res.json({
+  return res.json({
     message: "Welcome to the restaurant API!",
     version: "1.0.0",
     endpoints: {
@@ -46,5 +53,5 @@ router.use("/feedback", feedbackRouter);
 router.use("/user", require("./customerRouter"));
 router.use("/reservation", require("./reservationRouter"));
 router.use("/newsletter", require("./newsletterRoute"));
-
+router.use("/forgot", require("./forgotRouter"));
 module.exports = router;

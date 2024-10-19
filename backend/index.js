@@ -1,20 +1,13 @@
 const express = require("express");
+require("dotenv").config();
 const cors = require("cors");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
 const logger = require("./config/logger");
-const errorMiddleware = require("./middlewares/errrorMiddleware");
-
-dotenv.config();
+const errorMiddleware = require("./middlewares/errorMiddleware"); // Corrected typo
+const passport = require("passport");
+const { handleGoogleOAuth } = require("./controller/googleOAuth.controller");
 const app = express();
 const port = process.env.PORT || 3000;
-
-// CORS configuration
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://play-cafe.vercel.app"],
-  }),
-);
 
 // CORS configuration
 const corsOptions = {
@@ -41,11 +34,25 @@ mongoose
   });
 
 // Enable CORS preflight for the create reservation route only
+// Uncomment if needed
 // app.options("/api/reservation/create", cors(corsOptions));
+
+// Initialize passport middleware
+app.use(passport.initialize());
 
 // API routes
 app.use("/api", require("./routes/index"));
 
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/login",
+    session: false,
+  }),
+  handleGoogleOAuth
+);
+
+// Global CORS preflight options
 app.options("*", cors(corsOptions));
 
 // Health Check Endpoint
@@ -53,6 +60,7 @@ app.get("/health", (req, res) => {
   res.status(200).json({ status: "OK" });
 });
 
+// Error handling middleware
 app.use(errorMiddleware);
 
 // Start server

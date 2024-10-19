@@ -125,7 +125,7 @@ function Event() {
                 src={band}
                 alt="band"
                 loading="lazy"
-                className="w-2/5 absolute left-1/2 top-[20%] z-10 translate-x-[-50%] mx-auto"
+                className="w-full absolute left-1/2 z-10 translate-x-[-50%] mx-auto top-[45%] md:w-2/5 md:top-[20%]"
               />
               <h1 className="text-6xl md:text-9xl font-bold ml-4" ref={textRef}>
                 Upcoming Events and much more....
@@ -135,13 +135,13 @@ function Event() {
                   src={game}
                   alt="game"
                   loading="lazy"
-                  className="w-28 h-28"
+                  className="w-28 h-28 hidden md:block"
                 />
                 <img
                   src={spin}
                   alt="game"
                   loading="lazy"
-                  className="w-28 h-28"
+                  className="w-28 h-28 hidden md:block"
                 />
               </div>
             </div>

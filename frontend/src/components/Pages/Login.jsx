@@ -1,11 +1,10 @@
-
-import React, { useState , useEffect } from "react";
-import photo from "../../assets/login.png";
-import { Link, useNavigate } from "react-router-dom";
-import { message } from "antd";
-import Cookies from 'js-cookie'
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa6";
+import React, { useState, useEffect } from 'react';
+import photo from '../../assets/login.png';
+import { Link, useNavigate } from 'react-router-dom';
+import { message } from 'antd';
+import Cookies from 'js-cookie';
+import { FaEye } from 'react-icons/fa';
+import { FaEyeSlash } from 'react-icons/fa6';
 
 const Login = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
@@ -13,7 +12,7 @@ const Login = () => {
     email: '',
     password: '',
   });
-  const [hidden, setHidden] = useState(true)
+  const [hidden, setHidden] = useState(true);
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -39,9 +38,9 @@ const Login = () => {
         throw new Error(result.message || 'Login failed');
       }
       // Handle successful login (e.g., store token, redirect)
-      Cookies.set('authToken',result.token,{
-        expire:'1h',
-        secure:true
+      Cookies.set('authToken', result.token, {
+        expire: '1h',
+        secure: true,
       });
       message.success('Login successful');
       navigate('/');
@@ -61,7 +60,7 @@ const Login = () => {
       <img src={photo} alt="login" loading="lazy" className=" w-3/4 absolute" />
       <form
         onSubmit={(e) => handleSubmit(e)}
-        className="form z-10 p-16 bg-lightblue flex flex-col items-start justify-center gap-5 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]"
+        className="form z-10 p-16 bg-lightblue flex flex-col items-start justify-center gap-4 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]"
       >
         <div className="title text-[#323232] font-black text-7xl mb-6">
           Welcome,
@@ -83,26 +82,45 @@ const Login = () => {
             className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
             name="password"
             placeholder="Password"
-            type={hidden ? "password" : "text"}
+            type={hidden ? 'password' : 'text'}
             onChange={(e) => handleChange(e)}
           />
-          <button className="absolute top-1/2 -translate-y-1/2 right-4" onClick={(e)=>{
-            e.preventDefault();
-            setHidden(!hidden)
-          }}>
-            {hidden ? <FaEyeSlash/> : <FaEye/>}
+          <button
+            className="absolute top-1/2 -translate-y-1/2 right-4"
+            onClick={(e) => {
+              e.preventDefault();
+              setHidden(!hidden);
+            }}
+          >
+            {hidden ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
+
+        <div className="transform hover:text-red-500 transition">
+          <Link to={'/email-verify'}>Forgot Password?</Link>
+        </div>
+
         <h3 className="flex items-center justify-between w-full">
           Dont have an account?
           <span className="block text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition">
             <Link to={'/signup'}>Register Here</Link>
           </span>
         </h3>
+        <a
+          href={`${API_URL}/api/user/auth/google`}
+          className="text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition w-full"
+        >
+          <button
+            type="button"
+            className="button-confirm px-4 w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
+          >
+            Sign in with Google
+          </button>
+        </a>
         {error && <p className="text-red-500 mt-2">{error}</p>}
         <button
           type="submit"
-          className="button-confirm mx-auto mt-12 px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
+          className="button-confirm px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
         >
           {isLoading ? 'Loading...' : 'Let’s Log you in →'}
         </button>
