@@ -1,187 +1,142 @@
-import { useState, useEffect } from 'react';
-import { MdStars, MdArrowBackIos, MdArrowForwardIos } from 'react-icons/md';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import React, { useEffect, useState } from 'react';
 
 const ReviewCarousel = () => {
-  const reviews = [
+  const [active, setActive] = useState(3);
+  const items = [
     {
-      name: 'Jane Smith',
-      review:
-        'Great games and coffee. The perfect spot to unwind with friends!',
-      img: 'https://randomuser.me/api/portraits/men/51.jpg',
-      rating: 5,
+      img: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
+      stars: "★★★★★",
+      text: "The PlayCafe website project has been an incredible experience for me. The collaborative environment and innovative ideas helped me enhance my skills in web development and user experience design. I’m proud to be part of this initiative!",
+      name: "- Arjun Sharma",
+      jobTitle: "Frontend Developer",
+      location: "Location: Bengaluru, India"
     },
     {
-      name: 'Sophia Lee',
-      review: 'Cozy place with a fantastic selection of snacks and games!',
-      img: 'https://randomuser.me/api/portraits/women/90.jpg',
-      rating: 4,
+      img: "https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?ga=GA1.1.713761379.1679213202&semt=ais_hybrid",
+      stars: "★★★★",
+      text: "Working on the PlayCafe project has truly expanded my horizons. I love how we're building a vibrant online space for board game enthusiasts, making it easy for them to connect and enjoy. This project has greatly improved my project management skills!",
+      name: "- Priya Desai",
+      jobTitle: "UI/UX Designer",
+      location: "Location: Mumbai, India"
     },
     {
-      name: 'Emily Davis',
-      review: 'Friendly staff and delicious food make for a great experience.',
-      img: 'https://randomuser.me/api/portraits/women/63.jpg',
-      rating: 5,
+      img: "https://img.freepik.com/free-vector/gradient-professional-sarah-smith-linkedin-personal-profile-picture_742173-13011.jpg?ga=GA1.1.713761379.1679213202&semt=ais_hybrid",
+      stars: "★★★★★",
+      text: "The PlayCafe initiative has been a game-changer for my professional journey. The chance to work with a talented team and contribute to a meaningful project has been fulfilling. I can’t wait to see how our work transforms the cafe experience!",
+      name: "- Rohan Patel",
+      jobTitle: "Backend Developer",
+      location: "Location: Ahmedabad, India"
     },
     {
-      name: 'Chris Wilson',
-      review: 'Amazing variety of games and excellent drinks to enjoy.',
-      img: 'https://randomuser.me/api/portraits/men/22.jpg',
-      rating: 5,
+      img: "https://img.freepik.com/free-vector/profile-picture-template-design_742173-22027.jpg?ga=GA1.1.713761379.1679213202&semt=ais_hybrid",
+      stars: "★★★★",
+      text: "Participating in the PlayCafe project has ignited my passion for web development. The creativity and teamwork involved in building this platform have not only sharpened my technical skills but also my ability to collaborate effectively.",
+      name: "- Neha Iyer",
+      jobTitle: "Content Writer",
+      location: "Location: Chennai, India"
     },
     {
-      name: 'Michael Johnson',
-      review: 'Had a fantastic time with the games and tasty beverages!',
-      img: 'https://randomuser.me/api/portraits/men/85.jpg',
-      rating: 5,
+      img: "https://i.pravatar.cc/250?u=mail@ashallendesign.co.uk",
+      stars: "★★★★★",
+      text: "The PlayCafe website project has been an amazing platform for me to learn and grow. I am thrilled to contribute to a project that brings joy to board game lovers and creates a community. The support from my team has been fantastic!",
+      name: "- Rahul Singh",
+      jobTitle: "Full Stack Developer",
+      location: "Location: Hyderabad, India"
     },
     {
-      name: 'Jia Wang',
-      review: 'Loved the games, the ambiance, and the overall vibe here!',
-      img: 'https://randomuser.me/api/portraits/women/61.jpg',
-      rating: 5,
-    },
-    {
-      name: 'Olivia Green',
-      review:
-        'Great atmosphere and an excellent selection of board games. Will be back!',
-      img: 'https://randomuser.me/api/portraits/women/72.jpg',
-      rating: 4,
-    },
-    {
-      name: 'Ethan White',
-      review:
-        'The vibe is amazing, and the staff is super friendly. Highly recommend!',
-      img: 'https://randomuser.me/api/portraits/men/33.jpg',
-      rating: 5,
+      img: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
+      stars: "★★★★★",
+      text: "Being part of the PlayCafe initiative has been a rewarding experience. I’ve learned so much about web development while helping create an engaging space for board game enthusiasts. I’m excited to see our vision come to life!",
+      name: "- Kavita Nair",
+      jobTitle: "Software Tester",
+      location: "Location: Pune, India"
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [showMoreStates, setShowMoreStates] = useState(
-    reviews.map(() => false)
-  );
 
-  const toggleShowMore = (index) => {
-    const updatedStates = [...showMoreStates];
-    updatedStates[index] = !updatedStates[index];
-    setShowMoreStates(updatedStates);
-  };
+  useEffect(() => {
+    loadShow();
+  }, [active]);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === reviews.length - 4 ? 0 : prevIndex + 1
-    );
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? reviews.length - 4 : prevIndex - 1
-    );
-  };
-  const [cardsToShow, setCardsToShow] = useState(1);
-
-  const updateCardsToShow = () => {
-    if (window.innerWidth >= 768) {
-      setCardsToShow(4);
-    } else {
-      setCardsToShow(1);
+  const loadShow = () => {
+    const itemsElement = document.querySelectorAll('.slider .item');
+    itemsElement[active].style.transform = `none`;
+    itemsElement[active].style.zIndex = 1;
+    itemsElement[active].style.filter = 'none';
+    itemsElement[active].style.opacity = 1;
+    // Show after
+    let stt = 0;
+    for (let i = active + 1; i < itemsElement.length; i++) {
+      stt++;
+      itemsElement[i].style.transform = `translateX(${120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(-1deg)`;
+      itemsElement[i].style.zIndex = 0;
+      itemsElement[i].style.filter = 'blur(5px)';
+      itemsElement[i].style.opacity = stt > 2 ? 0 : 0.6;
+    }
+    stt = 0;
+    for (let i = (active - 1); i >= 0; i--) {
+      stt++;
+      itemsElement[i].style.transform = `translateX(${-120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(1deg)`;
+      itemsElement[i].style.zIndex = 0;
+      itemsElement[i].style.filter = 'blur(5px)';
+      itemsElement[i].style.opacity = stt > 2 ? 0 : 0.6;
     }
   };
 
-  useEffect(() => {
-    updateCardsToShow();
-    window.addEventListener('resize', updateCardsToShow);
-
-    return () => {
-      window.removeEventListener('resize', updateCardsToShow);
-    };
-  }, []);
-
   return (
-    <div className="mb-20">
-      <div className="flex items-center justify-center p-20 mb-10">
-        <h1 className="md:text-6xl text-4xl pl-3 pr-3 text-center font-bold text-[#004D43]">
-          Customer Feedback
-        </h1>
-      </div>
+    <div>
 
-      <div className="bg-[#004D43] h-full p-4 md:p-20 items-center justify-center flex relative ">
-        <div className="w-full overflow-x-auto max-w-7xl md:overflow-hidden ">
-          <div
-            className="flex transition-transform duration-300 ease-in-out"
-            style={{
-              transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)`, // Moves the grid based on cardsToShow
-              width: `${(reviews.length / cardsToShow) * 100}%`, // Dynamic width based on the number of cards
-            }}
-          >
-            {reviews.map((review, index) => (
-              <div
-                key={index}
-                className="w-full p-2 sm:w-1/2 md:w-1/3 lg:w-1/4"
-              >
-                <div className="relative min-h-[250px] max-h-[350px] md:min-h-[300px] md:max-h-[400px] p-4 rounded-xl bg-amber-200 z-10 overflow-hidden">
-                  <div className="flex flex-col items-center justify-center mb-1">
-                    {/* <img
-                      src={review.img}
-                      alt=""
-                      className="w-20 h-20 rounded-full"
-                    /> */}
-                    <LazyLoadImage
-                      alt={`${index}img`}
-                      effect="blur"
-                      className="w-20 h-20 rounded-full"
-                      wrapperProps={{
-                        style: { transitionDelay: '1s' },
-                      }}
-                      src={review.img}
-                    />
-                    <h1 className="text-xl font-semibold text-center">
-                      {review.name}
-                    </h1>
-                    <div className="flex">
-                      {Array(review.rating)
-                        .fill()
-                        .map((_, i) => (
-                          <MdStars key={i} className="text-[#004D43]" />
-                        ))}
-                    </div>
-                  </div>
 
-                  <p className="text-lg leading-6 tracking-wide text-center">
-                    {showMoreStates[index]
-                      ? review.review
-                      : `${review.review.substring(0, 50)}...`}
-                    <span
-                      className="text-blue-500 cursor-pointer"
-                      onClick={() => toggleShowMore(index)}
-                    >
-                      {showMoreStates[index] ? ' Show less' : ' Read more'}
-                    </span>
-                  </p>
-                </div>
-              </div>
-            ))}
+      <div className="slider" style={{ position: 'relative', marginTop: '100px', width: '100%', height: '550px', overflow: 'hidden' }}>
+        {items.map((item, index) => (
+          <div className="item" key={index} style={{
+            position: 'absolute',
+            width: '350px',
+            height: '500px',
+            textAlign: 'justify',
+            background: '#016457', // Dark green to light yellow gradient
+            borderRadius: '12px',
+            padding: '20px',
+            transition: '0.5s',
+            left: 'calc(50% - 150px)',
+            top: '0',
+            marginBottom: '100px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)', // Soft shadow for depth
+            overflow: 'hidden', // Ensures the image does not overflow
+            color: 'white',
+          }}>
+            <img
+              src={item.img}
+              alt="User Avatar"
+              className='w-[150px] h-[150px] rounded-lg object-cover mb-[20px] cursor-pointer'
+              style={{
+                transition: 'transform 0.3s ease, filter 0.3s ease',
+                border: '3px solid #d0e7b0' // Green border for the image
+              }}
+              onMouseOver={e => {
+                e.currentTarget.style.transform = 'scale(1.1)';
+                e.currentTarget.style.filter = 'brightness(1.1)'; // Brightness effect on hover
+              }}
+              onMouseOut={e => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.filter = 'brightness(1)'; // Reset brightness
+              }}
+            />
+            <div className="stars text-[#ffd700] text-2xl mt-auto">{item.stars}</div>
+            <p className='text-justify mb-[20px]'>{item.text}</p>
+            <h2 className='mb-[10px] text-xl font-semibold'>{item.name}</h2>
+            <div className="job-title text-[#007BFF] font-bold mb-[5px]">{item.jobTitle}</div>
+            <div className="location text-[#4A4A4A] mb-[15px]">{item.location}</div>
           </div>
-        </div>
 
-        {reviews.length > 4 && (
-          <>
-            <button
-              onClick={prevSlide}
-              className="absolute hidden p-2  transform -translate-y-1/2 bg-white rounded-full md:block left-10 top-1/2"
-            >
-              <MdArrowBackIos className="text-[#004D43]" size={18} />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute hidden p-2 transform -translate-y-1/2 bg-white rounded-full md:block right-10 top-1/2"
-            >
-              <MdArrowForwardIos className="text-[#004D43]" size={18} />
-            </button>
-          </>
-        )}
+
+        ))}
+
+        <button id="next" className=' absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px]' onClick={() => setActive(prev => (prev + 1 < items.length ? prev + 1 : prev))}>{">>"}</button>
+        <button id="prev" className=' absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-0 transition-opacity z-10 left-[50px]' onClick={() => setActive(prev => (prev - 1 >= 0 ? prev - 1 : prev))}> {"<<"}</button>
       </div>
     </div>
   );
