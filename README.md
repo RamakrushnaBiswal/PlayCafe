@@ -139,6 +139,7 @@ This project is part of **GirlScript Summer of Code 2024** (GSSoC) Extended, an 
 </div>
 
 <br>
+
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ### 💵 How to Contribute
