@@ -47,7 +47,7 @@ function ParallaxImage() {
             <h1 className="md:text-7xl text-4xl text-black dark:text-white font-bold font-mono mb-4">
               Discover Sip & Play
             </h1>
-            <p className="md:text-3xl text-xl font-mono mb-8">
+            <p className="md:text-3xl text-xl font-mono mb-8 dark:text-gray-400">
               Dive into a world of flavor with our immersive 3D Menu experience
             </p>
           </div>
@@ -66,7 +66,7 @@ function ParallaxImage() {
           </div>
         </div>
         <div className="flex flex-col items-center mb-2">
-          <h1 className="text-5xl md:text-9xl font-roboto">Flip Menu</h1>
+          <h1 className="text-5xl md:text-9xl font-roboto dark:text-gray-50">Flip Menu</h1>
           <GiArrowDunk size={60} className="mt-2 text-orange-400" />
         </div>
         {/* <div className="w-full md:flex md:items-center md:justify-center">

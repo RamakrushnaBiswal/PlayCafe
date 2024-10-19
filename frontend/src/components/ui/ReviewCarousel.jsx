@@ -100,7 +100,7 @@ const ReviewCarousel = () => {
   }, []);
 
   return (
-    <div className="mb-20 dark:bg-black">
+    <div className="mb-20 dark:bg-black dark:text-white">
       <div className="flex items-center justify-center p-20 mb-10">
         <h1 className="md:text-6xl text-4xl pl-3 pr-3 text-center font-bold text-[#004D43] dark:text-white">
           Customer Feedback

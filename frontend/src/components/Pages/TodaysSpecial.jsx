@@ -52,7 +52,7 @@ const TodaysSpecial = () => {
 
   return (
     <div className="mt-10">
-      <h2 className="text-5xl font-bold text-center mb-9">
+      <h2 className="text-5xl font-bold text-center mb-9 dark:text-gray-50">
   Today's Special
 </h2>
       <div className="flex flex-col md:flex-row justify-around items-center mb-8 space-y-8 md:space-y-0 md:space-x-4">

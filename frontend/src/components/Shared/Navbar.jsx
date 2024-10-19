@@ -20,7 +20,9 @@ const Navbar = () => {
     { name: 'MENU', path: '/menu' },
     { name: 'RESERVATION', path: '/reservation' },
     { name: 'BOARDGAMES', path: '/boardgame' },
+    { name: 'MEMBERSHIP', path: '/membership' }, // Add Membership here
   ];
+  
   useEffect(() => {
     setToken(Cookies.get('authToken'));
   });
@@ -73,7 +75,7 @@ const Navbar = () => {
     <nav
   className={`w-full fixed top-0 z-50 transition duration-300 ${
     isScrolled 
-      ? 'bg-background-light dark:bg-background-dark shadow-lg ' 
+      ? 'bg-background-light dark:bg-background-dark shadow-lg text-black dark:text-white' 
       : 'bg-transparent text-black dark:text-white'
   }`}
 >
@@ -143,9 +145,8 @@ const Navbar = () => {
               
               {isMenuOpen ? (
                 <svg
-                  className="h-6 w-6"
+                  className="h-6 w-6 stroke-black dark:stroke-white"
                   fill="none"
-                  stroke="black"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -183,7 +184,7 @@ const Navbar = () => {
         <div
           className={`md:hidden ${
             isScrolled ? 'bg-amber-100 shadow-lg' : 'bg-[#E0F0B1] shadow-lg'
-          }`}
+          } dark:bg-black `}
         >
           <div className="px-4 pt-4 pb-4 space-y-2">
             {menuItems.map((item) => (
@@ -192,7 +193,7 @@ const Navbar = () => {
                 key={item.name}
                 to={item.path}
                 className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black dark:text-white`}
               >
                 {item.name}
               </Link>

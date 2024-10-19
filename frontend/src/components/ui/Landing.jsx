@@ -35,7 +35,7 @@ function Landing() {
   });
 
   return (
-    <div className='bg-amber-100 dark:bg-background-dark'>
+    <div className='bg-amber-100 dark:bg-background-dark dark:text-white'>
       <section className="relative pb-24 h-screen-dvh bg-cover bg-center overflow-hidden">
         <div className="flex-col md:flex pt-20 z-1">
           {/* Text Content */}
