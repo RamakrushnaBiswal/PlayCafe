@@ -130,8 +130,45 @@ We love contributions! 💙 Whether you're a participant in **GSSoC** or an open
 ## 🎯 Open Source Programs
 This project is part of **GirlScript Summer of Code 2024** (GSSoC) Extended, an initiative to help aspiring developers get involved in the open-source community.
 
+<div align="center">
+  <img src="https://github.com/apu52/METAVERSE/assets/114172928/e79eb6de-81b1-4ffb-b6ed-f018bb977e88" alt="GSSoC 2024 Extd" width="80%">
+</div>
+
+<div align="center">
+  <img src="https://github.com/neeru24/Connect_icons/blob/main/hacktober.png" alt="Hacktober fest 2024" width="80%">
+</div>
+
 <br>
-<img src="https://github.com/user-attachments/assets/f7abbbe7-1950-4bf9-8456-c812ca630acf" style="width:400px">
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+### 💵 How to Contribute
+
+   #### 1. Fork the repository to your GitHub account.
+   #### 2. Clone the forked repository to your local machine.
+   ```bash
+   git clone https://github.com/<github_username>/PlayCafe.git
+   ```
+   #### 3. Create a new branch for your changes.
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+   #### 4. Make your changes, whether they're bug fixes, new features, or improvements.
+   #### 5. add the change in your branch
+   ```bash
+   git add .
+   ```
+   #### 6. Commit your changes with descriptive commit messages.
+   ```bash
+   git commit -m "Add your descriptive commit message here"
+   git push origin feature/your-feature
+   ```
+   #### 7. Open a Pull Request (PR) against the main repository.
+### Additional Notes
+   #### Start working on the issue, Don't wait to get it assigned by the maintainers
+   #### Your every contribution counts, Thanks for contributing to PlayCafe
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 🌟 Mentors
 
