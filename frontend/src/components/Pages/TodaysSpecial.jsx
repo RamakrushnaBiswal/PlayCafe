@@ -66,12 +66,12 @@ const TodaysSpecial = () => {
 
           <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.coffee.image} alt={todaysSpecial.coffee.name} />
 
-          <h3 className="text-xl font-semibold">{todaysSpecial.coffee.name}</h3>
-          <p className="text-gray-600">{todaysSpecial.coffee.description}</p>
+          <h3 className="text-xl font-semibold text-left">{todaysSpecial.coffee.name}</h3>
+          <p className="text-gray-600 text-left">{todaysSpecial.coffee.description}</p>
           
-          <div className={`mt-4 transition-opacity duration-300 ease-in-out ${hoveredItem === 'coffee' ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="text-lg font-bold text-red-700 line-through">{todaysSpecial.coffee.originalPrice}</p>
-            <p className="text-xl font-bold text-red-500">{todaysSpecial.coffee.offerPrice}</p>
+          <div className={`flex items-center justify-end gap-2 mt-2 transition-opacity duration-300 ease-in-out ${hoveredItem === 'coffee' ? 'opacity-100' : 'opacity-0'}`}>
+            <p className="text-md font-semibold text-gray-500 line-through">{todaysSpecial.coffee.originalPrice}</p>
+            <p className="text-xl font-bold text-red-600">{todaysSpecial.coffee.offerPrice}</p>
           </div>
         </div>
 
@@ -84,12 +84,12 @@ const TodaysSpecial = () => {
         >
           <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.food.image} alt={todaysSpecial.food.name} loading="lazy" />
 
-          <h3 className="text-xl font-semibold">{todaysSpecial.food.name}</h3>
-          <p className="text-gray-600">{todaysSpecial.food.description}</p>
+          <h3 className="text-xl font-semibold text-left">{todaysSpecial.food.name}</h3>
+          <p className="text-gray-600 text-left">{todaysSpecial.food.description}</p>
         
-          <div className={`mt-4 transition-opacity duration-300 ease-in-out ${hoveredItem === 'food' ? 'opacity-100' : 'opacity-0'}`}>
-              <p className="text-lg font-bold text-red-700 line-through">{todaysSpecial.food.originalPrice}</p>
-              <p className="text-xl font-bold text-red-500">{todaysSpecial.food.offerPrice}</p>
+          <div className={`flex items-center justify-end gap-2 mt-2 transition-opacity duration-300 ease-in-out ${hoveredItem === 'food' ? 'opacity-100' : 'opacity-0'}`}>
+              <p className="text-md font-semibold text-gray-500 line-through">{todaysSpecial.food.originalPrice}</p>
+              <p className="text-xl font-bold text-red-600">{todaysSpecial.food.offerPrice}</p>
           </div>
         </div>
 
@@ -102,12 +102,12 @@ const TodaysSpecial = () => {
         >
           <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.drink.image} alt={todaysSpecial.drink.name} loading="lazy"/>
 
-          <h3 className="text-xl font-semibold">{todaysSpecial.drink.name}</h3>
-          <p className="text-gray-600">{todaysSpecial.drink.description}</p>
+          <h3 className="text-xl font-semibold text-left">{todaysSpecial.drink.name}</h3>
+          <p className="text-gray-600 text-left">{todaysSpecial.drink.description}</p>
         
-          <div className={`mt-4 transition-opacity duration-300 ease-in-out ${hoveredItem === 'drink' ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="text-lg font-bold text-red-700 line-through">{todaysSpecial.drink.originalPrice}</p>
-            <p className="text-xl font-bold text-red-500">{todaysSpecial.drink.offerPrice}</p>
+          <div className={`flex items-center justify-end gap-2 mt-2 transition-opacity duration-300 ease-in-out ${hoveredItem === 'drink' ? 'opacity-100' : 'opacity-0'}`}>
+            <p className="text-lg font-semibold text-gray-500 line-through">{todaysSpecial.drink.originalPrice}</p>
+            <p className="text-xl font-bold text-red-600">{todaysSpecial.drink.offerPrice}</p>
           </div>
         </div>
       </div>
