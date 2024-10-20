@@ -144,7 +144,7 @@ const ReviewCarousel = () => {
             <div className="job-title text-[#007BFF] font-bold mb-[5px]">{item.jobTitle}</div>
             <div className="location text-[#e4e4e4] mb-[15px] max-sm:mb-1">{item.location}</div>
           </div>
-</div>
+
 
         ))}
 
