@@ -1,7 +1,6 @@
 
 import bgpic from "../../assets/img/abt1.jpg";
 import React, { useEffect } from 'react';
-import '../../../src/index.css';
 
 export default function About() {
   useEffect(() => {
