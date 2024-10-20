@@ -440,7 +440,7 @@ function Boardgame() {
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div
               id="modal-instructions"
-              className="bg-amber-100 p-8 rounded-lg max-w-md mx-auto shadow-lg relative overflow-y-auto max-h-[90vh]"
+              className="bg-amber-100 dark:bg-amber-600 p-8 rounded-lg max-w-md mx-auto shadow-lg relative overflow-y-auto max-h-[90vh]"
             >
               <h2 className="text-2xl font-bold mb-4">
                 {selectedBoard.title} Instructions
@@ -452,7 +452,7 @@ function Boardgame() {
               </ul>
               <button
                 onClick={handleCloseInstructions}
-                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
               >
                 Close
               </button>

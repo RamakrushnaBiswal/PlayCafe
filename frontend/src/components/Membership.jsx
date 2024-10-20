@@ -91,7 +91,7 @@ const Membership = () => {
         {membershipData.map((plan, index) => (
           <motion.div
             key={index}
-            className="bg-black bg-opacity-70 shadow-2xl rounded-3xl p-8 max-w-sm w-full transform transition duration-500 hover:scale-105"
+            className="bg-black bg-opacity-70 dark:bg-amber-700 shadow-2xl rounded-3xl p-8 max-w-sm w-full transform transition duration-500 hover:scale-105"
             whileHover={{ scale: 1.05 }}
             variants={cardVariants}
           >
@@ -106,14 +106,14 @@ const Membership = () => {
             <div className="text-2xl font-semibold text-white mb-6">{plan.price}</div>
             {plan.title === "Customizable Add-ons" ? (
               <button
-                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-2 px-8 rounded-full hover:from-orange-500 hover:to-yellow-500 transition-all"
+                className="bg-gradient-to-r from-yellow-500 to-orange-500 dark:bg-gradient-to-r dark:from-gray-500 dark:to-gray-800 text-white py-2 px-8 rounded-full hover:from-orange-500 hover:to-yellow-500 transition-all"
                 onClick={() => setIsModalOpen(true)}
               >
                 Customize Add-ons
               </button>
             ) : (
               <button
-                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-2 px-8 rounded-full hover:from-orange-500 hover:to-yellow-500 transition-all"
+                className="bg-gradient-to-r from-yellow-500 to-orange-500 dark:bg-gradient-to-r dark:from-gray-500 dark:to-gray-800 text-white py-2 px-8 rounded-full hover:from-orange-500 hover:to-yellow-500 transition-all"
                 onClick={() => navigate('/signup')}
               >
                 Sign Up
@@ -141,7 +141,7 @@ const Membership = () => {
               ))}
             </div>
             <button
-              className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-2 px-4 rounded-full hover:from-orange-500 hover:to-yellow-500 transition-all"
+              className="bg-gradient-to-r from-yellow-500 to-orange-500 dark:bg-gradient-to-r dark:from-gray-500 dark:to-gray-800 text-white py-2 px-4 rounded-full hover:from-orange-500 hover:to-yellow-500 transition-all"
               onClick={handleNext}
             >
               Next
