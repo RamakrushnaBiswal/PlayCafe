@@ -14,7 +14,7 @@ const ReviewCarousel = () => {
     {
       img: "https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?ga=GA1.1.713761379.1679213202&semt=ais_hybrid",
       stars: "★★★★",
-      text: "Working on the PlayCafe project has truly expanded my horizons. I love how we're building a vibrant online space for board game enthusiasts, making it easy for them to connect and enjoy. This project has greatly improved my project management skills!",
+      text: "Working on the PlayCafe project has truly expanded my horizons. I love how we're building a vibrant online space for board game enthusiasts, making it easy for them to connect and enjoy!",
       name: "- Priya Desai",
       jobTitle: "UI/UX Designer",
       location: "Location: Mumbai, India"
@@ -38,7 +38,7 @@ const ReviewCarousel = () => {
     {
       img: "https://i.pravatar.cc/250?u=mail@ashallendesign.co.uk",
       stars: "★★★★★",
-      text: "The PlayCafe website project has been an amazing platform for me to learn and grow. I am thrilled to contribute to a project that brings joy to board game lovers and creates a community. The support from my team has been fantastic!",
+      text: "The PlayCafe website project has been an amazing platform for me to learn and grow. I am thrilled to contribute to a project that brings joy to board game lovers and creates a community.",
       name: "- Rahul Singh",
       jobTitle: "Full Stack Developer",
       location: "Location: Hyderabad, India"
@@ -53,6 +53,13 @@ const ReviewCarousel = () => {
     },
   ];
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive(prev => (prev + 1) % items.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [items.length]);
 
   useEffect(() => {
     loadShow();
@@ -89,7 +96,7 @@ const ReviewCarousel = () => {
 
       <div className="slider" style={{ position: 'relative', marginTop: '100px', width: '100%', height: '550px', overflow: 'hidden' }}>
         {items.map((item, index) => (
-          <div className="item" key={index} style={{
+          <div className="item max-sm:!w-[300px] max-sm:!h-[430px]" key={index} style={{
             position: 'absolute',
             width: '350px',
             height: '500px',
@@ -111,7 +118,7 @@ const ReviewCarousel = () => {
             <img
               src={item.img}
               alt="User Avatar"
-              className='w-[150px] h-[150px] rounded-lg object-cover mb-[20px] cursor-pointer'
+              className='w-[150px] h-[150px] rounded-lg object-cover mb-[20px] cursor-pointer max-sm:h-[120px] mb-0'
               style={{
                 transition: 'transform 0.3s ease, filter 0.3s ease',
                 border: '3px solid #d0e7b0' // Green border for the image
@@ -125,18 +132,18 @@ const ReviewCarousel = () => {
                 e.currentTarget.style.filter = 'brightness(1)'; // Reset brightness
               }}
             />
-            <div className="stars text-[#ffd700] text-2xl mt-auto">{item.stars}</div>
-            <p className='text-justify mb-[20px]'>{item.text}</p>
-            <h2 className='mb-[10px] text-xl font-semibold'>{item.name}</h2>
+            <div className="stars text-[#ffd700] text-2xl mt-auto max-sm:mt-2">{item.stars}</div>
+            <p className='text-justify mb-[20px] max-sm:text-xs max-sm:mb-0'>{item.text}</p>
+            <h2 className='mb-[10px] text-xl font-semibold max-sm:mb-1 max-sm:text-lg'>{item.name}</h2>
             <div className="job-title text-[#007BFF] font-bold mb-[5px]">{item.jobTitle}</div>
-            <div className="location text-[#4A4A4A] mb-[15px]">{item.location}</div>
+            <div className="location text-[#e4e4e4] mb-[15px] max-sm:mb-1">{item.location}</div>
           </div>
 
 
         ))}
 
-        <button id="next" className=' absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px]' onClick={() => setActive(prev => (prev + 1 < items.length ? prev + 1 : prev))}>{">>"}</button>
-        <button id="prev" className=' absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-0 transition-opacity z-10 left-[50px]' onClick={() => setActive(prev => (prev - 1 >= 0 ? prev - 1 : prev))}> {"<<"}</button>
+        <button id="next" className=' absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px] max-sm:text-white max-sm:text-2xl max-sm:right-2' onClick={() => setActive(prev => (prev + 1 < items.length ? prev + 1 : prev))}>{">>"}</button>
+        <button id="prev" className=' absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 left-[50px] max-sm:text-white max-sm:text-2xl max-sm:left-2' onClick={() => setActive(prev => (prev - 1 >= 0 ? prev - 1 : prev))}> {"<<"}</button>
       </div>
     </div>
   );
