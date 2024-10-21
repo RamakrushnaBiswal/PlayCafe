@@ -58,7 +58,7 @@ export default function HelpAndSupport() {
 
   return (
     <>
-      <section className="w-full pt-12 md:pt-24 lg:pt-32">
+      <section className="w-full pt-10 md:pt-20 lg:pt-28">
         <div className="container mx-auto space-y-10 xl:space-y-16">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-2">
@@ -78,7 +78,7 @@ export default function HelpAndSupport() {
 
       {/* FAQ section */}
 
-      <section>
+      <section className="pb-10">
         <h1 className="my-4 text-3xl font-bold tracking-tighter text-center">
           {' '}
           Frequenty Asked Questions
@@ -90,7 +90,7 @@ export default function HelpAndSupport() {
           >
             <div className="flex flex-col items-center space-y-2 w-full">
               <div
-                className="flex items-center justify-between w-full sm:text-lg md:text-xl  lg:text-2xl bg-gradient-to-r from-green-200 to-amber-200"
+                className="flex items-center justify-between w-full rounded-lg pr-4 sm:text-lg md:text-xl  lg:text-2xl bg-[#FDF3C7]"
                 onClick={() => {
                   handleFAQClick(index);
                 }}
@@ -103,39 +103,13 @@ export default function HelpAndSupport() {
                 />
               </div>
               <p
-                className={` mx-auto text-muted-foreground md:text-lg bg-gray-100 w-full p-2 ${activeFAQ == index ? `block` : `hidden`} `}
+                className={` mx-auto text-muted-foreground md:text-lg  w-full p-2 ${activeFAQ == index ? `block` : `hidden`} `}
               >
                 {faq.answer}
               </p>
             </div>
           </div>
         ))}
-      </section>
-
-      <section>
-        <div className="container mx-auto space-y-4 md:space-y-6 lg:space-y-8">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <h1 className="my-4 text-3xl font-bold tracking-tighter text-center">
-              Still having Issue?
-            </h1>
-            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-              Our support team is here to help. Contact us via email or phone,
-              and we'll get back to you as soon as possible.
-            </p>
-            <div className="flex flex-col space-x-4">
-              <div className="flex items-center justify-center gap-1">
-                <IoMdMail />
-                <a href="mailto:sipnplaynyc@gmail.com" className="">
-                  sipnplaynyc@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center justify-center gap-1">
-                <IoMdCall />
-                <p>718-971-1684</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
     </>
   );
