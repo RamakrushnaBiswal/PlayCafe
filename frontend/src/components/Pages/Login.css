@@ -1,0 +1,43 @@
+
+  /* Success message line animation */
+  .success-message::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background-color: lightgreen;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: width 2s ease-in-out;
+  }
+  
+  .success-message.ant-message-success {
+    position: relative;
+  }
+  
+  .success-message.ant-message-success::after {
+    width: 100%; /* This will animate to 100% width */
+  }
+  
+  /* Error message line animation */
+  .error-message::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background-color: red;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: width 2s ease-in-out;
+  }
+  
+  .error-message.ant-message-error {
+    position: relative;
+  }
+  
+  .error-message.ant-message-error::after {
+    width: 100%; /* This will animate to 100% width */
+  }
+  
