@@ -21,7 +21,7 @@ const Navbar = () => {
     { name: 'BOARDGAMES', path: '/boardgame' },
     { name: 'MEMBERSHIP', path: '/membership' }, // Add Membership here
   ];
-  
+
   useEffect(() => {
     setToken(Cookies.get('authToken'));
   });
@@ -112,7 +112,7 @@ const Navbar = () => {
             
           </div>
 
-          <div className="hidden md:flex font-semibold Poppins text-lg space-x-4">
+          <div className="hidden md:flex font-semibold Poppins text-lg space-x-4 ">
           <ThemeToggle />
             {token ? (
               <button
