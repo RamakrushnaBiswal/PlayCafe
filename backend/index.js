@@ -3,7 +3,8 @@ require("dotenv").config();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const logger = require("./config/logger");
-const errorMiddleware = require("./middlewares/errorMiddleware"); // Corrected typo
+const newsletterRoute = require('./routes/newsletterRoute');
+const errorMiddleware = require("./middlewares/errrorMiddleware"); // Corrected typo
 const passport = require("passport");
 const { handleGoogleOAuth } = require("./controller/googleOAuth.controller");
 const app = express();
@@ -18,6 +19,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
+app.use('/api', newsletterRoute);
 
 // MongoDB connection
 mongoose
