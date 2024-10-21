@@ -39,7 +39,7 @@ function Landing() {
         <div className="flex-col md:flex pt-20 z-1">
           {/* Text Content */}
           <div className="p-4 md:w-1/2 mb-6 md:mb-0 text-center md:text-left z-10 pt-14">
-            <h1 className="text-6xl md:text-9xl font-bold ml-4" ref={textRef}>
+            <h1 className="text-5xl md:text-9xl font-bold ml-4" ref={textRef}>
               A unique café experience awaits you
             </h1>
           </div>

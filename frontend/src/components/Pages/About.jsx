@@ -1,7 +1,6 @@
-
-import bgpic from "../../assets/img/abt1.jpg";
+'use client';
+import bgpic from '../../assets/img/abt1.jpg';
 import React, { useEffect } from 'react';
-
 
 export default function About() {
   useEffect(() => {
