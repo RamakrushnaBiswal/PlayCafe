@@ -295,7 +295,7 @@ function Boardgame() {
 
   return (
     <>
-      <div className="w-full mt-10 md:mt-0">
+      <div className="w-full mt-10 md:mt-0 dark:bg-black dark:text-white">
         <section className="w-full pt-12 md:pt-24 lg:pt-32">
           <div className="container mx-auto space-y-10 xl:space-y-16">
             <div className="flex flex-col items-center space-y-4 text-center">
@@ -368,9 +368,9 @@ function Boardgame() {
             {boards.map((board, index) => (
               <div
                 key={index}
-                className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 card border border-white bg-white"
+                className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 card border border-white bg-amber-100 dark:bg-amber-800"
               >
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden dark:bg-amber-800">
                   <img
                     src={board.src}
                     alt={board.title}
@@ -380,7 +380,7 @@ function Boardgame() {
                     className="object-cover w-full h-48 transition-all duration-300 ease-in-out group-hover:h-32"
                     style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
                   />
-                  <div className="p-4 bg-background transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:translate-y-4">
+                  <div className="p-4 bg-background transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:translate-y-4 dark:bg-amber-800">
                     <h3 className="text-xl font-bold">{board.title}</h3>
                     <p className="text-sm text-muted-foreground">
                       {board.description}
@@ -405,7 +405,7 @@ function Boardgame() {
             ))}
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-black">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-4">
               Subscribe to our Newsletter
@@ -420,7 +420,7 @@ function Boardgame() {
             >
               <input
                 type="email"
-                className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2 rounded-lg dark:text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)} // Update email state on input change
@@ -440,7 +440,7 @@ function Boardgame() {
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div
               id="modal-instructions"
-              className="bg-white p-8 rounded-lg max-w-md mx-auto shadow-lg relative overflow-y-auto max-h-[90vh]"
+              className="bg-amber-100 dark:bg-amber-600 p-8 rounded-lg max-w-md mx-auto shadow-lg relative overflow-y-auto max-h-[90vh]"
             >
               <h2 className="text-2xl font-bold mb-4">
                 {selectedBoard.title} Instructions
@@ -452,7 +452,7 @@ function Boardgame() {
               </ul>
               <button
                 onClick={handleCloseInstructions}
-                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
               >
                 Close
               </button>

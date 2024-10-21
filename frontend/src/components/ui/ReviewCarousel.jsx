@@ -91,10 +91,16 @@ const ReviewCarousel = () => {
   };
 
   return (
-    <div>
+    <div className="mb-20 dark:bg-black dark:text-white">
+      <div className="flex items-center justify-center p-20 mb-10">
+        <h1 className="md:text-6xl text-4xl pl-3 pr-3 text-center font-bold text-[#004D43] dark:text-white">
+          Customer Feedback
+        </h1>
+      </div>
 
 
-      <div className="slider" style={{ position: 'relative', marginTop: '100px', width: '100%', height: '550px', overflow: 'hidden' }}>
+
+      <div className="slider dark:bg-black dark:text-white" style={{ position: 'relative', marginTop: '100px', width: '100%', height: '550px', overflow: 'hidden' }}>
         {items.map((item, index) => (
           <div className="item max-sm:!w-[300px] max-sm:!h-[430px]" key={index} style={{
             position: 'absolute',

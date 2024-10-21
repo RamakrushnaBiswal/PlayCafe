@@ -53,7 +53,7 @@ const Preloader = () => {
               animate={{ width: `${percentage}%` }}
               exit={{ width: 0 }}
               transition={{ duration: 0.1, ease: 'easeInOut' }}
-              className="absolute bottom-10 left-0 h-1 bg-white rounded-full"
+              className="absolute bottom-10 left-0 h-1 bg-amber-100 rounded-full"
             />
           </motion.div>
         )}

@@ -84,7 +84,7 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div className="bg-amber-100 h-full py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-amber-100 dark:bg-black h-full py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
@@ -94,10 +94,10 @@ const FeedbackForm = () => {
           className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center"
         >
           <div className="mb-8 lg:mb-0 relative">
-            <h2 className="text-5xl font-black text-[#004D43]">
+            <h2 className="text-5xl font-black text-[#004D43] dark:text-green-500">
               We value Your Feedback!
             </h2>
-            <p className="mt-1 text-lg text-gray-700 pb-3">
+            <p className="mt-1 text-lg text-gray-700 pb-3 dark:text-white">
               Your thoughts help us improve. Share your experience and suggestions with us!
             </p>
             <div className="flex md:h-[40vh] md:w-[60vh] items-center justify-center mt-12">
@@ -105,12 +105,12 @@ const FeedbackForm = () => {
                 src={chess}
                 alt="Chess"
                 loading="lazy"
-                className="md:p-10 p-5 object-contain bg-[#004D43] rounded-full shadow-2xl"
+                className="md:p-10 p-5 object-contain bg-[#004D43] dark:bg-green-500 rounded-full shadow-2xl"
               />
             </div>
           </div>
 
-          <div className="bg-[#004D43] rounded-xl p-3 pt-4 h-fit">
+          <div className="bg-[#004D43] dark:bg-green-500 rounded-xl p-3 pt-4 h-fit">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <input
@@ -120,7 +120,7 @@ const FeedbackForm = () => {
                   placeholder="Name"
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
+                  className="mt-1 block w-full border border-gray-300 dark:bg-black rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
                 />
               </div>
               <div>
@@ -131,7 +131,7 @@ const FeedbackForm = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
+                  className="mt-1 block w-full border border-gray-300 dark:bg-black rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
                 />
               </div>
               <div>
@@ -142,7 +142,7 @@ const FeedbackForm = () => {
                   value={feedback}
                   onChange={(e) => setFeedback(e.target.value)}
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43] resize-none"
+                  className="mt-1 block w-full border dark:bg-black border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43] resize-none"
                 ></textarea>
               </div>
               <div className="flex flex-row justify-center gap-2">
@@ -176,7 +176,7 @@ const FeedbackForm = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#09342e] hover:bg-[#072d28] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004D43]"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md dark:bg-green-700 shadow-sm text-sm font-medium text-white bg-[#09342e] hover:bg-[#072d28] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004D43]"
                   disabled={isLoading} // Disable the button while loading
                 >
                   {isLoading ? 'Submitting...' : 'Submit Feedback'}
