@@ -38,8 +38,9 @@ const Section2 = () => {
         </div>
       )}
       <div
-        className={`flex ${isWide ? 'justify-between items-end' : 'flex-col items-center'
-          } text-white`}
+        className={`flex ${
+          isWide ? 'justify-between items-end' : 'flex-col items-center'
+        } text-white`}
       >
         <h1
           className={`${isWide ? 'text-[9vw]' : 'text-[12vw]'} leading-[0.8]`}
@@ -78,6 +79,10 @@ const Nav = () => {
     {
       name: 'About',
       link: '/about',
+    },
+    {
+      name: 'Help and Support',
+      link: '/help',
     },
   ];
   const socialLink = [
