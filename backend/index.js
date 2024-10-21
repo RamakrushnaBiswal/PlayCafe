@@ -3,9 +3,10 @@ require("dotenv").config();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const logger = require("./config/logger");
-const errorMiddleware = require("./middlewares/errorMiddleware"); // Corrected typo
+ // Corrected typo
 const passport = require("passport");
 const { handleGoogleOAuth } = require("./controller/googleOAuth.controller");
+const errorMiddleware = require("./middlewares/errrorMiddleware");
 const app = express();
 const port = process.env.PORT || 3000;
 
