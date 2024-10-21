@@ -88,7 +88,7 @@ export default function HelpAndSupport() {
             key={index}
             className="container mx-auto space-y-4 md:space-y-6 lg:space-y-8 mb-3"
           >
-            <div className="flex flex-col items-center space-y-2 w-full">
+            <div className="flex flex-col items-center space-y-2 w-3/4 m-auto">
               <div
                 className="flex items-center justify-between w-full rounded-lg pr-4 sm:text-lg md:text-xl  lg:text-2xl bg-[#FDF3C7]"
                 onClick={() => {
