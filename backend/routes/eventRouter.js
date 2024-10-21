@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
       endpoints: {
         CreateEvent: "/event/create",
         GetEvents: "/event/all",
-        bookEvents : "/event/book-event",
+        bookEvents : "/event/book-events",
         GetBookedEvents : "/event/get-booked-events/:customerId",    
       },
       documentation: "https://api-docs-url.com",

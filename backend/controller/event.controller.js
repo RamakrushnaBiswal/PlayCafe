@@ -92,7 +92,7 @@ const bookEvent = async (req, res) => {
 
     res.status(200).json({ message: "Event booked successfully!" });
   } catch (error) {
-    console.error(error);
+     logger.error("Error booking event:", error);
     res.status(500).json({ message: "Server error" });
   }
 };
@@ -111,7 +111,7 @@ const getBookedEvents = async (req, res) => {
 
     res.status(200).json({ bookedEvents: customer.bookedEvents });
   } catch (error) {
-    console.error(error);
+     logger.error("Error fetching event:", error);
     res.status(500).json({ message: "Server error" });
   }
 };

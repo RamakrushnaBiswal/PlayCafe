@@ -458,13 +458,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/Nikhil0-3">
-                    <img src="https://avatars.githubusercontent.com/u/149102391?v=4" width="100;" alt="Nikhil0-3"/>
-                    <br />
-                    <sub><b>Nikhil More</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/MutiatBash">
                     <img src="https://avatars.githubusercontent.com/u/108807732?v=4" width="100;" alt="MutiatBash"/>
                     <br />
@@ -499,8 +492,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>CHIKATLA RAKESH</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/AliGates915">
                     <img src="https://avatars.githubusercontent.com/u/128673394?v=4" width="100;" alt="AliGates915"/>
