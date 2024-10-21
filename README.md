@@ -414,68 +414,17 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/AliGates915">
-                    <img src="https://avatars.githubusercontent.com/u/128673394?v=4" width="100;" alt="AliGates915"/>
+                <a href="https://github.com/smog-root">
+                    <img src="https://avatars.githubusercontent.com/u/181578777?v=4" width="100;" alt="smog-root"/>
                     <br />
-                    <sub><b>Ali Gates</b></sub>
+                    <sub><b>smog-root</b></sub>
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/chikatlarakesh">
-                    <img src="https://avatars.githubusercontent.com/u/178009894?v=4" width="100;" alt="chikatlarakesh"/>
+                <a href="https://github.com/vaibhav-yerkar">
+                    <img src="https://avatars.githubusercontent.com/u/124194806?v=4" width="100;" alt="vaibhav-yerkar"/>
                     <br />
-                    <sub><b>CHIKATLA RAKESH</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/mishradev1">
-                    <img src="https://avatars.githubusercontent.com/u/118660840?v=4" width="100;" alt="mishradev1"/>
-                    <br />
-                    <sub><b>Dev Mishra</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/jaidh01">
-                    <img src="https://avatars.githubusercontent.com/u/117927011?v=4" width="100;" alt="jaidh01"/>
-                    <br />
-                    <sub><b>Jai Dhingra</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Mohitranag18">
-                    <img src="https://avatars.githubusercontent.com/u/152625405?v=4" width="100;" alt="Mohitranag18"/>
-                    <br />
-                    <sub><b>Mohit Rana </b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/MutiatBash">
-                    <img src="https://avatars.githubusercontent.com/u/108807732?v=4" width="100;" alt="MutiatBash"/>
-                    <br />
-                    <sub><b>Bashua Mutiat</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td align="center">
-                <a href="https://github.com/Sapna127">
-                    <img src="https://avatars.githubusercontent.com/u/91309280?v=4" width="100;" alt="Sapna127"/>
-                    <br />
-                    <sub><b>Sapna Kul</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/stutxi">
-                    <img src="https://avatars.githubusercontent.com/u/95741837?v=4" width="100;" alt="stutxi"/>
-                    <br />
-                    <sub><b>Stuti </b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Syed-Farazuddin">
-                    <img src="https://avatars.githubusercontent.com/u/119295880?v=4" width="100;" alt="Syed-Farazuddin"/>
-                    <br />
-                    <sub><b>Syed Faraz</b></sub>
+                    <sub><b>Vaibhav._Y</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -486,10 +435,68 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/vaibhav-yerkar">
-                    <img src="https://avatars.githubusercontent.com/u/124194806?v=4" width="100;" alt="vaibhav-yerkar"/>
+                <a href="https://github.com/Syed-Farazuddin">
+                    <img src="https://avatars.githubusercontent.com/u/119295880?v=4" width="100;" alt="Syed-Farazuddin"/>
                     <br />
-                    <sub><b>Vaibhav._Y</b></sub>
+                    <sub><b>Syed Faraz</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/stutxi">
+                    <img src="https://avatars.githubusercontent.com/u/95741837?v=4" width="100;" alt="stutxi"/>
+                    <br />
+                    <sub><b>Stuti </b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Sapna127">
+                    <img src="https://avatars.githubusercontent.com/u/91309280?v=4" width="100;" alt="Sapna127"/>
+                    <br />
+                    <sub><b>Sapna Kul</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/MutiatBash">
+                    <img src="https://avatars.githubusercontent.com/u/108807732?v=4" width="100;" alt="MutiatBash"/>
+                    <br />
+                    <sub><b>Bashua Mutiat</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Mohitranag18">
+                    <img src="https://avatars.githubusercontent.com/u/152625405?v=4" width="100;" alt="Mohitranag18"/>
+                    <br />
+                    <sub><b>Mohit Rana </b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/jaidh01">
+                    <img src="https://avatars.githubusercontent.com/u/117927011?v=4" width="100;" alt="jaidh01"/>
+                    <br />
+                    <sub><b>Jai Dhingra</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/mishradev1">
+                    <img src="https://avatars.githubusercontent.com/u/118660840?v=4" width="100;" alt="mishradev1"/>
+                    <br />
+                    <sub><b>Dev Mishra</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/chikatlarakesh">
+                    <img src="https://avatars.githubusercontent.com/u/178009894?v=4" width="100;" alt="chikatlarakesh"/>
+                    <br />
+                    <sub><b>CHIKATLA RAKESH</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/AliGates915">
+                    <img src="https://avatars.githubusercontent.com/u/128673394?v=4" width="100;" alt="AliGates915"/>
+                    <br />
+                    <sub><b>Ali Gates</b></sub>
                 </a>
             </td>
 		</tr>
