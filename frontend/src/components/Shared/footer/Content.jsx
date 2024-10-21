@@ -9,10 +9,57 @@ export default function Content() {
     <div className="bg-black pt-16 py-8 px-12 h-full w-full flex flex-col justify-between md:pt-24`">
       <Nav />
       <Section2 />
+      <NewsletterForm />
     </div>
   );
 }
 
+const NewsletterForm = () => {
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/newsletterRouter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setMessage('Thank you for subscribing!');
+        setEmail('');
+      } else {
+        setMessage('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setMessage('An error occurred. Please try again.');
+    }
+  };
+
+  return (
+    <div className="absolute top-4 right-4 bg-gray-800 p-4 rounded-lg shadow-lg">
+      <h3 className="text-white text-lg mb-2">Subscribe to our Newsletter</h3>
+      <form onSubmit={handleSubmit} className="flex">
+        <input
+          type="email"
+          className="p-2 rounded-l-md"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <button type="submit" className="p-2 bg-green-500 text-white rounded-r-md">
+          Subscribe
+        </button>
+      </form>
+      {message && <p className="mt-2 text-sm text-green-500">{message}</p>}
+    </div>
+  );
+};
 const Section2 = () => {
   const [isWide, setIsWide] = useState(null);
 
