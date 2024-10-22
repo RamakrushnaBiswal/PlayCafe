@@ -43,14 +43,14 @@ const NewsletterForm = () => {
   return (
     <div className="absolute top-12 right-60 p-2 rounded-md shadow-lg ">
       <h3 className="text-white text-lg mb-2">Subscribe to our Newsletter</h3>
-      <form onSubmit={handleSubmit} className="flex">
+      <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-2 md:gap-4">
       <div className="flex items-center border rounded-md bg-white">
           <span className="p-2 text-gray-600">
             📧
           </span>
         <input
           type="email"
-          className="p-2 rounded-r-none border-l border-gray-300"
+          className="p-2 rounded-r-none border-l border-gray-300 focus:outline-none"
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
