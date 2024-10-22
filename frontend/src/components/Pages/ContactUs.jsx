@@ -49,6 +49,10 @@ const ContactUs = () => {
         body: JSON.stringify({ mail, subject, message }),
       });
 
+      if (!response.ok) {
++        throw new Error('Network response was not ok');
++     }
+
       setSubmitted(true);
       setTimeout(() => {
         setMail('');
