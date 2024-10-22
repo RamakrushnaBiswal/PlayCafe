@@ -96,7 +96,7 @@ const ContactUs = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <input
-                  type="mail"
+                  type="email"
                   id="mail"
                   value={mail}
                   placeholder="Email ID"
