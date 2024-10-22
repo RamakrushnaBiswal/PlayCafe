@@ -32,7 +32,7 @@ const ContactUs = () => {
 
     // Basic client-side validation for security
     if (!mail || !subject || !message) {
-      setError('All fields are required, including the rating.');
+      setError('All fields are required.');
       return;
     }
 
