@@ -39,7 +39,9 @@ const createContactUs = async (req, res) => {
     });
 
     const mailOptions = {
-      from: mail, 
+      // from: mail, 
+      from: process.env.EMAIL_USER,
++     replyTo: mail,
       to: process.env.EMAIL_USER, 
       subject: subject,
       text: message, 
