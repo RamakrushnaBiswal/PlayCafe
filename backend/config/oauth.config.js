@@ -3,7 +3,7 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const passport = require("passport");
 const Customer = require("../models/customer.model"); // Adjust the path as needed
 const config = require("./secret"); // Import your secrets (client ID, client secret)
-// console.log("config", config);
+console.log("config", config);
 passport.use(
   new GoogleStrategy(
     {
