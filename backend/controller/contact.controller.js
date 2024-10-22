@@ -2,16 +2,12 @@ const { z } = require("zod");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-// data require form .env file : EMAIL_USER, EMAIL_PASS
-
 // Define the Zod schema for contact form validation
 const contactSchema = z.object({
   mail: z.string().email(),
   subject: z.string().min(5, "Subject must be at least 5 characters long."),
   message: z.string().min(5, "Message must be at least 5 characters long."),
 });
-
-const info = { messageId: "23DCS141" };
 
 const createContactUs = async (req, res) => {
   const validation = contactSchema.safeParse(req.body);
