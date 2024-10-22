@@ -1,4 +1,5 @@
 const logger = require("../config/logger");
+const Customer = require("../models/customer.model");
 const Event = require("../models/events.model");
 
 // Create a new event
@@ -67,4 +68,56 @@ const getEvents = async (req, res) => {
   }
 };
 
-module.exports = { createEvent, getEvents, deleteEvent };
+
+const bookEvent = async (req, res) => {
+  try {
+    const { customerId, eventId } = req.body;
+
+    const customer = await Customer.findById(customerId);
+    const event = await Event.findById(eventId);
+
+    if (!customer || !event) {
+      return res.status(404).json({ message: "Customer or Event not found" });
+    }
+
+    if (customer.bookedEvents.includes(eventId)) {
+      return res.status(400).json({ message: "Event already booked" });
+    }
+
+    customer.bookedEvents.push(eventId);
+    await customer.save();
+
+    event.bookedCustomers.push(customerId);
+    await event.save();
+
+    res.status(200).json({ message: "Event booked successfully!" });
+  } catch (error) {
+     logger.error("Error booking event:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// Get all booked events for a customer
+const getBookedEvents = async (req, res) => {
+  try {
+    const { customerId } = req.params;
+
+
+    const customer = await Customer.findById(customerId).populate("bookedEvents");
+
+    if (!customer) {
+      return res.status(404).json({ message: "Customer not found" });
+    }
+
+    res.status(200).json({ bookedEvents: customer.bookedEvents });
+  } catch (error) {
+     logger.error("Error fetching event:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+module.exports = {
+  getBookedEvents,
+};
+
+module.exports = { createEvent, getEvents, deleteEvent, bookEvent, getBookedEvents };
