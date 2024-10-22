@@ -310,6 +310,13 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Sumanbhadra">
+                    <img src="https://avatars.githubusercontent.com/u/93245252?v=4" width="100;" alt="Sumanbhadra"/>
+                    <br />
+                    <sub><b>Suman Bhadra</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/sajalbatra">
                     <img src="https://avatars.githubusercontent.com/u/125984550?v=4" width="100;" alt="sajalbatra"/>
                     <br />
