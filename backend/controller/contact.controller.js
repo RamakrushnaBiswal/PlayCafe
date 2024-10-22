@@ -13,7 +13,7 @@ const createContactUs = async (req, res) => {
   const validation = contactSchema.safeParse(req.body);
 
   if (!validation.success) {
-    console.log("Error at validation");
+    console.error("Error at validation");
     return res.status(400).json({
       status: "error",
       errors: "contactSchema is not validate",
@@ -47,7 +47,7 @@ const createContactUs = async (req, res) => {
     // Send mail with defined transport object
     transporter.sendMail(mailOptions, (error, mailOptions) => {
       if (error) {
-        return console.log("Error occurred: " + error.message);
+        return console.error("Error occurred: " + error.message);
       }
 
     });
@@ -57,7 +57,7 @@ const createContactUs = async (req, res) => {
       message: "Your contact request has been successfully received.",
     });
   } catch (err) {
-    console.log(`Error at transport: ${err}`);
+    console.error(`Error at transport: ${err}`);
     res.status(500).json({
       status: "error",
       message:
