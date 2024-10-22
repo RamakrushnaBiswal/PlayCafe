@@ -5,7 +5,6 @@ import { message } from 'antd'; // Ant Design message component
 import Cookies from 'js-cookie';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa6';
-import "./Login.css";
 const Login = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const [data, setData] = useState({
