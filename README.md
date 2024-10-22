@@ -455,11 +455,13 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Stuti </b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
-                <a href="https://github.com/Mohitranag18">
-                    <img src="https://avatars.githubusercontent.com/u/152625405?v=4" width="100;" alt="Mohitranag18"/>
+                <a href="https://github.com/Sapna127">
+                    <img src="https://avatars.githubusercontent.com/u/91309280?v=4" width="100;" alt="Sapna127"/>
                     <br />
-                    <sub><b>Mohit Rana </b></sub>
+                    <sub><b>Sapna Kul</b></sub>
                 </a>
             </td>
             <td align="center">
