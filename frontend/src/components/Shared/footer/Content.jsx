@@ -39,21 +39,18 @@ const Section2 = () => {
         </div>
       )}
       <div
-        className={`flex ${
-          isWide ? 'justify-between items-end' : 'flex-col items-center'
+        className={`flex col ${
+          isWide ? 'justify-evenly items-end' : 'flex-col items-center'
         } text-white`}
       >
-        <h1
-          className={`${isWide ? 'text-[9vw]' : 'text-[12vw]'} leading-[0.8]`}
-        >
-          BoardGame {!isWide && <br />}
-        </h1>
-        <h1
-          className={`${isWide ? 'text-[9vw]' : 'text-[12vw]'} leading-[0.8]`}
-        >
-          Cafe
-        </h1>
-        <p className={isWide ? '' : 'mt-8'}>©2024 by Sip & Play</p>
+        <div>
+          <h1
+            className={`${isWide ? 'text-[7.5vw]' : 'text-[12vw]'} leading-[0.8]`}
+          >
+            BoardGame Cafe{!isWide && <br />}
+          </h1>
+          <p className={`flex ${isWide ? `text-xl justify-center mt-3` : `text-base mt-1`}`}>©2024 by Sip & Play</p>
+        </div>
       </div>
     </>
   );
