@@ -150,6 +150,10 @@ If you encounter issues while setting up or using the PlayCafe website, here are
 - **Use Logging Libraries:** Incorporate logging libraries like `winston` or `morgan` for better server-side error tracking.
 - **Check Permissions:** If you're running the server on a remote machine, ensure that you have the necessary permissions (e.g., read/write access to necessary directories).
 - **API Testing:** Use tools like Postman or Insomnia to test API endpoints individually if issues arise in data fetching.
+- **Browser DevTools:** Use Chrome DevTools (F12) or Firefox Developer Tools (F12) for debugging.
+- **React DevTools:** Install React Developer Tools browser extension for component debugging.
+- **Network Tab:** Monitor API calls and responses in the Network tab.
+- **Console Patterns:** Use `console.table()` for debugging arrays and objects.
 
 ### Resources
 - [Node.js Documentation](https://nodejs.org/en/docs/)
@@ -158,6 +162,10 @@ If you encounter issues while setting up or using the PlayCafe website, here are
 - [How to Debug JavaScript Errors](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong)
 - [Troubleshooting Common CORS Issues](https://www.codecademy.com/articles/what-is-cors)
 - [Webpack Documentation](https://webpack.js.org/concepts/)
+- [React DevTools Guide](https://react.dev/learn/react-developer-tools)
+- [React Error Boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
+- [React Performance Optimization](https://react.dev/learn/render-and-commit)
+
 
 ## 🤝 Contributing
 We love contributions! 💙 Whether you're a participant in **GSSoC** or an open-source enthusiast, we welcome your input. Here's how you can contribute:
