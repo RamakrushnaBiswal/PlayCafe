@@ -121,6 +121,43 @@ The PlayCafe website communicates with a backend API to manage data. Here’s a 
 | GET         | `/api/bookings/:id`   | Retrieves details of a specific booking by ID.         |
 | DELETE      | `/api/bookings/:id`   | Cancels a specific booking by ID.                       |
 
+## Troubleshooting
+
+If you encounter issues while setting up or using the PlayCafe website, here are some common problems and solutions:
+
+### 1. Issue: Unable to install dependencies
+**Solution:** Make sure that you have Node.js installed. Run `npm install` again after confirming the Node.js installation.
+
+### 2. Issue: Website not starting
+**Solution:** Run `npm start` and ensure that the correct port is open. If the error persists, check for any error logs in the terminal and ensure no other applications are using the same port.
+
+### 3. Issue: Database connection error
+**Solution:** Verify that your database is running, and the connection details (host, username, password) are correct in the `.env` file.
+
+### 4. Issue: CSS/JavaScript not loading properly
+**Solution:** Check if all static assets are being served correctly. Ensure that the paths to your CSS and JS files are correct and that they are being compiled if you're using a build tool like Webpack or Gulp.
+
+### 5. Issue: CORS (Cross-Origin Resource Sharing) error
+**Solution:** Ensure the backend server has appropriate CORS policies configured to allow the frontend to communicate with it. If you're working with APIs, make sure that the necessary headers are included in server responses.
+
+### 6. Issue: Environment variables not working
+**Solution:** Double-check the `.env` file configuration. Ensure that all required variables are defined and that the file is correctly loaded by your server or build system.
+
+### Debugging Tips
+- Use `console.log` statements to track the flow of the code.
+- Check browser developer tools for any front-end errors.
+- Look into server logs for detailed error messages.
+- **Use Logging Libraries:** Incorporate logging libraries like `winston` or `morgan` for better server-side error tracking.
+- **Check Permissions:** If you're running the server on a remote machine, ensure that you have the necessary permissions (e.g., read/write access to necessary directories).
+- **API Testing:** Use tools like Postman or Insomnia to test API endpoints individually if issues arise in data fetching.
+
+### Resources
+- [Node.js Documentation](https://nodejs.org/en/docs/)
+- [Express.js Guide](https://expressjs.com/en/starter/installing.html)
+- [Common npm errors](https://docs.npmjs.com/common-errors)
+- [How to Debug JavaScript Errors](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong)
+- [Troubleshooting Common CORS Issues](https://www.codecademy.com/articles/what-is-cors)
+- [Webpack Documentation](https://webpack.js.org/concepts/)
 
 ## 🤝 Contributing
 We love contributions! 💙 Whether you're a participant in **GSSoC** or an open-source enthusiast, we welcome your input. Here's how you can contribute:
