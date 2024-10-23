@@ -117,7 +117,7 @@ function Event() {
 
   return (
     <>
-      <div id="event" className="w-full h-fit bg-amber-100 md:overflow-hidden ">
+      <div id="event" className="w-full h-fit bg-amber-100 dark:bg-black dark:text-white md:overflow-hidden ">
         <section className="w-full h-full py-12 md:py-24 lg:py-32 bg-muted flex justify-center md:overflow-hidden ">
           <div className="container relative items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-4">
@@ -130,7 +130,7 @@ function Event() {
               <h1 className="text-6xl md:text-9xl font-bold ml-4" ref={textRef}>
                 Upcoming Events and much more....
               </h1>
-              <div className="flex w-full h-80 rounded-full items-center px-40  bg-yellow-100 justify-between shadow-md">
+              <div className="flex w-full h-80 rounded-full items-center px-40  bg-yellow-100 dark:bg-black justify-between shadow-md">
                 <img
                   src={game}
                   alt="game"
@@ -147,10 +147,10 @@ function Event() {
             </div>
           </div>
         </section>
-        <div className="min-h-screen bg-amber-100 p-4">
+        <div className="min-h-screen bg-amber-100 dark:bg-black p-4">
           <div className="container mx-auto flex flex-col flex-col-reverse lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
             {/* Calendar */}
-            <div className="bg-white shadow-md rounded-lg p-6 w-full lg:w-1/3">
+            <div className="bg-white dark:bg-amber-800 shadow-md rounded-lg p-6 w-full lg:w-1/3">
               <h2 className="text-xl font-bold mb-4">Event Calendar</h2>
               <div className="text-center mb-4">
                 <span className="text-2xl font-semibold">
@@ -175,7 +175,7 @@ function Event() {
                     className={`p-2 border rounded-md ${
                       day === currentDate
                         ? 'bg-blue-500 text-white'
-                        : 'bg-gray-100'
+                        : 'bg-gray-100 dark:bg-black'
                     }`}
                   >
                     {day}
@@ -183,18 +183,18 @@ function Event() {
                 ))}
               </div>
               <div className="text-center mt-4">
-                <button className="bg-[#FEF3C7] text-gray-700 px-4 py-2 rounded-md mt-4">
+                <button className="bg-[#FEF3C7] dark:bg-black text-gray-700 dark:text-white px-4 py-2 rounded-md mt-4">
                   Register for Event
                 </button>
               </div>
               <div className="text-center mt-4">
-                <button className="bg-white border border-green-500 px-4 py-2 rounded-md mt-2 text-green-500 hover:bg-green-500 hover:text-white">
+                <button className="bg-amber-100 dark:bg-yellow border border-green-500 px-4 py-2 rounded-md mt-2 text-green-500 dark:text-black hover:bg-green-500 hover:text-white">
                   Learn More
                 </button>
               </div>
             </div>
             {/* Pictures */}
-            <div className="bg-white shadow-md rounded-lg p-6 w-full lg:w-2/3">
+            <div className="bg-white dark:bg-amber-800 shadow-md rounded-lg p-6 w-full lg:w-2/3">
               <h2 className="text-xl font-bold mb-4">Event Pictures</h2>
               <div className="splide w-full h-full">
                 <div className="splide__track w-full ">
