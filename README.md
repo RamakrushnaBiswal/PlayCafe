@@ -311,10 +311,10 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/VinayLodhi1712">
-                    <img src="https://avatars.githubusercontent.com/u/135756009?v=4" width="100;" alt="VinayLodhi1712"/>
+                <a href="https://github.com/NilanchalaPanda">
+                    <img src="https://avatars.githubusercontent.com/u/110488337?v=4" width="100;" alt="NilanchalaPanda"/>
                     <br />
-                    <sub><b>Vinay Anand Lodhi</b></sub>
+                    <sub><b>Nilanchal</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -327,24 +327,10 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/NilanchalaPanda">
-                    <img src="https://avatars.githubusercontent.com/u/110488337?v=4" width="100;" alt="NilanchalaPanda"/>
+                <a href="https://github.com/VinayLodhi1712">
+                    <img src="https://avatars.githubusercontent.com/u/135756009?v=4" width="100;" alt="VinayLodhi1712"/>
                     <br />
-                    <sub><b>Nilanchal</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Suhas-Koheda">
-                    <img src="https://avatars.githubusercontent.com/u/72063139?v=4" width="100;" alt="Suhas-Koheda"/>
-                    <br />
-                    <sub><b>Suhas Koheda</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Sumanbhadra">
-                    <img src="https://avatars.githubusercontent.com/u/93245252?v=4" width="100;" alt="Sumanbhadra"/>
-                    <br />
-                    <sub><b>Suman Bhadra</b></sub>
+                    <sub><b>Vinay Anand Lodhi</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -355,26 +341,17 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/PavanTeja2005">
-                    <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
+                <a href="https://github.com/Sumanbhadra">
+                    <img src="https://avatars.githubusercontent.com/u/93245252?v=4" width="100;" alt="Sumanbhadra"/>
                     <br />
-                    <sub><b>PavanTeja2005</b></sub>
+                    <sub><b>Suman Bhadra</b></sub>
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/sajalbatra">
-                    <img src="https://avatars.githubusercontent.com/u/125984550?v=4" width="100;" alt="sajalbatra"/>
+                <a href="https://github.com/Suhas-Koheda">
+                    <img src="https://avatars.githubusercontent.com/u/72063139?v=4" width="100;" alt="Suhas-Koheda"/>
                     <br />
-                    <sub><b>Sajal Batra</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td align="center">
-                <a href="https://github.com/vishnuprasad2004">
-                    <img src="https://avatars.githubusercontent.com/u/116942066?v=4" width="100;" alt="vishnuprasad2004"/>
-                    <br />
-                    <sub><b>Vishnu Prasad Korada</b></sub>
+                    <sub><b>Suhas Koheda</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -382,6 +359,29 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <img src="https://avatars.githubusercontent.com/u/166749819?v=4" width="100;" alt="Jay-1409"/>
                     <br />
                     <sub><b>Jay shah</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/vishnuprasad2004">
+                    <img src="https://avatars.githubusercontent.com/u/116942066?v=4" width="100;" alt="vishnuprasad2004"/>
+                    <br />
+                    <sub><b>Vishnu Prasad Korada</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/sajalbatra">
+                    <img src="https://avatars.githubusercontent.com/u/125984550?v=4" width="100;" alt="sajalbatra"/>
+                    <br />
+                    <sub><b>Sajal Batra</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/PavanTeja2005">
+                    <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
+                    <br />
+                    <sub><b>PavanTeja2005</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -429,6 +429,13 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/vaishnavipal1869">
+                    <img src="https://avatars.githubusercontent.com/u/180996531?v=4" width="100;" alt="vaishnavipal1869"/>
+                    <br />
+                    <sub><b>vaishnavipal1869</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/tanishirai">
                     <img src="https://avatars.githubusercontent.com/u/178164785?v=4" width="100;" alt="tanishirai"/>
                     <br />
@@ -449,6 +456,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Sourabh Singh Rawat</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Shiva-Bajpai">
                     <img src="https://avatars.githubusercontent.com/u/141490705?v=4" width="100;" alt="Shiva-Bajpai"/>
@@ -456,8 +465,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Shiva Bajpai</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/devxMani">
                     <img src="https://avatars.githubusercontent.com/u/122438942?v=4" width="100;" alt="devxMani"/>
@@ -493,6 +500,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Vaibhav-Kumar-K-R</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Syed-Farazuddin">
                     <img src="https://avatars.githubusercontent.com/u/119295880?v=4" width="100;" alt="Syed-Farazuddin"/>
@@ -500,8 +509,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Syed Faraz</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/stutxi">
                     <img src="https://avatars.githubusercontent.com/u/95741837?v=4" width="100;" alt="stutxi"/>
@@ -537,6 +544,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Mohit Rana </b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/jaidh01">
                     <img src="https://avatars.githubusercontent.com/u/117927011?v=4" width="100;" alt="jaidh01"/>
@@ -544,8 +553,13 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Jai Dhingra</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
+            <td align="center">
+                <a href="https://github.com/harjasae2001">
+                    <img src="https://avatars.githubusercontent.com/u/83627055?v=4" width="100;" alt="harjasae2001"/>
+                    <br />
+                    <sub><b>Harjas Singh</b></sub>
+                </a>
+            </td>
             <td align="center">
                 <a href="https://github.com/mishradev1">
                     <img src="https://avatars.githubusercontent.com/u/118660840?v=4" width="100;" alt="mishradev1"/>
