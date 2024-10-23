@@ -215,6 +215,7 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
+
                 <a href="https://github.com/jainaryan04">
                     <img src="https://avatars.githubusercontent.com/u/138214350?v=4" width="100;" alt="jainaryan04"/>
                     <br />
@@ -228,13 +229,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Haseeb Zaki</b></sub>
                 </a>
             </td>
-            <td align="center">
-                <a href="https://github.com/alo7lika">
-                    <img src="https://avatars.githubusercontent.com/u/152315710?v=4" width="100;" alt="alo7lika"/>
-                    <br />
-                    <sub><b>alolika bhowmik</b></sub>
-                </a>
-            </td>
 		</tr>
 		<tr>
             <td align="center">
@@ -244,6 +238,15 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Ashwini_ab</b></sub>
                 </a>
             </td>
+            <td align="center">
+                <a href="https://github.com/alo7lika">
+                    <img src="https://avatars.githubusercontent.com/u/152315710?v=4" width="100;" alt="alo7lika"/>
+                    <br />
+                    <sub><b>alolika bhowmik</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/itznayan">
                     <img src="https://avatars.githubusercontent.com/u/136584376?v=4" width="100;" alt="itznayan"/>
@@ -288,11 +291,14 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Nilanchal</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
-                <a href="https://github.com/Suhas-Koheda">
-                    <img src="https://avatars.githubusercontent.com/u/72063139?v=4" width="100;" alt="Suhas-Koheda"/>
+
+                <a href="https://github.com/Sawan-Kushwah">
+                    <img src="https://avatars.githubusercontent.com/u/138680328?v=4" width="100;" alt="Sawan-Kushwah"/>
                     <br />
-                    <sub><b>Suhas Koheda</b></sub>
+                    <sub><b>Sawan kushwah </b></sub>
                 </a>
             </td>
             <td align="center">
@@ -303,12 +309,13 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Sawan-Kushwah">
-                    <img src="https://avatars.githubusercontent.com/u/138680328?v=4" width="100;" alt="Sawan-Kushwah"/>
+
+                <a href="https://github.com/Suhas-Koheda">
+                    <img src="https://avatars.githubusercontent.com/u/72063139?v=4" width="100;" alt="Suhas-Koheda"/>
                     <br />
-                    <sub><b>Sawan kushwah </b></sub>
+                    <sub><b>Suhas Koheda</b></sub>
                 </a>
-            </td>
+      </td>
             <td align="center">
                 <a href="https://github.com/PavanTeja2005">
                     <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
