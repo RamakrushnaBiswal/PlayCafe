@@ -253,7 +253,7 @@ function Event() {
               {events.map((event) => (
                 <div
                   key={event._id}
-                  className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-1 xl:grid-cols-2 md:px-6 lg:px-4 xl:px-0"
+                  className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-1 xl:grid-cols-2 md:px-6 lg:px-4 xl:px-0 "
                 >
                   <div className="w-full m-10 mx-auto lg:mx-0 md:mx-0">
                     <img
@@ -263,7 +263,7 @@ function Event() {
                       className="h-[400px] w-full"
                     />
                   </div>
-                  <div className="w-full lg:m-10 md:m-10">
+                  <div className="w-full lg:m-10 md:m-10 ">
                     <h1 className="text-4xl font-semibold">{event.title}</h1>
                     <h4 className="text-xl text-muted text-slate-700 italic mt-2 leading-8">
                       {event.description}
