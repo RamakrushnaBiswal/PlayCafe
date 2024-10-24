@@ -52,18 +52,18 @@ const ContactUs = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch(`${API_URL}/api/contact/contactus`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ mail, subject, message }),
-      });
-
-      if (!response.ok) {
-+        throw new Error(`Network response was not ok: ${response.status}`);
-+     }
-
+                 const response = await fetch(`${API_URL}/api/contact/contactus`, {
+             method: 'POST',
+             headers: {
+               'Content-Type': 'application/json',
+             },
+             body: JSON.stringify({ mail, subject, message }),
+           });
++          if (!response.ok) {
++            throw new Error('Network response was not ok');
++          }
+           setSubmitted(true);
+    }
       setSubmitted(true);
       setTimeout(() => {
         setMail('');
