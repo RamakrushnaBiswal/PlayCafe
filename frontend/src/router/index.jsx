@@ -21,7 +21,9 @@ import Admin from '../components/Pages/Admin';
 import VerifyOtp from '../components/Pages/VerifyOtp';
 import EmailVerify from '../components/Pages/EmailVerify';
 import Membership from '../components/Membership';
+
 import ContactUs from '../components/Pages/ContactUs';
+
 const router = createBrowserRouter(
   createRoutesFromElements(
       <Route path="/" element={<App />}>

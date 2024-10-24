@@ -1,9 +1,17 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { message } from 'antd'; // Import Ant Design message
 import photo from '../../assets/login.png';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa6';
 import zxcvbn from 'zxcvbn'; // Password strength checker
+
+
+// Configure message globally
+message.config({
+  top: 80, // Align with the login page
+  duration: 2, // Duration of the message visibility
+});
 
 const Signup = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
@@ -25,26 +33,43 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(null); // Reset error before submission
+
+    // Frontend validation
     if (!data.email || !data.password || !data.name) {
-      setError('Please fill in all fields');
+      message.error({
+        content: 'Please fill in all fields.',
+        style: { fontSize: '18px' },
+      });
       setIsLoading(false);
       return;
     }
     if (data.password.length < 8) {
-      setError('Password must be at least 8 characters long');
+      message.error({
+        content: 'Password must be at least 8 characters long.',
+        style: { fontSize: '18px' },
+      });
       setIsLoading(false);
       return;
     }
     if (data.name.length < 3) {
-      setError('Name must be at least 3 characters long');
+      message.error({
+        content: 'Name must be at least 3 characters long.',
+        style: { fontSize: '18px' },
+      });
       setIsLoading(false);
       return;
     }
     if (!data.email.includes('@')) {
-      setError('Please enter a valid email address');
+      message.error({
+        content: 'Please enter a valid email address.',
+        style: { fontSize: '18px' },
+      });
       setIsLoading(false);
       return;
     }
+
+    // Submit form data
     try {
       const response = await fetch(`${API_URL}/api/user/register`, {
         method: 'POST',
@@ -52,16 +77,33 @@ const Signup = () => {
         body: JSON.stringify(data),
       });
       const result = await response.json();
+
       if (!response.ok) {
         setIsLoading(false);
-        setError(result.error);
+        message.error({
+          content: result.error || 'An error occurred during registration.',
+          style: { fontSize: '18px' },
+        });
         return;
       }
-      alert('Registered successfully! Please log in.');
-      navigate('/');
+
+      // Successful registration message
+      message.success({
+        content: 'Registered successfully! Please log in.',
+        style: { fontSize: '18px' },
+      });
+
+      // Redirect to login page
+      navigate('/login');
     } catch (error) {
       setError(error.message);
       console.error('Error:', error);
+      message.error({
+        content: 'An error occurred while submitting the form.',
+        style: { fontSize: '18px' },
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -80,18 +122,18 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center pt-10 relative overflow-hidden">
+    <div className="w-screen h-screen flex items-center dark:text-white dark:bg-black justify-center pt-10 relative overflow-hidden">
       <img
         src={photo}
         alt="login"
         loading="lazy"
         className="w-3/4 absolute inset-0"
       />
-      <form className="z-10 p-8 sm:p-16 bg-[#f1e9dc] rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] flex flex-col gap-5 w-11/12 sm:w-auto px-[3vw] pt-[5vh]">
-        <div className="text-[#323232] font-black text-4xl sm:text-7xl mb-4 sm:mb-6 mt-4">
+      <form className="z-10 p-8 sm:p-16 bg-[#f1e9dc] dark:bg-amber-800 dark:text-white rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] flex flex-col gap-5 w-11/12 sm:w-auto px-[3vw] pt-[5vh]">
+        <div className="text-[#323232] dark:text-white font-black text-4xl sm:text-7xl mb-4 sm:mb-6 mt-4">
           Play Cafe,
           <br />
-          <span className="block text-[#666] font-semibold text-xl sm:text-2xl">
+          <span className="block text-[#666] dark:text-gray-400 font-semibold text-xl sm:text-2xl">
             Register to continue
           </span>
         </div>
@@ -135,31 +177,26 @@ const Signup = () => {
               width: `${(passwordStrength + 1) * 20}%`,
             }}
           ></div>
-          <p className="text-sm text-[#666] mt-1">
+          <p className="text-sm text-[#666] dark:text-gray-200   mt-1">
             Strength: {getPasswordStrengthText(passwordStrength)}
           </p>
         </div>
-        {error && (
-          <div className="w-full p-2 bg-red-100 text-red-700 border border-red-400 rounded-md">
-            {error}
-          </div>
-        )}
         <h3 className="flex justify-between w-full">
           Already have an account?
           <Link
             to="/login"
-            className="text-[#666] font-semibold hover:text-green-500"
+            className="text-[#666] dark:text-white font-semibold hover:text-green-500"
           >
             Login
           </Link>
         </h3>
         <a href={`${API_URL}/api/user/auth/google`} className="w-full">
-          <button className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black]">
+          <button className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black] hover:text-green-300">
             Sign up with Google
           </button>
         </a>
         <button
-          className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black] mb-2"
+          className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black] mb-2 hover:text-green-300"
           onClick={handleSubmit}
         >
           {isLoading ? 'Loading...' : "Let's go →"}
