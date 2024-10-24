@@ -109,17 +109,19 @@ const ContactUs = () => {
 
           <div className="bg-[#004D43] rounded-xl p-3 pt-4 mt-40 h-fit">
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <input
-                  type="email"
-                  id="mail"
-                  value={mail}
-                  placeholder="Email ID"
-                  onChange={(e) => setMail(e.target.value)}
-                  required
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
-                />
-              </div>
+               <div>
++  <label htmlFor="mail" className="sr-only">Email Address</label>
+   <input
+     type="email"
+     id="mail"
+     value={mail}
+     placeholder="Email ID"
++    aria-label="Email Address"
+     onChange={(e) => setMail(e.target.value)}
+     required
+     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
+   />
+ </div>
               <div>
                 <input
                   type="text"
