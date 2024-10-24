@@ -1,39 +1,25 @@
 const express = require("express");
-const logger = require("../config/logger"); // Import your Winston logger
+const logger = require("../config/logger"); // Import Winston logger
 require("dotenv").config();
-
-const config = {
-  JWT_SECRET: process.env.JWT_SECRET,
-  GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
-  GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
-};
 
 const router = express.Router();
 
-let feedbackRouter;
+// Utility function to safely load modules and handle errors
+const safeRequire = (modulePath, fallbackMessage) => {
+  try {
+    return require(modulePath);
+  } catch (error) {
+    logger.error(`Error loading ${modulePath}:`, error);
+    return (req, res) => {
+      res.status(500).json({ error: fallbackMessage });
+    };
+  }
+};
 
-try {
-  feedbackRouter = require("./feedbackRouter");
-} catch (error) {
-  logger.error("Error loading feedbackRouter:", error); // Log the error with Winston
-  feedbackRouter = (req, res) => {
-    res
-      .status(500)
-      .json({ error: "Feedback functionality is currently unavailable" });
-  };
-}
-
-let eventRouter;
-try {
-  eventRouter = require("./eventRouter");
-} catch (error) {
-  logger.error("Error loading eventRouter:", error); // Log the error with Winston
-  eventRouter = (req, res) => {
-    res
-      .status(500)
-      .json({ error: "Event functionality is currently unavailable" });
-  };
-}
+// Safely load routers with error handling
+const feedbackRouter = safeRequire("./feedbackRouter", "Feedback functionality is currently unavailable");
+const contactUsRouter = safeRequire("./contactUsRouter", "Contact Us functionality is currently unavailable");
+const eventRouter = safeRequire("./eventRouter", "Event functionality is currently unavailable");
 
 router.get("/", (req, res) => {
   return res.json({
@@ -41,17 +27,19 @@ router.get("/", (req, res) => {
     version: "1.0.0",
     endpoints: {
       Reservation: "/reservation",
-      Feedback: "/feedback", // Added feedback endpoint documentation
+      Feedback: "/feedback",
     },
     documentation: "https://api-docs-url.com",
   });
 });
 
 router.use("/event", eventRouter);
-router.use("/admin", require("./adminRouter"));
+router.use("/admin", safeRequire("./adminRouter", "Admin functionality is currently unavailable"));
 router.use("/feedback", feedbackRouter);
-router.use("/user", require("./customerRouter"));
-router.use("/reservation", require("./reservationRouter"));
-router.use("/newsletter", require("./newsletterRoute"));
-router.use("/forgot", require("./forgotRouter"));
+router.use("/user", safeRequire("./customerRouter", "User functionality is currently unavailable"));
+router.use("/reservation", safeRequire("./reservationRouter", "Reservation functionality is currently unavailable"));
+router.use("/newsletter", safeRequire("./newsletterRoute", "Newsletter functionality is currently unavailable"));
+router.use("/forgot", safeRequire("./forgotRouter", "Forgot password functionality is currently unavailable"));
+router.use("/contact", contactUsRouter);  
+
 module.exports = router;
