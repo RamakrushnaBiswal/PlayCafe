@@ -1,144 +1,151 @@
-/* eslint-disable prettier/prettier */
-import { useState, useEffect } from 'react';
-import pic from '../../assets/img/abt1.jpg';
-import pic2 from '../../assets/img/abt1.png';
-import pic3 from '../../assets/img/abt2.png';
-import pic4 from '../../assets/img/abt3.png';
-import pic5 from '../../assets/img/abt4.png';
-import MainHOC from '../MainHOC';
-import { message } from 'antd';
+import React from 'react';
 
-function Register() {
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
-  const [guests, setGuests] = useState('');
-  const [minDate, setMinDate] = useState('');
+const ReservationForm = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const guests = event.target.guests.value;
+    const date = event.target.date.value;
+    const time = event.target.time.value;
+
+    if (!guests || !date || !time) {
+      alert('Please fill out all fields');
+      return;
+    }
+
     console.log({ guests, date, time });
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/reservation/create`, {
+    fetch('https://your-backend-url/api/reservation/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ guests, date, time }),
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((response) => response.json())
+      .then((data) => {
+        alert('Reservation Successful');
+        console.log(data);
+      })
       .catch((error) => console.log(error));
   };
 
-  const handleDateValidation = () => {
-    if (date.length === 10 && date < minDate) {
-      // Reset to today's date if the selected date is invalid
-      setDate(minDate);
-      message.warning('You cannot select a date before today.');
-    }
-  };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    const today = new Date().toISOString().split('T')[0];
-    setMinDate(today);
-  }, []);
+  const today = new Date().toISOString().split('T')[0];
 
   return (
-    <div className="w-full mx-auto mt-10 lg:mt-0 md:mt-0 dark:bg-black dark:text-white">
-      <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col md:flex-row">
-        <div className="container px-4 md:px-6 text-center text-primary-foreground w-full md:w-2/5 md:mt-10">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-5xl lg:text-8xl text-gray-800 dark:text-white">
-            RESERVE YOUR SPOT AT THE BOARD GAME CAFE
-          </h1>
-          <button className="inline-flex items-center justify-center mt-4 bg-[#D9D9D9] hover:bg-[#C9C9C9] rounded-full p-4 dark:text-black">
-            Make a Reservation
-          </button>
-        </div>
-        <div className="w-full md:w-3/5 mt-6 md:mt-0 p-4 md:p-0">
-          <img
-            src={pic}
-            alt="Board Game Cafe"
-            loading="lazy"
-            className="w-full h-auto rounded-s-full"
-          />
-        </div>
+    <div className="container">
+      {/* Header Section */}
+      <section className="header-section">
+        <h1>Reserve Your Spot at the Board Game Cafe</h1>
+        <button>Make a Reservation</button>
       </section>
-      
-      <section className="w-full py-12 md:py-24 lg:py-32 px-6 md:px-6 border-2 border-gray-200">
-        <div className="w-full md:w-3/5 lg:w-2/5 mx-auto border-2 p-7 rounded-lg border-black bg-amber-100 dark:bg-amber-900">
-          <div className="space-y-6">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter">
-              Reserve Your Spot
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-              Fill out the form below to secure your reservation at our board game cafe.
-            </p>
-            <form className="grid gap-4" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    htmlFor="guests"
-                  >
-                    Number of Guests
-                  </label>
-                  <select
-                    id="guests"
-                    onChange={(e) => setGuests(e.target.value)}
-                    className="flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:text-black"
-                  >
-                    <option value="">Select number of guests</option>
-                    {Array.from({ length: 6 }, (_, i) => (
-                      <option key={i} value={i + 1}>{i + 1} Guest{ i === 0 ? '' : 's' }</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    htmlFor="date"
-                  >
-                    Date
-                  </label>
-                  <input
-                    type="date"
-                    id="date"
-                    min={minDate}
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                    onBlur={handleDateValidation}
-                    className="flex dark:text-black h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="text-sm font-medium" htmlFor="time">
-                  Time
-                </label>
-                <select
-                  id="time"
-                  onChange={(e) => setTime(e.target.value)}
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:ring-2 focus:ring-ring"
-                >
-                  <option value="">Select time</option>
-                  {['6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM'].map((timeOption) => (
-                    <option key={timeOption} value={timeOption}>{timeOption}</option>
-                  ))}
-                </select>
-              </div>
-              <button
-                className="inline-flex items-center justify-center p-4 bg-[#D9D9D9] hover:bg-[#C9C9C9]"
-                type="submit"
-              >
-                Reserve Now
-              </button>
-            </form>
+
+      {/* Image Section */}
+      <section className="image-section">
+        <img src="path-to-your-image.jpg" alt="Board Game Cafe" />
+      </section>
+
+      {/* Reservation Form */}
+      <section className="form-container">
+        <h2>Reserve Your Spot</h2>
+        <p>Fill out the form below to secure your reservation at our board game cafe.</p>
+
+        <form id="reservationForm" onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="guests">Number of Guests</label>
+            <select id="guests" name="guests">
+              <option value="">Select number of guests</option>
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+              <option value="6">6 Guests</option>
+            </select>
           </div>
-        </div>
+
+          <div>
+            <label htmlFor="date">Date</label>
+            <input type="date" id="date" name="date" min={today} />
+          </div>
+
+          <div>
+            <label htmlFor="time">Time</label>
+            <select id="time" name="time">
+              <option value="">Select time</option>
+              <option value="6:00 PM">6:00 PM</option>
+              <option value="7:00 PM">7:00 PM</option>
+              <option value="8:00 PM">8:00 PM</option>
+              <option value="9:00 PM">9:00 PM</option>
+              <option value="10:00 PM">10:00 PM</option>
+            </select>
+          </div>
+
+          <button type="submit">Reserve Now</button>
+        </form>
       </section>
+
+      <style jsx>{`
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f9f9f9;
+        }
+        .container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 20px;
+        }
+        h1,
+        h2 {
+          font-weight: bold;
+        }
+        .form-container {
+          background-color: #fff;
+          border: 2px solid #ccc;
+          padding: 20px;
+          border-radius: 10px;
+          width: 100%;
+          max-width: 600px;
+        }
+        label {
+          font-size: 14px;
+          font-weight: bold;
+        }
+        select,
+        input[type='date'],
+        button {
+          display: block;
+          width: 100%;
+          margin-top: 10px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        select:hover,
+        input[type='date']:hover,
+        button:hover {
+          transform: scale(1.03);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+          background-color: #d9d9d9;
+          cursor: pointer;
+        }
+        button:hover {
+          background-color: #c9c9c9;
+        }
+        .image-section img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 10px;
+        }
+      `}</style>
     </div>
   );
-}
+};
 
-export default Register;
+export default ReservationForm;
