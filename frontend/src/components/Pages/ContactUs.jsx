@@ -29,10 +29,23 @@ const ContactUs = () => {
     e.preventDefault();
 
     // Basic client-side validation for security
-    if (!mail || !subject || !message) {
-      setError('All fields are required.');
-      return;
-    }
+  +    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
++    if (!mail || !subject || !message) {
++      setError('All fields are required.');
++      return;
++    }
++    if (!emailRegex.test(mail)) {
++      setError('Please enter a valid email address.');
++      return;
++    }
++    if (subject.length > 100) {
++      setError('Subject must be less than 100 characters.');
++      return;
++    }
++    if (message.length > 1000) {
++      setError('Message must be less than 1000 characters.');
++      return;
++    }
 
     // Clear any previous errors
     setError(null);
