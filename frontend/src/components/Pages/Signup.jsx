@@ -1,82 +1,109 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { message } from 'antd'; // Import Ant Design message
 import photo from '../../assets/login.png';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa6';
-import zxcvbn from 'zxcvbn'; // Import zxcvbn for password strength check
+import zxcvbn from 'zxcvbn'; // Password strength checker
+
+
+// Configure message globally
+message.config({
+  top: 80, // Align with the login page
+  duration: 2, // Duration of the message visibility
+});
 
 const Signup = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [passwordStrength, setPasswordStrength] = useState(0); // State to track password strength
-  const [data, setData] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
+  const [passwordStrength, setPasswordStrength] = useState(0);
+  const [data, setData] = useState({ name: '', email: '', password: '' });
   const [hidden, setHidden] = useState(true);
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
-
     if (e.target.name === 'password') {
       const result = zxcvbn(e.target.value);
-      setPasswordStrength(result.score); // Update password strength score
+      setPasswordStrength(result.score);
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(null); // Reset error before submission
+
+    // Frontend validation
     if (!data.email || !data.password || !data.name) {
-      setError('Please fill in all fields');
+      message.error({
+        content: 'Please fill in all fields.',
+        style: { fontSize: '18px' },
+      });
       setIsLoading(false);
       return;
     }
-
     if (data.password.length < 8) {
-      setError('Password must be at least 8 characters long');
+      message.error({
+        content: 'Password must be at least 8 characters long.',
+        style: { fontSize: '18px' },
+      });
       setIsLoading(false);
       return;
     }
-
     if (data.name.length < 3) {
-      setError('Name must be at least 3 characters long');
+      message.error({
+        content: 'Name must be at least 3 characters long.',
+        style: { fontSize: '18px' },
+      });
       setIsLoading(false);
       return;
     }
-
     if (!data.email.includes('@')) {
-      setError('Please enter a valid email address');
+      message.error({
+        content: 'Please enter a valid email address.',
+        style: { fontSize: '18px' },
+      });
       setIsLoading(false);
       return;
     }
 
+    // Submit form data
     try {
       const response = await fetch(`${API_URL}/api/user/register`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
       const result = await response.json();
 
       if (!response.ok) {
         setIsLoading(false);
-        setError(result.error);
+        message.error({
+          content: result.error || 'An error occurred during registration.',
+          style: { fontSize: '18px' },
+        });
         return;
       }
 
-      // Handle successful registration
-      alert('Registered successfully! Please log in.');
-      navigate('/');
+      // Successful registration message
+      message.success({
+        content: 'Registered successfully! Please log in.',
+        style: { fontSize: '18px' },
+      });
+
+      // Redirect to login page
+      navigate('/login');
     } catch (error) {
       setError(error.message);
       console.error('Error:', error);
+      message.error({
+        content: 'An error occurred while submitting the form.',
+        style: { fontSize: '18px' },
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -95,43 +122,42 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center pt-10">
-      <img src={photo} alt="login" loading="lazy" className=" w-3/4 absolute" />
-      <form className="form z-10 p-16 bg-lightblue flex flex-col items-start justify-center gap-5 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] bg-[#f1e9dc]">
-        <div className="title text-[#323232] font-black text-7xl mb-6">
+    <div className="w-screen h-screen flex items-center dark:text-white dark:bg-black justify-center pt-10 relative overflow-hidden">
+      <img
+        src={photo}
+        alt="login"
+        loading="lazy"
+        className="w-3/4 absolute inset-0"
+      />
+      <form className="z-10 p-8 sm:p-16 bg-[#f1e9dc] dark:bg-amber-800 dark:text-white rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] flex flex-col gap-5 w-11/12 sm:w-auto px-[3vw] pt-[5vh]">
+        <div className="text-[#323232] dark:text-white font-black text-4xl sm:text-7xl mb-4 sm:mb-6 mt-4">
           Play Cafe,
           <br />
-          <span className="block text-[#666] font-semibold text-2xl ">
+          <span className="block text-[#666] dark:text-gray-400 font-semibold text-xl sm:text-2xl">
             Register to continue
           </span>
         </div>
-        <label htmlFor="name" className="sr-only"></label>
         <input
-          className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
+          className="input w-full h-10 rounded-md border-2 border-black bg-beige p-2.5 shadow-[4px_4px_0px_0px_black] focus:outline-none"
           name="name"
           placeholder="Name"
-          type="name"
-          autoComplete="name"
-          aria-required="true"
-          onChange={(e) => handleChange(e)}
+          type="text"
+          onChange={handleChange}
         />
-        <label htmlFor="email" className="sr-only"></label>
         <input
-          className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
+          className="input w-full h-10 rounded-md border-2 border-black bg-beige p-2.5 shadow-[4px_4px_0px_0px_black] focus:outline-none"
           name="email"
           placeholder="Email"
-          autoComplete="email"
           type="email"
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange}
         />
-        <label htmlFor="password" className="sr-only"></label>
         <div className="relative w-full">
           <input
-            className="input w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] placeholder-opacity-80"
+            className="input w-full h-10 rounded-md border-2 border-black bg-beige p-2.5 shadow-[4px_4px_0px_0px_black] focus:outline-none"
             name="password"
             placeholder="Password"
             type={hidden ? 'password' : 'text'}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
           <button
             className="absolute top-1/2 -translate-y-1/2 right-4"
@@ -143,8 +169,6 @@ const Signup = () => {
             {hidden ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
-
-        {/* Password Strength Meter */}
         <div className="w-full mt-2">
           <div
             className="h-2 rounded-full"
@@ -153,36 +177,27 @@ const Signup = () => {
               width: `${(passwordStrength + 1) * 20}%`,
             }}
           ></div>
-          <p className="text-sm text-[#666] mt-1">
+          <p className="text-sm text-[#666] dark:text-gray-200   mt-1">
             Strength: {getPasswordStrengthText(passwordStrength)}
           </p>
         </div>
-
-        {error && (
-          <div className="w-full p-2 bg-red-100 text-red-700 border border-red-400 rounded-md">
-            {error}
-          </div>
-        )}
-        <h3 className="flex items-center justify-between w-full">
+        <h3 className="flex justify-between w-full">
           Already have an account?
-          <span className="block text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition">
-            <Link to={'/login'}>Login</Link>
-          </span>
-        </h3>
-        <a
-          href={`${import.meta.env.VITE_BACKEND_URL}/api/user/auth/google`}
-          className="text-[#666] font-semibold text-xl transform hover:scale-110 hover:-translate-y-1 hover:text-green-500 transition w-full "
-        >
-          <button
-            type="button"
-            className="button-confirm px-4 w-full h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
+          <Link
+            to="/login"
+            className="text-[#666] dark:text-white font-semibold hover:text-green-500"
           >
+            Login
+          </Link>
+        </h3>
+        <a href={`${API_URL}/api/user/auth/google`} className="w-full">
+          <button className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black] hover:text-green-300">
             Sign up with Google
           </button>
         </a>
         <button
-          className="button-confirm mx-auto px-4 w-30 h-10 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] cursor-pointer active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
-          onClick={(e) => handleSubmit(e)}
+          className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black] mb-2 hover:text-green-300"
+          onClick={handleSubmit}
         >
           {isLoading ? 'Loading...' : "Let's go →"}
         </button>

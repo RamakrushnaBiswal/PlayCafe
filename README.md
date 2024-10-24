@@ -121,6 +121,51 @@ The PlayCafe website communicates with a backend API to manage data. Here’s a 
 | GET         | `/api/bookings/:id`   | Retrieves details of a specific booking by ID.         |
 | DELETE      | `/api/bookings/:id`   | Cancels a specific booking by ID.                       |
 
+## Troubleshooting
+
+If you encounter issues while setting up or using the PlayCafe website, here are some common problems and solutions:
+
+### 1. Issue: Unable to install dependencies
+**Solution:** Make sure that you have Node.js installed. Run `npm install` again after confirming the Node.js installation.
+
+### 2. Issue: Website not starting
+**Solution:** Run `npm start` and ensure that the correct port is open. If the error persists, check for any error logs in the terminal and ensure no other applications are using the same port.
+
+### 3. Issue: Database connection error
+**Solution:** Verify that your database is running, and the connection details (host, username, password) are correct in the `.env` file.
+
+### 4. Issue: CSS/JavaScript not loading properly
+**Solution:** Check if all static assets are being served correctly. Ensure that the paths to your CSS and JS files are correct and that they are being compiled if you're using a build tool like Webpack or Gulp.
+
+### 5. Issue: CORS (Cross-Origin Resource Sharing) error
+**Solution:** Ensure the backend server has appropriate CORS policies configured to allow the frontend to communicate with it. If you're working with APIs, make sure that the necessary headers are included in server responses.
+
+### 6. Issue: Environment variables not working
+**Solution:** Double-check the `.env` file configuration. Ensure that all required variables are defined and that the file is correctly loaded by your server or build system.
+
+### Debugging Tips
+- Use `console.log` statements to track the flow of the code.
+- Check browser developer tools for any front-end errors.
+- Look into server logs for detailed error messages.
+- **Use Logging Libraries:** Incorporate logging libraries like `winston` or `morgan` for better server-side error tracking.
+- **Check Permissions:** If you're running the server on a remote machine, ensure that you have the necessary permissions (e.g., read/write access to necessary directories).
+- **API Testing:** Use tools like Postman or Insomnia to test API endpoints individually if issues arise in data fetching.
+- **Browser DevTools:** Use Chrome DevTools (F12) or Firefox Developer Tools (F12) for debugging.
+- **React DevTools:** Install React Developer Tools browser extension for component debugging.
+- **Network Tab:** Monitor API calls and responses in the Network tab.
+- **Console Patterns:** Use `console.table()` for debugging arrays and objects.
+
+### Resources
+- [Node.js Documentation](https://nodejs.org/en/docs/)
+- [Express.js Guide](https://expressjs.com/en/starter/installing.html)
+- [Common npm errors](https://docs.npmjs.com/common-errors)
+- [How to Debug JavaScript Errors](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong)
+- [Troubleshooting Common CORS Issues](https://www.codecademy.com/articles/what-is-cors)
+- [Webpack Documentation](https://webpack.js.org/concepts/)
+- [React DevTools Guide](https://react.dev/learn/react-developer-tools)
+- [React Error Boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
+- [React Performance Optimization](https://react.dev/learn/render-and-commit)
+
 
 ## 🤝 Contributing
 We love contributions! 💙 Whether you're a participant in **GSSoC** or an open-source enthusiast, we welcome your input. Here's how you can contribute:
@@ -130,8 +175,45 @@ We love contributions! 💙 Whether you're a participant in **GSSoC** or an open
 ## 🎯 Open Source Programs
 This project is part of **GirlScript Summer of Code 2024** (GSSoC) Extended, an initiative to help aspiring developers get involved in the open-source community.
 
+<div align="center">
+  <img src="https://github.com/apu52/METAVERSE/assets/114172928/e79eb6de-81b1-4ffb-b6ed-f018bb977e88" alt="GSSoC 2024 Extd" width="80%">
+</div>
+
+<div align="center">
+  <img src="https://github.com/neeru24/Connect_icons/blob/main/hacktober.png" alt="Hacktober fest 2024" width="80%">
+</div>
+
 <br>
-<img src="https://github.com/user-attachments/assets/f7abbbe7-1950-4bf9-8456-c812ca630acf" style="width:400px">
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+### 💵 How to Contribute
+
+   #### 1. Fork the repository to your GitHub account.
+   #### 2. Clone the forked repository to your local machine.
+   ```bash
+   git clone https://github.com/<github_username>/PlayCafe.git
+   ```
+   #### 3. Create a new branch for your changes.
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+   #### 4. Make your changes, whether they're bug fixes, new features, or improvements.
+   #### 5. add the change in your branch
+   ```bash
+   git add .
+   ```
+   #### 6. Commit your changes with descriptive commit messages.
+   ```bash
+   git commit -m "Add your descriptive commit message here"
+   git push origin feature/your-feature
+   ```
+   #### 7. Open a Pull Request (PR) against the main repository.
+### Additional Notes
+   #### Start working on the issue, Don't wait to get it assigned by the maintainers
+   #### Your every contribution counts, Thanks for contributing to PlayCafe
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 🌟 Mentors
 
@@ -178,12 +260,28 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/jainaryan04">
+                    <img src="https://avatars.githubusercontent.com/u/138214350?v=4" width="100;" alt="jainaryan04"/>
+                    <br />
+                    <sub><b>Aryan Ramesh Jain</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/haseebzaki-07">
+                    <img src="https://avatars.githubusercontent.com/u/147314463?v=4" width="100;" alt="haseebzaki-07"/>
+                    <br />
+                    <sub><b>Haseeb Zaki</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/alo7lika">
                     <img src="https://avatars.githubusercontent.com/u/152315710?v=4" width="100;" alt="alo7lika"/>
                     <br />
                     <sub><b>alolika bhowmik</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Ashwinib26">
                     <img src="https://avatars.githubusercontent.com/u/149402720?v=4" width="100;" alt="Ashwinib26"/>
@@ -198,8 +296,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Mahera Nayan</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/tejasbenibagde">
                     <img src="https://avatars.githubusercontent.com/u/124677750?v=4" width="100;" alt="tejasbenibagde"/>
@@ -215,13 +311,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Amnyadav">
-                    <img src="https://avatars.githubusercontent.com/u/127370497?v=4" width="100;" alt="Amnyadav"/>
-                    <br />
-                    <sub><b>Aman Yadav</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/NilanchalaPanda">
                     <img src="https://avatars.githubusercontent.com/u/110488337?v=4" width="100;" alt="NilanchalaPanda"/>
                     <br />
@@ -229,10 +318,33 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/haseebzaki-07">
-                    <img src="https://avatars.githubusercontent.com/u/147314463?v=4" width="100;" alt="haseebzaki-07"/>
+                <a href="https://github.com/Amnyadav">
+                    <img src="https://avatars.githubusercontent.com/u/127370497?v=4" width="100;" alt="Amnyadav"/>
                     <br />
-                    <sub><b>Haseeb Zaki</b></sub>
+                    <sub><b>Aman Yadav</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/VinayLodhi1712">
+                    <img src="https://avatars.githubusercontent.com/u/135756009?v=4" width="100;" alt="VinayLodhi1712"/>
+                    <br />
+                    <sub><b>Vinay Anand Lodhi</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Sawan-Kushwah">
+                    <img src="https://avatars.githubusercontent.com/u/138680328?v=4" width="100;" alt="Sawan-Kushwah"/>
+                    <br />
+                    <sub><b>Sawan kushwah </b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Sumanbhadra">
+                    <img src="https://avatars.githubusercontent.com/u/93245252?v=4" width="100;" alt="Sumanbhadra"/>
+                    <br />
+                    <sub><b>Suman Bhadra</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -242,15 +354,22 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Suhas Koheda</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
-                <a href="https://github.com/PavanTeja2005">
-                    <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
+                <a href="https://github.com/Jay-1409">
+                    <img src="https://avatars.githubusercontent.com/u/166749819?v=4" width="100;" alt="Jay-1409"/>
                     <br />
-                    <sub><b>PavanTeja2005</b></sub>
+                    <sub><b>Jay shah</b></sub>
                 </a>
             </td>
+            <td align="center">
+                <a href="https://github.com/vishnuprasad2004">
+                    <img src="https://avatars.githubusercontent.com/u/116942066?v=4" width="100;" alt="vishnuprasad2004"/>
+                    <br />
+                    <sub><b>Vishnu Prasad Korada</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/sajalbatra">
                     <img src="https://avatars.githubusercontent.com/u/125984550?v=4" width="100;" alt="sajalbatra"/>
@@ -259,10 +378,10 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/vishnuprasad2004">
-                    <img src="https://avatars.githubusercontent.com/u/116942066?v=4" width="100;" alt="vishnuprasad2004"/>
+                <a href="https://github.com/PavanTeja2005">
+                    <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
                     <br />
-                    <sub><b>Vishnu Prasad Korada</b></sub>
+                    <sub><b>PavanTeja2005</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -280,14 +399,42 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/lade6501">
+                    <img src="https://avatars.githubusercontent.com/u/83055827?v=4" width="100;" alt="lade6501"/>
+                    <br />
+                    <sub><b>Vishal Lade</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/REHAN-18">
+                    <img src="https://avatars.githubusercontent.com/u/143922855?v=4" width="100;" alt="REHAN-18"/>
+                    <br />
+                    <sub><b>MD REHAN</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/T-Rahul-prabhu-38">
+                    <img src="https://avatars.githubusercontent.com/u/167653990?v=4" width="100;" alt="T-Rahul-prabhu-38"/>
+                    <br />
+                    <sub><b>t rahul prabhu</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/Aditya90456">
                     <img src="https://avatars.githubusercontent.com/u/153073510?v=4" width="100;" alt="Aditya90456"/>
                     <br />
                     <sub><b>Aditya Bakshi</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
+            <td align="center">
+                <a href="https://github.com/vaishnavipal1869">
+                    <img src="https://avatars.githubusercontent.com/u/180996531?v=4" width="100;" alt="vaishnavipal1869"/>
+                    <br />
+                    <sub><b>vaishnavipal1869</b></sub>
+                </a>
+            </td>
             <td align="center">
                 <a href="https://github.com/tanishirai">
                     <img src="https://avatars.githubusercontent.com/u/178164785?v=4" width="100;" alt="tanishirai"/>
@@ -309,18 +456,13 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Sourabh Singh Rawat</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Shiva-Bajpai">
                     <img src="https://avatars.githubusercontent.com/u/141490705?v=4" width="100;" alt="Shiva-Bajpai"/>
                     <br />
                     <sub><b>Shiva Bajpai</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Sawan-Kushwah">
-                    <img src="https://avatars.githubusercontent.com/u/138680328?v=4" width="100;" alt="Sawan-Kushwah"/>
-                    <br />
-                    <sub><b>Sawan kushwah </b></sub>
                 </a>
             </td>
             <td align="center">
@@ -330,8 +472,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>MANI </b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Ayush215mb">
                     <img src="https://avatars.githubusercontent.com/u/154300084?v=4" width="100;" alt="Ayush215mb"/>
@@ -340,31 +480,61 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/AliGates915">
-                    <img src="https://avatars.githubusercontent.com/u/128673394?v=4" width="100;" alt="AliGates915"/>
+                <a href="https://github.com/smog-root">
+                    <img src="https://avatars.githubusercontent.com/u/181578777?v=4" width="100;" alt="smog-root"/>
                     <br />
-                    <sub><b>Ali Gates</b></sub>
+                    <sub><b>smog-root</b></sub>
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/mishradev1">
-                    <img src="https://avatars.githubusercontent.com/u/118660840?v=4" width="100;" alt="mishradev1"/>
+                <a href="https://github.com/vaibhav-yerkar">
+                    <img src="https://avatars.githubusercontent.com/u/124194806?v=4" width="100;" alt="vaibhav-yerkar"/>
                     <br />
-                    <sub><b>Dev Mishra</b></sub>
+                    <sub><b>Vaibhav._Y</b></sub>
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/jaidh01">
-                    <img src="https://avatars.githubusercontent.com/u/117927011?v=4" width="100;" alt="jaidh01"/>
+                <a href="https://github.com/Vaibhav-Kumar-K-R">
+                    <img src="https://avatars.githubusercontent.com/u/132189791?v=4" width="100;" alt="Vaibhav-Kumar-K-R"/>
                     <br />
-                    <sub><b>Jai Dhingra</b></sub>
+                    <sub><b>Vaibhav-Kumar-K-R</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/Syed-Farazuddin">
+                    <img src="https://avatars.githubusercontent.com/u/119295880?v=4" width="100;" alt="Syed-Farazuddin"/>
+                    <br />
+                    <sub><b>Syed Faraz</b></sub>
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Jay-1409">
-                    <img src="https://avatars.githubusercontent.com/u/166749819?v=4" width="100;" alt="Jay-1409"/>
+                <a href="https://github.com/stutxi">
+                    <img src="https://avatars.githubusercontent.com/u/95741837?v=4" width="100;" alt="stutxi"/>
                     <br />
-                    <sub><b>Jay shah</b></sub>
+                    <sub><b>Stuti </b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Sapna127">
+                    <img src="https://avatars.githubusercontent.com/u/91309280?v=4" width="100;" alt="Sapna127"/>
+                    <br />
+                    <sub><b>Sapna Kul</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Nikhil0-3">
+                    <img src="https://avatars.githubusercontent.com/u/149102391?v=4" width="100;" alt="Nikhil0-3"/>
+                    <br />
+                    <sub><b>Nikhil More</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/MutiatBash">
+                    <img src="https://avatars.githubusercontent.com/u/108807732?v=4" width="100;" alt="MutiatBash"/>
+                    <br />
+                    <sub><b>Bashua Mutiat</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -377,45 +547,38 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/MutiatBash">
-                    <img src="https://avatars.githubusercontent.com/u/108807732?v=4" width="100;" alt="MutiatBash"/>
+                <a href="https://github.com/jaidh01">
+                    <img src="https://avatars.githubusercontent.com/u/117927011?v=4" width="100;" alt="jaidh01"/>
                     <br />
-                    <sub><b>Bashua Mutiat</b></sub>
+                    <sub><b>Jai Dhingra</b></sub>
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Sapna127">
-                    <img src="https://avatars.githubusercontent.com/u/91309280?v=4" width="100;" alt="Sapna127"/>
+                <a href="https://github.com/harjasae2001">
+                    <img src="https://avatars.githubusercontent.com/u/83627055?v=4" width="100;" alt="harjasae2001"/>
                     <br />
-                    <sub><b>Sapna Kul</b></sub>
+                    <sub><b>Harjas Singh</b></sub>
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/stutxi">
-                    <img src="https://avatars.githubusercontent.com/u/95741837?v=4" width="100;" alt="stutxi"/>
+                <a href="https://github.com/mishradev1">
+                    <img src="https://avatars.githubusercontent.com/u/118660840?v=4" width="100;" alt="mishradev1"/>
                     <br />
-                    <sub><b>Stuti </b></sub>
+                    <sub><b>Dev Mishra</b></sub>
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Syed-Farazuddin">
-                    <img src="https://avatars.githubusercontent.com/u/119295880?v=4" width="100;" alt="Syed-Farazuddin"/>
+                <a href="https://github.com/chikatlarakesh">
+                    <img src="https://avatars.githubusercontent.com/u/178009894?v=4" width="100;" alt="chikatlarakesh"/>
                     <br />
-                    <sub><b>Syed Faraz</b></sub>
+                    <sub><b>CHIKATLA RAKESH</b></sub>
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Vaibhav-Kumar-K-R">
-                    <img src="https://avatars.githubusercontent.com/u/132189791?v=4" width="100;" alt="Vaibhav-Kumar-K-R"/>
+                <a href="https://github.com/AliGates915">
+                    <img src="https://avatars.githubusercontent.com/u/128673394?v=4" width="100;" alt="AliGates915"/>
                     <br />
-                    <sub><b>Vaibhav-Kumar-K-R</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/lade6501">
-                    <img src="https://avatars.githubusercontent.com/u/83055827?v=4" width="100;" alt="lade6501"/>
-                    <br />
-                    <sub><b>Vishal Lade</b></sub>
+                    <sub><b>Ali Gates</b></sub>
                 </a>
             </td>
 		</tr>

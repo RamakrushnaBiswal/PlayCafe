@@ -34,12 +34,12 @@ function Landing() {
   });
 
   return (
-    <div>
+    <div className='bg-amber-100 dark:bg-background-dark dark:text-white'>
       <section className="relative pb-24 h-screen-dvh bg-cover bg-center overflow-hidden">
         <div className="flex-col md:flex pt-20 z-1">
           {/* Text Content */}
           <div className="p-4 md:w-1/2 mb-6 md:mb-0 text-center md:text-left z-10 pt-14">
-            <h1 className="text-6xl md:text-9xl font-bold ml-4" ref={textRef}>
+            <h1 className="text-5xl md:text-9xl font-bold ml-4" ref={textRef}>
               A unique café experience awaits you
             </h1>
           </div>
@@ -70,7 +70,7 @@ function Landing() {
           />
         </div>
         <div className="py-28 z-10">
-          <h1 className="text-[4rem] md:text-[18rem] font-bold text-black">
+          <h1 className="text-[4rem] md:text-[18rem] font-bold">
             PLAYCAFE
           </h1>
         </div>

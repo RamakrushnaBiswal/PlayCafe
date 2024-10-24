@@ -52,13 +52,13 @@ const TodaysSpecial = () => {
 
   return (
     <div className="mt-10">
-      <h2 className="text-5xl font-bold text-center mb-9">
+      <h2 className="text-5xl font-bold text-center mb-9 dark:text-gray-50">
   Today's Special
 </h2>
       <div className="flex flex-col md:flex-row justify-around items-center mb-8 space-y-8 md:space-y-0 md:space-x-4">
         {/* Coffee Card */}
         <div
-          className="bg-pink-100 p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2"
+          className="bg-pink-100 dark:bg-amber-900 p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2"
           style={{ minHeight: '350px', maxHeight: '350px' }}  
           onMouseEnter={() => setHoveredItem('coffee')}
           onMouseLeave={() => setHoveredItem(null)}
@@ -67,35 +67,36 @@ const TodaysSpecial = () => {
           <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.coffee.image} alt={todaysSpecial.coffee.name} />
 
           <h3 className="text-xl font-semibold">{todaysSpecial.coffee.name}</h3>
-          <p className="text-gray-600">{todaysSpecial.coffee.description}</p>
+          <p className="text-gray-600 dark:text-amber-200">{todaysSpecial.coffee.description}</p>
+
           
-          <div className={`mt-4 transition-opacity duration-300 ease-in-out ${hoveredItem === 'coffee' ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="text-lg font-bold text-red-700 line-through">{todaysSpecial.coffee.originalPrice}</p>
-            <p className="text-xl font-bold text-red-500">{todaysSpecial.coffee.offerPrice}</p>
+          <div className={`flex items-center justify-end gap-2 mt-2 transition-opacity duration-300 ease-in-out ${hoveredItem === 'coffee' ? 'opacity-100' : 'opacity-0'}`}>
+            <p className="text-md font-semibold text-gray-500 line-through">{todaysSpecial.coffee.originalPrice}</p>
+            <p className="text-xl font-bold text-red-600">{todaysSpecial.coffee.offerPrice}</p>
           </div>
         </div>
 
         {/* Food Card */}
         <div
-          className="bg-teal-100 p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2"
+          className="bg-teal-100 dark:bg-amber-500 p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2"
           style={{ minHeight: '350px', maxHeight: '350px' }}  
           onMouseEnter={() => setHoveredItem('food')}
           onMouseLeave={() => setHoveredItem(null)}
         >
           <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.food.image} alt={todaysSpecial.food.name} loading="lazy" />
 
-          <h3 className="text-xl font-semibold">{todaysSpecial.food.name}</h3>
-          <p className="text-gray-600">{todaysSpecial.food.description}</p>
+          <h3 className="text-xl font-semibold text-left">{todaysSpecial.food.name}</h3>
+          <p className="text-gray-600 text-left">{todaysSpecial.food.description}</p>
         
-          <div className={`mt-4 transition-opacity duration-300 ease-in-out ${hoveredItem === 'food' ? 'opacity-100' : 'opacity-0'}`}>
-              <p className="text-lg font-bold text-red-700 line-through">{todaysSpecial.food.originalPrice}</p>
-              <p className="text-xl font-bold text-red-500">{todaysSpecial.food.offerPrice}</p>
+          <div className={`flex items-center justify-end gap-2 mt-2 transition-opacity duration-300 ease-in-out ${hoveredItem === 'food' ? 'opacity-100' : 'opacity-0'}`}>
+              <p className="text-md font-semibold text-gray-500 line-through">{todaysSpecial.food.originalPrice}</p>
+              <p className="text-xl font-bold text-red-600">{todaysSpecial.food.offerPrice}</p>
           </div>
         </div>
 
         {/* Drink Card */}
         <div
-          className="bg-pink-100 p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2"
+          className="bg-pink-100 dark:bg-amber-900 p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2"
           style={{ minHeight: '350px', maxHeight: '350px'}}  
           onMouseEnter={() => setHoveredItem('drink')}
           onMouseLeave={() => setHoveredItem(null)}
@@ -103,11 +104,11 @@ const TodaysSpecial = () => {
           <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.drink.image} alt={todaysSpecial.drink.name} loading="lazy"/>
 
           <h3 className="text-xl font-semibold">{todaysSpecial.drink.name}</h3>
-          <p className="text-gray-600">{todaysSpecial.drink.description}</p>
+          <p className="text-gray-600 dark:text-amber-200">{todaysSpecial.drink.description}</p>
         
-          <div className={`mt-4 transition-opacity duration-300 ease-in-out ${hoveredItem === 'drink' ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="text-lg font-bold text-red-700 line-through">{todaysSpecial.drink.originalPrice}</p>
-            <p className="text-xl font-bold text-red-500">{todaysSpecial.drink.offerPrice}</p>
+          <div className={`flex items-center justify-end gap-2 mt-2 transition-opacity duration-300 ease-in-out ${hoveredItem === 'drink' ? 'opacity-100' : 'opacity-0'}`}>
+            <p className="text-lg font-semibold text-gray-500 line-through">{todaysSpecial.drink.originalPrice}</p>
+            <p className="text-xl font-bold text-red-600">{todaysSpecial.drink.offerPrice}</p>
           </div>
         </div>
       </div>

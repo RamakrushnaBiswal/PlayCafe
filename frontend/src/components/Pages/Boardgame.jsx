@@ -12,6 +12,12 @@ import board6 from '../../assets/Boardgames/board6.png';
 import board7 from '../../assets/Boardgames/board7.png';
 import board8 from '../../assets/Boardgames/board8.png';
 import board10 from '../../assets/Boardgames/board10.png';
+import ludo from "../../assets/Boardgames/ludo.jpg";
+import snake from "../../assets/Boardgames/snake.jpg";
+import tic from "../../assets/Boardgames/tic.png";
+import uno from "../../assets/Boardgames/uno.jpg";
+import word from "../../assets/Boardgames/word.jpg";
+import war from "../../assets/Boardgames/war.jpg";
 import bg from '../../assets/Boardgames/bg.jpg';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -50,6 +56,14 @@ function Boardgame() {
 
   const handleOpenInstructions = (board) => {
     setSelectedBoard(board);
+
+    // Scroll to the modal when it's opened to ensure it's centered in the viewport
+    setTimeout(() => {
+      const modalElement = document.getElementById('modal-instructions');
+      if (modalElement) {
+        modalElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100); // Adding a slight delay ensures that modal is rendered before scrolling
   };
 
   const handleCloseInstructions = () => {
@@ -204,6 +218,74 @@ function Boardgame() {
         'The game ends when one group dominates the market, leading to victory.',
       ],
     },
+    {
+      "src": ludo,
+      "title": "Ludo",
+      "description": "A classic board game where players race their tokens from start to finish based on dice rolls.",
+      "instructions": [
+        "Players take turns rolling a single die to move their tokens around the board.",
+        "To enter a token onto the board, players must roll a 6. Tokens move based on the number rolled.",
+        "Players can send opponents' tokens back to start by landing on the same space.",
+        "The first player to move all their tokens into the home area wins the game."
+      ]
+    },
+    {
+      "src": snake,
+      "title": "Snake and Ladders",
+      "description": "A race game where players climb ladders and avoid snakes to reach the end.",
+      "instructions": [
+        "Players take turns rolling a die to advance their token along the numbered board.",
+        "If a player lands at the base of a ladder, they climb to the top.",
+        "If a player lands on the head of a snake, they slide down to its tail.",
+        "The first player to reach the last square wins the game."
+      ]
+    },
+    {
+      "src": tic,
+      "title": "Tic-Tac-Toe",
+      "description": "A simple two-player game where players try to get three of their symbols in a row.",
+      "instructions": [
+        "Players take turns placing their symbol (X or O) in an empty square on a 3x3 grid.",
+        "The first player to align three symbols vertically, horizontally, or diagonally wins.",
+        "If all squares are filled without a winner, the game ends in a draw."
+      ]
+    },
+    {
+      "src": uno,
+      "title": "Uno",
+      "description": "A popular card game where players try to be the first to play all their cards.",
+      "instructions": [
+        "Players take turns matching a card from their hand to the top card of the discard pile by color or number.",
+        "Special action cards can change the gameplay, like skipping a turn or reversing play direction.",
+        "When a player has one card left, they must yell 'Uno!' to warn others.",
+        "The first player to play all their cards wins the game."
+      ]
+    },
+    {
+      "src": word,
+      "title": "Word Finder",
+      "description": "A fun puzzle game where players create words from a set of letters and fit them into designated boxes.",
+      "instructions": [
+        "Players are given a list of words to find, each composed of letters that can be rearranged.",
+        "A grid of boxes is provided, where players must fit the words either horizontally, vertically, or diagonally.",
+        "Each word must be filled in completely, and letters cannot be reused for different words.",
+        "The goal is to fill in all the boxes with the given words as quickly as possible."
+      ]
+    },
+    {
+      "src": war,
+      "title": "War",
+      "description": "A simple two-player card game where players compete to win all the cards.",
+      "instructions": [
+        "The deck is shuffled and split evenly between the two players.",
+        "Each player reveals the top card of their stack at the same time.",
+        "The player with the higher card wins both cards and adds them to the bottom of their stack.",
+        "In case of a tie, a 'war' occurs: each player places three cards face down and reveals the next card. The higher card wins all the cards on the table.",
+        "The game continues until one player has all the cards or until players decide to stop."
+      ]
+    }
+        
+                
   ];
 
 
@@ -213,7 +295,7 @@ function Boardgame() {
 
   return (
     <>
-      <div className="w-full mt-10 md:mt-0">
+      <div className="w-full mt-10 md:mt-0 dark:bg-black dark:text-white">
         <section className="w-full pt-12 md:pt-24 lg:pt-32">
           <div className="container mx-auto space-y-10 xl:space-y-16">
             <div className="flex flex-col items-center space-y-4 text-center">
@@ -286,9 +368,9 @@ function Boardgame() {
             {boards.map((board, index) => (
               <div
                 key={index}
-                className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 card border border-white bg-white"
+                className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 card border border-white bg-amber-100 dark:bg-amber-800"
               >
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden dark:bg-amber-800">
                   <img
                     src={board.src}
                     alt={board.title}
@@ -298,24 +380,32 @@ function Boardgame() {
                     className="object-cover w-full h-48 transition-all duration-300 ease-in-out group-hover:h-32"
                     style={{ aspectRatio: '500 / 400', objectFit: 'cover' }}
                   />
-                  <div className="p-4 bg-background transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:translate-y-4">
+                  <div className="p-4 bg-background transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:translate-y-4 dark:bg-amber-800">
                     <h3 className="text-xl font-bold">{board.title}</h3>
                     <p className="text-sm text-muted-foreground">
                       {board.description}
                     </p>
-                    <button
-                      onClick={() => handleOpenInstructions(board)}
-                      className="mt-4 px-4 py-2 text-white bg-green-500 rounded-lg opacity-0 transition-opacity duration-700 delay-300 group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      See Instructions
-                    </button>
+                    <div className="flex space-x-2 mt-4">
+                      <button
+                        onClick={() => handleOpenInstructions(board)}
+                        className="px-4 py-2 text-white bg-green-500 rounded-lg opacity-0 transition-opacity duration-700 delay-300 group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+                        See Instructions
+                      </button>
+                      <button
+                        onClick={() => handleInstantPlay(board)}
+                        className="px-4 py-2 text-white bg-blue-500 rounded-lg opacity-0 transition-opacity duration-700 delay-300 group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+                        Instant Play
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-black">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-4">
               Subscribe to our Newsletter
@@ -330,7 +420,7 @@ function Boardgame() {
             >
               <input
                 type="email"
-                className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2 rounded-lg dark:text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)} // Update email state on input change
@@ -346,10 +436,12 @@ function Boardgame() {
           </div>
         </section>
 
-        {/* Modal for instructions */}
         {selectedBoard && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white p-8 rounded-lg max-w-md mx-auto shadow-lg relative">
+            <div
+              id="modal-instructions"
+              className="bg-amber-100 dark:bg-amber-600 p-8 rounded-lg max-w-md mx-auto shadow-lg relative overflow-y-auto max-h-[90vh]"
+            >
               <h2 className="text-2xl font-bold mb-4">
                 {selectedBoard.title} Instructions
               </h2>
@@ -360,7 +452,7 @@ function Boardgame() {
               </ul>
               <button
                 onClick={handleCloseInstructions}
-                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
               >
                 Close
               </button>
