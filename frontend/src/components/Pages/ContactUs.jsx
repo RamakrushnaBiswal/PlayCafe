@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import chess from '../../assets/img/chess.gif';
-import { FaStar } from 'react-icons/fa6';
 
 const ContactUs = () => {
   const { ref, inView } = useInView({
