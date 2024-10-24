@@ -47,18 +47,23 @@ const createContactUs = async (req, res) => {
       text: message, 
     };
 
-    // Send mail with defined transport object
-    transporter.sendMail(mailOptions, (error, mailOptions) => {
-      if (error) {
-        return console.error("Error occurred: " + error.message);
-      }
+        // Send mail with defined transport object
+    
+    +   await new Promise((resolve, reject) => {
++     transporter.sendMail(mailOptions, (error, info) => {
++       if (error) {
++         console.error("Error occurred: " + error.message);
++         reject(error);
++       }
++       resolve(info);
++     });
++   });
++   
++   res.status(200).json({
++     status: "success",
++     message: "Your contact request has been successfully received.",
++   });
 
-    });
-
-    res.status(200).json({
-      status: "success",
-      message: "Your contact request has been successfully received.",
-    });
   } catch (err) {
     console.error(`Error at transport: ${err}`);
     res.status(500).json({
