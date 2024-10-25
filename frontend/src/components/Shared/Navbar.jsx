@@ -20,6 +20,7 @@ const Navbar = () => {
     { name: 'RESERVATION', path: '/reservation' },
     { name: 'BOARDGAMES', path: '/boardgame' },
     { name: 'MEMBERSHIP', path: '/membership' }, // Add Membership here
+    { name: 'CONTRIBUTORS', path: '/contributors' },
   ];
 
   useEffect(() => {
