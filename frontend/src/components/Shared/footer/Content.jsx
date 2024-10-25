@@ -44,17 +44,19 @@ const Section2 = () => {
         } text-white`}
       >
         <h1
-          className={`${isWide ? 'text-[9vw]' : 'text-[12vw]'} leading-[0.8]`}
+          className={`${isWide ? 'text-[6vw]' : 'text-[9vw]'} leading-[0.8] [line-height:1.34] mb-[30px]`}
         >
           BoardGame {!isWide && <br />}
         </h1>
         <h1
-          className={`${isWide ? 'text-[9vw]' : 'text-[12vw]'} leading-[0.8]`}
-        >
+          className={`${isWide ? 'text-[6vw]' : 'text-[9vw]'} leading-[0.8] [line-height:1.34] mb-[30px] mr-[70px]`} 
+          >
           Cafe
         </h1>
-        <p className={isWide ? '' : 'mt-8'}>©2024 by Sip & Play</p>
-      </div>
+        <p className={`absolute bottom-0 left-1/2 transform -translate-x-1/ ${isWide ? 'pb-5' : 'pb-5 mt-10'}`}>
+            ©2024 by Sip & Play
+       </p>
+        </div>
     </>
   );
 };
@@ -111,9 +113,9 @@ const Nav = () => {
   const emailAddress = 'sipnplaynyc@gmail.com';
 
   return (
-    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20">
+    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20 ml-[30px]">
       <div className="flex justify-between md:gap-20">
-        <div className="flex flex-col gap-2 text-gray-400">
+        <div className="flex flex-col gap-2 text-gray-400 cursor-pointer">
           <h3 className="mb-2 uppercase text-white">About</h3>
           {navLinks.map((item, index) => (
             <Link
@@ -125,7 +127,7 @@ const Nav = () => {
             </Link>
           ))}
         </div>
-        <div className="flex flex-col gap-2 text-gray-400">
+        <div className="flex flex-col gap-2 text-gray-400 ml-[30px] cursor-pointer">
           <h3 className="mb-2 uppercase text-white">Socials</h3>
           {socialLink.map((item, index) => (
             <a
@@ -141,7 +143,7 @@ const Nav = () => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col text-gray-400">
+      <div className="flex flex-col text-gray-400 ml-[30px] cursor-pointer">
         <h3 className="mb-2 uppercase text-white">Contact Us</h3>
         <a
           href={`mailto:${emailAddress}`}

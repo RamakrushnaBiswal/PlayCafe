@@ -8,7 +8,7 @@ const Google = () => {
             } else {
                 new window.google.translate.TranslateElement({
                     pageLanguage: 'en',
-                    includedLanguages: 'en,hi,ur,es,ja,ko,zh-CN,nl,fr,de,it,ta,te,ru,ar,pt,th',
+                    includedLanguages: 'en,hi,mr,ur,es,ja,ko,zh-CN,nl,fr,de,it,ta,te,ru,ar,pt,th',
                     layout: window.google.translate.TranslateElement.InlineLayout.HORIZONTAL,
                     defaultLanguage: 'en',
                     autoDisplay: false,
@@ -56,12 +56,12 @@ const Google = () => {
                     .goog-te-combo {
                         background-color: #f0f8ff; /* Soft blue background */
                         border-radius: 0.3rem; /* Rounded corners */
-                        padding: 0.5rem;
-                        font-size: 1.175rem;     
+                        padding: 8px 4px;
+                        font-size: 1.1rem;     
                         transition: all 0.3s ease-in-out; /* Smooth transition */
                         outline: none;
                         color: #007bff; /* Blue text */
-                        font-weight: 500; /* Tailwind: font-medium */
+                        font-weight: 400; /* Tailwind: font-medium */
                         cursor: pointer;
                         text-align:center;
                     }
@@ -70,7 +70,6 @@ const Google = () => {
                         background-color: #e6f0ff; /* Lighter blue on hover */
                         border-color: #0056b3; /* Darker blue on hover */
                         color: #0056b3; /* Darker blue text */
-                        transform: scale(1.05); /* Slight scale effect */
                     }
 
                     .goog-logo-link {

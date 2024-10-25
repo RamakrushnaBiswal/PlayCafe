@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Logo from '../../assets/Logo/playcafe.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import Google from './footer/Google';
 
 const Navbar = () => {
   const [isloggedIn, setisloggedIn] = useState(false);
