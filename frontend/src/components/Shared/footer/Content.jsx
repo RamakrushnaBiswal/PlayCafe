@@ -208,6 +208,9 @@ const Nav = () => {
         </div> */}
         <Google />
       </div>
+      <div className="flex flex-col md:ml-4 mt-4 md:mt-0"> {/* NewsletterForm flex container */}
+          <NewsletterForm />
+        </div>
     </div>
   );
 };
