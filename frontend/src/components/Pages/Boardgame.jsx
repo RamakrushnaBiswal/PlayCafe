@@ -397,7 +397,7 @@ function Boardgame() {
                         onClick={() => handleInstantPlay(board)}
                         className="px-4 py-2 text-white bg-blue-500 rounded-lg opacity-0 transition-opacity duration-700 delay-300 group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       >
-                        <Link to="/TicTacToe">Instant Play</Link>
+                        <Link to="/boardgame/TicTacToe">Instant Play</Link>
                       </button>
                     </div>
                   </div>

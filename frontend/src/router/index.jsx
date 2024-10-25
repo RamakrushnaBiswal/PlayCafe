@@ -30,6 +30,7 @@ const router = createBrowserRouter(
       <Route path="/about" element={<About />} />
       <Route path="/menu" element={<Menu />} />
       <Route path="/boardgame" element={<Boardgame />} />
+      <Route path="/boardgame/TicTacToe" element={<TicTacToe />} />
       <Route path="/events" element={<Event />} />
       <Route path="/book" element={<MyBook />} />
       <Route path="/reservation" element={<Register />} />
@@ -42,7 +43,7 @@ const router = createBrowserRouter(
       <Route path="/email-verify" element={<EmailVerify />} />
       <Route path="/membership" element={<Membership />} />
       <Route path="/help" element={<HelpAndSupport />} />
-      <Route path="/TicTacToe" element={<TicTacToe />} />
+      
       
     </Route>
   )
