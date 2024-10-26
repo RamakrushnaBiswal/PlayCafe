@@ -20,13 +20,18 @@ function TicTacToe() {
 
   return (
     <div className="flex flex-col items-center my-20">
-      <h1 className="text-3xl font-bold mb-5">Tic Tac Toe</h1>
+      <h1 className="text-6xl font-bold tracking-tighter text-center mb-5">
+        Tic Tac Toe
+      </h1>
       <div className="grid grid-cols-3 gap-2 w-64">
         {board.map((value, index) => (
           <button
             key={index}
             onClick={() => handleClick(index)}
-            className="w-20 h-20 bg-amber-200 flex items-center justify-center text-3xl font-semibold text-black-800 border-2 border-amber-500 hover:bg-amber-300 transition-all duration-200 rounded-md"
+            aria-label={`Cell ${index + 1}, ${value || 'empty'}`}
+            tabIndex={0}
+            disabled={board[index] || winner}
+            className="w-20 h-20 bg-amber-200 flex items-center justify-center text-3xl font-semibold text-black-800 border-2 border-amber-500  ${!board[index] && !winner ? 'hover:bg-amber-300' : 'cursor-not-allowed opacity-75'} transition-all duration-200 rounded-md"
           >
             {value}
           </button>
@@ -38,7 +43,9 @@ function TicTacToe() {
             {winner} Wins!
           </h2>
         ) : board.every((cell) => cell) ? (
-          <h2 className="text-2xl font-semibold text-red-600 text-center">It's a Draw!</h2>
+          <h2 className="text-2xl font-semibold text-red-600 text-center">
+            It's a Draw!
+          </h2>
         ) : (
           <h2 className="text-xl font-semibold text-gray-700 text-center">
             Next Player: {isXNext ? 'X' : 'O'}
