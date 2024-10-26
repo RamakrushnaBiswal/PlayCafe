@@ -3,7 +3,6 @@ import Logo from '../../../assets/Logo/playcafe.png';
 import googleImage from '../../../assets/img/google.png';
 import { FaFacebook, FaInstagram, FaTiktok, FaGithub } from 'react-icons/fa';
 import Google from './Google';
-import { Link } from 'react-router-dom';
 
 export default function Content() {
   return (
@@ -91,9 +90,8 @@ const Section2 = () => {
         </div>
       )}
       <div
-        className={`flex ${
-          isWide ? 'justify-between items-end' : 'flex-col items-center'
-        } text-white`}
+        className={`flex ${isWide ? 'justify-between items-end' : 'flex-col items-center'
+          } text-white`}
       >
         <h1
           className={`${isWide ? 'text-[9vw]' : 'text-[12vw]'} leading-[0.8]`}
@@ -133,10 +131,6 @@ const Nav = () => {
       name: 'About',
       link: '/about',
     },
-    {
-      name: 'Help and Support',
-      link: '/help',
-    },
   ];
   const socialLink = [
     {
@@ -168,13 +162,13 @@ const Nav = () => {
         <div className="flex flex-col gap-2 text-gray-400">
           <h3 className="mb-2 uppercase text-white">About</h3>
           {navLinks.map((item, index) => (
-            <Link
+            <a
               className="hover:text-white duration-300"
               key={index}
-              to={item.link}
+              href={item.link}
             >
               {item.name}
-            </Link>
+            </a>
           ))}
         </div>
         <div className="flex flex-col gap-2 text-gray-400">

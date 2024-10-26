@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { message } from 'antd'; // Import Ant Design message
+import { useState, useEffect } from 'react';
 import photo from '../../assets/login.png';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa6';
 import zxcvbn from 'zxcvbn'; // Password strength checker
-
-
-// Configure message globally
-message.config({
-  top: 80, // Align with the login page
-  duration: 2, // Duration of the message visibility
-});
 
 const Signup = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
@@ -33,43 +25,26 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setError(null); // Reset error before submission
-
-    // Frontend validation
     if (!data.email || !data.password || !data.name) {
-      message.error({
-        content: 'Please fill in all fields.',
-        style: { fontSize: '18px' },
-      });
+      setError('Please fill in all fields');
       setIsLoading(false);
       return;
     }
     if (data.password.length < 8) {
-      message.error({
-        content: 'Password must be at least 8 characters long.',
-        style: { fontSize: '18px' },
-      });
+      setError('Password must be at least 8 characters long');
       setIsLoading(false);
       return;
     }
     if (data.name.length < 3) {
-      message.error({
-        content: 'Name must be at least 3 characters long.',
-        style: { fontSize: '18px' },
-      });
+      setError('Name must be at least 3 characters long');
       setIsLoading(false);
       return;
     }
     if (!data.email.includes('@')) {
-      message.error({
-        content: 'Please enter a valid email address.',
-        style: { fontSize: '18px' },
-      });
+      setError('Please enter a valid email address');
       setIsLoading(false);
       return;
     }
-
-    // Submit form data
     try {
       const response = await fetch(`${API_URL}/api/user/register`, {
         method: 'POST',
@@ -77,33 +52,16 @@ const Signup = () => {
         body: JSON.stringify(data),
       });
       const result = await response.json();
-
       if (!response.ok) {
         setIsLoading(false);
-        message.error({
-          content: result.error || 'An error occurred during registration.',
-          style: { fontSize: '18px' },
-        });
+        setError(result.error);
         return;
       }
-
-      // Successful registration message
-      message.success({
-        content: 'Registered successfully! Please log in.',
-        style: { fontSize: '18px' },
-      });
-
-      // Redirect to login page
-      navigate('/login');
+      alert('Registered successfully! Please log in.');
+      navigate('/');
     } catch (error) {
       setError(error.message);
       console.error('Error:', error);
-      message.error({
-        content: 'An error occurred while submitting the form.',
-        style: { fontSize: '18px' },
-      });
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -181,6 +139,11 @@ const Signup = () => {
             Strength: {getPasswordStrengthText(passwordStrength)}
           </p>
         </div>
+        {error && (
+          <div className="w-full p-2 bg-red-100 text-red-700 border border-red-400 rounded-md">
+            {error}
+          </div>
+        )}
         <h3 className="flex justify-between w-full">
           Already have an account?
           <Link

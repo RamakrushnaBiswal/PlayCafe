@@ -3,9 +3,7 @@ require("dotenv").config();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const logger = require("./config/logger");
-
 const newsletterRoute = require('./routes/newsletterRoute');
-
 const errorMiddleware = require("./middlewares/errrorMiddleware"); // Corrected typo
 const passport = require("passport");
 const { handleGoogleOAuth } = require("./controller/googleOAuth.controller");
