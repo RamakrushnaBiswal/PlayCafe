@@ -1,4 +1,9 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-useless-escape */
+// models/Event.js
+
 const mongoose = require("mongoose");
+const { string } = require("zod");
 
 // Define the Event schema
 const eventSchema = new mongoose.Schema({
@@ -36,12 +41,7 @@ const eventSchema = new mongoose.Schema({
       message: (props) => `${props.value} is not a valid URL!`,
     },
   },
-  bookedCustomers: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Customer' // Reference to the Customer model
-  }]
 });
-
 // Create the Event model
 const Event = mongoose.model("Event", eventSchema);
 
