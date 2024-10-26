@@ -49,7 +49,9 @@ const Section2 = () => {
           >
             BoardGame Cafe{!isWide && <br />}
           </h1>
-          <p className={`flex ${isWide ? `text-xl justify-center mt-3` : `text-base mt-1`}`}>©2024 by Sip & Play</p>
+          <p className={`flex ${isWide ? `text-[center] mt-3 ml-[620px]` : `text-base mt-1`}`}>
+             ©2024 by Sip & Play
+          </p>
         </div>
       </div>
     </>
@@ -108,10 +110,10 @@ const Nav = () => {
   const emailAddress = 'sipnplaynyc@gmail.com';
 
   return (
-    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20">
+    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20 ml-[30px]">
       <div className="flex justify-between md:gap-20">
         <div className="flex flex-col gap-2 text-black dark:text-white">
-          <h3 className="mb-2 uppercase text-black dark:text-white">About</h3>
+          <h3 className="mb-2 uppercase text-black dark:text-white cursor-pointer">About</h3>
           {navLinks.map((item, index) => (
             <Link
               className="hover:text-white duration-300"
@@ -122,8 +124,9 @@ const Nav = () => {
             </Link>
           ))}
         </div>
+
         <div className="flex flex-col gap-2 text-black dark:text-white">
-          <h3 className="mb-2 uppercase text-black dark:text-white">Socials</h3>
+          <h3 className="mb-2 uppercase text-black dark:text-white ml-[30px] cursor-pointer">Socials</h3>
           {socialLink.map((item, index) => (
             <a
               target="_blank"
@@ -138,8 +141,9 @@ const Nav = () => {
           ))}
         </div>
       </div>
+
       <div className="flex flex-col text-black dark:text-white">
-        <h3 className="mb-2 uppercase text-black dark:text-white">Contact Us</h3>
+        <h3 className="mb-2 uppercase text-black dark:text-white ml-[30px] cursor-pointer">Contact Us</h3>
         <a
           href={`mailto:${emailAddress}`}
           className="block mb-2 hover:underline"

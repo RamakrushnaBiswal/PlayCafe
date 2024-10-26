@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Logo from '../../assets/Logo/playcafe.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import Google from './footer/Google';
 import ThemeToggle from '../../components/ThemeToggle';
 
 const Navbar = () => {

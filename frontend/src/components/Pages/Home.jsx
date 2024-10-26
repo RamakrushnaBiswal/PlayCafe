@@ -4,6 +4,7 @@ import FeedbackForm from '../ui/FeedbackForm';
 import About from './About';
 import React, { useEffect } from 'react';
 import MainHOC from '../MainHOC';
+import Google from '../Shared/footer/Google';
 
 function Home() {
   useEffect(() => {
