@@ -53,7 +53,7 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center lg:pt-10 px-4">
+    <div className="w-screen h-screen dark:bg-black flex items-center justify-center lg:pt-10 px-4">
       {/* Background Image */}
       <img
         src={photo}
@@ -64,11 +64,11 @@ const Login = () => {
       {/* Login Form */}
       <form
         onSubmit={handleSubmit}
-        className="z-10 p-8 lg:p-16 bg-[#f1e9dc] flex flex-col gap-6 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] w-full max-w-md lg:max-w-xl"
+        className="z-10 p-8 lg:p-16 bg-[#f1e9dc] dark:bg-amber-800 dark:text-white flex flex-col gap-6 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] w-full max-w-md lg:max-w-xl"
       >
-        <div className="text-[#323232] font-black text-4xl lg:text-7xl mb-2">
+        <div className="text-[#323232] dark:text-white font-black text-4xl lg:text-7xl mb-2">
           Welcome,
-          <span className="block text-[#666] font-semibold text-lg lg:text-2xl mt-1">
+          <span className="block text-[#666] dark:text-gray-400 font-semibold text-lg lg:text-2xl mt-1">
             Log in to continue
           </span>
         </div>
@@ -102,7 +102,7 @@ const Login = () => {
 
         <Link
           to="/email-verify"
-          className="text-sm lg:text-base text-gray-500 hover:text-red-500 transition"
+          className="text-sm lg:text-base text-gray-500 dark:text-gray-200 hover:text-red-500 transition"
         >
           Forgot Password?
         </Link>
@@ -123,7 +123,7 @@ const Login = () => {
         >
           <button
             type="button"
-            className="w-full h-12 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] transition active:translate-x-[3px] active:translate-y-[3px]"
+            className="w-full h-12 rounded-md border-2 dark:text-white border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] transition active:translate-x-[3px] active:translate-y-[3px]"
           >
             Sign in with Google
           </button>
@@ -133,7 +133,7 @@ const Login = () => {
 
         <button
           type="submit"
-          className="w-full h-12 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] transition active:translate-x-[3px] active:translate-y-[3px]"
+          className="w-full h-12 rounded-md dark:text-white border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] transition active:translate-x-[3px] active:translate-y-[3px]"
         >
           {isLoading ? 'Loading...' : 'Let’s Log you in →'}
         </button>

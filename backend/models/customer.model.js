@@ -1,4 +1,3 @@
-// models/Customer.js
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
@@ -28,6 +27,7 @@ const customerSchema = new Schema(
     },
     bio: String,
     profilePicture: String,
+
     bookedEvents: [
       {
         type: Schema.Types.ObjectId,
@@ -40,6 +40,7 @@ const customerSchema = new Schema(
         ref: "Order",
       },
     ],
+
   },
   { timestamps: true }
 );
