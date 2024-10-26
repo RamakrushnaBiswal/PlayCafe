@@ -1,8 +1,16 @@
 const { z } = require("zod");
 const nodemailer = require("nodemailer");
+const logger = require("../utils/logger");
 require("dotenv").config();
 
-// data require form .env file : EMAIL_USER, EMAIL_PASS
+const requiredEnvVars = ["EMAIL_USER", "EMAIL_PASS"];
+const missingEnvVars = requiredEnvVars.filter((envVar) => !process.env[envVar]);
+
+if (missingEnvVars.length > 0) {
+  throw new Error(
+    `Missing required environment variables: ${missingEnvVars.join(", ")}`
+  );
+}
 
 // Define the Zod schema for contact form validation
 const contactSchema = z.object({
@@ -34,39 +42,41 @@ const createContactUs = async (req, res) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
-        tls: {
-          rejectUnauthorized: false, // Disable strict SSL verification
-        },
+      tls: {
+        rejectUnauthorized: false, // Disable strict SSL verification
+      },
     });
 
-    const mailOptions = {
-      from: mail,
-      to: process.env.EMAIL_USER,
-      subject: subject,
-      text: message,
+    const sanitizeInput = (str) => {
+      return str.replace(/[<>]/g, "").trim();
     };
 
-    // Send mail with defined transport object
-    await new Promise((resolve, reject) => {
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          console.error("Error occurred: " + error.message);
-          reject(error);
-        }
-        resolve(info);
-      });
+    const mailOptions = {
+      from: `"Contact Form" <${process.env.EMAIL_USER}>`,
+      replyTo: sanitizeInput(mail),
+      to: process.env.EMAIL_USER,
+      subject: sanitizeInput(subject),
+      text: sanitizeInput(message),
+    };
+
+    // Use built-in promise interface
+    await transporter.sendMail(mailOptions);
+  } catch (err) {
+    logger.error("Validation failed", {
+      errors: validation.error.errors,
+      requestId: req.id,
     });
 
-    res.status(200).json({
-      status: "success",
-      message: "Your contact request has been successfully received.",
-    });
-  } catch (err) {
-    console.error(`Error at transport: ${err}`);
-    res.status(500).json({
+    const statusCode = err.code === "EAUTH" ? 401 : 500;
+    const errorMessage =
+      process.env.NODE_ENV === "production"
+        ? "There was an error sending your message. Please try again later."
+        : err.message;
+
+    res.status(statusCode).json({
       status: "error",
-      message:
-        "There was an error sending your message. Please try again later.",
+      message: errorMessage,
+      requestId: req.id,
     });
   }
 };

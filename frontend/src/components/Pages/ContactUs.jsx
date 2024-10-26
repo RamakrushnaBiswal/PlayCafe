@@ -15,7 +15,21 @@ const ContactUs = () => {
   };
 
   // Use an environment variable for backend URL
-  const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+  const DEFAULT_URL = 'http://localhost:3000';
+
+  const API_URL = (() => {
+    try {
+      const url = new URL(import.meta.env.VITE_BACKEND_URL || DEFAULT_URL);
+      if (!['http:', 'https:'].includes(url.protocol)) {
+        throw new Error('Invalid protocol');
+      }
+      return url.toString();
+    } catch (e) {
+      console.warn('Invalid VITE_BACKEND_URL, using default:', DEFAULT_URL);
+      return DEFAULT_URL;
+    }
+  })();
+
   const [mail, setMail] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
@@ -27,7 +41,32 @@ const ContactUs = () => {
     e.preventDefault();
 
     // Basic client-side validation for security
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+      
+    const sanitizeInput = (input) => {
+      return input.replace(/[<>]/g, '');
+    };
+
+    // Add to state
+    const [lastSubmissionTime, setLastSubmissionTime] = useState(0);
+
+    if (!emailRegex.test(mail)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
+    // Rate limiting
+    const now = Date.now();
+    if (now - lastSubmissionTime < 60000) {
+      // 1 minute
+      setError('Please wait before submitting again.');
+      return;
+    }
+
+    // Sanitize inputs before sending
+    const sanitizedSubject = sanitizeInput(subject);
+    const sanitizedMessage = sanitizeInput(message);
 
     if (!mail || !subject || !message) {
       setError('All fields are required.');
@@ -43,7 +82,7 @@ const ContactUs = () => {
       setError('Subject must be less than 100 characters.');
       return;
     }
-    
+
     if (message.length > 1000) {
       setError('Message must be less than 1000 characters.');
       return;
@@ -52,14 +91,45 @@ const ContactUs = () => {
     setError(null);
     setIsLoading(true);
 
+    const fetchWithTimeout = async (url, options, timeout = 5000) => {
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), timeout);
+      try {
+        const response = await fetch(url, {
+          ...options,
+          signal: controller.signal,
+        });
+        clearTimeout(id);
+        return response;
+      } catch (error) {
+        clearTimeout(id);
+        throw error;
+      }
+    };
+    const retryWithBackoff = async (fn, retries = 3, backoff = 300) => {
+      try {
+        return await fn();
+      } catch (error) {
+        if (retries === 0) throw error;
+        await new Promise((resolve) => setTimeout(resolve, backoff));
+        return retryWithBackoff(fn, retries - 1, backoff * 2);
+      }
+    };
+
     try {
-      const response = await fetch(`${API_URL}/api/contact/contactus`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ mail, subject, message }),
-      });
+      const response = await retryWithBackoff(() =>
+        fetchWithTimeout(`${API_URL}/api/contact/contactus`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            mail,
+            subject: sanitizedSubject,
+            message: sanitizedMessage,
+          }),
+        })
+      );
 
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.status}`);
