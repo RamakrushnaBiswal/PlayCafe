@@ -42,7 +42,6 @@ const router = createBrowserRouter(
       <Route path="/verifyotp/:id" element={<VerifyOtp />} />
       <Route path="/email-verify" element={<EmailVerify />} />
       <Route path="/membership" element={<Membership />} />
-      <Route path="/help" element={<HelpAndSupport />} />
       
       
     </Route>
