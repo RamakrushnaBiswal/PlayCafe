@@ -6,7 +6,7 @@ import Google from './Google';
 
 export default function Content() {
   return (
-    <div className="bg-black pt-16 py-8 px-12 h-full w-full flex flex-col justify-between md:pt-24`">
+    <div className="bg-amber-100 dark:bg-black pt-16 py-8 px-12 h-full w-full flex flex-col justify-between md:pt-24`">
       <Nav />
       <Section2 />
       <NewsletterForm />
@@ -90,20 +90,21 @@ const Section2 = () => {
         </div>
       )}
       <div
+
         className={`flex ${isWide ? 'justify-between items-end' : 'flex-col items-center'
           } text-white`}
+
       >
-        <h1
-          className={`${isWide ? 'text-[9vw]' : 'text-[12vw]'} leading-[0.8]`}
-        >
-          BoardGame {!isWide && <br />}
-        </h1>
-        <h1
-          className={`${isWide ? 'text-[9vw]' : 'text-[12vw]'} leading-[0.8]`}
-        >
-          Cafe
-        </h1>
-        <p className={isWide ? '' : 'mt-8'}>©2024 by Sip & Play</p>
+        <div>
+          <h1
+            className={`${isWide ? 'text-[7.5vw]' : 'text-[12vw]'} leading-[0.8]`}
+          >
+            BoardGame Cafe{!isWide && <br />}
+          </h1>
+          <p className={`flex ${isWide ? `text-[center] mt-3 ml-[620px]` : `text-base mt-1`}`}>
+             ©2024 by Sip & Play
+          </p>
+        </div>
       </div>
     </>
   );
@@ -157,10 +158,10 @@ const Nav = () => {
   const emailAddress = 'sipnplaynyc@gmail.com';
 
   return (
-    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20">
+    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20 ml-[30px]">
       <div className="flex justify-between md:gap-20">
-        <div className="flex flex-col gap-2 text-gray-400">
-          <h3 className="mb-2 uppercase text-white">About</h3>
+        <div className="flex flex-col gap-2 text-black dark:text-white">
+          <h3 className="mb-2 uppercase text-black dark:text-white cursor-pointer">About</h3>
           {navLinks.map((item, index) => (
             <a
               className="hover:text-white duration-300"
@@ -171,8 +172,9 @@ const Nav = () => {
             </a>
           ))}
         </div>
-        <div className="flex flex-col gap-2 text-gray-400">
-          <h3 className="mb-2 uppercase text-white">Socials</h3>
+
+        <div className="flex flex-col gap-2 text-black dark:text-white">
+          <h3 className="mb-2 uppercase text-black dark:text-white ml-[30px] cursor-pointer">Socials</h3>
           {socialLink.map((item, index) => (
             <a
               target="_blank"
@@ -187,8 +189,9 @@ const Nav = () => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col text-gray-400">
-        <h3 className="mb-2 uppercase text-white">Contact Us</h3>
+
+      <div className="flex flex-col text-black dark:text-white">
+        <h3 className="mb-2 uppercase text-black dark:text-white ml-[30px] cursor-pointer">Contact Us</h3>
         <a
           href={`mailto:${emailAddress}`}
           className="block mb-2 hover:underline"
