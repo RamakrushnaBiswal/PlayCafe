@@ -54,4 +54,6 @@ router.use("/user", require("./customerRouter"));
 router.use("/reservation", require("./reservationRouter"));
 router.use("/newsletter", require("./newsletterRoute"));
 router.use("/forgot", require("./forgotRouter"));
+router.use("/order", require("./orderRouter"));
+
 module.exports = router;

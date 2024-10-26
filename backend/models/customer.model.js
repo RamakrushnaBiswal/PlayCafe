@@ -1,3 +1,5 @@
+// models/Customer.js
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -18,7 +20,7 @@ const customerSchema = new Schema(
     },
     verificationCode: {
       type: String,
-      default: ""
+      default: "",
     },
     role: {
       type: String,
@@ -26,12 +28,20 @@ const customerSchema = new Schema(
     },
     bio: String,
     profilePicture: String,
-    bookedEvents: [{
-      type: Schema.Types.ObjectId,
-      ref: "Event", // Reference to the Event model
-    }],
+    bookedEvents: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Event",
+      },
+    ],
+    orders: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Order",
+      },
+    ],
   },
-  { timestamps: true },
+  { timestamps: true }
 );
 
 const Customer = mongoose.model("Customer", customerSchema);
