@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import Logo from '../../assets/Logo/playcafe.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import Google from './footer/Google';
+import ThemeToggle from '../../components/ThemeToggle';
 
 const Navbar = () => {
   const [isloggedIn, setisloggedIn] = useState(false);
@@ -71,16 +73,20 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full fixed top-0 z-50 transition duration-300 ${
-        isScrolled ? 'bg-[#E0F0B1]' : 'bg-transparent'
-      } ${isScrolled ? 'text-gray-800' : 'text-black'} ${isScrolled ? 'shadow-lg' : ''}`}
-    >
+  className={`w-full fixed top-0 z-50 transition duration-300 ${
+    isScrolled 
+      ? 'bg-background-light dark:bg-background-dark shadow-lg text-black dark:text-white' 
+      : 'bg-transparent text-black dark:text-white'
+  }`}
+>
+
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center lg:h-16">
+        
           <Link to="/">
             <div className="flex-shrink-0">
               <img
-                className="w-14 h-14 bg-white rounded-full p-0"
+                className="w-14 h-14 rounded-full p-0"
                 alt="logo"
                 src={Logo}
                 loading="lazy"
@@ -98,19 +104,20 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.path}
-                    className={`${baseTextColorClass} ${hoverTextColorClass}`}
                   >
                     {item.name}
                   </Link>
                 </li>
               ))}
             </ul>
+            
           </div>
 
-          <div className="hidden md:flex font-semibold Poppins text-lg hover:bg-lime-200">
+          <div className="hidden md:flex font-semibold Poppins text-lg space-x-4 ">
+          <ThemeToggle />
             {token ? (
               <button
-                className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold text-[#323232]`}
+                className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold`}
                 type="button"
                 onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
               >
@@ -118,26 +125,28 @@ const Navbar = () => {
               </button>
             ) : (
               <button
-                className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold text-[#323232]`}
+                className={` ${hoverTextColorClass} dark:hover:text-white px-4 py-1 rounded-md border-2 border-black dark:border-white bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_white] font-semibold`}
                 type="button"
                 onClick={() => navigate('/login')}
               >
                 LOGIN
               </button>
+              
             )}
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden">
+          <div className="flex md:hidden space-x-6">
+          <ThemeToggle />
             <button
               onClick={toggleMenu}
               className={`${buttonTextClass} focus:outline-none`}
             >
+              
               {isMenuOpen ? (
                 <svg
-                  className="h-6 w-6"
+                  className="h-6 w-6 stroke-black dark:stroke-white"
                   fill="none"
-                  stroke="black"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -150,22 +159,23 @@ const Navbar = () => {
                 </svg>
               ) : (
                 <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  stroke="black"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+                className="h-6 w-6 stroke-black dark:stroke-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+              
               )}
             </button>
           </div>
+          
         </div>
       </div>
 
@@ -174,7 +184,7 @@ const Navbar = () => {
         <div
           className={`md:hidden ${
             isScrolled ? 'bg-amber-100 shadow-lg' : 'bg-[#E0F0B1] shadow-lg'
-          }`}
+          } dark:bg-black `}
         >
           <div className="px-4 pt-4 pb-4 space-y-2">
             {menuItems.map((item) => (
@@ -183,7 +193,7 @@ const Navbar = () => {
                 key={item.name}
                 to={item.path}
                 className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black dark:text-white`}
               >
                 {item.name}
               </Link>

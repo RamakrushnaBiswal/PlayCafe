@@ -19,7 +19,7 @@ const ThankPage = () => {
           }}
         />
 
-        <div className="hidden md:block relative z-10 space-y-8 bg-white  p-8 -mt-20 rounded-lg shadow-lg max-w-lg mx-auto">
+        <div className="hidden md:block relative z-10 space-y-8 bg-amber-100  p-8 -mt-20 rounded-lg shadow-lg max-w-lg mx-auto">
           <img
             src={logo}
             alt="Sip&Play Cafe Logo"

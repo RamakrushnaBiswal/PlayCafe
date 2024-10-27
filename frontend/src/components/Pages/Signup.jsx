@@ -90,18 +90,18 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center pt-10 relative overflow-hidden">
+    <div className="w-screen h-screen flex items-center dark:text-white dark:bg-black justify-center pt-10 relative overflow-hidden">
       <img
         src={photo}
         alt="login"
         loading="lazy"
         className="w-3/4 absolute inset-0"
       />
-      <form className="z-10 p-8 sm:p-16 bg-[#f1e9dc] rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] flex flex-col gap-5 w-11/12 sm:w-auto px-[3vw] pt-[5vh]">
-        <div className="text-[#323232] font-black text-4xl sm:text-7xl mb-4 sm:mb-6 mt-4">
+      <form className="z-10 p-8 sm:p-16 bg-[#f1e9dc] dark:bg-amber-800 dark:text-white rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] flex flex-col gap-5 w-11/12 sm:w-auto px-[3vw] pt-[5vh]">
+        <div className="text-[#323232] dark:text-white font-black text-4xl sm:text-7xl mb-4 sm:mb-6 mt-4">
           Play Cafe,
           <br />
-          <span className="block text-[#666] font-semibold text-xl sm:text-2xl">
+          <span className="block text-[#666] dark:text-gray-400 font-semibold text-xl sm:text-2xl">
             Register to continue
           </span>
         </div>
@@ -145,7 +145,7 @@ const Signup = () => {
               width: `${(passwordStrength + 1) * 20}%`,
             }}
           ></div>
-          <p className="text-sm text-[#666] mt-1">
+          <p className="text-sm text-[#666] dark:text-gray-200   mt-1">
             Strength: {getPasswordStrengthText(passwordStrength)}
           </p>
         </div>
@@ -158,18 +158,18 @@ const Signup = () => {
           Already have an account?
           <Link
             to="/login"
-            className="text-[#666] font-semibold hover:text-green-500"
+            className="text-[#666] dark:text-white font-semibold hover:text-green-500"
           >
             Login
           </Link>
         </h3>
         <a href={`${API_URL}/api/user/auth/google`} className="w-full">
-          <button className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black]">
+          <button className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black] hover:text-green-300">
             Sign up with Google
           </button>
         </a>
         <button
-          className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black] mb-2"
+          className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black] mb-2 hover:text-green-300"
           onClick={handleSubmit}
         >
           {isLoading ? 'Loading...' : "Let's go →"}
