@@ -25,6 +25,8 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+  
+    // Input validation
     if (!data.email || !data.password || !data.name) {
       setError('Please fill in all fields');
       setIsLoading(false);
@@ -45,6 +47,7 @@ const Signup = () => {
       setIsLoading(false);
       return;
     }
+  
     try {
       const response = await fetch(`${API_URL}/api/user/register`, {
         method: 'POST',
@@ -52,18 +55,25 @@ const Signup = () => {
         body: JSON.stringify(data),
       });
       const result = await response.json();
+  
       if (!response.ok) {
         setIsLoading(false);
         setError(result.error);
         return;
       }
-      alert('Registered successfully! Please log in.');
-      navigate('/');
+  
+      
+      alert('OTP sent to your email. Verify to complete registration.');
+      navigate('/otp-verify'); 
+  
     } catch (error) {
       setError(error.message);
       console.error('Error:', error);
+    } finally {
+      setIsLoading(false); // Ensure loading state is reset after request
     }
   };
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);

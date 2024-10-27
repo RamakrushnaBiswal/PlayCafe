@@ -1,5 +1,3 @@
-// models/Customer.js
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -21,6 +19,16 @@ const customerSchema = new Schema(
     verificationCode: {
       type: String,
       default: "",
+    },
+    otp: {
+      type: String, 
+    },
+    otpExpiry: {
+      type: Date, 
+    },
+    isVerified: {
+      type: Boolean, 
+      default: false,
     },
     role: {
       type: String,
