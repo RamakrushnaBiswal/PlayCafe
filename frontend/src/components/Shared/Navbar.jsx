@@ -88,13 +88,13 @@ const Navbar = () => {
   }`}
 >
 
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="mx-auto px-6">
         <div className="flex justify-between items-center lg:h-16">
         
           <Link to="/">
             <div className="flex-shrink-0">
               <img
-                className="w-14 h-14 rounded-full p-0"
+                className="w-14 h-14 rounded-full p-0 mt-1"
                 alt="logo"
                 src={Logo}
                 loading="lazy"
