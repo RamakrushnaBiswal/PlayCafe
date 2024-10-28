@@ -276,7 +276,9 @@ function Event() {
                       <b>Age: </b> <i>{event.age}</i>
                       <br />
                     </div>
-                    <button className="btn btn-primary bg-[#C3E0DC] p-4 rounded-xl text-md font-medium mt-4 hover:bg-[#FFF9B1]">
+                    {/* Added Appropriate colors to improve readability 
+                    & Changed Hover Styles too so that they adjust to both dark and light mode both  */}
+                    <button className="btn btn-primary bg-[#85C1B9] text-white p-4 rounded-xl text-md font-medium mt-4 hover:bg-[#F05365] hover:text-white">
                       Book your slot
                     </button>
                   </div>
