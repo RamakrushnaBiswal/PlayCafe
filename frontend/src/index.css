@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base Styles */
 @layer base {
   .font-outline-2 {
     -webkit-text-stroke: 2px white;
@@ -13,21 +14,18 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Component Styles */
 @layer components {
   .primary-btn {
-    @apply block;
+    @apply block w-full md:w-auto px-4 py-2 text-center rounded-lg bg-green-500 text-white transition-all duration-200 ease-in-out hover:bg-green-600;
   }
+
   .page-shadow {
     @apply shadow-[inset_0_0_8px_rgba(0,0,0,0.6),12px_12px_14px_rgba(0,0,0,0.9)];
   }
 }
 
-/* ------- THIS IS WILL REMOVE THE EMPTY SPACE THAT IS BEING CREATED ON THE EXTREME RIGHT SIDE OF THE WEBSITE ------- */
-/* *::-webkit-scrollbar {
-  display: none;
-} */
-/* ------------------------------------------------------------------------------------------------------------------  */
-
+/* Global Scrollbar Styles */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
@@ -41,4 +39,33 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: #004d43;
   border-radius: 10px;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 640px) {
+  /* Small devices (sm) */
+  .primary-btn {
+    @apply px-6 py-3 text-lg; /* Larger padding for small screens */
+  }
+}
+
+@media (min-width: 768px) {
+  /* Medium devices (md) */
+  .primary-btn {
+    @apply px-8 py-4 text-xl; /* Larger padding for medium screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Large devices (lg) */
+  .page-shadow {
+    @apply rounded-lg p-4; /* Add padding and rounded corners for larger screens */
+  }
+}
+
+@media (min-width: 1280px) {
+  /* Extra-large devices (xl) */
+  .primary-btn {
+    @apply px-10 py-4 text-xl; /* Extra padding for large screens */
+  }
 }
