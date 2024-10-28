@@ -274,26 +274,19 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Ashwinib26">
-                    <img src="https://avatars.githubusercontent.com/u/149402720?v=4" width="100;" alt="Ashwinib26"/>
-                    <br />
-                    <sub><b>Ashwini_ab</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td align="center">
                 <a href="https://github.com/alo7lika">
                     <img src="https://avatars.githubusercontent.com/u/152315710?v=4" width="100;" alt="alo7lika"/>
                     <br />
                     <sub><b>alolika bhowmik</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
-                <a href="https://github.com/tejasbenibagde">
-                    <img src="https://avatars.githubusercontent.com/u/124677750?v=4" width="100;" alt="tejasbenibagde"/>
+                <a href="https://github.com/Ashwinib26">
+                    <img src="https://avatars.githubusercontent.com/u/149402720?v=4" width="100;" alt="Ashwinib26"/>
                     <br />
-                    <sub><b>Tejas Benibagde</b></sub>
+                    <sub><b>Ashwini_ab</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -301,6 +294,13 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <img src="https://avatars.githubusercontent.com/u/136584376?v=4" width="100;" alt="itznayan"/>
                     <br />
                     <sub><b>Mahera Nayan</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/tejasbenibagde">
+                    <img src="https://avatars.githubusercontent.com/u/124677750?v=4" width="100;" alt="tejasbenibagde"/>
+                    <br />
+                    <sub><b>Tejas Benibagde</b></sub>
                 </a>
             </td>
             <td align="center">
