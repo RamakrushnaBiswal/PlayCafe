@@ -51,6 +51,8 @@ async function loginCustomer(req, res) {
 
   try {
     const customer = await Customer.findOne({ email: req.body.email });
+    console.log("1");
+    
     if (!customer) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
@@ -58,6 +60,8 @@ async function loginCustomer(req, res) {
       req.body.password,
       customer.password
     );
+    console.log("2");
+    
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
@@ -67,12 +71,29 @@ async function loginCustomer(req, res) {
       role: "customer", // Optional
       email: customer.email, // Optional
     };
+    console.log("3");
+    
     const token = jwt.sign(
       payload,
       process.env.JWT_SECRET,
       { expiresIn: "1h" } // Expires in 1 hour
     );
-    res.json({
+    console.log("4");
+    console.log(req.session);
+    
+    req.session.user = { 
+      id: customer._id, 
+      name: customer.name,
+    };
+    console.log("5");
+
+    res.cookie("authToken", token, {
+      maxAge: 1000 * 60 * 60,
+      httpOnly: true,               
+      secure: true,                
+    });
+    
+    return res.json({
       message: "Login successful",
       token,
       role: "customer",
@@ -83,6 +104,8 @@ async function loginCustomer(req, res) {
       },
     });
   } catch (error) {
+    console.log(error);
+    
     res.status(500).json({ error: "Internal server error" });
   }
 }
@@ -112,8 +135,18 @@ async function resetPassword(req, res) {
   }
 }
 
+async function logout(req, res){
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).send("Failed to log out.");
+    }
+    res.send("Logged out successfully!");
+  });
+}
+
 module.exports = {
   createCustomer,
   loginCustomer,
   resetPassword,
+  logout
 };

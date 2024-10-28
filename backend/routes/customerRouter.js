@@ -3,6 +3,7 @@ const {
   loginCustomer,
   createCustomer,
   resetPassword,
+  logout,
 } = require("../controller/customer.controller");
 const authenticateCustomer = require("../middlewares/authCustomer");
 const passport = require("../config/passport.config");
@@ -27,6 +28,9 @@ router.get(
 );
 
 router.post("/register", createCustomer);
+
+router.post("/logout", logout)
+
 router.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["email"] })
