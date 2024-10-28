@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useMediaQuery } from 'react-responsive';
 import cappuccino from '../../assets/TSimg/cappuccino.webp';
 import lemonade from '../../assets/TSimg/lemonade.webp';
 import pasta_primavera from '../../assets/TSimg/pasta_primavera.webp';
@@ -9,110 +11,206 @@ import latte from '../../assets/TSimg/latte.webp';
 import iced_tea from '../../assets/TSimg/iced_tea.webp';
 import caesar_salad from '../../assets/TSimg/caesar_salad.webp';
 
+// Sample data for today's specials
+const todaysSpecials = [
+  { 
+    name: "Espresso", 
+    description: "Rich and bold coffee shot.", 
+    originalPrice: "$3.00", 
+    offerPrice: "$2.50",
+    image: espresso 
+  },
+  { 
+    name: "Cappuccino", 
+    description: "Creamy coffee with frothy milk.", 
+    originalPrice: "$3.50", 
+    offerPrice: "$3.00",
+    image: cappuccino 
+  },
+  { 
+    name: "Latte", 
+    description: "Smooth coffee with steamed milk.", 
+    originalPrice: "$4.00", 
+    offerPrice: "$3.50",
+    image: latte 
+  },
+  { 
+    name: "Mango Smoothie", 
+    description: "Refreshing mango blend.", 
+    originalPrice: "$4.50", 
+    offerPrice: "$4.00",
+    image: mango_smoothie 
+  },
+  { 
+    name: "Lemonade", 
+    description: "Zesty and chilled lemonade.", 
+    originalPrice: "$2.50", 
+    offerPrice: "$2.00",
+    image: lemonade 
+  },
+  { 
+    name: "Iced Tea", 
+    description: "Cool iced tea with lemon.", 
+    originalPrice: "$2.00", 
+    offerPrice: "$1.50",
+    image: iced_tea 
+  },
+  { 
+    name: "Cheese Sandwich", 
+    description: "Toasted sandwich with cheese.", 
+    originalPrice: "$3.50", 
+    offerPrice: "$3.00",
+    image: cheese_sandwich 
+  },
+  { 
+    name: "Pasta Primavera", 
+    description: "Veggies and pasta in a light sauce.", 
+    originalPrice: "$5.50", 
+    offerPrice: "$5.00",
+    image: pasta_primavera 
+  },
+  { 
+    name: "Caesar Salad", 
+    description: "Crispy salad with Caesar dressing.", 
+    originalPrice: "$5.00", 
+    offerPrice: "$4.50",
+    image: caesar_salad 
+  }
+];
 
-const menuItems = {
-  coffee: [
-    { name: "Espresso", description: "Rich and bold coffee shot.", image: espresso, originalPrice: "$3.00", offerPrice: "$2.50" },
-    { name: "Cappuccino", description: "Creamy coffee with frothy milk.", image: cappuccino, originalPrice: "$3.50", offerPrice: "$3.00" },
-    { name: "Latte", description: "Smooth coffee with steamed milk.", image: latte, originalPrice: "$4.00", offerPrice: "$3.50" },
-  ],
-  drinks: [
-    { name: "Mango Smoothie", description: "Refreshing mango blend.", image: mango_smoothie, originalPrice: "$4.50", offerPrice: "$4.00" },
-    { name: "Lemonade", description: "Zesty and chilled lemonade.", image: lemonade, originalPrice: "$2.50", offerPrice: "$2.00" },
-    { name: "Iced Tea", description: "Cool iced tea with lemon.", image: iced_tea, originalPrice: "$2.00", offerPrice: "$1.50" },
-  ],
-  food: [
-    { name: "Cheese Sandwich", description: "Toasted sandwich with cheese.", image: cheese_sandwich, originalPrice: "$3.50", offerPrice: "$3.00" },
-    { name: "Pasta Primavera", description: "Veggies and pasta in a light sauce.", image: pasta_primavera, originalPrice: "$5.50", offerPrice: "$5.00" },
-    { name: "Caesar Salad", description: "Crispy salad with Caesar dressing.", image: caesar_salad, originalPrice: "$5.00", offerPrice: "$4.50" },
-  ],
-};
+const infiniteSpecials = todaysSpecials;
+
+const SpecialCard = ({ special, index, onMouseEnter, onMouseLeave }) => (
+  <div 
+    className={` ${index % 2 === 0 ? 'bg-pink-100 dark:bg-amber-900' : 'bg-teal-100 dark:bg-amber-500'} p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2`}
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
+  >
+    <img src={special.image} alt={special.name} className="w-full h-48 rounded-lg mb-4 object-cover" />
+    <h3 className="text-left font-semibold text-lg text-gray-800">{special.name}</h3>
+    <p className="text-left mb-4 text-gray-600">{special.description}</p>
+    <div className={`flex items-center justify-end gap-2 mt-2 transition-opacity duration-300 ease-in-out`}>
+      <p className="text-md font-semibold text-gray-500 line-through">{special.originalPrice}</p>
+      <p className="text-xl font-bold text-red-600">{special.offerPrice}</p>
+    </div>
+  </div>
+);
 
 const TodaysSpecial = () => {
+  const [currentIndex, setCurrentIndex] = useState(1); // Start at the first real special
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isHovered, setIsHovered] = useState(false); // New state to track hover
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 640px)' });
+  const isLargeScreen = useMediaQuery({ query: '(min-width: 641px)' });
 
-  const [todaysSpecial, setTodaysSpecial] = useState({ coffee: {}, drink: {}, food: {} });
-  const [hoveredItem, setHoveredItem] = useState(null); // State to track the hovered item
+  const specialsWidth = isSmallScreen ? 100 : 100 / 3;
 
-  // Function to update today's special (cycling through 3 items)
-  const updateTodaysSpecial = () => {
-    const today = new Date();
-    const dayIndex = today.getDay(); // Get the day of the week (0-6)
-    const cycleIndex = dayIndex % 3; // Cycle through 3 items every 3 days
+  const nextSpecial = useCallback(() => {
+    if (!isHovered) { // Only change if not hovering
+      setIsTransitioning(true);
+      setCurrentIndex((prevIndex) => {
+        if (prevIndex === infiniteSpecials.length - 2) {
+          setTimeout(() => {
+            setIsTransitioning(false);
+            setCurrentIndex(1);
+          }, 500);
+          return prevIndex;
+        }
+        return prevIndex + 1;
+      });
+    }
+  }, [isHovered]);
 
-    setTodaysSpecial({
-      coffee: menuItems.coffee[cycleIndex],
-      drink: menuItems.drinks[cycleIndex],
-      food: menuItems.food[cycleIndex],
-    });
-  };
+  const prevSpecial = useCallback(() => {
+    if (!isHovered) { // Only change if not hovering
+      setIsTransitioning(true);
+      setCurrentIndex((prevIndex) => {
+        if (prevIndex === 1) {
+          setTimeout(() => {
+            setIsTransitioning(false);
+            setCurrentIndex(infiniteSpecials.length - 2);
+          }, 500);
+          return prevIndex;
+        }
+        return prevIndex - 1;
+      });
+    }
+  }, [isHovered]);
 
   useEffect(() => {
-    updateTodaysSpecial();
-  }, []);
+    const timer = setInterval(nextSpecial, 4000);
+    return () => clearInterval(timer);
+  }, [nextSpecial]);
+
+  // Mouse event handlers
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   return (
-    <div className="mt-10">
-      <h2 className="text-5xl font-bold text-center mb-9 dark:text-gray-50">
-  Today's Special
-</h2>
-      <div className="flex flex-col md:flex-row justify-around items-center mb-8 space-y-8 md:space-y-0 md:space-x-4">
-        {/* Coffee Card */}
-        <div
-          className="bg-pink-100 dark:bg-amber-900 p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2"
-          style={{ minHeight: '350px', maxHeight: '350px' }}  
-          onMouseEnter={() => setHoveredItem('coffee')}
-          onMouseLeave={() => setHoveredItem(null)}
-        >
+    <section className="p-8 rounded-lg shadow-md max-w-5xl mx-auto overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-5xl font-bold text-center mb-9 dark:text-gray-50">
+          Today's Specials
+        </h2>
+        <div className="relative mt-5">
+          <div className="overflow-visible">
+            <div
+              className={`flex transition-transform duration-500 ease-in-out ${!isTransitioning ? 'transition-none' : ''}`}
+              style={{
+                transform: `translateX(-${(currentIndex - 1) * specialsWidth}%)`,
+              }}
+            >
+              {infiniteSpecials.map((special, index) => (
+                <div key={index} className={`w-full ${isSmallScreen ? 'flex-shrink-0' : 'sm:w-1/3 flex-shrink-0'} px-2`}>
+                  <SpecialCard 
+                    special={special} 
+                    index={index} 
+                    onMouseEnter={handleMouseEnter} // Pass mouse event handlers
+                    onMouseLeave={handleMouseLeave} 
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
 
-          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.coffee.image} alt={todaysSpecial.coffee.name} />
-
-          <h3 className="text-xl font-semibold">{todaysSpecial.coffee.name}</h3>
-          <p className="text-gray-600 dark:text-amber-200">{todaysSpecial.coffee.description}</p>
-
+          {/* Conditional rendering for previous button */}
+          {currentIndex > 1 && (
+            <button
+              onClick={prevSpecial}
+              className="absolute top-1/2 -left-4 ml-1 bg-white rounded-full p-2 shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 hover:shadow-lg hover:bg-gray-100"
+            >
+              <ChevronLeft className="w-6 h-6 text-gray-600" />
+            </button>
+          )}
           
-          <div className={`flex items-center justify-end gap-2 mt-2 transition-opacity duration-300 ease-in-out ${hoveredItem === 'coffee' ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="text-md font-semibold text-gray-500 line-through">{todaysSpecial.coffee.originalPrice}</p>
-            <p className="text-xl font-bold text-red-600">{todaysSpecial.coffee.offerPrice}</p>
-          </div>
+          {/* Conditional rendering for next button */}
+          {currentIndex < infiniteSpecials.length - 2 && (
+            <button
+              onClick={nextSpecial}
+              className="absolute top-1/2 -right-4 mr-1 bg-white rounded-full p-2 shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 hover:shadow-lg hover:bg-gray-100"
+            >
+              <ChevronRight className="w-6 h-6 text-gray-600" />
+            </button>
+          )}
         </div>
-
-        {/* Food Card */}
-        <div
-          className="bg-teal-100 dark:bg-amber-500 p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2"
-          style={{ minHeight: '350px', maxHeight: '350px' }}  
-          onMouseEnter={() => setHoveredItem('food')}
-          onMouseLeave={() => setHoveredItem(null)}
-        >
-          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.food.image} alt={todaysSpecial.food.name} loading="lazy" />
-
-          <h3 className="text-xl font-semibold text-left">{todaysSpecial.food.name}</h3>
-          <p className="text-gray-600 text-left">{todaysSpecial.food.description}</p>
-        
-          <div className={`flex items-center justify-end gap-2 mt-2 transition-opacity duration-300 ease-in-out ${hoveredItem === 'food' ? 'opacity-100' : 'opacity-0'}`}>
-              <p className="text-md font-semibold text-gray-500 line-through">{todaysSpecial.food.originalPrice}</p>
-              <p className="text-xl font-bold text-red-600">{todaysSpecial.food.offerPrice}</p>
-          </div>
-        </div>
-
-        {/* Drink Card */}
-        <div
-          className="bg-pink-100 dark:bg-amber-900 p-4 rounded-lg shadow-lg max-w-xs text-center transition-transform duration-300 ease-in-out transform hover:scale-105 mx-2"
-          style={{ minHeight: '350px', maxHeight: '350px'}}  
-          onMouseEnter={() => setHoveredItem('drink')}
-          onMouseLeave={() => setHoveredItem(null)}
-        >
-          <img className="w-64 h-48 object-cover object-center rounded-md mb-4" src={todaysSpecial.drink.image} alt={todaysSpecial.drink.name} loading="lazy"/>
-
-          <h3 className="text-xl font-semibold">{todaysSpecial.drink.name}</h3>
-          <p className="text-gray-600 dark:text-amber-200">{todaysSpecial.drink.description}</p>
-        
-          <div className={`flex items-center justify-end gap-2 mt-2 transition-opacity duration-300 ease-in-out ${hoveredItem === 'drink' ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="text-lg font-semibold text-gray-500 line-through">{todaysSpecial.drink.originalPrice}</p>
-            <p className="text-xl font-bold text-red-600">{todaysSpecial.drink.offerPrice}</p>
-          </div>
+        <div className="flex justify-center mt-8">
+          {infiniteSpecials
+            .slice(1, isLargeScreen ? infiniteSpecials.length - 1 : infiniteSpecials.length)
+            .map((_, index) => (
+              <div
+                key={index}
+                onClick={() => setCurrentIndex(index + 1)}
+                className={`w-2 h-2 mx-1 rounded-full ${currentIndex === index + 1 ? 'bg-red-600' : 'bg-gray-400'}`}
+              />
+            ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
