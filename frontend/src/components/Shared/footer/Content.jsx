@@ -6,13 +6,22 @@ import Google from './Google';
 
 export default function Content() {
   return (
-    <div className="bg-amber-100 dark:bg-black pt-16 py-8 px-12 h-full w-full flex flex-col justify-between md:pt-24`">
-      <Nav />
-      <Section2 />
-      <NewsletterForm />
+    <div className="flex flex-col md:flex-row h-full justify-between px-6 md:px-12 py-8 w-full items-center md:items-start">
+      {/* Left side containing Nav and Section2 */}
+      <div className="flex flex-col w-full md:w-2/3">
+        <Nav />
+        <Section2 />
+      </div>
+      
+      {/* NewsletterForm aligned to the right on larger screens */}
+      <div className="order-last md:order-none w-full md:w-1/3 mt-4 md:mt-0">
+        <NewsletterForm />
+      </div>
     </div>
   );
 }
+
+
 
 const NewsletterForm = () => {
   const [email, setEmail] = useState('');
@@ -41,21 +50,19 @@ const NewsletterForm = () => {
   };
 
   return (
-    <div className="absolute top-12 right-60 p-2 rounded-md shadow-lg ">
-      <h3 className="text-white text-lg mb-2">Subscribe to our Newsletter</h3>
+    <div className="p-4 bg-amber-100 rounded-md shadow-lg dark:bg-black w-full md:max-w-md mx-auto">
+      <h3 className="text-black dark:text-white text-lg mb-2">Subscribe to our Newsletter</h3>
       <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-2 md:gap-4">
-      <div className="flex items-center border rounded-md bg-white">
-          <span className="p-2 text-gray-600">
-            📧
-          </span>
-        <input
-          type="email"
-          className="p-2 rounded-r-none border-l border-gray-300 focus:outline-none"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <div className="flex items-center border rounded-md bg-white">
+          <span className="p-2 text-gray-600">📧</span>
+          <input
+            type="email"
+            className="p-2 rounded-r-none border-l border-gray-300 focus:outline-none"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </div>
         <button type="submit" className="p-2 bg-green-500 text-white rounded-md ml-2">
           Subscribe
@@ -65,6 +72,7 @@ const NewsletterForm = () => {
     </div>
   );
 };
+
 const Section2 = () => {
   const [isWide, setIsWide] = useState(null);
 
@@ -91,7 +99,7 @@ const Section2 = () => {
       )}
       <div
 
-        className={`flex ${isWide ? 'justify-between items-end' : 'flex-col items-center'
+        className={`flex ${isWide ? 'justify-between items-end mt-28' : 'flex-col items-center'
           } text-white`}
 
       >
@@ -158,7 +166,7 @@ const Nav = () => {
   const emailAddress = 'sipnplaynyc@gmail.com';
 
   return (
-    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20 ml-[30px]">
+    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20 ml-[30px] ">
       <div className="flex justify-between md:gap-20">
         <div className="flex flex-col gap-2 text-black dark:text-white">
           <h3 className="mb-2 uppercase text-black dark:text-white cursor-pointer">About</h3>
@@ -174,7 +182,7 @@ const Nav = () => {
         </div>
 
         <div className="flex flex-col gap-2 text-black dark:text-white">
-          <h3 className="mb-2 uppercase text-black dark:text-white ml-[30px] cursor-pointer">Socials</h3>
+          <h3 className="mb-2 uppercase text-black dark:text-white  cursor-pointer">Socials</h3>
           {socialLink.map((item, index) => (
             <a
               target="_blank"
@@ -191,7 +199,7 @@ const Nav = () => {
       </div>
 
       <div className="flex flex-col text-black dark:text-white">
-        <h3 className="mb-2 uppercase text-black dark:text-white ml-[30px] cursor-pointer">Contact Us</h3>
+        <h3 className="mb-2 uppercase text-black dark:text-white cursor-pointer">Contact Us</h3>
         <a
           href={`mailto:${emailAddress}`}
           className="block mb-2 hover:underline"
@@ -211,9 +219,6 @@ const Nav = () => {
         </div> */}
         <Google />
       </div>
-      <div className="flex flex-col md:ml-4 mt-4 md:mt-0"> {/* NewsletterForm flex container */}
-          <NewsletterForm />
-        </div>
     </div>
   );
 };
