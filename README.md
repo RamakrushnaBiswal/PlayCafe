@@ -618,6 +618,20 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
 
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+---
+## Stargazers ❤️
+
+<div align='left'>
+
+[![Stargazers repo roster for RamakrushnaBiswal/PlayCafe](https://reporoster.com/stars/RamakrushnaBiswal/PlayCafe)](https://github.com/RamakrushnaBiswal/PlayCafe/stargazers)
+
+</div>
+
+## Forkers ❤️
+
+[![Forkers repo roster for RamakrushnaBiswal/PlayCafe](https://reporoster.com/forks/RamakrushnaBiswal/PlayCafe)](https://github.com/RamakrushnaBiswal/PlayCafe/network/members)
+
+---
 
 ## ⭐ Support
 
