@@ -149,9 +149,10 @@ const ReviewCarousel = () => {
 
         ))}
 
-        // Changed Buttons to motion.button provided by framer
+        {// Changed Buttons to motion.button provided by framer
         // whileHover is a framer specific attribute
         // It displaces buttons by 10px on hover for that nice slide animation
+        }
         <motion.button
           id="next"
           className=" absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px] max-sm:text-white max-sm:text-2xl max-sm:right-2"
@@ -165,9 +166,7 @@ const ReviewCarousel = () => {
         <motion.button
           id="prev"
           className=" absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 left-[50px] max-sm:text-white max-sm:text-2xl max-sm:left-2"
-          onClick={() => 
-            setActive((prev) => (prev - 1 >= 0 ? prev - 1 : prev))
-          }
+          onClick={() => setActive((prev) => (prev - 1 >= 0 ? prev - 1 : prev))}
           whileHover={{ x: -10, color: '#00B2CA', opacity: 1 }}
         >
           {' '}
