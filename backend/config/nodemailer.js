@@ -143,3 +143,32 @@ exports.sendVerificationMail = async (email, verificationCode) => {
   }
 
 }
+
+
+exports.sendRegisterVerificationMail = async (email, verificationCode) => {
+  const emailText = `
+  Dear Customer,
+  
+  Please use this verification code for verifying your account. Here's your code':
+
+  RCode: ${verificationCode}
+  
+  Thank you for choosing our service. We are happy to help you.
+
+  Best regards,
+  PlayCafe
+`;
+
+  try {
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Your OTP Verification Code',
+      text: emailText,
+    });
+  } catch (error) {
+    console.error("Error sending OTP email:", error);
+    throw new Error("Failed to send OTP email");
+  }
+}
+
