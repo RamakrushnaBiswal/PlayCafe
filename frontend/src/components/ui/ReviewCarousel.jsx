@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const ReviewCarousel = () => {
   const [active, setActive] = useState(3);
@@ -148,8 +149,27 @@ const ReviewCarousel = () => {
 
         ))}
 
-        <button id="next" className=' absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px] max-sm:text-white max-sm:text-2xl max-sm:right-2' onClick={() => setActive(prev => (prev + 1 < items.length ? prev + 1 : prev))}>{">>"}</button>
-        <button id="prev" className=' absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 left-[50px] max-sm:text-white max-sm:text-2xl max-sm:left-2' onClick={() => setActive(prev => (prev - 1 >= 0 ? prev - 1 : prev))}> {"<<"}</button>
+        <motion.button
+          id="next"
+          className=" absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px] max-sm:text-white max-sm:text-2xl max-sm:right-2"
+          onClick={() =>
+            setActive((prev) => (prev + 1 < items.length ? prev + 1 : prev))
+          }
+          whileHover={{ x: 10, color: '#00B2CA', opacity: 1 }}
+        >
+          {'>>'}
+        </motion.button>
+        <motion.button
+          id="prev"
+          className=" absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 left-[50px] max-sm:text-white max-sm:text-2xl max-sm:left-2"
+          onClick={() => 
+            setActive((prev) => (prev - 1 >= 0 ? prev - 1 : prev))
+          }
+          whileHover={{ x: -10, color: '#00B2CA', opacity: 1 }}
+        >
+          {' '}
+          {'<<'}
+        </motion.button>
       </div>
     </div>
   );
