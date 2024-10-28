@@ -89,11 +89,9 @@ const Section2 = () => {
           />
         </div>
       )}
-      <div
-
+      <div 
         className={`flex ${isWide ? 'justify-between items-end' : 'flex-col items-center'
-          } text-white`}
-
+          } text-[#004D43] dark:text-white`}
       >
         <div>
           <h1
