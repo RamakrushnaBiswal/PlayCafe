@@ -50,26 +50,29 @@ const NewsletterForm = () => {
   };
 
   return (
-    <div className="p-4 bg-amber-100 rounded-md shadow-lg dark:bg-black w-full md:max-w-md mx-auto">
-      <h3 className="text-black dark:text-white text-lg mb-2">Subscribe to our Newsletter</h3>
-      <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-2 md:gap-4">
-        <div className="flex items-center border rounded-md bg-white">
-          <span className="p-2 text-gray-600">📧</span>
-          <input
-            type="email"
-            className="p-2 rounded-r-none border-l border-gray-300 focus:outline-none"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="p-2 bg-green-500 text-white rounded-md ml-2">
-          Subscribe
-        </button>
-      </form>
-      {message && <p className="mt-2 text-sm text-green-500">{message}</p>}
+    
+<div className="p-3 bg-amber-100 rounded-md shadow-lg  dark:bg-black w-full max-w-sm mx-auto">
+  <h3 className="text-black dark:text-white text-base md:text-lg mb-1 md:mb-2">
+    Subscribe to our Newsletter
+  </h3>
+  <form onSubmit={handleSubmit} className="flex flex-col gap-2 md:flex-row md:gap-3">
+    <div className="flex items-center border rounded-md bg-white">
+      <span className="p-1 md:p-2 text-gray-600">📧</span>
+      <input
+        type="email"
+        className="p-1 md:p-2 rounded-r-none border-l border-gray-300 focus:outline-none text-sm"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
     </div>
+    <button type="submit" className="p-1 md:p-2 bg-green-500 text-white rounded-md">
+      Subscribe
+    </button>
+  </form>
+  {message && <p className="mt-1 md:mt-2 text-xs md:text-sm text-green-500">{message}</p>}
+</div>
   );
 };
 
