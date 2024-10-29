@@ -3,6 +3,7 @@ const {
   loginCustomer,
   createCustomer,
   resetPassword,
+  logout,
   verifyOtp,
 } = require("../controller/customer.controller");
 const authenticateCustomer = require("../middlewares/authCustomer");
@@ -28,6 +29,7 @@ router.get(
 );
 
 router.post("/register", createCustomer);
+router.post("/logout", logout)
 router.post("/verify", verifyOtp);
 router.get(
   "/auth/google",

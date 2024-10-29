@@ -13,6 +13,7 @@ const Navbar = () => {
   const [token, setToken] = useState(Cookies.get('authToken'));
   const location = useLocation();
   const navigate = useNavigate(); // Correctly initialize useNavigate
+  const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
 
   const menuItems = [
     { name: 'HOME', path: '/' },
@@ -43,9 +44,16 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     // setisloggedIn(false); // Set isLoggedIn to false on confirmation
     //managing log in , logout using jwt tokens
+    const response = await fetch(`${API_URL}/api/user/logout`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
     Cookies.remove('authToken');
     setToken(null);
     setIsModalOpen(false); // Close the modal

@@ -9,6 +9,8 @@ const passport = require("passport");
 const { handleGoogleOAuth } = require("./controller/googleOAuth.controller");
 const app = express();
 const port = process.env.PORT || 3000;
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 // CORS configuration
 const corsOptions = {
@@ -41,6 +43,21 @@ mongoose
 
 // Initialize passport middleware
 app.use(passport.initialize());
+
+app.use(
+  session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24,
+      secure: false,
+    },
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+    }),
+  })
+);
 
 // API routes
 app.use("/api", require("./routes/index"));
