@@ -5,6 +5,7 @@ const {
   getEvents,
   deleteEvent,
 } = require("../controller/event.controller");
+const authenticateCustomer = require("../middlewares/authCustomer");
 
 const router = express.Router();
 
