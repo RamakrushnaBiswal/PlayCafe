@@ -99,12 +99,10 @@ const Section2 = () => {
             loading="lazy"
           />
         </div>
-      )}
-      <div
-
-        className={`flex ${isWide ? 'justify-between items-end mt-28' : 'flex-col items-center'
-          } text-white`}
-
+      )} 
+      <div 
+        className={`flex ${isWide ? 'justify-between items-end' : 'flex-col items-center'
+          } text-[#004D43] dark:text-white`}
       >
         <div>
           <h1

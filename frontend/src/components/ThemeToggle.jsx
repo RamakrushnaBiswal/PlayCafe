@@ -7,25 +7,43 @@ const ThemeSwitcher = () => {
   const isDarkMode = theme === 'dark';
 
   return (
-    <div className="flex flex-row justify-center items-center">
-      <label className="relative inline-block w-16 h-9">
-  <input
-    type="checkbox"
-    className="sr-only peer"
-    checked={isDarkMode}
-    onChange={() => setTheme(isDarkMode ? 'light' : 'dark')}
-  />
-  <span className="block w-full h-full bg-blue-500 rounded-3xl border-2 border-blue-400 cursor-pointer peer-checked:bg-slate-800 peer-checked:border-blue-400 transition-colors duration-400"></span>
+    <div className="flex justify-center items-center mt-2">
+      <label className="relative inline-flex items-center cursor-pointer">
+        <input
+          type="checkbox"
+          className="sr-only"
+          checked={isDarkMode}
+          onChange={() => setTheme(isDarkMode ? 'light' : 'dark')}
+        />
 
-  {/* Sun Icon for Light Mode */}
-  <span className="absolute top-1/2 left-[0.3em] w-4 h-4 bg-gradient-to-r from-pink-500 to-orange-400 rounded-full transform -translate-y-1/2 transition-all duration-400 opacity-100 peer-checked:opacity-0"></span>
+        {/* Track */}
+        <span className={`block w-16 h-8 bg-gray-300 rounded-full shadow-inner transition duration-300 ease-in-out ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'}`}></span>
 
-  {/* Moon Icon for Dark Mode */}
-  <span className="absolute top-1/2 left-[calc(100%-1.3em)] w-4 h-4 bg-transparent rounded-full transform -translate-y-1/2 transition-all duration-400 opacity-0 peer-checked:opacity-100 peer-checked:shadow-[inset_-3px_-2px_5px_-2px_#8983f7,inset_-8px_-4px_0_0_#a3dafb]"></span>
-</label>
+        {/* Moon Icon for Light Mode */}
+        <FaMoon
+          className={`absolute left-1 w-5 h-5 text-gray-700 transform transition-all duration-300 ${
+            isDarkMode ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
+          }`}
+        />
 
+        {/* Sun Icon for Dark Mode */}
+        <FaSun
+          className={`absolute right-1 w-5 h-5 text-gray-100 transform transition-all duration-300 ${
+            isDarkMode ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+          }`}
+        />
 
-      </div>
+        {/* Slider (Knob) */}
+        <span
+          className={`absolute w-7 h-7 bg-white rounded-full shadow-lg transition-transform duration-300 ease-in-out transform ${isDarkMode ? 'translate-x-8' : 'translate-x-0'}`}
+        ></span>
+
+        {/* Font Awesome Icon as Logo inside a rounded circle */}
+        <div className={`absolute w-8 h-8 bg-white rounded-full flex justify-center items-center shadow-lg transition-all duration-300 ease-in-out transform ${isDarkMode ? 'translate-x-8' : 'translate-x-0'}`}>
+          {isDarkMode ? <FaMoon className="w-5 h-5 text-gray-800" /> : <FaSun className="w-5 h-5 text-gray-800" />}
+        </div>
+      </label>
+    </div>
   );
 };
 

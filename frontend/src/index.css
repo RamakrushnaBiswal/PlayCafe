@@ -42,3 +42,12 @@
   background-color: #004d43;
   border-radius: 10px;
 }
+:root {
+  --transition-duration: 500ms;
+}
+
+/* Enable dark mode */
+html.dark {
+  background-color: #1a202c; /* Dark slate background */
+  color: #f0e7db; /* Light text */
+}
