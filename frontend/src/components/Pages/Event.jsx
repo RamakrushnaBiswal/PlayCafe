@@ -14,6 +14,8 @@ import game from '../../assets/Boardgames/carrom.gif';
 import spin from '../../assets/Boardgames/spin.gif';
 import MainHOC from '../MainHOC';
 const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 const months = [
   'January',
   'February',
@@ -31,6 +33,18 @@ const months = [
 function Event() {
   const [events, setEvents] = useState([]);
   const [error, setError] = useState(null);
+ const navigate = useNavigate();
+
+
+
+  const handleRegisterClick = () => {
+    const isAuthenticated = Boolean(Cookies.get('authToken'));
+  
+    if (!isAuthenticated) {
+      alert("Please sign in to register for the event.");
+      navigate('/login'); 
+    }
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -183,7 +197,7 @@ function Event() {
                 ))}
               </div>
               <div className="text-center mt-4">
-                <button className="bg-[#FEF3C7] dark:bg-black text-gray-700 dark:text-white px-4 py-2 rounded-md mt-4">
+                <button onClick={handleRegisterClick} className="bg-[#FEF3C7] dark:bg-black text-gray-700 dark:text-white px-4 py-2 rounded-md mt-4">
                   Register for Event
                 </button>
               </div>
