@@ -49,7 +49,7 @@ router.get("/", (req, res) => {
 
 router.use("/event", eventRouter);
 router.use("/admin", require("./adminRouter"));
-router.use("/feedback", feedbackRouter);
+router.use("/feedback", require("./feedbackRouter"));
 router.use("/user", require("./customerRouter"));
 router.use("/reservation", require("./reservationRouter"));
 router.use("/newsletter", require("./newsletterRoute"));
