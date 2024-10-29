@@ -367,14 +367,7 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Vishnu Prasad Korada</b></sub>
                 </a>
             </td>
-            <td align="center">
-                <a href="https://github.com/sajalbatra">
-                    <img src="https://avatars.githubusercontent.com/u/125984550?v=4" width="100;" alt="sajalbatra"/>
-
-                    <br />
-                    <sub><b>Jay shah</b></sub>
-                </a>
-            </td>
+           
             <td align="center">
                 <a href="https://github.com/PavanTeja2005">
                     <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
