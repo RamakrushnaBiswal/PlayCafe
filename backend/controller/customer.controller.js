@@ -123,6 +123,7 @@ async function loginCustomer(req, res) {
       process.env.JWT_SECRET,
       { expiresIn: "1h" } // Expires in 1 hour
     );
+
     
     req.session.user = { 
       id: customer._id, 
@@ -136,6 +137,7 @@ async function loginCustomer(req, res) {
     });
     
     return res.json({
+
       message: "Login successful",
       token,
       role: "customer",
