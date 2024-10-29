@@ -3,8 +3,9 @@ const { createFeedback } = require("../controller/feedback.controller");
 const router = express.Router();
 const apiInfo = require("../config/api.info");
 const logger = require("../config/logger"); // Import your logger
+const sessionMiddleware = require("../middlewares/sessionMiddleware");
 
-router.post("/create", createFeedback);
+router.post("/create", sessionMiddleware, createFeedback);
 
 router.get("/", (req, res) => {
   try {

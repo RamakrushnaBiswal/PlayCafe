@@ -13,6 +13,7 @@ const Navbar = () => {
   const [token, setToken] = useState(Cookies.get('authToken'));
   const location = useLocation();
   const navigate = useNavigate(); // Correctly initialize useNavigate
+  const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
 
   const menuItems = [
     { name: 'HOME', path: '/' },
@@ -43,9 +44,16 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     // setisloggedIn(false); // Set isLoggedIn to false on confirmation
     //managing log in , logout using jwt tokens
+    const response = await fetch(`${API_URL}/api/user/logout`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
     Cookies.remove('authToken');
     setToken(null);
     setIsModalOpen(false); // Close the modal
@@ -80,13 +88,13 @@ const Navbar = () => {
   }`}
 >
 
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="mx-auto px-6">
         <div className="flex justify-between items-center lg:h-16">
         
           <Link to="/">
             <div className="flex-shrink-0">
               <img
-                className="w-14 h-14 rounded-full p-0"
+                className="w-14 h-14 rounded-full p-0 mt-1"
                 alt="logo"
                 src={Logo}
                 loading="lazy"
