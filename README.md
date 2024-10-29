@@ -368,13 +368,7 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
            
-            <td align="center">
-                <a href="https://github.com/PavanTeja2005">
-                    <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
-                    <br />
-                    <sub><b>PavanTeja2005</b></sub>
-                </a>
-            </td>
+            
             <td align="center">
 
                 <a href="https://github.com/sajalbatra">
