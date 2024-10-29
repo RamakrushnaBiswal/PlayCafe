@@ -5,7 +5,6 @@ const {
   getEvents,
   deleteEvent,
 } = require("../controller/event.controller");
-const authenticateCustomer = require("../middlewares/authCustomer");
 
 const router = express.Router();
 
@@ -25,8 +24,8 @@ router.get("/", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
-router.post("/create",authenticateCustomer, createEvent);
-router.get("/all",authenticateCustomer, getEvents);
-router.get("/delete",authenticateCustomer, deleteEvent);
+router.post("/create", createEvent);
+router.get("/all", getEvents);
+router.get("/delete", deleteEvent);
 
 module.exports = router;
