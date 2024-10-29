@@ -25,6 +25,7 @@ router.get("/", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
 router.post("/create",authenticateCustomer, createEvent);
 router.get("/all",authenticateCustomer, getEvents);
 router.get("/delete",authenticateCustomer, deleteEvent);
