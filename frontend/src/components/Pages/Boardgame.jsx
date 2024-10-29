@@ -2,7 +2,7 @@ import React, { useState,useEffect  } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import '@splidejs/react-splide/css';
-
+import CARROM from '../../assets/Boardgames/CARROM.webp';
 import board1 from '../../assets/Boardgames/board1.png';
 import board2 from '../../assets/Boardgames/board2.png';
 import board3 from '../../assets/Boardgames/board3.jpg';
@@ -283,7 +283,19 @@ function Boardgame() {
         "In case of a tie, a 'war' occurs: each player places three cards face down and reveals the next card. The higher card wins all the cards on the table.",
         "The game continues until one player has all the cards or until players decide to stop."
       ]
-    }
+    },
+    // CARROM ADDED
+    {
+      "src": CARROM,
+      "title": "Carrom",
+      "description": "A popular tabletop game where players use a striker to pocket pieces into four corner pockets.",
+      "instructions": [
+        "Players take turns flicking the striker to pocket carrom men (game pieces) into the corner pockets.",
+        "Each player aims to score points by pocketing their assigned pieces (black or white) and the queen piece.",
+        "The queen is the red piece, and it must be followed by another pocketed piece to be claimed.",
+        "The game continues until all pieces are pocketed, and the player with the highest score wins."
+      ],
+    },
         
                 
   ];

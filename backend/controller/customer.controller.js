@@ -97,16 +97,16 @@ async function loginCustomer(req, res) {
 
   try {
     const customer = await Customer.findOne({ email: req.body.email });
+    
     if (!customer) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
-
-    // Check if the customer is verified
     if (!customer.isVerified) {
       return res.status(403).json({ error: "Account not verified. Please verify your email." });
     }
 
     const validPassword = await bcrypt.compare(req.body.password, customer.password);
+
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
@@ -123,7 +123,21 @@ async function loginCustomer(req, res) {
       process.env.JWT_SECRET,
       { expiresIn: "1h" } // Expires in 1 hour
     );
-    res.json({
+
+    
+    req.session.user = { 
+      id: customer._id, 
+      name: customer.name,
+    };
+
+    res.cookie("authToken", token, {
+      maxAge: 1000 * 60 * 60,
+      httpOnly: true,               
+      secure: true,                
+    });
+    
+    return res.json({
+
       message: "Login successful",
       token,
       role: "customer",
@@ -135,6 +149,7 @@ async function loginCustomer(req, res) {
     });
   } catch (error) {
     console.error("Error during login:", error);
+
     res.status(500).json({ error: "Internal server error" });
   }
 }
@@ -165,9 +180,19 @@ async function resetPassword(req, res) {
   }
 }
 
+async function logout(req, res){
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).send("Failed to log out.");
+    }
+    res.send("Logged out successfully!");
+  });
+}
+
 module.exports = {
   createCustomer,
   loginCustomer,
   resetPassword,
+  logout,
   verifyOtp
 };
