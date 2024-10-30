@@ -278,7 +278,8 @@ function Event() {
                     </div>
                     {/* Added Appropriate colors to improve readability 
                     & Changed Hover Styles too so that they adjust to both dark and light mode both  */}
-                    <button className="btn btn-primary bg-[#85C1B9] text-white p-4 rounded-xl text-md font-medium mt-4 hover:bg-[#F05365] hover:text-white">
+                    {/* Edit: Changed some stylings to match webpage's theme */}
+                    <button className="btn btn-primary bg-white text-black hover:text-black p-4 rounded-xl text-md font-medium mt-4 dark:bg-white dark:text-black">
                       Book your slot
                     </button>
                   </div>
