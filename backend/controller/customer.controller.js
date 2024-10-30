@@ -5,6 +5,7 @@ const { z } = require("zod");
 const Customer = require("../models/customer.model");
 const jwt = require("jsonwebtoken");
 const { sendRegisterVerificationMail } = require("../config/nodemailer");
+const { uploadImageToCloudinary } = require("../utils/imageUploader");
 
 // Define the schema
 const customerSchema = z.object({
@@ -29,6 +30,19 @@ async function createCustomer(req, res) {
     const otp = crypto.randomInt(100000, 999999).toString();
     const otpExpiry = new Date(Date.now() + 5 * 60 * 1000); // 5 mins from now
 
+    const { file } = req.body;
+    let fileComming = false;
+    let thumbnailImage;
+    if (file !== "") {
+      fileComming = true;
+			// Upload the Thumbnail to Cloudinary
+			thumbnailImage = await uploadImageToCloudinary(
+				file,
+				process.env.FOLDER_NAME
+			);
+			console.log(thumbnailImage);
+		}
+
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const customer = new Customer({
       name: req.body.name,
@@ -37,6 +51,7 @@ async function createCustomer(req, res) {
       otp,
       otpExpiry,
       isVerified: false,
+      profilePicture: fileComming? thumbnailImage.secure_url: "null",
     });
     await customer.save();
 
