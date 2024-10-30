@@ -3,8 +3,7 @@ import photo from '../../assets/login.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { message } from 'antd';
 import Cookies from 'js-cookie';
-import { FaEye } from 'react-icons/fa';
-import { FaEyeSlash } from 'react-icons/fa6';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
@@ -12,6 +11,7 @@ const Login = () => {
   const [hidden, setHidden] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [rememberMe, setRememberMe] = useState(false); // New state for Remember Me
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -29,13 +29,14 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, rememberMe }), // Include rememberMe in the body
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.message || 'Login failed');
 
+      // Set cookie expiration based on Remember Me option
       Cookies.set('authToken', result.token, {
-        expires: 1 / 24, // 1 hour
+        expires: rememberMe ? 7 : 1 / 24, // 7 days if Remember Me is checked, 1 hour otherwise
         secure: process.env.NODE_ENV === "production",
         sameSite: "strict",
       });
@@ -100,6 +101,15 @@ const Login = () => {
             {hidden ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
+
+        <label className="flex items-center gap-2 text-sm lg:text-base">
+          <input
+            type="checkbox"
+            checked={rememberMe}
+            onChange={() => setRememberMe(!rememberMe)}
+          />
+          Remember Me
+        </label>
 
         <Link
           to="/email-verify"
