@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import photo from '../../assets/login.png';
+import photo from '../../../assets/login.png';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa6';
 import zxcvbn from 'zxcvbn'; // Password strength checker
 
-const Signup = () => {
+const AdminSignup = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -49,7 +49,7 @@ const Signup = () => {
     }
   
     try {
-      const response = await fetch(`${API_URL}/api/user/register`, {
+      const response = await fetch(`${API_URL}/api/admin/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -63,8 +63,8 @@ const Signup = () => {
       }
   
       
-      alert('OTP sent to your email. Verify to complete registration.');
-      navigate('/otp-verify'); 
+    //   alert('OTP sent to your email. Verify to complete registration.');
+      navigate('/admin-login'); 
   
     } catch (error) {
       setError(error.message);
@@ -99,7 +99,7 @@ const Signup = () => {
       />
       <form className="z-10 p-8 sm:p-16 bg-[#f1e9dc] dark:bg-amber-800 dark:text-white rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] flex flex-col gap-5 w-11/12 sm:w-auto px-[3vw] pt-[5vh]">
         <div className="text-[#323232] dark:text-white font-black text-4xl sm:text-7xl mb-4 sm:mb-6 mt-4">
-          Play Cafe,
+          Admin SignUp
           <br />
           <span className="block text-[#666] dark:text-gray-400 font-semibold text-xl sm:text-2xl">
             Register to continue
@@ -157,7 +157,7 @@ const Signup = () => {
         <h3 className="flex justify-between w-full">
           Already have an account?
           <Link
-            to="/login"
+            to="/admin-login"
             className="text-[#666] dark:text-white font-semibold hover:text-green-500"
           >
             Login
@@ -179,4 +179,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default AdminSignup;

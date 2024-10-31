@@ -22,6 +22,9 @@ import VerifyOtp from '../components/Pages/VerifyOtp';
 import EmailVerify from '../components/Pages/EmailVerify';
 import Membership from '../components/Membership';
 import OtpRegisterVerify from '../components/Pages/verifyRegisterOtp';
+import AdminLogin from '../components/Pages/Admin/AdminLogin';
+import AdminSignup from '../components/Pages/Admin/AdminSignup';
+import ProtectedRoute from './ProtectedRoute';
 const router = createBrowserRouter(
   createRoutesFromElements(
       <Route path="/" element={<App />}>
@@ -36,7 +39,16 @@ const router = createBrowserRouter(
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/reset-password/:id" element={<ResetPassword />} />
-      <Route path="/admin" element={<Admin />} />
+      <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
+      />
+      <Route path="/admin-login" element={<AdminLogin />} />
+      <Route path="/admin-signup" element={<AdminSignup />} />
       <Route path="/verifyotp/:id" element={<VerifyOtp />} />
       <Route path="/email-verify" element={<EmailVerify />} />
       <Route path="/otp-verify" element={<OtpRegisterVerify />} />

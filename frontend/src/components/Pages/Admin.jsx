@@ -1,11 +1,13 @@
 import { message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../context/userContext';
 
 const Admin = () => {
   const [events, setEvents] = useState([]);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const {user} = useUser();
 
   // Fetch all events
   const fetchData = async () => {
@@ -122,7 +124,7 @@ const Admin = () => {
     <div className="h-fit min-h-screen w-screen flex flex-col items-center justify-start p-12 pt-[10vh]">
       <div className="Header w-full flex flex-col items-center">
         <h1 className="title text-[#323232] font-black text-7xl mb-6">
-          Hi {Admin.name}!
+          Hi {user.name}!
         </h1>
         <h1 className="mt-[-2vh] text-[#666] font-semibold text-2xl">
           Welcome to Admin Panel

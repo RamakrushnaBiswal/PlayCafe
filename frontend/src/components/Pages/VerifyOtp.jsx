@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { message } from 'antd';
 
 const VerifyOtp = () => {
-  const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+  const API_URL = process.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const navigate = useNavigate(); // Use useNavigate for navigation
   const [otp, setOtp] = useState("")
 

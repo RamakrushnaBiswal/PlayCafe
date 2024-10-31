@@ -73,11 +73,16 @@ async function loginAdmin(req, res) {
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
+    res.cookie("authToken", token, {
+      maxAge: 1000 * 60 * 60,
+      httpOnly: true,               
+      secure: true,                
+    });
     res.json({
       message: "Login successful",
       token,
       role: "admin",
-      admin: { id: admin._id, name: admin.name, email: admin.email },
+      admin: { id: admin._id, name: admin.name, email: admin.email, role: "admin" },
     });
   } catch (error) {
     logger.error("Error logging in admin:", {

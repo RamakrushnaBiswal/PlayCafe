@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import photo from '../../assets/login.png';
+import photo from '../../../assets/login.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { message } from 'antd';
 import Cookies from 'js-cookie';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa6';
+import { useUser } from '../../../context/userContext';
 
-const Login = () => {
+const AdminLogin = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const [data, setData] = useState({
     email: '',
@@ -15,6 +16,7 @@ const Login = () => {
   const [hidden, setHidden] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const {user, setUser} = useUser();
 
   const navigate = useNavigate();
 
@@ -27,7 +29,7 @@ const Login = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${API_URL}/api/user/login`, {
+      const response = await fetch(`${API_URL}/api/admin/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,21 +37,16 @@ const Login = () => {
         body: JSON.stringify(data),
       });
       const result = await response.json();
-      console.log(result);
-      
-      if (!response) {
+      if (!response.ok) {
         throw new Error(result.message || 'Login failed');
       }
-      const res = JSON.stringify(result.user)
-      
+      const res = JSON.stringify(result.admin)
       Cookies.set('authToken', result.token, { expires: 1, secure: true });
       Cookies.set("authenticatedUser", res, {expires: 1, secure: true})
-      
+      setUser(result.admin)
       message.success('Login successful');
-      navigate('/');
+      navigate('/admin');
     } catch (err) {
-      console.log(err);
-      
       setError(err.message || 'An error occurred. Please try again.');
     } finally {
       setIsLoading(false);
@@ -72,10 +69,10 @@ const Login = () => {
       {/* Login Form */}
       <form
         onSubmit={handleSubmit}
-        className="z-10 p-8 lg:p-16 bg-[#f1e9dc] dark:bg-amber-800 dark:text-white flex flex-col gap-6 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] w-full max-w-md lg:max-w-xl"
+        className="z-10 p-8 lg:p-14 bg-[#f1e9dc] dark:bg-amber-800 dark:text-white flex flex-col gap-6 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] w-full max-w-md lg:max-w-xl"
       >
-        <div className="text-[#323232] dark:text-white font-black text-4xl lg:text-7xl mb-2">
-          Welcome,
+        <div className="text-[#323232] dark:text-white font-black text-4xl lg:text-6xl mb-2">
+          Admin Login,
           <span className="block text-[#666] dark:text-gray-400 font-semibold text-lg lg:text-2xl mt-1">
             Log in to continue
           </span>
@@ -118,7 +115,7 @@ const Login = () => {
         <h3 className="flex justify-between items-center w-full text-sm lg:text-base">
           Don’t have an account?
           <Link
-            to="/signup"
+            to="/admin-signup"
             className="text-green-500 font-semibold hover:scale-110 transition"
           >
             Register Here
@@ -150,4 +147,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;
