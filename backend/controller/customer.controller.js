@@ -89,7 +89,6 @@ async function loginCustomer(req, res) {
     password: z.string().min(6, "Password must be at least 6 characters long"),
   });
 
-
   const validation = customerLoginSchema.safeParse(req.body);
   if (!validation.success) {
     return res.status(400).json({ error: validation.error.errors });
@@ -97,7 +96,7 @@ async function loginCustomer(req, res) {
 
   try {
     const customer = await Customer.findOne({ email: req.body.email });
-    
+
     if (!customer) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
@@ -106,35 +105,26 @@ async function loginCustomer(req, res) {
     }
 
     const validPassword = await bcrypt.compare(req.body.password, customer.password);
-
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
     const payload = {
-      sub: customer._id, 
-      name: customer.name, // Optional
-      role: "customer", // Optional
-      email: customer.email, // Optional
-    };
-    
-    const token = jwt.sign(
-      payload,
-      process.env.JWT_SECRET,
-      { expiresIn: "1h" } // Expires in 1 hour
-    );
-    
-    req.session.user = { 
-      id: customer._id, 
+      sub: customer._id, // Use `sub` as this is a standard JWT claim for subject (user ID)
       name: customer.name,
+      role: "customer",
+      email: customer.email,
     };
 
+    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
+
     res.cookie("authToken", token, {
-      maxAge: 1000 * 60 * 60,
-      httpOnly: true,               
-      secure: true,                
+      maxAge: 60 * 60 * 1000, // 1 hour
+      httpOnly: false, // Set to false if you need access on the frontend
+      secure: process.env.NODE_ENV === "production", // Set `secure: true` only in production with HTTPS
+      sameSite: "strict", // Use `strict` to avoid CSRF in most cases
     });
-    
+
     return res.json({
       message: "Login successful",
       token,
@@ -147,7 +137,6 @@ async function loginCustomer(req, res) {
     });
   } catch (error) {
     console.error("Error during login:", error);
-
     res.status(500).json({ error: "Internal server error" });
   }
 }

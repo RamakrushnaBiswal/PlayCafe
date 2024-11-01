@@ -8,14 +8,10 @@ import { FaEyeSlash } from 'react-icons/fa6';
 
 const Login = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
-  const [data, setData] = useState({
-    email: '',
-    password: '',
-  });
+  const [data, setData] = useState({ email: '', password: '' });
   const [hidden, setHidden] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -26,6 +22,7 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
+
     try {
       const response = await fetch(`${API_URL}/api/user/login`, {
         method: 'POST',
@@ -35,10 +32,14 @@ const Login = () => {
         body: JSON.stringify(data),
       });
       const result = await response.json();
-      if (!response.ok) {
-        throw new Error(result.message || 'Login failed');
-      }
-      Cookies.set('authToken', result.token, { expire: '1h', secure: true });
+      if (!response.ok) throw new Error(result.message || 'Login failed');
+
+      Cookies.set('authToken', result.token, {
+        expires: 1 / 24, // 1 hour
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+      });
+
       message.success('Login successful');
       navigate('/');
     } catch (err) {
