@@ -87,6 +87,7 @@ async function loginCustomer(req, res) {
   const customerLoginSchema = z.object({
     email: z.string().email("Invalid email address"),
     password: z.string().min(6, "Password must be at least 6 characters long"),
+    rememberMe: z.boolean().optional(),
   });
 
   const validation = customerLoginSchema.safeParse(req.body);
@@ -95,7 +96,8 @@ async function loginCustomer(req, res) {
   }
 
   try {
-    const customer = await Customer.findOne({ email: req.body.email });
+    const { email, password, rememberMe } = req.body;
+    const customer = await Customer.findOne({ email });
 
     if (!customer) {
       return res.status(401).json({ error: "Invalid email or password" });
@@ -104,25 +106,27 @@ async function loginCustomer(req, res) {
       return res.status(403).json({ error: "Account not verified. Please verify your email." });
     }
 
-    const validPassword = await bcrypt.compare(req.body.password, customer.password);
+    const validPassword = await bcrypt.compare(password, customer.password);
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
     const payload = {
-      sub: customer._id, // Use `sub` as this is a standard JWT claim for subject (user ID)
+      sub: customer._id,
       name: customer.name,
       role: "customer",
       email: customer.email,
     };
 
-    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: rememberMe ? "7d" : "1h", // Set token expiry based on rememberMe option
+    });
 
     res.cookie("authToken", token, {
-      maxAge: 60 * 60 * 1000, // 1 hour
-      httpOnly: false, // Set to false if you need access on the frontend
-      secure: process.env.NODE_ENV === "production", // Set `secure: true` only in production with HTTPS
-      sameSite: "strict", // Use `strict` to avoid CSRF in most cases
+      maxAge: rememberMe ? 7 * 24 * 60 * 60 * 1000 : 60 * 60 * 1000, // 7 days or 1 hour
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
     });
 
     return res.json({
@@ -140,6 +144,7 @@ async function loginCustomer(req, res) {
     res.status(500).json({ error: "Internal server error" });
   }
 }
+
 
 
 async function resetPassword(req, res) {
