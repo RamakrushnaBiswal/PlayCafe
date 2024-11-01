@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -20,18 +19,16 @@ const customerSchema = new Schema(
     verificationCode: {
       type: String,
       default: "",
-
     },
     otp: {
-      type: String, 
+      type: String,
     },
     otpExpiry: {
-      type: Date, 
+      type: Date,
     },
     isVerified: {
-      type: Boolean, 
+      type: Boolean,
       default: false,
-
     },
     role: {
       type: String,
@@ -52,7 +49,12 @@ const customerSchema = new Schema(
         ref: "Order",
       },
     ],
-
+    reservations: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Reservation", // Link to Reservation schema
+      },
+    ],
   },
   { timestamps: true }
 );

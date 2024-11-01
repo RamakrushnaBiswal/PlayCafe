@@ -11,16 +11,19 @@ const app = express();
 const port = process.env.PORT || 3000;
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+
 const fileUpload = require("express-fileupload");
 const { cloudinaryConnect } = require("./config/cloudinary");
 
 // CORS configuration
 const corsOptions = {
   origin: ["http://localhost:5173", "https://play-cafe.vercel.app"],
+  credentials: true,  
   optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
+
 
 app.use(express.json());
 app.use('/api', newsletterRoute);

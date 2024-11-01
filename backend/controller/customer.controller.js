@@ -102,8 +102,8 @@ async function loginCustomer(req, res) {
   const customerLoginSchema = z.object({
     email: z.string().email("Invalid email address"),
     password: z.string().min(6, "Password must be at least 6 characters long"),
+    rememberMe: z.boolean().optional(),
   });
-
 
   const validation = customerLoginSchema.safeParse(req.body);
   if (!validation.success) {
@@ -111,8 +111,9 @@ async function loginCustomer(req, res) {
   }
 
   try {
-    const customer = await Customer.findOne({ email: req.body.email });
-    
+    const { email, password, rememberMe } = req.body;
+    const customer = await Customer.findOne({ email });
+
     if (!customer) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
@@ -120,36 +121,29 @@ async function loginCustomer(req, res) {
       return res.status(403).json({ error: "Account not verified. Please verify your email." });
     }
 
-    const validPassword = await bcrypt.compare(req.body.password, customer.password);
-
+    const validPassword = await bcrypt.compare(password, customer.password);
     if (!validPassword) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
     const payload = {
-      sub: customer._id, 
-      name: customer.name, // Optional
-      role: "customer", // Optional
-      email: customer.email, // Optional
-    };
-    
-    const token = jwt.sign(
-      payload,
-      process.env.JWT_SECRET,
-      { expiresIn: "1h" } // Expires in 1 hour
-    );
-    
-    req.session.user = { 
-      id: customer._id, 
+      sub: customer._id,
       name: customer.name,
+      role: "customer",
+      email: customer.email,
     };
 
-    res.cookie("authToken", token, {
-      maxAge: 1000 * 60 * 60,
-      httpOnly: true,               
-      secure: true,                
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: rememberMe ? "7d" : "1h", // Set token expiry based on rememberMe option
     });
-    
+
+    res.cookie("authToken", token, {
+      maxAge: rememberMe ? 7 * 24 * 60 * 60 * 1000 : 60 * 60 * 1000, // 7 days or 1 hour
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+    });
+
     return res.json({
       message: "Login successful",
       token,
@@ -162,10 +156,10 @@ async function loginCustomer(req, res) {
     });
   } catch (error) {
     console.error("Error during login:", error);
-
     res.status(500).json({ error: "Internal server error" });
   }
 }
+
 
 
 async function resetPassword(req, res) {
