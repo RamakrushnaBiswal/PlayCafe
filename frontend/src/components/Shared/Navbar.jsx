@@ -146,7 +146,6 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden space-x-6">
-          <ThemeToggle />
             <button
               onClick={toggleMenu}
               className={`${buttonTextClass} focus:outline-none`}
@@ -210,7 +209,7 @@ const Navbar = () => {
             {token ? (
               <button
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black dark:text-white`}
                 onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
               >
                 Log Out
@@ -218,12 +217,13 @@ const Navbar = () => {
             ) : (
               <button
                 className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black`}
+                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black dark:text-white`}
                 onClick={() => navigate('/login')}
               >
                 Log In
               </button>
             )}
+          <ThemeToggle />
           </div>
         </div>
       )}
