@@ -387,10 +387,35 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
             <td align="center">
                 <a href="https://github.com/Jay-1409">
                     <img src="https://avatars.githubusercontent.com/u/166749819?v=4" width="100;" alt="Jay-1409"/>
+                <a href="https://github.com/Sourabh782">
+                    <img src="https://avatars.githubusercontent.com/u/103349890?v=4" width="100;" alt="Sourabh782"/>
+                    <br />
+                    <sub><b>Sourabh Singh Rawat</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/harshbhar0629">
+                    <img src="https://avatars.githubusercontent.com/u/165468244?v=4" width="100;" alt="harshbhar0629"/>
+                    <br />
+                    <sub><b>Harsh Bhardwaj</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/sajalbatra">
+                    <img src="https://avatars.githubusercontent.com/u/125984550?v=4" width="100;" alt="sajalbatra"/>
+                    <br />
+                    <sub><b>Sajal Batra</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/PavanTeja2005">
+                    <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
                     <br />
                     <sub><b>Jay shah</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/AbhijitMotekar99">
                     <img src="https://avatars.githubusercontent.com/u/109235675?v=4" width="100;" alt="AbhijitMotekar99"/>
@@ -421,6 +446,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>MD REHAN</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/T-Rahul-prabhu-38">
                     <img src="https://avatars.githubusercontent.com/u/167653990?v=4" width="100;" alt="T-Rahul-prabhu-38"/>
@@ -472,11 +499,20 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Shiva Bajpai</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Pushpa472">
                     <img src="https://avatars.githubusercontent.com/u/116655535?v=4" width="100;" alt="Pushpa472"/>
                     <br />
                     <sub><b>Pushpa Vishwakarma </b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Mansi07sharma">
+                    <img src="https://avatars.githubusercontent.com/u/142892607?v=4" width="100;" alt="Mansi07sharma"/>
+                    <br />
+                    <sub><b>Mansi Sharma</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -509,6 +545,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>smog-root</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/vaibhav-yerkar">
                     <img src="https://avatars.githubusercontent.com/u/124194806?v=4" width="100;" alt="vaibhav-yerkar"/>
@@ -553,6 +591,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Nikhil More</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/MutiatBash">
                     <img src="https://avatars.githubusercontent.com/u/108807732?v=4" width="100;" alt="MutiatBash"/>
@@ -598,6 +638,13 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/amiya-cyber">
+                    <img src="https://avatars.githubusercontent.com/u/182724034?v=4" width="100;" alt="amiya-cyber"/>
+                    <br />
+                    <sub><b>Amiya Singh</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/AliGates915">
                     <img src="https://avatars.githubusercontent.com/u/128673394?v=4" width="100;" alt="AliGates915"/>
                     <br />
@@ -618,20 +665,28 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
 
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+
 ## Stargazers ❤️
 
 <div align='left'>
 
-[![Stargazers repo roster for RamakrushnaBiswal/PlayCafe](https://reporoster.com/stars/RamakrushnaBiswal/PlayCafe)](https://github.com/RamakrushnaBiswal/PlayCafe/stargazers)
+[![Stargazers repo roster for @RamakrushnaBiswal/PlayCafe](https://reporoster.com/stars/dark/RamakrushnaBiswal/PlayCafe)](https://github.com/RamakrushnaBiswal/PlayCafe/stargazers)
+
 
 </div>
 
 ## Forkers ❤️
 
-[![Forkers repo roster for RamakrushnaBiswal/PlayCafe](https://reporoster.com/forks/RamakrushnaBiswal/PlayCafe)](https://github.com/RamakrushnaBiswal/PlayCafe/network/members)
+[![Forkers repo roster for @RamakrushnaBiswal/PlayCafe](https://reporoster.com/forks/dark/RamakrushnaBiswal/PlayCafe)](https://github.com/RamakrushnaBiswal/PlayCafe/network/members)
 
----
+
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+
 
 ## ⭐ Support
 

@@ -11,6 +11,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+
+const fileUpload = require("express-fileupload");
+const { cloudinaryConnect } = require("./config/cloudinary");
+
 // CORS configuration
 const corsOptions = {
   origin: ["http://localhost:5173", "https://play-cafe.vercel.app"],
@@ -23,6 +27,12 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use('/api', newsletterRoute);
+app.use(
+	fileUpload({
+		useTempFiles: true,
+		tempFileDir: __dirname + "/tmp/",
+	})
+);
 
 // MongoDB connection
 mongoose
@@ -37,6 +47,9 @@ mongoose
     logger.error("Database connection failed:", error.message); // Use logger for connection error
     process.exit(1);
   });
+
+// call to cloud setup
+cloudinaryConnect();
 
 // Enable CORS preflight for the create reservation route only
 // Uncomment if needed
