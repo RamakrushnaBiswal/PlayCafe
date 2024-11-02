@@ -11,7 +11,7 @@ const Signup = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [passwordStrength, setPasswordStrength] = useState(0);
-  const [data, setData] = useState({ name: '', email: '', password: '' });
+  const [data, setData] = useState({ name: '', email: '', password: '', file: '' });
   const [hidden, setHidden] = useState(true);
 
   const handleChange = (e) => {
@@ -110,6 +110,13 @@ const Signup = () => {
           name="name"
           placeholder="Name"
           type="text"
+          onChange={handleChange}
+        />
+        <input
+          className="input w-full h-10 rounded-md border-2 border-black bg-beige p-2.5 shadow-[4px_4px_0px_0px_black] focus:outline-none"
+          name="file"
+          placeholder="Upload Image"
+          type="file"
           onChange={handleChange}
         />
         <input

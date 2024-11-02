@@ -3,6 +3,7 @@ const { z } = require("zod");
 const Admin = require("../models/admin.model");
 const logger = require("../config/logger");
 const jwt = require("jsonwebtoken");
+const {uploadImageToCloudinary} = require("../utils/imageUploader")
 
 // Define the schema
 const adminSchema = z.object({
@@ -26,10 +27,26 @@ async function createAdmin(req, res) {
 
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    
+    const { file } = req.body;
+    let thumbnailImage;
+    let fileComming = false;
+    // Upload the Thumbnail to Cloudinary
+    if (file !== "") {
+      fileComming = true;
+      thumbnailImage = await uploadImageToCloudinary(
+				file,
+				process.env.FOLDER_NAME
+			);
+			console.log(thumbnailImage);
+    }
+		
+    
     const admin = new Admin({
       name: req.body.name,
       email: req.body.email,
       password: hashedPassword,
+      profilePicture: fileComming? thumbnailImage.secure_url : "null",
     });
     await admin.save();
     res.status(201).json({ message: "Admin created successfully" });
