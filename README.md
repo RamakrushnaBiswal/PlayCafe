@@ -392,6 +392,13 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/harshbhar0629">
+                    <img src="https://avatars.githubusercontent.com/u/165468244?v=4" width="100;" alt="harshbhar0629"/>
+                    <br />
+                    <sub><b>Harsh Bhardwaj</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/sajalbatra">
                     <img src="https://avatars.githubusercontent.com/u/125984550?v=4" width="100;" alt="sajalbatra"/>
                     <br />
@@ -405,6 +412,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>PavanTeja2005</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/AbhijitMotekar99">
                     <img src="https://avatars.githubusercontent.com/u/109235675?v=4" width="100;" alt="AbhijitMotekar99"/>
@@ -412,8 +421,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Abhijit Motekar</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Navneetdadhich">
                     <img src="https://avatars.githubusercontent.com/u/156535853?v=4" width="100;" alt="Navneetdadhich"/>
@@ -449,6 +456,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>MD REHAN</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/T-Rahul-prabhu-38">
                     <img src="https://avatars.githubusercontent.com/u/167653990?v=4" width="100;" alt="T-Rahul-prabhu-38"/>
@@ -456,8 +465,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>t rahul prabhu</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Aditya90456">
                     <img src="https://avatars.githubusercontent.com/u/153073510?v=4" width="100;" alt="Aditya90456"/>
@@ -493,6 +500,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Shiva Bajpai</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Pushpa472">
                     <img src="https://avatars.githubusercontent.com/u/116655535?v=4" width="100;" alt="Pushpa472"/>
@@ -500,8 +509,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Pushpa Vishwakarma </b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Mansi07sharma">
                     <img src="https://avatars.githubusercontent.com/u/142892607?v=4" width="100;" alt="Mansi07sharma"/>
@@ -537,6 +544,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>smog-root</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/vaibhav-yerkar">
                     <img src="https://avatars.githubusercontent.com/u/124194806?v=4" width="100;" alt="vaibhav-yerkar"/>
@@ -544,8 +553,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Vaibhav._Y</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Vaibhav-Kumar-K-R">
                     <img src="https://avatars.githubusercontent.com/u/132189791?v=4" width="100;" alt="Vaibhav-Kumar-K-R"/>
@@ -581,6 +588,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Nikhil More</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/MutiatBash">
                     <img src="https://avatars.githubusercontent.com/u/108807732?v=4" width="100;" alt="MutiatBash"/>
@@ -588,8 +597,6 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Bashua Mutiat</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Mohitranag18">
                     <img src="https://avatars.githubusercontent.com/u/152625405?v=4" width="100;" alt="Mohitranag18"/>
@@ -625,6 +632,8 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>Dev Mishra</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/chikatlarakesh">
                     <img src="https://avatars.githubusercontent.com/u/178009894?v=4" width="100;" alt="chikatlarakesh"/>
@@ -632,8 +641,13 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
                     <sub><b>CHIKATLA RAKESH</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
+            <td align="center">
+                <a href="https://github.com/amiya-cyber">
+                    <img src="https://avatars.githubusercontent.com/u/182724034?v=4" width="100;" alt="amiya-cyber"/>
+                    <br />
+                    <sub><b>Amiya Singh</b></sub>
+                </a>
+            </td>
             <td align="center">
                 <a href="https://github.com/AliGates915">
                     <img src="https://avatars.githubusercontent.com/u/128673394?v=4" width="100;" alt="AliGates915"/>
