@@ -25,6 +25,7 @@ import OtpRegisterVerify from '../components/Pages/verifyRegisterOtp';
 import AdminLogin from '../components/Pages/Admin/AdminLogin';
 import AdminSignup from '../components/Pages/Admin/AdminSignup';
 import ProtectedRoute from './ProtectedRoute';
+import Profile from '../components/Pages/Dashboard';
 const router = createBrowserRouter(
   createRoutesFromElements(
       <Route path="/" element={<App />}>
@@ -53,6 +54,7 @@ const router = createBrowserRouter(
       <Route path="/email-verify" element={<EmailVerify />} />
       <Route path="/otp-verify" element={<OtpRegisterVerify />} />
       <Route path="/membership" element={<Membership />} />
+      <Route path="/dashboard" element={<Profile />} />
       
     </Route>
   )

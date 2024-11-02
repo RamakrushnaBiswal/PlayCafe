@@ -14,6 +14,11 @@ const reservationSchema = new Schema({
     type: String,
     required: true,
   },
+  customer: {
+    type: Schema.Types.ObjectId,
+    ref: "Customer", // Link back to Customer schema
+    required: true,
+  },
 });
 
 const Reservation = mongoose.model("Reservation", reservationSchema);

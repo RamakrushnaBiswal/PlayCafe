@@ -698,6 +698,3 @@ Stay updated and engage with our community on social media:
 - [Email](mailto:ramakrushnabunty@gmail.com)
 
 We are always here to help you! Don’t hesitate to connect with us and be part of the PlayCafe journey.
-
-
-

@@ -3,19 +3,15 @@ import photo from '../../assets/login.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { message } from 'antd';
 import Cookies from 'js-cookie';
-import { FaEye } from 'react-icons/fa';
-import { FaEyeSlash } from 'react-icons/fa6';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
-  const [data, setData] = useState({
-    email: '',
-    password: '',
-  });
+  const [data, setData] = useState({ email: '', password: '' });
   const [hidden, setHidden] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  const [rememberMe, setRememberMe] = useState(false); // New state for Remember Me
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -26,13 +22,14 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
+
     try {
       const response = await fetch(`${API_URL}/api/user/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, rememberMe }), // Include rememberMe in the body
       });
       const result = await response.json();
       console.log(result);
@@ -42,9 +39,14 @@ const Login = () => {
       }
       const res = JSON.stringify(result.user)
       
-      Cookies.set('authToken', result.token, { expires: 1, secure: true });
       Cookies.set("authenticatedUser", res, {expires: 1, secure: true})
       
+      Cookies.set('authToken', result.token, {
+        expires: rememberMe ? 7 : 1 / 24, // 7 days if Remember Me is checked, 1 hour otherwise
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+      });
+
       message.success('Login successful');
       navigate('/');
     } catch (err) {
@@ -107,6 +109,15 @@ const Login = () => {
             {hidden ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
+
+        <label className="flex items-center gap-2 text-sm lg:text-base">
+          <input
+            type="checkbox"
+            checked={rememberMe}
+            onChange={() => setRememberMe(!rememberMe)}
+          />
+          Remember Me
+        </label>
 
         <Link
           to="/email-verify"
