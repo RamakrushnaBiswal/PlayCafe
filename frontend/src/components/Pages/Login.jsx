@@ -32,14 +32,14 @@ const Login = () => {
         body: JSON.stringify({ ...data, rememberMe }), // Include rememberMe in the body
       });
       const result = await response.json();
-      console.log(result);
+      // console.log(result);
       
       if (!response) {
         throw new Error(result.message || 'Login failed');
       }
       const res = JSON.stringify(result.user)
       
-      Cookies.set("authenticatedUser", res, {expires: 1, secure: true})
+      Cookies.set("authenticatedUser", res, {expires: 1, secure: true, sameSite: 'strict'})
       
       Cookies.set('authToken', result.token, {
         expires: rememberMe ? 7 : 1 / 24, // 7 days if Remember Me is checked, 1 hour otherwise

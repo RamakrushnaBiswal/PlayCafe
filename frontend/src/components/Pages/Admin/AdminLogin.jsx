@@ -26,6 +26,15 @@ const AdminLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+      setError('Please enter a valid email address');
+      return;
+    }
+    if (data.password.length < 8) {
+      setError('Password must be at least 8 characters long');
+      return;
+    }
     setIsLoading(true);
     setError(null);
     try {
@@ -122,8 +131,8 @@ const AdminLogin = () => {
           </Link>
         </h3>
 
-        <a
-          href={`${API_URL}/api/user/auth/google`}
+        <Link
+          to={`${API_URL}/api/user/auth/google`}
           className="w-full"
         >
           <button
@@ -132,7 +141,7 @@ const AdminLogin = () => {
           >
             Sign in with Google
           </button>
-        </a>
+        </Link>
 
         {error && <p className="text-red-500 mt-2">{error}</p>}
 

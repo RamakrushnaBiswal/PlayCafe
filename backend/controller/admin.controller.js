@@ -82,7 +82,7 @@ async function loginAdmin(req, res) {
       message: "Login successful",
       token,
       role: "admin",
-      admin: { id: admin._id, name: admin.name, email: admin.email, role: "admin" },
+      admin: { id: admin._id, name: admin.name, email: admin.email, role: admin.role || "admin" },
     });
   } catch (error) {
     logger.error("Error logging in admin:", {

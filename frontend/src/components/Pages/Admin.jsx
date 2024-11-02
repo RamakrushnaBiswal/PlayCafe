@@ -267,7 +267,7 @@ const Admin = () => {
           <div className="container grid grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-1 md:px-6">
             <div className="event-list">
               {error && <p className="text-red-500">{error}</p>}
-              {events.map((event) => (
+              {events.length > 0 && events.map((event) => (
                 <div
                   key={event._id}
                   className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-1 xl:grid-cols-2 md:px-6 lg:px-4 xl:px-0"

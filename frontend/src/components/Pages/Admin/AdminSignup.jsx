@@ -42,7 +42,8 @@ const AdminSignup = () => {
       setIsLoading(false);
       return;
     }
-    if (!data.email.includes('@')) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
       setError('Please enter a valid email address');
       setIsLoading(false);
       return;
@@ -163,11 +164,11 @@ const AdminSignup = () => {
             Login
           </Link>
         </h3>
-        <a href={`${API_URL}/api/user/auth/google`} className="w-full">
+        <Link to={`${API_URL}/api/user/auth/google`} className="w-full">
           <button className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black] hover:text-green-300">
             Sign up with Google
           </button>
-        </a>
+        </Link>
         <button
           className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black] mb-2 hover:text-green-300"
           onClick={handleSubmit}

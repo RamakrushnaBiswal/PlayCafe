@@ -1,13 +1,22 @@
 import React, { createContext, useState, useContext } from 'react';
 import Cookies from 'js-cookie';
 
-const UserContext = createContext();
+export const UserContext = createContext({
+  user: null,
+  setUser: () => {},
+});
 
 export const UserProvider = ({ children }) => {
   const data = Cookies.get("authenticatedUser");
 
-  const userData = data ? JSON.parse(data) : null;
-  console.log(userData);
+  let userData = null;
+  try {
+    userData = data ? JSON.parse(data) : null;
+  } catch (error) {
+    console.error('Invalid user data in cookie:', error);
+    Cookies.remove("authenticatedUser");
+  }
+  
   const [user, setUser] = useState(userData);
 
   return (
@@ -17,4 +26,10 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-export const useUser = () => useContext(UserContext);
+export const useUser = () => {
+  const context = useContext(UserContext);
+  if (context === undefined) {
+    throw new Error('useUser must be used within a UserProvider');
+  }
+  return context;
+};
