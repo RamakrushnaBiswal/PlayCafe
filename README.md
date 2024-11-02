@@ -655,20 +655,28 @@ We extend our heartfelt gratitude to all the amazing contributors who have made 
 
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+
 ## Stargazers ❤️
 
 <div align='left'>
 
-[![Stargazers repo roster for RamakrushnaBiswal/PlayCafe](https://reporoster.com/stars/RamakrushnaBiswal/PlayCafe)](https://github.com/RamakrushnaBiswal/PlayCafe/stargazers)
+[![Stargazers repo roster for @RamakrushnaBiswal/PlayCafe](https://reporoster.com/stars/dark/RamakrushnaBiswal/PlayCafe)](https://github.com/RamakrushnaBiswal/PlayCafe/stargazers)
+
 
 </div>
 
 ## Forkers ❤️
 
-[![Forkers repo roster for RamakrushnaBiswal/PlayCafe](https://reporoster.com/forks/RamakrushnaBiswal/PlayCafe)](https://github.com/RamakrushnaBiswal/PlayCafe/network/members)
+[![Forkers repo roster for @RamakrushnaBiswal/PlayCafe](https://reporoster.com/forks/dark/RamakrushnaBiswal/PlayCafe)](https://github.com/RamakrushnaBiswal/PlayCafe/network/members)
 
----
+
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+
 
 ## ⭐ Support
 
