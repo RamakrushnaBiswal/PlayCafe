@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import photo from '../../assets/login.png';
+import photo from '../../assets/login-opt.png';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa6';
@@ -25,7 +25,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-  
+
     // Input validation
     if (!data.email || !data.password || !data.name) {
       setError('Please fill in all fields');
@@ -47,7 +47,7 @@ const Signup = () => {
       setIsLoading(false);
       return;
     }
-  
+
     try {
       const response = await fetch(`${API_URL}/api/user/register`, {
         method: 'POST',
@@ -55,16 +55,16 @@ const Signup = () => {
         body: JSON.stringify(data),
       });
       const result = await response.json();
-  
+
       if (!response.ok) {
         setIsLoading(false);
         setError(result.error);
         return;
       }
   
-      
+
       alert('OTP sent to your email. Verify to complete registration.');
-      navigate('/otp-verify'); 
+      navigate('/otp-verify');
   
     } catch (error) {
       setError(error.message);
@@ -73,7 +73,7 @@ const Signup = () => {
       setIsLoading(false); // Ensure loading state is reset after request
     }
   };
-  
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -90,15 +90,16 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-screen h-screen flex items-center dark:text-white dark:bg-black justify-center pt-10 relative overflow-hidden">
-      <img
-        src={photo}
-        alt="login"
-        loading="lazy"
-        className="w-3/4 absolute inset-0"
+    <div className="w-screen h-screen pt-10 flex items-center justify-center dark:text-white dark:bg-black overflow-hidden">
+      <img 
+      src={photo} 
+      alt="login"
+      loading="lazy"
+      className="w-3/4 max-w-xs lg:max-w-2xl lg:w-1/2 object-contain mb-6 lg:mb-0" 
       />
-      <form className="z-10 p-8 sm:p-16 bg-[#f1e9dc] dark:bg-amber-800 dark:text-white rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] flex flex-col gap-5 w-11/12 sm:w-auto px-[3vw] pt-[5vh]">
-        <div className="text-[#323232] dark:text-white font-black text-4xl sm:text-7xl mb-4 sm:mb-6 mt-4">
+
+      <form className="z-10 p-8 lg:p-16 bg-[#f1e9dc] dark:bg-amber-800 dark:text-white flex flex-col gap-6 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_grey] w-full max-w-md lg:max-w-lg">
+        <div className="text-[#323232] dark:text-white font-black text-3xl lg:text-5xl mb-2">
           Play Cafe,
           <br />
           <span className="block text-[#666] dark:text-gray-400 font-semibold text-xl sm:text-2xl">
@@ -106,14 +107,14 @@ const Signup = () => {
           </span>
         </div>
         <input
-          className="input w-full h-10 rounded-md border-2 border-black bg-beige p-2.5 shadow-[4px_4px_0px_0px_black] focus:outline-none"
+          className="input w-full h-10 rounded-md border-2 border-black bg-beige p-2.5 shadow-[4px_4px_0px_0px_black] focus:outline-none dark:bg-slate-800 dark:placeholder-white"
           name="name"
           placeholder="Name"
           type="text"
           onChange={handleChange}
         />
         <input
-          className="input w-full h-10 rounded-md border-2 border-black bg-beige p-2.5 shadow-[4px_4px_0px_0px_black] focus:outline-none"
+          className="input w-full h-10 rounded-md border-2 border-black bg-beige p-2.5 shadow-[4px_4px_0px_0px_black] focus:outline-none dark:bg-slate-800 dark:placeholder-white"
           name="email"
           placeholder="Email"
           type="email"
@@ -121,31 +122,30 @@ const Signup = () => {
         />
         <div className="relative w-full">
           <input
-            className="input w-full h-10 rounded-md border-2 border-black bg-beige p-2.5 shadow-[4px_4px_0px_0px_black] focus:outline-none"
+            className="input w-full h-10 rounded-md border-2 border-black bg-beige p-2.5 shadow-[4px_4px_0px_0px_black] focus:outline-none dark:bg-slate-800 dark:placeholder-white"
             name="password"
             placeholder="Password"
             type={hidden ? 'password' : 'text'}
             onChange={handleChange}
           />
-          <button
-            className="absolute top-1/2 -translate-y-1/2 right-4"
-            onClick={(e) => {
-              e.preventDefault();
-              setHidden(!hidden);
+          <button  
+          className="absolute top-1/2 transform -translate-y-1/2 right-4"
+          onClick={(e) => { 
+            e.preventDefault(); 
+            setHidden(!hidden); 
             }}
-          >
+            >
             {hidden ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
         <div className="w-full mt-2">
-          <div
-            className="h-2 rounded-full"
-            style={{
-              backgroundColor: getPasswordStrengthColor(passwordStrength),
-              width: `${(passwordStrength + 1) * 20}%`,
-            }}
+          <div 
+          className="h-2 rounded-full" 
+          style={{ backgroundColor: getPasswordStrengthColor(passwordStrength), 
+          width: `${(passwordStrength + 1) * 20}%` 
+          }}
           ></div>
-          <p className="text-sm text-[#666] dark:text-gray-200   mt-1">
+          <p className="text-sm text-[#666] dark:text-gray-200 mt-1">
             Strength: {getPasswordStrengthText(passwordStrength)}
           </p>
         </div>
@@ -163,6 +163,7 @@ const Signup = () => {
             Login
           </Link>
         </h3>
+
         <a href={`${API_URL}/api/user/auth/google`} className="w-full">
           <button className="button-confirm w-full h-10 rounded-md border-2 border-black bg-beige text-[17px] font-semibold shadow-[4px_4px_0px_0px_black] hover:text-green-300">
             Sign up with Google

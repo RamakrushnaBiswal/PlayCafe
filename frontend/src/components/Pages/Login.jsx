@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import photo from '../../assets/login.png';
+import photo from '../../assets/login-opt.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { message } from 'antd';
 import Cookies from 'js-cookie';
@@ -55,20 +55,21 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="w-screen h-screen dark:bg-black flex items-center justify-center lg:pt-10 px-4">
+    <div className="w-screen h-screen pt-10 flex flex-col lg:flex-row items-center justify-center lg:space-x-10 px-4 dark:bg-black">
       {/* Background Image */}
       <img
         src={photo}
         alt="login"
         loading="lazy"
-        className="absolute w-3/4 lg:w-auto lg:opacity-100 opacity-10 object-cover"
+        className="w-3/4 max-w-xs lg:max-w-2xl lg:w-1/2 object-contain mb-6 lg:mb-0"
       />
+
       {/* Login Form */}
       <form
         onSubmit={handleSubmit}
-        className="z-10 p-8 lg:p-16 bg-[#f1e9dc] dark:bg-amber-800 dark:text-white flex flex-col gap-6 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] w-full max-w-md lg:max-w-xl"
+        className="z-10 p-8 lg:p-16 bg-[#f1e9dc] dark:bg-amber-800 dark:text-white flex flex-col gap-6 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_black] w-full max-w-md lg:max-w-lg"
       >
-        <div className="text-[#323232] dark:text-white font-black text-4xl lg:text-7xl mb-2">
+        <div className="text-[#323232] dark:text-white font-black text-3xl lg:text-5xl mb-2">
           Welcome,
           <span className="block text-[#666] dark:text-gray-400 font-semibold text-lg lg:text-2xl mt-1">
             Log in to continue
@@ -76,7 +77,7 @@ const Login = () => {
         </div>
 
         <input
-          className="w-full h-12 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666]"
+          className="w-full h-12 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_grey] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] dark:bg-slate-800 dark:placeholder-white"
           name="email"
           placeholder="Email"
           type="email"
@@ -85,7 +86,7 @@ const Login = () => {
 
         <div className="relative w-full">
           <input
-            className="w-full h-12 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666]"
+            className="w-full h-12 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_grey] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] dark:bg-slate-800 dark:placeholder-white"
             name="password"
             placeholder="Password"
             type={hidden ? 'password' : 'text'}
@@ -134,7 +135,7 @@ const Login = () => {
         >
           <button
             type="button"
-            className="w-full h-12 rounded-md border-2 dark:text-white border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] transition active:translate-x-[3px] active:translate-y-[3px]"
+            className="w-full h-12 rounded-md border-2 dark:text-white border-black bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_grey] text-[17px] font-semibold text-[#323232] transition active:translate-x-[3px] active:translate-y-[3px]"
           >
             Sign in with Google
           </button>
@@ -144,7 +145,7 @@ const Login = () => {
 
         <button
           type="submit"
-          className="w-full h-12 rounded-md dark:text-white border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] text-[17px] font-semibold text-[#323232] transition active:translate-x-[3px] active:translate-y-[3px]"
+          className="w-full h-12 rounded-md dark:text-white border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_grey] text-[17px] font-semibold text-[#323232] transition active:translate-x-[3px] active:translate-y-[3px]"
         >
           {isLoading ? 'Loading...' : 'Let’s Log you in →'}
         </button>
