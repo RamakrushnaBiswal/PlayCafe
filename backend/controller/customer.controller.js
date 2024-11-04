@@ -152,6 +152,7 @@ async function loginCustomer(req, res) {
         id: customer._id,
         name: customer.name,
         email: customer.email,
+        role: "customer"
       },
     });
   } catch (error) {
