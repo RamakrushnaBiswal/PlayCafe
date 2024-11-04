@@ -1,11 +1,13 @@
 import { message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../context/userContext';
 
 const Admin = () => {
   const [events, setEvents] = useState([]);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const {user} = useUser();
 
   // Fetch all events
   const fetchData = async () => {
@@ -122,7 +124,7 @@ const Admin = () => {
     <div className="h-fit min-h-screen w-screen flex flex-col items-center justify-start p-12 pt-[10vh]">
       <div className="Header w-full flex flex-col items-center">
         <h1 className="title text-[#323232] font-black text-7xl mb-6">
-          Hi {Admin.name}!
+          Hi {user.name}!
         </h1>
         <h1 className="mt-[-2vh] text-[#666] font-semibold text-2xl">
           Welcome to Admin Panel
@@ -265,7 +267,7 @@ const Admin = () => {
           <div className="container grid grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-1 md:px-6">
             <div className="event-list">
               {error && <p className="text-red-500">{error}</p>}
-              {events.map((event) => (
+              {events.length > 0 && events.map((event) => (
                 <div
                   key={event._id}
                   className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-1 xl:grid-cols-2 md:px-6 lg:px-4 xl:px-0"

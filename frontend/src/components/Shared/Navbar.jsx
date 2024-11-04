@@ -56,6 +56,7 @@ const Navbar = () => {
     })
 
     Cookies.remove('authToken');
+    Cookies.remove("authenticatedUser");
     setToken(null);
     setIsModalOpen(false); // Close the modal
     setIsMenuOpen(false); // after getting logged out close the menu if it is open
