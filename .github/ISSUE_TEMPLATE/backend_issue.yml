@@ -12,6 +12,22 @@ body:
           required: true
         - label: "I have searched the existing issues"
           required: true
+  - type: dropdown
+    attributes:
+      label: "Environment"
+      description: "Where does this issue occur?"
+      options:
+        - Development
+        - Staging
+        - Production
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: "Backend Version/Commit"
+      description: "Specify the version or commit hash where this issue occurs"
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: "Issue Summary"
