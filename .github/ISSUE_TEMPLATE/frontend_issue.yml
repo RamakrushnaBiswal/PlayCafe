@@ -12,6 +12,12 @@ body:
           required: true
         - label: "I have searched the existing issues"
           required: true
+        - label: "I have included my browser name and version"
+          required: true
+        - label: "I have included my operating system"
+          required: true
+        - label: "I have included my device type (desktop/mobile/tablet)"
+          required: true
   - type: textarea
     attributes:
       label: "Issue Summary"
