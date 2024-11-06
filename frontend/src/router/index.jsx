@@ -26,9 +26,12 @@ import AdminLogin from '../components/Pages/Admin/AdminLogin';
 import AdminSignup from '../components/Pages/Admin/AdminSignup';
 import ProtectedRoute from './ProtectedRoute';
 import Profile from '../components/Pages/Dashboard';
+import HelpAndSupport from '../components/Pages/HelpAndSupport';
+import Contributors from '../components/Contributors';
+
 const router = createBrowserRouter(
   createRoutesFromElements(
-      <Route path="/" element={<App />}>
+    <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/menu" element={<Menu />} />
@@ -41,12 +44,12 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/reset-password/:id" element={<ResetPassword />} />
       <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <Admin />
-            </ProtectedRoute>
-          }
+        path="/admin"
+        element={
+          <ProtectedRoute>
+            <Admin />
+          </ProtectedRoute>
+        }
       />
       <Route path="/admin-login" element={<AdminLogin />} />
       <Route path="/admin-signup" element={<AdminSignup />} />
@@ -55,7 +58,9 @@ const router = createBrowserRouter(
       <Route path="/otp-verify" element={<OtpRegisterVerify />} />
       <Route path="/membership" element={<Membership />} />
       <Route path="/dashboard" element={<Profile />} />
-      
+
+      <Route path="/help" element={<HelpAndSupport />} />
+      <Route path="/contributors" element={<Contributors />} />
     </Route>
   )
 );

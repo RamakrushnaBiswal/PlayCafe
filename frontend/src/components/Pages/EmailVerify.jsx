@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import photo from '../../assets/login.png';
+import photo from '../../assets/login-opt.png';
 import React, { useState } from 'react';
 import { message } from 'antd';
 
