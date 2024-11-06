@@ -23,6 +23,7 @@ const Navbar = () => {
     { name: 'BOARDGAMES', path: '/boardgame' },
     { name: 'MEMBERSHIP', path: '/membership' }, // Add Membership here
     { name: 'PROFILE', path: '/dashboard' }, // Add Membership here
+    { name: 'CONTRIBUTORS', path: '/contributors' },
   ];
 
   useEffect(() => {
@@ -83,16 +84,15 @@ const Navbar = () => {
 
   return (
     <nav
-  className={`w-full fixed top-0 z-50 transition duration-300 ${
-    isScrolled 
-      ? 'bg-background-light dark:bg-background-dark shadow-lg text-black dark:text-white' 
-      : 'bg-transparent text-black dark:text-white'
-  }`}
->
+      className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled
+        ? 'bg-background-light dark:bg-background-dark shadow-lg text-black dark:text-white'
+        : 'bg-transparent text-black dark:text-white'
+        }`}
+    >
 
       <div className="mx-auto px-6">
         <div className="flex justify-between items-center lg:h-16">
-        
+
           <Link to="/">
             <div className="flex-shrink-0">
               <img
@@ -120,11 +120,11 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            
+
           </div>
 
           <div className="hidden md:flex font-semibold Poppins text-lg space-x-4 ">
-          <ThemeToggle />
+            <ThemeToggle />
             {token ? (
               <button
                 className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold`}
@@ -141,7 +141,7 @@ const Navbar = () => {
               >
                 LOGIN
               </button>
-              
+
             )}
           </div>
 
@@ -151,7 +151,7 @@ const Navbar = () => {
               onClick={toggleMenu}
               className={`${buttonTextClass} focus:outline-none`}
             >
-              
+
               {isMenuOpen ? (
                 <svg
                   className="h-6 w-6 stroke-black dark:stroke-white"
@@ -168,32 +168,31 @@ const Navbar = () => {
                 </svg>
               ) : (
                 <svg
-                className="h-6 w-6 stroke-black dark:stroke-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-              
+                  className="h-6 w-6 stroke-black dark:stroke-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+
               )}
             </button>
           </div>
-          
+
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div
-          className={`md:hidden ${
-            isScrolled ? 'bg-amber-100 shadow-lg' : 'bg-[#E0F0B1] shadow-lg'
-          } dark:bg-black `}
+          className={`md:hidden ${isScrolled ? 'bg-amber-100 shadow-lg' : 'bg-[#E0F0B1] shadow-lg'
+            } dark:bg-black `}
         >
           <div className="px-4 pt-4 pb-4 space-y-2">
             {menuItems.map((item) => (
@@ -224,7 +223,7 @@ const Navbar = () => {
                 Log In
               </button>
             )}
-          <ThemeToggle />
+            <ThemeToggle />
           </div>
         </div>
       )}
