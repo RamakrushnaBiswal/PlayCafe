@@ -47,3 +47,10 @@ body:
         - label: "I agree to follow this project's Code of Conduct"
           required: true
         - label: "I can provide more details if needed"
+          required: true
+  - type: input
+    attributes:
+      label: "Contact Information"
+      description: "How can we reach you if we need more information? (email/Slack/etc.)"
+    validations:
+      required: true
