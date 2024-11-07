@@ -188,6 +188,28 @@ async function resetPassword(req, res) {
   }
 }
 
+async function getCustomerDetail (req, res) {
+  const { id } = req.user;
+
+  try {
+    // Find user by ID and populate related fields if needed
+    const user = await Customer.findById(id)
+      .populate('bookedEvents') // Populate booked events if needed
+      .populate('orders')       // Populate orders if needed
+      .populate('reservations') // Populate reservations if needed
+      .select('-password -verificationCode -otp'); // Exclude sensitive fields
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json(user);
+  } catch (error) {
+    console.error("Error fetching user profile:", error);
+    res.status(500).json({ message: 'Server error while fetching user profile' });
+  }
+}
+
 async function logout(req, res){
   req.session.destroy((err) => {
     if (err) {
@@ -202,5 +224,6 @@ module.exports = {
   loginCustomer,
   resetPassword,
   logout,
-  verifyOtp
+  verifyOtp,
+  getCustomerDetail,
 };
