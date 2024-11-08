@@ -6,7 +6,7 @@ import Google from './Google';
 
 export default function Content() {
   return (
-    <div className="flex flex-col md:flex-row h-full justify-between px-6 md:px-12 py-8 w-full items-center md:items-start">
+    <div className="flex flex-col md:flex-row h-full justify-between md:px-12 py-8 w-full items-center md:items-start">
       {/* Left side containing Nav and Section2 */}
       <div className="flex flex-col w-full md:w-2/3">
         <Nav />
@@ -167,7 +167,7 @@ const Nav = () => {
   const emailAddress = 'sipnplaynyc@gmail.com';
 
   return (
-    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20 ml-[30px] ">
+    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20 mx-[40px] md:ml-[30px] md:mr-0">
       <div className="flex justify-between md:gap-20">
         <div className="flex flex-col gap-2 text-black dark:text-white">
           <h3 className="mb-2 uppercase text-black dark:text-white cursor-pointer">About</h3>
@@ -199,7 +199,7 @@ const Nav = () => {
         </div>
       </div>
 
-      <div className="flex flex-col text-black dark:text-white">
+      <div className="flex flex-col text-black dark:text-white items-center md:items-start pb-8">
         <h3 className="mb-2 uppercase text-black dark:text-white cursor-pointer">Contact Us</h3>
         <a
           href={`mailto:${emailAddress}`}
