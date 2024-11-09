@@ -5,13 +5,13 @@ import Footer from '../src/components/Shared/Footer';
 import { Outlet } from 'react-router-dom';
 import BackToTopButton from './components/Shared/BackToTopButton';
 import Preloader from './components/Preloader';
-import Metadata from './components/Metadata';
+// import Metadata from './components/Metadata';
 
 
 function App() {
   return (
     <>
-      <Metadata />
+      {/* <Metadata /> */}
       <Preloader />
       <BackToTopButton />
       <Navbar />
