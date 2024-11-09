@@ -26,7 +26,7 @@ import AdminLogin from '../components/Pages/Admin/AdminLogin';
 import AdminSignup from '../components/Pages/Admin/AdminSignup';
 import ProtectedRoute from './ProtectedRoute';
 import Profile from '../components/Pages/Dashboard';
-import HelpAndSupport from '../components/Pages/HelpAndSupport';
+// import HelpAndSupport from '../components/Pages/HelpAndSupport';
 import Contributors from '../components/Contributors';
 
 const router = createBrowserRouter(
@@ -59,7 +59,7 @@ const router = createBrowserRouter(
       <Route path="/membership" element={<Membership />} />
       <Route path="/dashboard" element={<Profile />} />
 
-      <Route path="/help" element={<HelpAndSupport />} />
+      {/* <Route path="/help" element={<HelpAndSupport />} /> */}
       <Route path="/contributors" element={<Contributors />} />
     </Route>
   )

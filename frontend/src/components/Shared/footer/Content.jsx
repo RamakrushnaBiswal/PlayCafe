@@ -110,7 +110,7 @@ const Section2 = () => {
           >
             BoardGame Cafe{!isWide && <br />}
           </h1>
-          <p className={`flex ${isWide ? `text-[center] mt-3 ml-[620px]` : `text-base mt-1`}`}>
+          <p className={`flex ${isWide ? `text-[center] mt-3  ml-[620px]` : `text-base mt-1`}`}>
              ©2024 by Sip & Play
           </p>
         </div>
@@ -167,8 +167,8 @@ const Nav = () => {
   const emailAddress = 'sipnplaynyc@gmail.com';
 
   return (
-    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20 mx-[40px] md:ml-[30px] md:mr-0">
-      <div className="flex justify-between md:gap-20">
+    <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20 mx-[40px] mb-10 md:ml-[50px] md:mr-0">
+      <div className="flex justify-between md:gap-28 ">
         <div className="flex flex-col gap-2 text-black dark:text-white">
           <h3 className="mb-2 uppercase text-black dark:text-white cursor-pointer">About</h3>
           {navLinks.map((item, index) => (
