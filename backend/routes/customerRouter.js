@@ -5,6 +5,7 @@ const {
   resetPassword,
   logout,
   verifyOtp,
+  getCustomerDetail,
 } = require("../controller/customer.controller");
 const authenticateCustomer = require("../middlewares/authCustomer");
 const passport = require("../config/passport.config");
@@ -38,5 +39,6 @@ router.get(
 
 router.post("/login", loginCustomer);
 router.post("/reset-password", resetPassword);
+router.get('/profile',authenticateCustomer, getCustomerDetail );
 
 module.exports = router;

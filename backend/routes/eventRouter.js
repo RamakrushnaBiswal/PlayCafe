@@ -4,6 +4,9 @@ const {
   createEvent,
   getEvents,
   deleteEvent,
+  getBookedEvents,
+
+  bookEvent,
 } = require("../controller/event.controller");
 const authenticateCustomer = require("../middlewares/authCustomer");
 
@@ -30,6 +33,8 @@ router.get("/", async (req, res) => {
 router.post("/create",authenticateCustomer, createEvent);
 router.get("/all",authenticateCustomer, getEvents);
 router.get("/delete",authenticateCustomer, deleteEvent);
+router.get('/booked-events',authenticateCustomer, getBookedEvents);
+router.post('/book',authenticateCustomer, bookEvent);
 
 
 module.exports = router;
