@@ -153,25 +153,29 @@ const ReviewCarousel = () => {
         // whileHover is a framer specific attribute
         // It displaces buttons by 10px on hover for that nice slide animation
         }
-        <motion.button
-          id="next"
-          className=" absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px] max-sm:text-white max-sm:text-2xl max-sm:right-2"
-          onClick={() =>
-            setActive((prev) => (prev + 1 < items.length ? prev + 1 : prev))
-          }
-          whileHover={{ x: 10, color: '#00B2CA', opacity: 1 }}
-        >
-          {'>>'}
-        </motion.button>
-        <motion.button
-          id="prev"
-          className=" absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 left-[50px] max-sm:text-white max-sm:text-2xl max-sm:left-2"
-          onClick={() => setActive((prev) => (prev - 1 >= 0 ? prev - 1 : prev))}
-          whileHover={{ x: -10, color: '#00B2CA', opacity: 1 }}
-        >
-          {' '}
-          {'<<'}
-        </motion.button>
+        {active < items.length - 1 && (
+          <motion.button
+            id="next"
+            className=" absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px] max-sm:text-white max-sm:text-2xl max-sm:right-2"
+            onClick={() =>
+              setActive((prev) => (prev + 1 < items.length ? prev + 1 : prev))
+            }
+            whileHover={{ x: 10, color: '#00B2CA', opacity: 1 }}
+          >
+            {'>>'}
+          </motion.button>
+        )}
+        {active > 0 && (
+          <motion.button
+            id="prev"
+            className=" absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 left-[50px] max-sm:text-white max-sm:text-2xl max-sm:left-2"
+            onClick={() => setActive((prev) => (prev - 1 >= 0 ? prev - 1 : prev))}
+            whileHover={{ x: -10, color: '#00B2CA', opacity: 1 }}
+          >
+            {' '}
+            {'<<'}
+          </motion.button>
+        )}
       </div>
     </div>
   );
