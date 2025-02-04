@@ -39,3 +39,7 @@ input[type='radio'] {
   .card:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
   }
+
+  .flip{
+    padding-bottom: 20px;
+  }

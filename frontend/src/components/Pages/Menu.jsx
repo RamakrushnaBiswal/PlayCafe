@@ -8,6 +8,7 @@ import TodaysSpecial from './TodaysSpecial';
 import { GiArrowDunk } from 'react-icons/gi';
 import Cafe3dImg from '../../assets/Menu_assets/mega-creator.png';
 import MainHOC from '../MainHOC';
+ 
 const parallaxVariants = {
   initial: { scale: 1 },
   animate: { scale: 1.05 },
@@ -66,7 +67,7 @@ function ParallaxImage() {
           </div>
         </div>
         <div className="flex flex-col items-center mb-2">
-          <h1 className="text-5xl md:text-9xl font-roboto dark:text-gray-50">Flip Menu</h1>
+          <h1 className="text-5xl md:text-9xl font-roboto dark:text-gray-50 flip">Flip It</h1>
           <GiArrowDunk size={60} className="mt-2 text-orange-400" />
         </div>
         {/* <div className="w-full md:flex md:items-center md:justify-center">
