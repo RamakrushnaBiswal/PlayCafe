@@ -173,7 +173,7 @@ const Nav = () => {
           <h3 className="mb-2 uppercase text-black dark:text-white cursor-pointer">About</h3>
           {navLinks.map((item, index) => (
             <a
-              className="hover:text-white duration-300"
+              className="duration-300 hover:text-blue-500"
               key={index}
               href={item.link}
             >
@@ -187,7 +187,7 @@ const Nav = () => {
           {socialLink.map((item, index) => (
             <a
               target="_blank"
-              className="hover:text-white duration-300 flex items-center gap-2"
+              className="hover:text-blue duration-300 flex items-center gap-2"
               key={index}
               href={item.link}
               aria-label={`${item.name} - opens in a new tab`}
