@@ -187,7 +187,7 @@ const Nav = () => {
           {socialLink.map((item, index) => (
             <a
               target="_blank"
-              className="hover:text-blue duration-300 flex items-center gap-2"
+              className="hover:text-blue-500 duration-300 flex items-center gap-2"
               key={index}
               href={item.link}
               aria-label={`${item.name} - opens in a new tab`}
