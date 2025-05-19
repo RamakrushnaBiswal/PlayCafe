@@ -46,6 +46,8 @@ mongoose
 // Initialize passport middleware
 app.use(passport.initialize());
 
+app.use(passport.initialize());
+
 // API routes
 app.use("/api", require("./routes/index"));
 app.get(
