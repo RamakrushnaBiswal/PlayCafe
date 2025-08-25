@@ -30,9 +30,9 @@ const membershipData = [
       "Free food on game days",
       "Extra gaming time",
       "Birthday party discounts",
-      "Free gaming credits every week",
-      "Invitations to members-only gaming tournaments",
-      "Exclusive access to members-only events"
+        "Free gaming credits every week",
+        "Invitations to members-only gaming tournaments",
+        "Exclusive access to members-only events"
     ],
     price: "Varies",
   },
