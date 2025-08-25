@@ -30,9 +30,9 @@ const membershipData = [
       "Free food on game days",
       "Extra gaming time",
       "Birthday party discounts",
-        "Free gaming credits every week",
-        "Invitations to members-only gaming tournaments",
-        "Exclusive access to members-only events"
+      "Free gaming credits every week",
+      "Invitations to members-only gaming tournaments",
+      "Exclusive access to members-only events"
     ],
     price: "Varies",
   },
@@ -106,19 +106,30 @@ const Membership = () => {
             <div className="text-2xl font-semibold text-white mb-6">{plan.price}</div>
             {plan.title === "Customizable Add-ons" ? (
               <button
-                className="bg-gradient-to-r from-yellow-500 to-orange-500 dark:bg-gradient-to-r dark:from-gray-500 dark:to-gray-800 text-white py-2 px-8 rounded-full hover:from-orange-500 hover:to-yellow-500 transition-all"
+                className="bg-gradient-to-r from-yellow-500 to-orange-500 
+               dark:bg-gradient-to-r dark:from-gray-500 dark:to-gray-800 
+               text-white py-2 px-8 rounded-full 
+               hover:from-orange-500 hover:to-yellow-500 
+               hover:text-black dark:hover:text-yellow-300 
+               transition-all"
                 onClick={() => setIsModalOpen(true)}
               >
                 Customize Add-ons
               </button>
             ) : (
               <button
-                className="bg-gradient-to-r from-yellow-500 to-orange-500 dark:bg-gradient-to-r dark:from-gray-500 dark:to-gray-800 text-white py-2 px-8 rounded-full hover:from-orange-500 hover:to-yellow-500 transition-all"
+                className="bg-gradient-to-r from-yellow-500 to-orange-500 
+               dark:bg-gradient-to-r dark:from-gray-500 dark:to-gray-800 
+               text-white py-2 px-8 rounded-full 
+               hover:from-orange-500 hover:to-yellow-500 
+               hover:text-black dark:hover:text-yellow-300 
+               transition-all"
                 onClick={() => navigate('/signup')}
               >
                 Sign Up
               </button>
             )}
+
           </motion.div>
         ))}
       </div>

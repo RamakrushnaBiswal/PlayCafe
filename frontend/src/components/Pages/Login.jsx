@@ -85,7 +85,7 @@ const Login = () => {
         </div>
 
         <input
-          className="w-full h-12 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_grey] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] dark:bg-slate-800 dark:placeholder-white"
+          className="w-full h-12 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_grey] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] dark:bg-slate-800 dark:placeholder-white dark:text-white"
           name="email"
           placeholder="Email"
           type="email"
@@ -94,7 +94,7 @@ const Login = () => {
 
         <div className="relative w-full">
           <input
-            className="w-full h-12 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_grey] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] dark:bg-slate-800 dark:placeholder-white"
+            className="w-full h-12 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_grey] text-[15px] font-semibold text-[#323232] p-2.5 focus:outline-none focus:border-[#2d8cf0] placeholder-[#666] dark:bg-slate-800 dark:placeholder-white dark:text-white"
             name="password"
             placeholder="Password"
             type={hidden ? 'password' : 'text'}
