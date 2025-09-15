@@ -16,7 +16,7 @@ const FeedbackForm = () => {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
-  
+
   // Use an environment variable for backend URL
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
   const [name, setName] = useState('');
@@ -118,10 +118,24 @@ const FeedbackForm = () => {
                   id="name"
                   value={name}
                   placeholder="Name"
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => {
+                    // Allow only alphabets and spaces
+                    const value = e.target.value;
+                    if (/^[a-zA-Z\s]*$/.test(value)) {
+                      setName(value);
+                    }
+                  }}
+                  onPaste={(e) => {
+                    // Prevent pasting invalid characters
+                    const paste = e.clipboardData.getData("text");
+                    if (!/^[a-zA-Z\s]*$/.test(paste)) {
+                      e.preventDefault();
+                    }
+                  }}
                   required
                   className="mt-1 block w-full border border-gray-300 dark:bg-black rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
                 />
+
               </div>
               <div>
                 <input

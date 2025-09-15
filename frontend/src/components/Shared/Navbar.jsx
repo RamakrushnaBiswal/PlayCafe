@@ -114,6 +114,11 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.path}
+                    className="
+            text-gray-800 dark:text-gray-200 
+            hover:text-primary-light  dark:hover:text-primary-dark
+            hover:font-semibold transition-colors
+          "
                   >
                     {item.name}
                   </Link>
