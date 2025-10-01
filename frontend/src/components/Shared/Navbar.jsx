@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import Google from './footer/Google';
 import ThemeToggle from '../../components/ThemeToggle';
+import { FiMenu, FiX, FiUser, FiLogOut, FiLogIn } from 'react-icons/fi';
 
 const Navbar = () => {
   const [isloggedIn, setisloggedIn] = useState(false);
@@ -12,7 +13,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [token, setToken] = useState(Cookies.get('authToken'));
   const location = useLocation();
-  const navigate = useNavigate(); // Correctly initialize useNavigate
+  const navigate = useNavigate();
   const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
 
   const menuItems = [
@@ -21,8 +22,8 @@ const Navbar = () => {
     { name: 'MENU', path: '/menu' },
     { name: 'RESERVATION', path: '/reservation' },
     { name: 'BOARDGAMES', path: '/boardgame' },
-    { name: 'MEMBERSHIP', path: '/membership' }, // Add Membership here
-    { name: 'PROFILE', path: '/dashboard' }, // Add Membership here
+    { name: 'MEMBERSHIP', path: '/membership' },
+    { name: 'PROFILE', path: '/dashboard' },
     { name: 'CONTRIBUTORS', path: '/contributors' },
   ];
 
@@ -65,192 +66,197 @@ const Navbar = () => {
   };
 
   const isHomePage = location.pathname === '/';
-  let buttonTextClass;
-  if (isScrolled) {
-    buttonTextClass = 'text-gray-900';
-  } else if (isHomePage) {
-    buttonTextClass = 'text-white';
-  } else {
-    buttonTextClass = 'text-black';
-  }
-
-  const hoverTextColorClass = isScrolled
-    ? 'hover:text-gray-900'
-    : 'hover:text-gray-800';
-  const baseTextColorClass = isScrolled ? 'text-gray-800' : 'text-gray-900';
-  const mobileMenuBaseTextColorClass = isScrolled
-    ? 'text-gray-900'
-    : 'text-gray-800';
 
   return (
-    <nav
-      className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled
-        ? 'bg-background-light dark:bg-background-dark shadow-lg text-black dark:text-white'
-        : 'bg-transparent text-black dark:text-white'
-        }`}
-    >
+    <nav className="w-full fixed top-0 z-50 transition-all duration-500">
+      {/* Glassmorphism Background */}
+      <div className={`absolute inset-0 transition-all duration-500 ${
+        isScrolled
+          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-white/20 dark:border-gray-700/50 shadow-2xl'
+          : 'bg-transparent'
+      }`}></div>
+      
+      {/* Animated gradient line */}
+      <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 transition-all duration-500 ${
+        isScrolled ? 'w-full opacity-100' : 'w-0 opacity-0'
+      }`}></div>
 
-      <div className="mx-auto px-6">
-        <div className="flex justify-between items-center lg:h-16">
-
-          <Link to="/">
-            <div className="flex-shrink-0">
-              <img
-                className="w-14 h-14 rounded-full p-0 mt-1"
-                alt="logo"
-                src={Logo}
-                loading="lazy"
-              />
+      <div className="relative z-10 mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          
+          {/* Logo Section */}
+          <Link to="/" className="group">
+            <div className="flex items-center space-x-3">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full blur-md opacity-0 group-hover:opacity-50 transition-all duration-300"></div>
+                <img
+                  className="relative w-12 h-12 lg:w-14 lg:h-14 rounded-full shadow-xl border-2 border-white/50 dark:border-gray-700/50 transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-12"
+                  alt="PlayCafe Logo"
+                  src={Logo}
+                  loading="lazy"
+                />
+              </div>
+              <div className="hidden sm:block">
+                <h1 className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+                  PlayCafe
+                </h1>
+              </div>
             </div>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex">
-            <ul className="ml-4 flex space-x-8 Poppins font-medium text-lg">
+          <div className="hidden lg:flex">
+            <ul className="flex space-x-1">
               {menuItems.map((item) => (
-                <li
-                  key={item.name}
-                  className="transform hover:scale-110 hover:-translate-y-1 transition hover:font-semibold"
-                >
+                <li key={item.name} className="group">
                   <Link
                     to={item.path}
+                    className={`relative px-4 py-2 text-sm font-semibold tracking-wide transition-all duration-300 rounded-lg overflow-hidden group ${
+                      location.pathname === item.path
+                        ? 'text-white bg-gradient-to-r from-amber-500 to-orange-600 shadow-lg'
+                        : 'text-gray-800 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400'
+                    }`}
                   >
-                    {item.name}
+                    <span className="relative z-10">{item.name}</span>
+                    {location.pathname !== item.path && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-500/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                    )}
                   </Link>
                 </li>
               ))}
             </ul>
-
           </div>
 
-          <div className="hidden md:flex font-semibold Poppins text-lg space-x-4 ">
-            <ThemeToggle />
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <div className="transform hover:scale-110 transition-transform duration-300">
+              <ThemeToggle />
+            </div>
+            
             {token ? (
               <button
-                className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold`}
-                type="button"
-                onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
+                className="group relative px-6 py-2.5 font-semibold text-white bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500/50"
+                onClick={() => setIsModalOpen(true)}
               >
-                LOGOUT
+                <div className="flex items-center space-x-2">
+                  <FiLogOut className="w-4 h-4" />
+                  <span>LOGOUT</span>
+                </div>
               </button>
             ) : (
               <button
-                className={` ${hoverTextColorClass} dark:hover:text-white px-4 py-1 rounded-md border-2 border-black dark:border-white bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_white] font-semibold`}
-                type="button"
+                className="group relative px-6 py-2.5 font-semibold text-white bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
                 onClick={() => navigate('/login')}
               >
-                LOGIN
+                <div className="flex items-center space-x-2">
+                  <FiLogIn className="w-4 h-4" />
+                  <span>LOGIN</span>
+                </div>
               </button>
-
             )}
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden space-x-6">
+          <div className="lg:hidden flex items-center space-x-3">
+            <div className="transform hover:scale-110 transition-transform duration-300">
+              <ThemeToggle />
+            </div>
             <button
               onClick={toggleMenu}
-              className={`${buttonTextClass} focus:outline-none`}
+              className="p-2 rounded-xl text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
             >
-
               {isMenuOpen ? (
-                <svg
-                  className="h-6 w-6 stroke-black dark:stroke-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <FiX className="w-6 h-6 transform rotate-0 transition-transform duration-300" />
               ) : (
-                <svg
-                  className="h-6 w-6 stroke-black dark:stroke-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-
+                <FiMenu className="w-6 h-6" />
               )}
             </button>
           </div>
-
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div
-          className={`md:hidden ${isScrolled ? 'bg-amber-100 shadow-lg' : 'bg-[#E0F0B1] shadow-lg'
-            } dark:bg-black `}
-        >
-          <div className="px-4 pt-4 pb-4 space-y-2">
-            {menuItems.map((item) => (
+      <div className={`lg:hidden absolute top-full left-0 right-0 transition-all duration-500 transform ${
+        isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
+      }`}>
+        <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-white/20 dark:border-gray-700/50 shadow-2xl">
+          <div className="px-6 py-6 space-y-3">
+            {menuItems.map((item, index) => (
               <Link
-                onClick={() => setIsMenuOpen((prev) => !prev)}
                 key={item.name}
                 to={item.path}
-                className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black dark:text-white`}
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-4 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
+                  location.pathname === item.path
+                    ? 'text-white bg-gradient-to-r from-amber-500 to-orange-600 shadow-lg'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/20'
+                }`}
+                style={{ animationDelay: `${index * 50}ms` }}
               >
                 {item.name}
               </Link>
             ))}
-            {token ? (
-              <button
-                className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black dark:text-white`}
-                onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
-              >
-                Log Out
-              </button>
-            ) : (
-              <button
-                className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black dark:text-white`}
-                onClick={() => navigate('/login')}
-              >
-                Log In
-              </button>
-            )}
-            <ThemeToggle />
+            
+            <div className="pt-4 border-t border-gray-200 dark:border-gray-700 space-y-3">
+              {token ? (
+                <button
+                  className="w-full flex items-center justify-center space-x-2 px-4 py-3 font-semibold text-white bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  <FiLogOut className="w-4 h-4" />
+                  <span>Log Out</span>
+                </button>
+              ) : (
+                <button
+                  className="w-full flex items-center justify-center space-x-2 px-4 py-3 font-semibold text-white bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                  onClick={() => {
+                    navigate('/login');
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  <FiLogIn className="w-4 h-4" />
+                  <span>Log In</span>
+                </button>
+              )}
+            </div>
           </div>
         </div>
-      )}
+      </div>
 
-      {/* Logout Confirmation Modal */}
+      {/* Enhanced Logout Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
-          <div className="w-full max-w-md p-6 rounded-lg border-2 border-black bg-amber-100">
-            <h2 className="text-3xl font-bold tracking-tighter mb-4">
-              Confirm Logout
-            </h2>
-            <p className="text-base text-muted-foreground mb-6">
-              Are you sure you want to log out of your account?
-            </p>
-            <div className="flex justify-end space-x-4">
-              <button
-                className="px-4 py-2 bg-[#D9D9D9] hover:bg-[#C9C9C9] text-black rounded"
-                onClick={() => setIsModalOpen(false)}
-              >
-                Cancel
-              </button>
-              <button
-                className="px-4 py-2 bg-green-900 hover:bg-green-800 text-amber-100 rounded"
-                onClick={handleLogout}
-              >
-                Logout
-              </button>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50 p-4">
+          <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 transform transition-all duration-300 scale-100">
+            <div className="p-8">
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-400 to-red-600 rounded-full mb-4 shadow-xl">
+                  <FiLogOut className="text-2xl text-white" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  Confirm Logout
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Are you sure you want to log out of your account?
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  className="flex-1 px-6 py-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105"
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="flex-1 px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              </div>
             </div>
           </div>
         </div>
