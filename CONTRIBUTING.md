@@ -1,4 +1,4 @@
-# HelpOps-Hub Contributing Guidelines
+# PlayCafe Contributing Guidelines
 Thank you for taking the time to contribute to my Web-dev project PlayCafe. Your help is essential for keeping it great.
 
 Please take a moment to read the following guidelines before contributing:
@@ -31,7 +31,7 @@ To get started, look at the existing [**create a new issue**](https://github.com
   you can download it from [here](https://nodejs.org/en/download/package-manager).
 
 
-**Follow these steps to setup HelpOps-Hub on your local machine 👇**
+**Follow these steps to setup PlayCafe on your local machine 👇**
 
 - [Fork](https://github.com/RamakrushnaBiswal/PlayCafe/fork) the repository
 - Clone the forked repository in your local system.
