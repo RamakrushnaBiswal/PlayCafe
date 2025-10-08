@@ -85,8 +85,8 @@ const Navbar = () => {
   return (
     <nav
       className={`w-full fixed top-0 z-50 transition duration-300 ${isScrolled
-        ? 'bg-background-light dark:bg-background-dark shadow-lg text-black dark:text-white'
-        : 'bg-transparent text-black dark:text-white'
+        ? 'bg-black/80 backdrop-blur-md shadow-lg text-white'
+        : 'bg-transparent text-white'
         }`}
     >
 
@@ -114,8 +114,10 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.path}
+                    className="relative group"
                   >
-                    {item.name}
+                    <span className="group-hover:text-emerald-400 transition-colors duration-200">{item.name}</span>
+                    <span className="block h-[2px] scale-x-0 group-hover:scale-x-100 origin-left bg-emerald-400 transition-transform duration-300"></span>
                   </Link>
                 </li>
               ))}
@@ -127,7 +129,7 @@ const Navbar = () => {
             <ThemeToggle />
             {token ? (
               <button
-                className={`${baseTextColorClass} ${hoverTextColorClass} px-4 py-1 rounded-md border-2 border-black bg-beige shadow-[4px_4px_0px_0px_black] font-semibold`}
+                className={`px-4 py-1 rounded-md border-2 border-emerald-400 text-white hover:text-black bg-transparent hover:bg-emerald-400/90 shadow-[0_0_18px_rgba(16,185,129,0.6)] transition`}
                 type="button"
                 onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
               >
@@ -135,7 +137,7 @@ const Navbar = () => {
               </button>
             ) : (
               <button
-                className={` ${hoverTextColorClass} dark:hover:text-white px-4 py-1 rounded-md border-2 border-black dark:border-white bg-beige shadow-[4px_4px_0px_0px_black] dark:shadow-[4px_4px_0px_0px_white] font-semibold`}
+                className={`px-4 py-1 rounded-md border-2 border-emerald-400 text-white hover:text-black bg-transparent hover:bg-emerald-400/90 shadow-[0_0_18px_rgba(16,185,129,0.6)] transition`}
                 type="button"
                 onClick={() => navigate('/login')}
               >
@@ -191,8 +193,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div
-          className={`md:hidden ${isScrolled ? 'bg-amber-100 shadow-lg' : 'bg-[#E0F0B1] shadow-lg'
-            } dark:bg-black `}
+          className={`md:hidden bg-black/90 backdrop-blur-md shadow-lg text-white`}
         >
           <div className="px-4 pt-4 pb-4 space-y-2">
             {menuItems.map((item) => (
@@ -200,24 +201,21 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen((prev) => !prev)}
                 key={item.name}
                 to={item.path}
-                className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black dark:text-white`}
+                className={`block px-4 py-3 rounded-md text-base font-semibold transition duration-300 hover:text-emerald-400`}
               >
                 {item.name}
               </Link>
             ))}
             {token ? (
               <button
-                className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                          ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black dark:text-white`}
+                className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 hover:text-emerald-400`}
                 onClick={() => setIsModalOpen(true)} // Trigger modal on logout button click
               >
                 Log Out
               </button>
             ) : (
               <button
-                className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 
-                            ${mobileMenuBaseTextColorClass} hover:bg-amber-300 hover:text-black dark:text-white`}
+                className={`block w-full text-left px-4 py-3 rounded-md text-base font-semibold transition duration-300 hover:text-emerald-400`}
                 onClick={() => navigate('/login')}
               >
                 Log In
@@ -231,7 +229,7 @@ const Navbar = () => {
       {/* Logout Confirmation Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
-          <div className="w-full max-w-md p-6 rounded-lg border-2 border-black bg-amber-100">
+          <div className="w-full max-w-md p-6 rounded-lg border-2 border-emerald-400 bg-black text-white shadow-[0_0_35px_rgba(16,185,129,0.4)]">
             <h2 className="text-3xl font-bold tracking-tighter mb-4">
               Confirm Logout
             </h2>
@@ -240,13 +238,13 @@ const Navbar = () => {
             </p>
             <div className="flex justify-end space-x-4">
               <button
-                className="px-4 py-2 bg-[#D9D9D9] hover:bg-[#C9C9C9] text-black rounded"
+                className="px-4 py-2 border border-gray-600 hover:border-white text-white rounded"
                 onClick={() => setIsModalOpen(false)}
               >
                 Cancel
               </button>
               <button
-                className="px-4 py-2 bg-green-900 hover:bg-green-800 text-amber-100 rounded"
+                className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black rounded"
                 onClick={handleLogout}
               >
                 Logout

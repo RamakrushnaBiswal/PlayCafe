@@ -11,7 +11,7 @@ function Home() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div id="home" className="bg-[#FDF3C7]">
+    <div id="home" className="bg-black text-white">
       <Landing />
       <About />
       <ReviewCarousel />

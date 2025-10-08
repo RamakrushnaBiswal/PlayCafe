@@ -6,7 +6,7 @@ import Google from './Google';
 
 export default function Content() {
   return (
-    <div className="flex flex-col md:flex-row h-full justify-between md:px-12 py-8 w-full items-center md:items-start">
+    <div className="flex flex-col md:flex-row h-full justify-between md:px-12 py-8 w-full items-center md:items-start text-white">
       {/* Left side containing Nav and Section2 */}
       <div className="flex flex-col w-full md:w-2/3">
         <Nav />
@@ -51,27 +51,27 @@ const NewsletterForm = () => {
 
   return (
     
-<div className="p-3 bg-amber-100 rounded-md shadow-lg  dark:bg-black w-full max-w-sm mx-auto">
-  <h3 className="text-black dark:text-white text-base md:text-lg mb-1 md:mb-2">
+<div className="p-3 bg-black/70 border border-emerald-500 rounded-md shadow-[0_0_25px_rgba(16,185,129,0.3)] w-full max-w-sm mx-auto">
+  <h3 className="text-white text-base md:text-lg mb-1 md:mb-2">
     Subscribe to our Newsletter
   </h3>
   <form onSubmit={handleSubmit} className="flex flex-col gap-2 md:flex-row md:gap-3">
-    <div className="flex items-center border rounded-md bg-white">
-      <span className="p-1 md:p-2 text-gray-600">📧</span>
+    <div className="flex items-center border border-emerald-500 rounded-md bg-transparent">
+      <span className="p-1 md:p-2 text-emerald-400">📧</span>
       <input
         type="email"
-        className="p-1 md:p-2 rounded-r-none border-l border-gray-300 focus:outline-none text-sm"
+        className="p-1 md:p-2 rounded-r-none border-l border-emerald-500 bg-transparent text-white placeholder-gray-400 focus:outline-none text-sm"
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
     </div>
-    <button type="submit" className="p-1 md:p-2 bg-green-500 text-white rounded-md">
+    <button type="submit" className="p-1 md:p-2 bg-emerald-500 hover:bg-emerald-400 text-black rounded-md shadow-[0_0_18px_rgba(16,185,129,0.6)] transition">
       Subscribe
     </button>
   </form>
-  {message && <p className="mt-1 md:mt-2 text-xs md:text-sm text-green-500">{message}</p>}
+  {message && <p className="mt-1 md:mt-2 text-xs md:text-sm text-emerald-400">{message}</p>}
 </div>
   );
 };
@@ -102,7 +102,7 @@ const Section2 = () => {
       )} 
       <div 
         className={`flex ${isWide ? 'justify-between items-end' : 'flex-col items-center'
-          } text-[#004D43] dark:text-white`}
+          } text-white`}
       >
         <div>
           <h1
@@ -169,11 +169,11 @@ const Nav = () => {
   return (
     <div className="flex md:flex-row flex-col shrink-0 gap-4 sm:gap-20 mx-[40px] mb-10 md:ml-[50px] md:mr-0">
       <div className="flex justify-between md:gap-28 ">
-        <div className="flex flex-col gap-2 text-black dark:text-white">
-          <h3 className="mb-2 uppercase text-black dark:text-white cursor-pointer">About</h3>
+        <div className="flex flex-col gap-2 text-white">
+          <h3 className="mb-2 uppercase text-white cursor-pointer">About</h3>
           {navLinks.map((item, index) => (
             <a
-              className="duration-300 hover:text-blue-500"
+              className="duration-300 hover:text-emerald-400"
               key={index}
               href={item.link}
             >
@@ -182,12 +182,12 @@ const Nav = () => {
           ))}
         </div>
 
-        <div className="flex flex-col gap-2 text-black dark:text-white">
-          <h3 className="mb-2 uppercase text-black dark:text-white  cursor-pointer">Socials</h3>
+        <div className="flex flex-col gap-2 text-white">
+          <h3 className="mb-2 uppercase text-white  cursor-pointer">Socials</h3>
           {socialLink.map((item, index) => (
             <a
               target="_blank"
-              className="hover:text-blue-500 duration-300 flex items-center gap-2"
+              className="hover:text-emerald-400 duration-300 flex items-center gap-2"
               key={index}
               href={item.link}
               aria-label={`${item.name} - opens in a new tab`}
@@ -199,15 +199,15 @@ const Nav = () => {
         </div>
       </div>
 
-      <div className="flex flex-col text-black dark:text-white items-center md:items-start pb-8">
-        <h3 className="mb-2 uppercase text-black dark:text-white cursor-pointer">Contact Us</h3>
+      <div className="flex flex-col text-white items-center md:items-start pb-8">
+        <h3 className="mb-2 uppercase text-white cursor-pointer">Contact Us</h3>
         <a
           href={`mailto:${emailAddress}`}
-          className="block mb-2 hover:underline"
+          className="block mb-2 hover:underline hover:text-emerald-400"
         >
           {emailAddress}
         </a>
-        <a href="tel:+17189711684" className="mb-2 hover:underline">
+        <a href="tel:+17189711684" className="mb-2 hover:underline hover:text-emerald-400">
           718-971-1684
         </a>
 
